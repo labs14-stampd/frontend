@@ -1,15 +1,13 @@
-import React, { useEffect, useState, useCallback } from "react";
-import SimpleCounter from "./contracts/SimpleCounter.json";
-import getWeb3 from "./utils/getWeb3";
+import React, { useEffect, useState, useCallback } from 'react';
+import SimpleCounter from '../contracts/SimpleCounter.json';
+import getWeb3 from '../utils/getWeb3';
 
-import "./App.css";
-
-const App = () => {
+const Home = () => {
   const [counterState, setCounterState] = useState({
     count: 0,
     web3: null,
     contract: null,
-    account: ""
+    account: ''
   });
 
   const getCount = useCallback(async () => {
@@ -32,7 +30,7 @@ const App = () => {
 
       let count = await instance.methods.count().call();
       const account = instance.givenProvider.selectedAddress;
-          
+
       count = count ? count.toNumber() : 0;
 
       setCounterState({
@@ -52,7 +50,7 @@ const App = () => {
 
   const addCount = async e => {
     e.preventDefault();
-    console.log(counterState.account)
+    console.log(counterState.account);
     await counterState.contract.methods
       .addCount()
       .send({ from: counterState.account });
@@ -62,16 +60,19 @@ const App = () => {
     initCounter();
   }, []);
 
-  useEffect(() => { // Gets a new count on AddCount event
+  useEffect(() => {
+    // Gets a new count on AddCount event
     if (counterState.contract)
       counterState.contract.events
         .AddCount({
-          fromBlock: "latest"
+          fromBlock: 'latest'
         })
-        .on("data", event => {
+        .on('data', event => {
           getCount();
         });
   }, [counterState.contract, getCount]);
+
+  console.log('hello');
 
   return !counterState.web3 ? (
     <div>Loading Web3, accounts, and contract...</div>
@@ -84,4 +85,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;
