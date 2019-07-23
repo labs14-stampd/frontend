@@ -10,6 +10,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Team Stampd",
-  "license": "MIT",
+  "license": "MIT"
 
 }
