@@ -6,7 +6,7 @@
   "directories": {
     "test": "test"
   },
-  "preinstall": "rm -rf node_modules/*/.git/",
+  "preinstall": "rm -rf node_modules/websocket/.git",
   "scripts": {
     "dev": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +17,9 @@
     "lite-server": "2.4.0"
   },
   "dependencies": {
+    "underscore": "1.9.1",
+    "web3-core-helpers": "1.2.0",
+    "websocket": "github:frozeman/WebSocket-Node#browserifyCompatible",
     "truffle-hdwallet-provider": "^1.0.14"
   },
   "engines": {
