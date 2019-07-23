@@ -1,5 +1,5 @@
 {
-  "name": "testtruffle",
+  "name": "frontend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,16 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "dev": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Team Stampd",
   "license": "MIT",
-  "devDependencies": {
-    "lite-server": "2.4.0"
-  },
-  "dependencies": {
-    "truffle-hdwallet-provider": "^1.0.14",
-    "web3": "^0.18.3"
-  }
+
 }
