@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start":"npm run test",
-    "dev": "lite-server",
+    "dev": "lite-server"
   },
   "author": "Team Stampd",
   "license": "MIT",
