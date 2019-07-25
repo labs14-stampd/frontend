@@ -9,7 +9,7 @@
   "scripts": {
     "start":"npm run test",
     "dev": "lite-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "lite-server"
   },
   "author": "Team Stampd",
   "license": "MIT",
