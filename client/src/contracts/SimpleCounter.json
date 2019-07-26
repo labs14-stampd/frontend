@@ -37,33 +37,35 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"count\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"addCount\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"_count\",\"type\":\"uint256\"}],\"name\":\"AddCount\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/beacon/lambda/pmgroup/game_testing/contracts/SimpleCounter.sol\":\"SimpleCounter\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/beacon/lambda/pmgroup/game_testing/contracts/SimpleCounter.sol\":{\"keccak256\":\"0x11f1226a15675a431108ed56ff2142708646b57f318e66e34ef60014ba01d441\",\"urls\":[\"bzzr://b6a893d5de6e051f1315056e76edf1d6ae275765ad5fdc4c8a4bb48dc837b55c\"]}},\"version\":1}",
-  "bytecode": "0x608060405260008055348015601357600080fd5b5060d9806100226000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c806306661abd1460375780636cefce6e146053575b600080fd5b603d605b565b6040518082815260200191505060405180910390f35b60596061565b005b60005481565b60008081548092919060010191905055507f55bb6f87162adf7b9872bfc246f99646dafa8d34f1863e07c71cc0d120a123a46000546040518082815260200191505060405180910390a156fea165627a7a72305820602537e2295bfa830989dcb1b64a04a3aad629af660e1e33fa8bbad9207d5f670029",
-  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c806306661abd1460375780636cefce6e146053575b600080fd5b603d605b565b6040518082815260200191505060405180910390f35b60596061565b005b60005481565b60008081548092919060010191905055507f55bb6f87162adf7b9872bfc246f99646dafa8d34f1863e07c71cc0d120a123a46000546040518082815260200191505060405180910390a156fea165627a7a72305820602537e2295bfa830989dcb1b64a04a3aad629af660e1e33fa8bbad9207d5f670029",
-  "sourceMap": "25:164:1:-;;;73:1;53:21;;25:164;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:164:1;;;;;;;",
-  "deployedSourceMap": "25:164:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:164:1;;;;;;;;;;;;;;;;;;;;;;;;53:21;;;:::i;:::-;;;;;;;;;;;;;;;;;;;111:75;;;:::i;:::-;;53:21;;;;:::o;111:75::-;146:5;;:7;;;;;;;;;;;;;166:15;175:5;;166:15;;;;;;;;;;;;;;;;;;111:75::o",
-  "source": "pragma solidity ^0.5.0;\n\ncontract SimpleCounter {\n\n  uint public count = 0;\n\n  event AddCount(uint _count);\n\n  function addCount() public {\n      count++;\n      emit AddCount(count);\n  }\n\n}",
-  "sourcePath": "/Users/beacon/lambda/pmgroup/game_testing/contracts/SimpleCounter.sol",
+  "bytecode": "0x60806040526000805534801561001457600080fd5b50610108806100246000396000f3006080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14604e5780636cefce6e146076575b600080fd5b348015605957600080fd5b506060608a565b6040518082815260200191505060405180910390f35b348015608157600080fd5b5060886090565b005b60005481565b60008081548092919060010191905055507f55bb6f87162adf7b9872bfc246f99646dafa8d34f1863e07c71cc0d120a123a46000546040518082815260200191505060405180910390a15600a165627a7a72305820310489c6d293530683c6b3a282b7cd126298efa43bb737800a24bcda3ad06f1a0029",
+  "deployedBytecode": "0x6080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14604e5780636cefce6e146076575b600080fd5b348015605957600080fd5b506060608a565b6040518082815260200191505060405180910390f35b348015608157600080fd5b5060886090565b005b60005481565b60008081548092919060010191905055507f55bb6f87162adf7b9872bfc246f99646dafa8d34f1863e07c71cc0d120a123a46000546040518082815260200191505060405180910390a15600a165627a7a72305820310489c6d293530683c6b3a282b7cd126298efa43bb737800a24bcda3ad06f1a0029",
+  "sourceMap": "34:164:0:-;;;82:1;62:21;;34:164;8:9:-1;5:2;;;30:1;27;20:12;5:2;34:164:0;;;;;;;",
+  "deployedSourceMap": "34:164:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;62:21;;8:9:-1;5:2;;;30:1;27;20:12;5:2;62:21:0;;;;;;;;;;;;;;;;;;;;;;;120:75;;8:9:-1;5:2;;;30:1;27;20:12;5:2;120:75:0;;;;;;62:21;;;;:::o;120:75::-;155:5;;:7;;;;;;;;;;;;;175:15;184:5;;175:15;;;;;;;;;;;;;;;;;;120:75::o",
+  "source": "pragma solidity >=0.4.21 <0.6.0;\n\ncontract SimpleCounter {\n\n  uint public count = 0;\n\n  event AddCount(uint _count);\n\n  function addCount() public {\n      count++;\n      emit AddCount(count);\n  }\n\n}\n",
+  "sourcePath": "/Users/user/frontend/contracts/SimpleCounter.sol",
   "ast": {
-    "absolutePath": "/Users/beacon/lambda/pmgroup/game_testing/contracts/SimpleCounter.sol",
+    "absolutePath": "/Users/user/frontend/contracts/SimpleCounter.sol",
     "exportedSymbols": {
       "SimpleCounter": [
-        77
+        20
       ]
     },
-    "id": 78,
+    "id": 21,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 58,
+        "id": 1,
         "literals": [
           "solidity",
-          "^",
-          "0.5",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.6",
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:1"
+        "src": "0:32:0"
       },
       {
         "baseContracts": [],
@@ -71,20 +73,20 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 77,
+        "id": 20,
         "linearizedBaseContracts": [
-          77
+          20
         ],
         "name": "SimpleCounter",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 61,
+            "id": 4,
             "name": "count",
             "nodeType": "VariableDeclaration",
-            "scope": 77,
-            "src": "53:21:1",
+            "scope": 20,
+            "src": "62:21:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -92,10 +94,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 59,
+              "id": 2,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
-              "src": "53:4:1",
+              "src": "62:4:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -104,14 +106,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "30",
-              "id": 60,
+              "id": 3,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "73:1:1",
+              "src": "82:1:0",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_rational_0_by_1",
@@ -124,21 +126,21 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 65,
+            "id": 8,
             "name": "AddCount",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 64,
+              "id": 7,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 63,
+                  "id": 6,
                   "indexed": false,
                   "name": "_count",
                   "nodeType": "VariableDeclaration",
-                  "scope": 65,
-                  "src": "94:11:1",
+                  "scope": 8,
+                  "src": "103:11:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -146,10 +148,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 62,
+                    "id": 5,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "94:4:1",
+                    "src": "103:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -159,20 +161,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "93:13:1"
+              "src": "102:13:0"
             },
-            "src": "79:28:1"
+            "src": "88:28:0"
           },
           {
             "body": {
-              "id": 75,
+              "id": 18,
               "nodeType": "Block",
-              "src": "138:48:1",
+              "src": "147:48:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 69,
+                    "id": 12,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -180,15 +182,15 @@
                     "nodeType": "UnaryOperation",
                     "operator": "++",
                     "prefix": false,
-                    "src": "146:7:1",
+                    "src": "155:7:0",
                     "subExpression": {
                       "argumentTypes": null,
-                      "id": 68,
+                      "id": 11,
                       "name": "count",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 61,
-                      "src": "146:5:1",
+                      "referencedDeclaration": 4,
+                      "src": "155:5:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -199,9 +201,9 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 70,
+                  "id": 13,
                   "nodeType": "ExpressionStatement",
-                  "src": "146:7:1"
+                  "src": "155:7:0"
                 },
                 {
                   "eventCall": {
@@ -209,12 +211,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 72,
+                        "id": 15,
                         "name": "count",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 61,
-                        "src": "175:5:1",
+                        "referencedDeclaration": 4,
+                        "src": "184:5:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -228,18 +230,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 71,
+                      "id": 14,
                       "name": "AddCount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 65,
-                      "src": "166:8:1",
+                      "referencedDeclaration": 8,
+                      "src": "175:8:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
                         "typeString": "function (uint256)"
                       }
                     },
-                    "id": 73,
+                    "id": 16,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -247,70 +249,75 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "166:15:1",
+                    "src": "175:15:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 74,
+                  "id": 17,
                   "nodeType": "EmitStatement",
-                  "src": "161:20:1"
+                  "src": "170:20:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 76,
+            "id": 19,
             "implemented": true,
-            "kind": "function",
+            "isConstructor": false,
+            "isDeclaredConst": false,
             "modifiers": [],
             "name": "addCount",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 66,
+              "id": 9,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "128:2:1"
+              "src": "137:2:0"
             },
+            "payable": false,
             "returnParameters": {
-              "id": 67,
+              "id": 10,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "138:0:1"
+              "src": "147:0:0"
             },
-            "scope": 77,
-            "src": "111:75:1",
+            "scope": 20,
+            "src": "120:75:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 78,
-        "src": "25:164:1"
+        "scope": 21,
+        "src": "34:164:0"
       }
     ],
-    "src": "0:189:1"
+    "src": "0:199:0"
   },
   "legacyAST": {
-    "absolutePath": "/Users/beacon/lambda/pmgroup/game_testing/contracts/SimpleCounter.sol",
+    "absolutePath": "/Users/user/frontend/contracts/SimpleCounter.sol",
     "exportedSymbols": {
       "SimpleCounter": [
-        77
+        20
       ]
     },
-    "id": 78,
+    "id": 21,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 58,
+        "id": 1,
         "literals": [
           "solidity",
-          "^",
-          "0.5",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.6",
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:1"
+        "src": "0:32:0"
       },
       {
         "baseContracts": [],
@@ -318,20 +325,20 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 77,
+        "id": 20,
         "linearizedBaseContracts": [
-          77
+          20
         ],
         "name": "SimpleCounter",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 61,
+            "id": 4,
             "name": "count",
             "nodeType": "VariableDeclaration",
-            "scope": 77,
-            "src": "53:21:1",
+            "scope": 20,
+            "src": "62:21:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -339,10 +346,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 59,
+              "id": 2,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
-              "src": "53:4:1",
+              "src": "62:4:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -351,14 +358,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "30",
-              "id": 60,
+              "id": 3,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "73:1:1",
+              "src": "82:1:0",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_rational_0_by_1",
@@ -371,21 +378,21 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 65,
+            "id": 8,
             "name": "AddCount",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 64,
+              "id": 7,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 63,
+                  "id": 6,
                   "indexed": false,
                   "name": "_count",
                   "nodeType": "VariableDeclaration",
-                  "scope": 65,
-                  "src": "94:11:1",
+                  "scope": 8,
+                  "src": "103:11:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -393,10 +400,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 62,
+                    "id": 5,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "94:4:1",
+                    "src": "103:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -406,20 +413,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "93:13:1"
+              "src": "102:13:0"
             },
-            "src": "79:28:1"
+            "src": "88:28:0"
           },
           {
             "body": {
-              "id": 75,
+              "id": 18,
               "nodeType": "Block",
-              "src": "138:48:1",
+              "src": "147:48:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 69,
+                    "id": 12,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -427,15 +434,15 @@
                     "nodeType": "UnaryOperation",
                     "operator": "++",
                     "prefix": false,
-                    "src": "146:7:1",
+                    "src": "155:7:0",
                     "subExpression": {
                       "argumentTypes": null,
-                      "id": 68,
+                      "id": 11,
                       "name": "count",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 61,
-                      "src": "146:5:1",
+                      "referencedDeclaration": 4,
+                      "src": "155:5:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -446,9 +453,9 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 70,
+                  "id": 13,
                   "nodeType": "ExpressionStatement",
-                  "src": "146:7:1"
+                  "src": "155:7:0"
                 },
                 {
                   "eventCall": {
@@ -456,12 +463,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 72,
+                        "id": 15,
                         "name": "count",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 61,
-                        "src": "175:5:1",
+                        "referencedDeclaration": 4,
+                        "src": "184:5:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -475,18 +482,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 71,
+                      "id": 14,
                       "name": "AddCount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 65,
-                      "src": "166:8:1",
+                      "referencedDeclaration": 8,
+                      "src": "175:8:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
                         "typeString": "function (uint256)"
                       }
                     },
-                    "id": 73,
+                    "id": 16,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -494,53 +501,55 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "166:15:1",
+                    "src": "175:15:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 74,
+                  "id": 17,
                   "nodeType": "EmitStatement",
-                  "src": "161:20:1"
+                  "src": "170:20:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 76,
+            "id": 19,
             "implemented": true,
-            "kind": "function",
+            "isConstructor": false,
+            "isDeclaredConst": false,
             "modifiers": [],
             "name": "addCount",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 66,
+              "id": 9,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "128:2:1"
+              "src": "137:2:0"
             },
+            "payable": false,
             "returnParameters": {
-              "id": 67,
+              "id": 10,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "138:0:1"
+              "src": "147:0:0"
             },
-            "scope": 77,
-            "src": "111:75:1",
+            "scope": 20,
+            "src": "120:75:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 78,
-        "src": "25:164:1"
+        "scope": 21,
+        "src": "34:164:0"
       }
     ],
-    "src": "0:189:1"
+    "src": "0:199:0"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+    "version": "0.4.25+commit.59dbf8f1.Emscripten.clang"
   },
   "networks": {
     "5777": {
@@ -550,12 +559,6 @@
       "transactionHash": "0xcdd76327c0c92091afeef0195ec5df1b99bbe4efc27fb5d68981d7bbdb9c9585"
     }
   },
-  "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-19T15:46:48.137Z",
-  "devdoc": {
-    "methods": {}
-  },
-  "userdoc": {
-    "methods": {}
-  }
+  "schemaVersion": "2.0.2",
+  "updatedAt": "2019-07-26T05:37:55.659Z"
 }
