@@ -14,6 +14,9 @@
     "start": "yarn test",
     "dev": "lite-server",
     "test": "lite-server"
+  },"engines": {
+    "npm": "5.7.1",
+    "node": "9.5.0"
   },
   "eslintConfig": {
     "extends": "react-app"
