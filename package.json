@@ -11,7 +11,7 @@
     "web3": "^1.0.0-beta.55"
   },
   "scripts": {
-    "start": "yarn test",
+    "start": "npm run test",
     "dev": "lite-server",
     "test": "lite-server"
   },"engines": {
