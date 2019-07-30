@@ -5,7 +5,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-Sentry.init({ dsn: process.env.REACT_APP_SENTRY });
+Sentry.init({ dsn: `https://${process.env.REACT_APP_SENTRY}` });
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
