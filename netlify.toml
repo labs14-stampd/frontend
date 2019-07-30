@@ -3,7 +3,7 @@ base="client"
 publish="client/build/"
 command="yarn build"
 
-[[redierects]]
+[[redirects]]
 from="/*"
 to="/index.html"
 status=200
