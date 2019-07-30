@@ -2,12 +2,14 @@ import React from 'react';
 
 import './App.css';
 
-import NavBar from "./components/NavBar";
+import Layout from './components/Layout';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
+      <Layout>
+        <h1>Hello World</h1>
+      </Layout>
     </div>
   );
 }
