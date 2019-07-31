@@ -9,7 +9,7 @@ import config from './Auth/auth-config';
 import './index.css';
 import App from './App.jsx';
 
-import globalReducer, {globalContext} from './store/reducers/globalReducer'
+import globalReducer, { globalContext } from './store/reducers/globalReducer';
 
 Sentry.init({ dsn: `https://${process.env.REACT_APP_SENTRY}` });
 
@@ -26,17 +26,17 @@ const onRedirectCallback = appState => {
 const AppWithRouter = withRouter(App);
 
 ReactDOM.render(
-  <Auth0Provider
-    domain={config.domain}
-    client_id={config.clientId}
-    redirect_uri={window.location.origin}
-    onRedirectCallback={onRedirectCallback}
-  >
-    <GlobalProvider reducer={globalReducer} stateContext={globalContext}>
+  <GlobalProvider reducer={globalReducer} stateContext={globalContext}>
+    <Auth0Provider
+      domain={config.domain}
+      client_id={config.clientId}
+      redirect_uri={window.location.origin}
+      onRedirectCallback={onRedirectCallback}
+    >
       <Router>
         <AppWithRouter />
       </Router>
-    </GlobalProvider>
-  </Auth0Provider>,
+    </Auth0Provider>
+  </GlobalProvider>,
   document.getElementById('root')
 );
