@@ -2,7 +2,7 @@ import React from 'react';
 
 import './App.css';
 
-import Layout from './components/Layout';
+import Layout from './views/Layout';
 
 function App() {
   return (
