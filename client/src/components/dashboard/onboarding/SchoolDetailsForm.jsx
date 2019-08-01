@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-import { useStateValue } from 'react-conflux';
-import { addSchoolDetails } from './onboardQueries';
-import {
-  globalContext,
-  ON_BOARD_DETAILS
-} from '../../../store/reducers/globalReducer';
 
-const SchoolDetailsForm = () => {
-  const [, dispatchGlobal] = useStateValue(globalContext);
+import { addSchoolDetails } from './onboardQueries';
+
+const SchoolDetailsForm = ({ history }) => {
   const [input, setInput] = useState({
     name: '',
     taxId: '',
@@ -29,14 +24,15 @@ const SchoolDetailsForm = () => {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    addSchoolDetails(input).then(res =>
-      dispatchGlobal({
-        type: ON_BOARD_DETAILS,
-        payload: res.data
-      })
-    );
+    try {
+      await addSchoolDetails(input);
+    } catch (err) {
+      console.log(err);
+    }
+
+    history.push('/dashboard');
   };
 
   return (

@@ -6,7 +6,7 @@ import './App.css';
 
 import { Layout } from './components/Layout';
 import { Dashboard } from './components/dashboard';
-import { Onboard } from './components/dashboard/onboarding';
+import { Onboard, SchoolDetailsForm } from './components/dashboard/onboarding';
 
 function App() {
   return (
@@ -14,8 +14,9 @@ function App() {
       <Layout>
         <Switch>
           <Route exact path="/" /> {/* Placeholder route - to be used later */}
-          <PrivateRoute path="/onboarding" render={Onboard}  />
-          <PrivateRoute path="/dashboard" render={Dashboard}  />
+          <PrivateRoute path="/onboarding/school" render={SchoolDetailsForm} />
+          <PrivateRoute path="/onboarding" render={Onboard} />
+          <PrivateRoute path="/dashboard" render={Dashboard} />
         </Switch>
       </Layout>
     </div>
