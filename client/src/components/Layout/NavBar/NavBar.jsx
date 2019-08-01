@@ -2,7 +2,7 @@ import React from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
 
-import { useAuth0 } from '../../Auth/auth0-wrapper';
+import { useAuth0 } from '../../Auth/authWrapper';
 import { globalContext } from '../../../store/reducers/globalReducer';
 
 function NavBar() {

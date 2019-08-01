@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { Route } from "react-router-dom";
-import { useAuth0 } from "./auth0-wrapper";
+import React, { useEffect } from 'react';
+import { Route } from 'react-router-dom';
+import { useAuth0 } from './authWrapper';
 
 const PrivateRoute = ({ component: Component, path, ...rest }) => {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
@@ -16,7 +16,8 @@ const PrivateRoute = ({ component: Component, path, ...rest }) => {
     fn();
   }, [isAuthenticated, loginWithRedirect, path]);
 
-  const render = props => isAuthenticated === true ? <Component {...props} /> : null;
+  const render = props =>
+    isAuthenticated === true ? <Component {...props} /> : null;
 
   return <Route path={path} render={render} {...rest} />;
 };
