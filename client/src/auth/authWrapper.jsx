@@ -42,10 +42,11 @@ export const Auth0Provider = ({
         const result = await register(user);
         dispatchGlobal({ type: 'REGISTER', payload: result.data.addUser });
 
+        localStorage.id = result.data.addUser.id;
+
         if (result.data.addUser.roleId === null) {
           history.push('/onboarding');
         } else {
-          console.log(result.data.addUser.roleId);
           history.push('/dashboard');
         }
       }
