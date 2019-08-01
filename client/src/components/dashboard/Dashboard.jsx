@@ -1,10 +1,10 @@
 import React from 'react';
-import NewSchoolForm from '../components/OnBoarding.jsx/NewSchoolForm';
+import { OnboardForm } from './onboarding';
 
 const Dashboard = () => {
   return (
     <div>
-      <NewSchoolForm />
+      <OnboardForm />
     </div>
   );
 };

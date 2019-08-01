@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import { useStateValue } from 'react-conflux';
 import { globalContext } from '../store/reducers/globalReducer';
-import { register } from './auth-queries';
+import { register } from './authQueries';
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
   window.history.replaceState({}, document.title, window.location.pathname);
@@ -14,7 +14,7 @@ export const Auth0Provider = ({
   onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
   ...initOptions
 }) => {
-  const [globalState, dispatchGlobal] = useStateValue(globalContext);
+  const [, dispatchGlobal] = useStateValue(globalContext);
   const [isAuthenticated, setIsAuthenticated] = useState();
   const [user, setUser] = useState();
   const [auth0Client, setAuth0] = useState();
@@ -39,7 +39,7 @@ export const Auth0Provider = ({
         const user = await auth0FromHook.getUser();
         setUser(user);
         const result = await register(user);
-        dispatchGlobal({type: 'REGISTER', payload: result.data.addUser})
+        dispatchGlobal({ type: 'REGISTER', payload: result.data.addUser });
       }
 
       setLoading(false);

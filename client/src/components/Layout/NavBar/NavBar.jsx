@@ -2,8 +2,8 @@ import React from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
 
-import { useAuth0 } from '../Auth/auth0-wrapper';
-import { globalContext } from '../store/reducers/globalReducer';
+import { useAuth0 } from '../../../auth/authWrapper';
+import { globalContext } from '../../../store/reducers/globalReducer';
 
 function NavBar() {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
