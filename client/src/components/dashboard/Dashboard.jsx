@@ -6,7 +6,7 @@ const Dashboard = () => {
   const callApi = async () => {
     try {
       const token = await getTokenWithPopup({
-        audience: 'https://stampd-backend-development.herokuapp.com/graphql',
+        audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
         scope: 'openid profile email offline_access'
       });
       console.log(token);
