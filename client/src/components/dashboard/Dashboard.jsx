@@ -1,10 +1,9 @@
 import React from 'react';
-import { OnboardForm } from './onboarding';
 
 const Dashboard = () => {
   return (
     <div>
-      <OnboardForm />
+      <h1>Dashboard</h1>
     </div>
   );
 };

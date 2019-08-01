@@ -24,19 +24,20 @@ const onRedirectCallback = appState => {
 };
 
 const AppWithRouter = withRouter(App);
+const Auth0ProviderWithRouter = withRouter(Auth0Provider);
 
 ReactDOM.render(
   <GlobalProvider reducer={globalReducer} stateContext={globalContext}>
-    <Auth0Provider
-      domain={config.domain}
-      client_id={config.clientId}
-      redirect_uri={window.location.origin}
-      onRedirectCallback={onRedirectCallback}
-    >
-      <Router>
+    <Router>
+      <Auth0ProviderWithRouter
+        domain={config.domain}
+        client_id={config.clientId}
+        redirect_uri={window.location.origin}
+        onRedirectCallback={onRedirectCallback}
+      >
         <AppWithRouter />
-      </Router>
-    </Auth0Provider>
+      </Auth0ProviderWithRouter>
+    </Router>
   </GlobalProvider>,
   document.getElementById('root')
 );
