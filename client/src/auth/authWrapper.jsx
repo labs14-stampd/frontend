@@ -39,14 +39,32 @@ export const Auth0Provider = ({
       if (isAuthenticated) {
         const user = await auth0FromHook.getUser();
         setUser(user);
-        const result = await register(user);
-        dispatchGlobal({ type: 'REGISTER', payload: result.data.addUser });
 
-        if (result.data.addUser.roleId === null) {
-          history.push('/onboarding');
-        } else {
-          console.log(result.data.addUser.roleId);
-          history.push('/dashboard');
+        const authToken = await auth0FromHook.getTokenSilently({
+          audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
+          scope: 'openid profile email offline_access'
+        });
+        console.log(authToken);
+        
+        const userWithAuth0 = {
+          email: user.email,
+          picture: user.picture,
+          authToken
+        };
+
+        try {
+          const result = await register(userWithAuth0);
+          dispatchGlobal({ type: 'REGISTER', payload: result.data.addUser });
+
+          localStorage.id = result.data.addUser.id;
+
+          if (result.data.addUser.roleId === null) {
+            history.push('/onboarding');
+          } else {
+            history.push('/dashboard');
+          }
+        } catch (error) {
+          console.log(error);
         }
       }
 

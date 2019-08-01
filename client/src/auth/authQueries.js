@@ -1,15 +1,19 @@
-import ApolloClient, { gql } from 'apollo-boost';
-
-const client = new ApolloClient({
-  uri: `${process.env.REACT_APP_GRAPHQL_URI}`
-});
+import client, { gql } from '../clientQuery';
 
 export const register = user => {
   return client.mutate({
-    variables: { email: user.email },
+    variables: {
+      email: user.email,
+      picture: user.picture,
+      authToken: user.authToken
+    },
     mutation: gql`
-      mutation AddUser($email: String!) {
-        addUser(email: $email) {
+      mutation AddUser($email: String!, $picture: String, $authToken: String!) {
+        addUser(
+          email: $email
+          profilePicture: $picture
+          authToken: $authToken
+        ) {
           id
           username
           email
