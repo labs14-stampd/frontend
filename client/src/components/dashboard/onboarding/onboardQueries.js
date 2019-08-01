@@ -4,6 +4,29 @@ const client = new ApolloClient({
   uri: `${process.env.REACT_APP_GRAPHQL_URI}`
 });
 
+export const addRole = body => {
+  return client.mutate({
+    variables: {
+      id: body.id, // User ID
+      roleId: body.roleId
+    },
+    mutation: gql`
+      mutation UpdateUser(
+        $id: ID!
+        $roleId: ID!
+      ) {
+        updateUser(
+          id: $id
+          roleId: $roleId
+        ) {
+          id
+          roleId
+        }
+      }
+    `
+  });
+};
+
 export const addSchoolDetails = body => {
   return client.mutate({
     variables: {
