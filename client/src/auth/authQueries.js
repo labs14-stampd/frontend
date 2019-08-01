@@ -4,11 +4,16 @@ export const register = user => {
   return client.mutate({
     variables: {
       email: user.email,
-      picture: user.picture
+      picture: user.picture,
+      authToken: user.authToken
     },
     mutation: gql`
-      mutation AddUser($email: String!, $picture: String) {
-        addUser(email: $email, picture: $picture) {
+      mutation AddUser($email: String!, $picture: String, $authToken: String!) {
+        addUser(
+          email: $email
+          profilePicture: $picture
+          authToken: $authToken
+        ) {
           id
           username
           email
