@@ -1,10 +1,10 @@
-import React, { useState } from './node_modules/react';
-import { useStateValue } from './node_modules/react-conflux';
+import React, { useState } from 'react';
+import { useStateValue } from 'react-conflux';
 import { addSchoolDetails } from './onboardQueries';
 import {
   globalContext,
   ON_BOARD_DETAILS
-} from '../../store/reducers/globalReducer';
+} from '../../../store/reducers/globalReducer';
 
 const NewSchoolForm = () => {
   const [, dispatchGlobal] = useStateValue(globalContext);

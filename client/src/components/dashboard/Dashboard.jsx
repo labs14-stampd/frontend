@@ -1,5 +1,5 @@
-import React from './node_modules/react';
-import NewSchoolForm from '../onboarding/OnboardForm';
+import React from 'react';
+import NewSchoolForm from './onboarding/OnboardForm';
 
 const Dashboard = () => {
   return (
