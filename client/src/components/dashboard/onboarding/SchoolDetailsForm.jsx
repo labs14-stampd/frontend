@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { addRole } from "./onboardQueries";
 import { addSchoolDetails } from './onboardQueries';
 
 const SchoolDetailsForm = ({ history }) => {
@@ -28,6 +29,10 @@ const SchoolDetailsForm = ({ history }) => {
     e.preventDefault();
     try {
       await addSchoolDetails(input);
+      await addRole({
+        id: localStorage.id, 
+        roleId: 2 // Role of a school is set to always be 2
+      });
     } catch (err) {
       console.log(err);
     }
