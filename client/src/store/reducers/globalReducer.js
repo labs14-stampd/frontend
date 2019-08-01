@@ -9,6 +9,9 @@ const initialState = {
 
 const globalReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ON_BOARD_DETAILS:
+      console.log('Woohoo');
+      return state;
     default:
       return state;
   }

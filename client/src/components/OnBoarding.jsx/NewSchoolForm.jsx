@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useStateValue } from 'react-conflux';
+import { addSchoolDetails } from './OnBoardQueries';
 import {
   globalContext,
   ON_BOARD_DETAILS
-} from '../store/reducers/globalReducer';
+} from '../../store/reducers/globalReducer';
 
 const NewSchoolForm = () => {
   const [, dispatchGlobal] = useStateValue(globalContext);
@@ -17,7 +18,8 @@ const NewSchoolForm = () => {
     zip: '',
     phone: '',
     type: '',
-    url: ''
+    url: '',
+    userId: 1
   });
 
   const handleChanges = e => {
@@ -29,7 +31,7 @@ const NewSchoolForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    axios.post('', input).then(res =>
+    addSchoolDetails(input).then(res =>
       dispatchGlobal({
         type: ON_BOARD_DETAILS,
         payload: res.data
@@ -46,7 +48,7 @@ const NewSchoolForm = () => {
         value={input.name}
       />
       <input
-        name="taxID"
+        name="taxId"
         placeholder={'TaxId'}
         onChange={handleChanges}
         value={input.taxId}
