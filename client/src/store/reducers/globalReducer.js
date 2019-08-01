@@ -9,6 +9,11 @@ const initialState = {
 
 const globalReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'REGISTER':
+      return {
+        ...state,
+        greeting: action.payload.email
+      };
     case ON_BOARD_DETAILS:
       console.log('Woohoo');
       return state;
