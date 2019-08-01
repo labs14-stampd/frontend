@@ -10,6 +10,7 @@ const DEFAULT_REDIRECT_CALLBACK = () =>
 export const Auth0Context = React.createContext();
 export const useAuth0 = () => useContext(Auth0Context);
 export const Auth0Provider = ({
+  history,
   children,
   onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
   ...initOptions
@@ -40,6 +41,12 @@ export const Auth0Provider = ({
         setUser(user);
         const result = await register(user);
         dispatchGlobal({ type: 'REGISTER', payload: result.data.addUser });
+
+        if (result.roleid === null) {
+          history.push("/onboarding");
+        } else {
+          history.push("/dashboard");
+        }
       }
 
       setLoading(false);
