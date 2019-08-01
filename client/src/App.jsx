@@ -2,7 +2,7 @@ import React from 'react';
 
 import './App.css';
 
-import Layout from './components/layout/Layout';
+import { Layout } from './components/layout';
 import { Dashboard } from './components/dashboard';
 
 function App() {
