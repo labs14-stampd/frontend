@@ -42,10 +42,11 @@ export const Auth0Provider = ({
         const result = await register(user);
         dispatchGlobal({ type: 'REGISTER', payload: result.data.addUser });
 
-        if (result.roleid === null) {
-          history.push("/onboarding");
+        if (result.data.addUser.roleId === null) {
+          history.push('/onboarding');
         } else {
-          history.push("/dashboard");
+          console.log(result.data.addUser.roleId);
+          history.push('/dashboard');
         }
       }
 
