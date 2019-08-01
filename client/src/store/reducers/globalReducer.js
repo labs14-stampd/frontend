@@ -1,5 +1,6 @@
 import { createContext } from 'react';
 
+export const ON_BOARD_DETAILS = 'ON_BOARD_DETAILS';
 export const globalContext = createContext();
 
 const initialState = {
@@ -13,6 +14,9 @@ const globalReducer = (state = initialState, action) => {
         ...state,
         greeting: action.payload.email
       };
+    case ON_BOARD_DETAILS:
+      console.log('Woohoo');
+      return state;
     default:
       return state;
   }
