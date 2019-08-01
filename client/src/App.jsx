@@ -14,9 +14,9 @@ function App() {
       <Layout>
         <Switch>
           <Route exact path="/" /> {/* Placeholder route - to be used later */}
-          <PrivateRoute path="/onboarding/school" render={SchoolDetailsForm} />
-          <PrivateRoute path="/onboarding" render={Onboard} />
-          <PrivateRoute path="/dashboard" render={Dashboard} />
+          <PrivateRoute path="/onboarding/school" component={SchoolDetailsForm} />
+          <PrivateRoute path="/onboarding" component={Onboard} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
         </Switch>
       </Layout>
     </div>
