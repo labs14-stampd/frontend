@@ -10,6 +10,7 @@ export const register = user => {
     mutation: gql`
       mutation AddUser($email: String!) {
         addUser(email: $email) {
+          id
           username
           email
           roleId
