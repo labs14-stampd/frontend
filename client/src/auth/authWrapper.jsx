@@ -39,7 +39,14 @@ export const Auth0Provider = ({
       if (isAuthenticated) {
         const user = await auth0FromHook.getUser();
         setUser(user);
-        const result = await register(user);
+
+        const authToken = await auth0FromHook.getTokenSilently();
+        const userWithAuth0 = {
+          email: user.email,
+          authToken
+        };
+
+        const result = await register(userWithAuth0);
         dispatchGlobal({ type: 'REGISTER', payload: result.data.addUser });
 
         localStorage.id = result.data.addUser.id;
