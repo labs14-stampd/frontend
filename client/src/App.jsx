@@ -3,12 +3,13 @@ import React from 'react';
 import './App.css';
 
 import Layout from './views/Layout';
+import Dashboard from './views/Dashboard';
 
 function App() {
   return (
     <div className="App">
       <Layout>
-        <h1>Hello World</h1>
+        <Dashboard />
       </Layout>
     </div>
   );
