@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
-import createAuth0Client from '@auth0/auth0-spa-js';
-import { useStateValue } from 'react-conflux';
+import React, { useState, useEffect, useContext } from './node_modules/react';
+import createAuth0Client from './node_modules/@auth0/auth0-spa-js';
+import { useStateValue } from './node_modules/react-conflux';
 import { globalContext } from '../../store/reducers/globalReducer';
 import { register } from './authQueries';
 

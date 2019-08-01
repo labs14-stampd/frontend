@@ -1,8 +1,8 @@
-import React from 'react';
-import { useStateValue } from 'react-conflux';
-import styled from 'styled-components';
+import React from './node_modules/react';
+import { useStateValue } from './node_modules/react-conflux';
+import styled from './node_modules/styled-components';
 
-import { useAuth0 } from '../../Auth/authWrapper';
+import { useAuth0 } from '../../auth/authWrapper';
 import { globalContext } from '../../../store/reducers/globalReducer';
 
 function NavBar() {

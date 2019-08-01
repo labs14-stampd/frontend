@@ -2,8 +2,8 @@ import React from 'react';
 
 import './App.css';
 
-import Layout from './components/Layout/Layout';
-import Dashboard from './components/Dashboard/Dashboard';
+import Layout from './components/layout/Layout';
+import Dashboard from './components/dashboard/Dashboard';
 
 function App() {
   return (

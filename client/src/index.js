@@ -4,8 +4,8 @@ import * as Sentry from '@sentry/browser';
 import { BrowserRouter as Router, withRouter } from 'react-router-dom';
 import { StateProvider as GlobalProvider } from 'react-conflux';
 
-import { Auth0Provider } from './components/Auth/authWrapper';
-import config from './components/Auth/authConfig';
+import { Auth0Provider } from './components/auth/authWrapper';
+import config from './components/auth/authConfig';
 import './index.css';
 import App from './App.jsx';
 

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useStateValue } from 'react-conflux';
+import React, { useState } from './node_modules/react';
+import { useStateValue } from './node_modules/react-conflux';
 import { addSchoolDetails } from './onboardQueries';
 import {
   globalContext,
