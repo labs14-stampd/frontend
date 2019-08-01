@@ -43,6 +43,7 @@ export const Auth0Provider = ({
         const authToken = await auth0FromHook.getTokenSilently();
         const userWithAuth0 = {
           email: user.email,
+          picture: user.picture,
           authToken
         };
 
