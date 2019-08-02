@@ -40,20 +40,12 @@ export const Auth0Provider = ({
         const user = await auth0FromHook.getUser();
         setUser(user);
 
-        const authToken = await auth0FromHook.getTokenSilently({
-          audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
-          scope: 'openid profile email offline_access'
-        });
-        console.log(authToken);
-        
-        const userWithAuth0 = {
-          email: user.email,
-          picture: user.picture,
-          authToken
-        };
-
         try {
-          const result = await register(userWithAuth0);
+          const result = await register({
+            email: user.email,
+            authToken: user.sub,
+            picture: user.picture
+          });
           dispatchGlobal({ type: 'REGISTER', payload: result.data.addUser });
 
           localStorage.id = result.data.addUser.id;
