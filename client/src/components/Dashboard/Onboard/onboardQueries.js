@@ -1,8 +1,4 @@
-import ApolloClient, { gql } from 'apollo-boost';
-
-const client = new ApolloClient({
-  uri: `${process.env.REACT_APP_GRAPHQL_URI}`
-});
+import client, { gql } from '../../../clientQuery';
 
 export const addRole = body => {
   return client.mutate({

@@ -6,7 +6,6 @@ import { StateProvider as GlobalProvider } from 'react-conflux';
 
 import { Auth0Provider } from './auth/authWrapper';
 import config from './auth/authConfig';
-import './index.css';
 import App from './App.jsx';
 
 import globalReducer, { globalContext } from './store/reducers/globalReducer';
