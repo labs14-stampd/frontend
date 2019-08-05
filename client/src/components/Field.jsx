@@ -1,6 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Label = styled.label`
+  font-weight: bold;
+  color: red;
+
+  ${props => props.required && `
+    &::after {
+      content: "*";
+      color: red;
+      margin-left: 5px;
+    }
+  `}
+`;
+
+const Input = styled.input`
+  background-color: pink;
+`;
+
 const Field = ({
   labelText,
   inputName,
@@ -9,26 +26,9 @@ const Field = ({
   inputValue,
   required = false
 }) => {
-  const Label = styled.label`
-    font-weight: bold;
-    color: red;
-
-    ${required &&
-      `
-    &::after {
-      content: "*";
-      color: red;
-      margin-left: 5px;
-    }
-    `}
-  `;
-  const Input = styled.input`
-    background-color: pink;
-  `;
-
   return (
     <>
-      <Label>{labelText}</Label>
+      <Label required={required}>{labelText}</Label>
       <Input
         name={inputName}
         placeholder={placeholder}
