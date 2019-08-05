@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import Field from '../../Field.jsx';
 
+import { addNewCredentials } from './queries';
+
 const CredentialsForm = ({ history }) => {
   const [credsInputs, setCredsInputs] = useState({
     name: '',
@@ -23,8 +25,15 @@ const CredentialsForm = ({ history }) => {
   };
 
   const handleSubmit = async e => {
-    alert('Credentials have been submitted.');
-    history.push('/dashboard');
+    e.preventDefault();
+    try {
+      const cred = await addNewCredentials(credsInputs);
+      console.log(cred);
+      history.push('/dashboard');
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(credsInputs);
   };
 
   return (

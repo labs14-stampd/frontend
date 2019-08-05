@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuth0 } from '../../auth/authWrapper';
 
-const Dashboard = () => {
+const Dashboard = ({ history }) => {
   const { getTokenWithPopup } = useAuth0();
   const callApi = async () => {
     try {
@@ -14,10 +14,15 @@ const Dashboard = () => {
       console.error(error);
     }
   };
+  const routeCredential = e => {
+    e.preventDefault();
+    history.push('/credentials');
+  };
   return (
     <div>
       <h1>Dashboard</h1>
       <button onClick={callApi}>Check if working</button>
+      <button onClick={routeCredential}>Submit New Credential</button>
     </div>
   );
 };

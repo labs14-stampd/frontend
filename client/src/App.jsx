@@ -6,6 +6,7 @@ import Layout from './components/Layout';
 import Dashboard from './components/Dashboard';
 import Onboard from './components/Dashboard/Onboard';
 import SchoolDetailsForm from './components/Dashboard/Onboard/SchoolDetailsForm';
+import CredentialsForm from './components/Dashboard/CredentialsForm';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           />
           <PrivateRoute path="/onboarding" component={Onboard} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/credentials" component={CredentialsForm} />
         </Switch>
       </Layout>
     </>
