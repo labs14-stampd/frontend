@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import { useStateValue } from 'react-conflux';
+import jwt from 'jsonwebtoken';
 import { globalContext } from '../store/reducers/globalReducer';
 import { register } from './authQueries';
 
@@ -40,12 +41,9 @@ export const Auth0Provider = ({
         const user = await auth0FromHook.getUser();
         setUser(user);
 
+        const authToken = jwt.sign(user, process.env.REACT_APP_AUTH_TOKEN)
         try {
-          const result = await register({
-            email: user.email,
-            authToken: user.sub,
-            picture: user.picture
-          });
+          const result = await register({ authToken });
           dispatchGlobal({ type: 'REGISTER', payload: result.data.addUser });
 
           localStorage.id = result.data.addUser.id;
