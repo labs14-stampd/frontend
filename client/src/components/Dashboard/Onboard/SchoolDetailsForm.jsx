@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import { addRole } from "./onboardQueries";
+import { addRole } from './onboardQueries';
 import { addSchoolDetails } from './onboardQueries';
+import Field from '../../Field';
 
 const SchoolDetailsForm = ({ history }) => {
   const [input, setInput] = useState({
@@ -15,7 +16,7 @@ const SchoolDetailsForm = ({ history }) => {
     phone: '',
     type: '',
     url: '',
-    userId: 1
+    userId: localStorage.id
   });
 
   const handleChanges = e => {
@@ -30,7 +31,7 @@ const SchoolDetailsForm = ({ history }) => {
     try {
       await addSchoolDetails(input);
       await addRole({
-        id: localStorage.id, 
+        id: localStorage.id,
         roleId: 2 // Role of a school is set to always be 2
       });
     } catch (err) {
@@ -42,65 +43,80 @@ const SchoolDetailsForm = ({ history }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        name="name"
-        placeholder={'Name of Institution'}
+      <Field
+        labelText="Name of Institution"
+        inputName="name"
+        placeholder="Name of Institution"
         onChange={handleChanges}
-        value={input.name}
+        inputValue={input.name}
+        required={true}
       />
-      <input
-        name="taxId"
+
+      <Field
+        labelText="TaxId"
+        inputName="taxId"
         placeholder={'TaxId'}
         onChange={handleChanges}
-        value={input.taxId}
+        inputValue={input.taxId}
+        required={true}
       />
-      <input
-        name="street1"
+      <Field
+        labelText="Address 1"
+        inputName="street1"
         placeholder={'Address 1'}
         onChange={handleChanges}
-        value={input.street1}
+        inputValue={input.street1}
       />
-      <input
-        name="street2"
+      <Field
+        labelText="Address 2"
+        inputName="street2"
         placeholder={'Address 2'}
         onChange={handleChanges}
-        value={input.street2}
+        inputValue={input.street2}
       />
-      <input
-        name="city"
+      <Field
+        labelText="City"
+        inputName="city"
         placeholder={'City'}
         onChange={handleChanges}
-        value={input.city}
+        inputValue={input.city}
       />
-      <input
-        name="state"
+      <Field
+        labelText="State"
+        inputName="state"
         placeholder={'State'}
         onChange={handleChanges}
-        value={input.state}
+        inputValue={input.state}
       />
-      <input
-        name="zip"
+      <Field
+        labelText="Zip Code"
+        inputName="zip"
         placeholder={'Zip Code'}
         onChange={handleChanges}
-        value={input.zip}
+        inputValue={input.zip}
       />
-      <input
-        name="phone"
+      <Field
+        labelText="Phone Number"
+        inputName="phone"
         placeholder={'Phone Number'}
         onChange={handleChanges}
-        value={input.phone}
+        inputValue={input.phone}
+        required={true}
       />
-      <input
-        name="type"
+      <Field
+        labelText="Type of Institution"
+        inputName="type"
         placeholder={'Type of Institution'}
         onChange={handleChanges}
-        value={input.type}
+        inputValue={input.type}
       />
-      <input
-        name="url"
+      <Field
+        labelText="Institution Website"
+        inputName="url"
         placeholder={'Institution Website'}
         onChange={handleChanges}
-        value={input.url}
+        inputValue={input.url}
+        required={true}
       />
       <button type="submit">Submit</button>
     </form>
