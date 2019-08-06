@@ -7,14 +7,8 @@ export const addRole = body => {
       roleId: body.roleId
     },
     mutation: gql`
-      mutation UpdateUser(
-        $id: ID!
-        $roleId: ID!
-      ) {
-        updateUser(
-          id: $id
-          roleId: $roleId
-        ) {
+      mutation UpdateUser($id: ID!, $roleId: ID!) {
+        updateUser(id: $id, roleId: $roleId) {
           id
           roleId
         }
