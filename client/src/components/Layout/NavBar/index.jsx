@@ -1,6 +1,8 @@
 import React from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
+import { StmpdBtn, theme } from '../../../styles/themes';
+import { Button } from 'grommet';
 
 import { useAuth0 } from '../../../auth/authWrapper';
 import { globalContext } from '../../../store/reducers/globalReducer';
@@ -15,9 +17,13 @@ function NavBar() {
       <h1>{globalState.greeting}</h1>
       {!isAuthenticated ? (
         <div className="button-container">
-          <button type="button" onClick={() => loginWithRedirect({})}>
-            Log in
-          </button>
+          <StmpdBtn
+            a11yTitle="Login"
+            type="button"
+            color={theme.global.colors.primary}
+            onClick={() => loginWithRedirect({})}
+            label="Login"
+          />
         </div>
       ) : (
         <div className="button-container">

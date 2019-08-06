@@ -2,15 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import { Grommet } from 'grommet';
+import { theme } from '../../styles/themes';
 
 // GlobalStyles will go here
 
 const Layout = ({ children }) => {
   return (
     <>
-      <NavBar />
-      {children}
-      <Footer />
+      <Grommet theme={theme}>
+        <NavBar />
+        {children}
+        <Footer />
+      </Grommet>
     </>
   );
 };

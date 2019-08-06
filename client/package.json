@@ -17,6 +17,7 @@
     "@sentry/browser": "^5.5.0",
     "apollo-boost": "^0.4.3",
     "graphql": "^14.4.2",
+    "grommet": "^2.7.4",
     "jsonwebtoken": "^8.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
