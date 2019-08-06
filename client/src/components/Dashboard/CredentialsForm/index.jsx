@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import queries from './queries';
-import Field from '../../Field.jsx';
+import Field from '../../Field';
 
 const CredentialsForm = ({ history }) => {
   const [credsInputs, setCredsInputs] = useState({
@@ -29,7 +30,7 @@ const CredentialsForm = ({ history }) => {
       history.push('/dashboard');
       await queries.addNewCredentials(credsInputs);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -41,7 +42,7 @@ const CredentialsForm = ({ history }) => {
         placeholder="Enter the name for the credentials"
         onChange={handleChanges}
         inputValue={credsInputs.name}
-        required={true}
+        required
       />
 
       <Field
@@ -50,7 +51,7 @@ const CredentialsForm = ({ history }) => {
         placeholder="Enter a description of the credentials"
         onChange={handleChanges}
         inputValue={credsInputs.description}
-        required={true}
+        required
       />
 
       <Field
@@ -59,7 +60,7 @@ const CredentialsForm = ({ history }) => {
         placeholder="Select the type of crendentials"
         onChange={handleChanges}
         inputValue={credsInputs.type}
-        required={true}
+        required
       />
 
       <Field
@@ -68,7 +69,7 @@ const CredentialsForm = ({ history }) => {
         placeholder="Enter the email address of the student to be credentialed"
         onChange={handleChanges}
         inputValue={credsInputs.studentEmail}
-        required={true}
+        required
       />
 
       <Field
@@ -77,7 +78,7 @@ const CredentialsForm = ({ history }) => {
         placeholder="Enter a URL for an image corresponding to the crendentials"
         onChange={handleChanges}
         inputValue={credsInputs.imageUrl}
-        required={true}
+        required
       />
 
       <Field
@@ -86,7 +87,7 @@ const CredentialsForm = ({ history }) => {
         placeholder="Enter the criteria for the credentials"
         onChange={handleChanges}
         inputValue={credsInputs.criteria}
-        required={true}
+        required
       />
 
       <Field
@@ -95,7 +96,7 @@ const CredentialsForm = ({ history }) => {
         placeholder="Enter the issue date for the credentials"
         onChange={handleChanges}
         inputValue={credsInputs.issuedOn}
-        required={true}
+        required
       />
 
       <Field
@@ -109,6 +110,10 @@ const CredentialsForm = ({ history }) => {
       <button type="submit">Submit</button>
     </form>
   );
+};
+
+CredentialsForm.propTypes = {
+  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 export default CredentialsForm;
