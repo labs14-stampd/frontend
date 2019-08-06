@@ -9,7 +9,6 @@ import { globalContext } from '../../../store/reducers/globalReducer';
 function NavBar(props) {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [globalState] = useStateValue(globalContext);
-  console.log(props);
 
   return (
     <NavContainter>
@@ -17,10 +16,10 @@ function NavBar(props) {
       <h1>{globalState.greeting}</h1>
       {!isAuthenticated ? (
         <div className="button-container">
-          <BaseButton
+          <LoginBtn
+            {...props}
             a11yTitle="Login"
             type="button"
-            color="banana"
             onClick={() => loginWithRedirect({})}
             label="Login"
           />
@@ -31,7 +30,6 @@ function NavBar(props) {
           <BaseButton
             a11yTitle="Logout"
             type="button"
-            color="banana"
             onClick={() => logout()}
             label="Logout"
           />
@@ -45,6 +43,10 @@ const NavContainter = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #333;
+`;
+
+const LoginBtn = styled(BaseButton)`
+  border: 2px solid ${props => props.theme.global.colors['accent-1']};
 `;
 
 export default NavBar;

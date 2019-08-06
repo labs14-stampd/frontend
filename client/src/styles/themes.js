@@ -4,11 +4,12 @@ import { Button, Form, TextInput, FormField } from 'grommet';
 export const theme = {
   global: {
     colors: {
-      primary: '#444444',
-      secondary: 'palevioletred',
-      black: '#444444',
-      background: 'silver',
-      banana: 'crimson'
+      // primary: '#444444',
+      // secondary: 'palevioletred',
+      // black: '#444444',
+      // background: 'silver',
+      banana: 'crimson',
+      accent: 'accent-1'
     },
     border: '1px solid rgba(0,0,0,0.33)',
     // fontFamily
@@ -17,7 +18,7 @@ export const theme = {
 };
 
 export const BaseButton = styled(Button)`
-  color: ${theme.global.colors.primary};
+  color: base;
 `;
 
 export const BaseForm = styled(Form)``;
