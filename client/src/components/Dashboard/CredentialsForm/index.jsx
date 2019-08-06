@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import { addNewCredentials } from './queries';
 import Field from '../../Field.jsx';
 
-import { addNewCredentials } from './queries';
-
 const CredentialsForm = ({ history }) => {
   const [credsInputs, setCredsInputs] = useState({
     name: '',
