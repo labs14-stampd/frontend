@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { addNewCredentials } from './queries';
 import Field from '../../Field.jsx';
 
 import { addNewCredentials } from './queries';
@@ -28,12 +29,11 @@ const CredentialsForm = ({ history }) => {
     e.preventDefault();
     try {
       const cred = await addNewCredentials(credsInputs);
-      console.log(cred);
       history.push('/dashboard');
+      await addNewCredentials(credsInputs);
     } catch (error) {
       console.log(error);
     }
-    console.log(credsInputs);
   };
 
   return (
