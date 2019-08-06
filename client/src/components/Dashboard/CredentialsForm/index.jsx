@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import queries from './queries';
-import Field from '../../Field.jsx';
+import Field from '../../Field';
 
 const CredentialsForm = ({ history }) => {
   const [credsInputs, setCredsInputs] = useState({
@@ -29,7 +30,7 @@ const CredentialsForm = ({ history }) => {
       history.push('/dashboard');
       await queries.addNewCredentials(credsInputs);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -109,6 +110,10 @@ const CredentialsForm = ({ history }) => {
       <button type="submit">Submit</button>
     </form>
   );
+};
+
+CredentialsForm.propTypes = {
+  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 export default CredentialsForm;
