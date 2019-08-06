@@ -11,7 +11,7 @@ export const addNewCredentials = body => {
       criteria: body.criteria,
       issuedOn: body.issuedOn,
       expirationDate: body.expirationDate,
-      schoolId: body.schoolId,
+      schoolId: body.schoolId
     },
     mutation: gql`
       mutation AddNewCredential(
@@ -26,15 +26,15 @@ export const addNewCredentials = body => {
         $schoolId: ID!
       ) {
         addNewCredential(
-          name: body.name,
-          description: body.description,
-          type: body.type,
-          studentEmail: body.studentEmail,
-          imageUrl: body.imageUrl,
-          criteria: body.criteria,
-          issuedOn: body.issuedOn,
-          expirationDate: body.expirationDate,
-          schoolId: body.schoolId,
+          name: $name
+          description: $description
+          type: $type
+          studentEmail: $studentEmail
+          imageUrl: $imageUrl
+          criteria: $criteria
+          issuedOn: $issuedOn
+          expirationDate: $expirationDate
+          schoolId: $schoolId
         ) {
           name
           description
@@ -46,5 +46,5 @@ export const addNewCredentials = body => {
         }
       }
     `
-  })
+  });
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuth0 } from '../../auth/authWrapper';
 
-const Dashboard = () => {
+const Dashboard = ({ history }) => {
   const { getTokenWithPopup } = useAuth0();
   const callApi = async () => {
     try {
@@ -18,6 +18,9 @@ const Dashboard = () => {
     <div>
       <h1>Dashboard</h1>
       <button onClick={callApi}>Check if working</button>
+      <button onClick={() => history.push('/dashboard/credForm')}>
+        Issue Credential
+      </button>
     </div>
   );
 };
