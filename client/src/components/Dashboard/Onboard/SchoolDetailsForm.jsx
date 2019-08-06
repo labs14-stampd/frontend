@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-import { addRole, addSchoolDetails } from './onboardQueries';
-
+import queries from './queries';
 import Field from '../../Field';
 
 const SchoolDetailsForm = ({ history }) => {
@@ -29,8 +29,8 @@ const SchoolDetailsForm = ({ history }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await addSchoolDetails(input);
-      await addRole({
+      await queries.addSchoolDetails(input);
+      await queries.addRole({
         id: localStorage.id,
         roleId: 2 // Role of a school is set to always be 2
       });
@@ -121,6 +121,10 @@ const SchoolDetailsForm = ({ history }) => {
       <button type="submit">Submit</button>
     </form>
   );
+};
+
+SchoolDetailsForm.propTypes = {
+  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 export default SchoolDetailsForm;

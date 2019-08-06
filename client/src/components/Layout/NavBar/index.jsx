@@ -15,12 +15,16 @@ function NavBar() {
       <h1>{globalState.greeting}</h1>
       {!isAuthenticated ? (
         <div className="button-container">
-          <button onClick={() => loginWithRedirect({})}>Log in</button>
+          <button type="button" onClick={() => loginWithRedirect({})}>
+            Log in
+          </button>
         </div>
       ) : (
         <div className="button-container">
           <img src="" alt="avatar" />
-          <button onClick={() => logout()}>Log out</button>
+          <button type="button" onClick={() => logout()}>
+            Log out
+          </button>
         </div>
       )}
     </NavContainter>
