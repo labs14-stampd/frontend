@@ -9,20 +9,17 @@ const Dashboard = ({ history }) => {
         audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
         scope: 'openid profile email offline_access'
       });
-      console.log(token);
     } catch (error) {
       console.error(error);
     }
-  };
-  const routeCredential = e => {
-    e.preventDefault();
-    history.push('/credentials');
   };
   return (
     <div>
       <h1>Dashboard</h1>
       <button onClick={callApi}>Check if working</button>
-      <button onClick={routeCredential}>Submit New Credential</button>
+      <button onClick={() => history.push('/dashboard/credForm')}>
+        Issue Credential
+      </button>
     </div>
   );
 };

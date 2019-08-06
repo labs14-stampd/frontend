@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
-import Field from '../../Field.jsx';
-
 import { addNewCredentials } from './queries';
+import Field from '../../Field.jsx';
 
 const CredentialsForm = ({ history }) => {
   const [credsInputs, setCredsInputs] = useState({
@@ -28,12 +27,11 @@ const CredentialsForm = ({ history }) => {
     e.preventDefault();
     try {
       const cred = await addNewCredentials(credsInputs);
-      console.log(cred);
       history.push('/dashboard');
+      await addNewCredentials(credsInputs);
     } catch (error) {
       console.log(error);
     }
-    console.log(credsInputs);
   };
 
   return (
@@ -44,7 +42,7 @@ const CredentialsForm = ({ history }) => {
         placeholder="Enter the name for the credentials"
         onChange={handleChanges}
         inputValue={credsInputs.name}
-        required={true}
+        required
       />
 
       <Field
@@ -53,7 +51,7 @@ const CredentialsForm = ({ history }) => {
         placeholder="Enter a description of the credentials"
         onChange={handleChanges}
         inputValue={credsInputs.description}
-        required={true}
+        required
       />
 
       <Field
@@ -62,7 +60,7 @@ const CredentialsForm = ({ history }) => {
         placeholder="Select the type of crendentials"
         onChange={handleChanges}
         inputValue={credsInputs.type}
-        required={true}
+        required
       />
 
       <Field
@@ -71,7 +69,7 @@ const CredentialsForm = ({ history }) => {
         placeholder="Enter the email address of the student to be credentialed"
         onChange={handleChanges}
         inputValue={credsInputs.studentEmail}
-        required={true}
+        required
       />
 
       <Field
@@ -80,7 +78,7 @@ const CredentialsForm = ({ history }) => {
         placeholder="Enter a URL for an image corresponding to the crendentials"
         onChange={handleChanges}
         inputValue={credsInputs.imageUrl}
-        required={true}
+        required
       />
 
       <Field
@@ -89,7 +87,7 @@ const CredentialsForm = ({ history }) => {
         placeholder="Enter the criteria for the credentials"
         onChange={handleChanges}
         inputValue={credsInputs.criteria}
-        required={true}
+        required
       />
 
       <Field
@@ -98,7 +96,7 @@ const CredentialsForm = ({ history }) => {
         placeholder="Enter the issue date for the credentials"
         onChange={handleChanges}
         inputValue={credsInputs.issuedOn}
-        required={true}
+        required
       />
 
       <Field
