@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
 export const Reset = css`
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -122,7 +122,7 @@ export const Reset = css`
   blockquote:after,
   q:before,
   q:after {
-    content: "";
+    content: '';
     content: none;
   }
   table {

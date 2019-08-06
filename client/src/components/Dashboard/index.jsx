@@ -9,7 +9,6 @@ const Dashboard = ({ history }) => {
         audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
         scope: 'openid profile email offline_access'
       });
-      console.log(token);
     } catch (error) {
       console.error(error);
     }

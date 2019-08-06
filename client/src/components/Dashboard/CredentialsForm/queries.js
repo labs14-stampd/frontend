@@ -37,6 +37,7 @@ export const addNewCredentials = body => {
           schoolId: $schoolId
         ) {
           name
+          txHash
           description
           studentEmail
           imageUrl

@@ -26,12 +26,12 @@ const CredentialsForm = ({ history }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
+      const cred = await addNewCredentials(credsInputs);
+      history.push('/dashboard');
       await addNewCredentials(credsInputs);
     } catch (error) {
       console.log(error);
     }
-    console.log(credsInputs);
-    history.push('/dashboard');
   };
 
   return (
