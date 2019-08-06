@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StmpdBtn } from '../../../styles/themes';
+import { BaseButton } from '../../../styles/themes';
 
 function Onboard({ history }) {
   return (
     <>
-      <StmpdBtn
+      <BaseButton
         type="button"
         onClick={() => history.push('/onboarding/school')}
-      >
-        I am a School
-      </StmpdBtn>
+        label="I am a School"
+      />
     </>
   );
 }

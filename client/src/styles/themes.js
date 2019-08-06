@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from 'grommet';
+import { Button, Form, TextInput, FormField } from 'grommet';
 
 export const theme = {
   global: {
@@ -7,30 +7,23 @@ export const theme = {
       primary: '#444444',
       secondary: 'palevioletred',
       black: '#444444',
-      background: 'silver'
+      background: 'silver',
+      banana: 'crimson'
     },
+    border: '1px solid rgba(0,0,0,0.33)',
     // fontFamily
     radius: '6px'
   }
 };
 
-export const StmpdBtn = styled(Button)`
+export const BaseButton = styled(Button)`
   color: ${theme.global.colors.primary};
 `;
 
-// export const Title = styled.div`
-//   font-size: 3.5rem;
-//   color: ${theme.main.colors.primary};
-//   display: inline-block;
-//   margin: 4px;
-//   text-decoration: underline;
-// `;
+export const BaseForm = styled(Form)``;
 
-// export const Form = styled.form``;
-// export const Card = styled.div``;
+export const BaseTextInput = styled(TextInput)`
+  border: ${theme.global.border};
+`;
 
-// export const Input = styled.input`
-//   font-size: 2rem;
-//   border: 1px solid ${theme.main.colors.black};
-//   margin: 2px;
-// `;
+export const BaseFormField = styled(FormField)``;
