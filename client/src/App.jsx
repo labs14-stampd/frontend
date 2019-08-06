@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PrivateRoute from './auth/PrivateRoute.jsx';
+import PrivateRoute from './auth/PrivateRoute';
 
 import Layout from './components/Layout';
 import Dashboard from './components/Dashboard';

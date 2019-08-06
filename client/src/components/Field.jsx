@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Label = styled.label`
@@ -24,7 +25,7 @@ const Field = ({
   placeholder,
   onChange,
   inputValue,
-  required = false
+  required
 }) => {
   return (
     <>
@@ -38,6 +39,19 @@ const Field = ({
       />
     </>
   );
+};
+
+Field.defaultProps = {
+  required: false
+};
+
+Field.propTypes = {
+  label: PropTypes.string,
+  inputName: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  inputValue: PropTypes.string.isRequired,
+  required: PropTypes.bool
 };
 
 export default Field;
