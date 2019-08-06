@@ -6,8 +6,9 @@ const Label = styled.label`
   font-weight: bold;
   color: red;
 
-  ${props => props.required && `
-    &::after {
+  ${props =>
+    props.required &&
+    `&::after {
       content: "*";
       color: red;
       margin-left: 5px;
@@ -42,11 +43,13 @@ const Field = ({
 };
 
 Field.defaultProps = {
+  labelText: PropTypes.string,
+  placeholder: PropTypes.string,
   required: false
 };
 
 Field.propTypes = {
-  label: PropTypes.string,
+  labelText: PropTypes.string,
   inputName: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   onChange: PropTypes.func.isRequired,

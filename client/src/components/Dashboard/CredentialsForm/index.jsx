@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { addNewCredentials } from './queries';
+import queries from './queries';
 import Field from '../../Field.jsx';
 
 const CredentialsForm = ({ history }) => {
@@ -26,9 +26,8 @@ const CredentialsForm = ({ history }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const cred = await addNewCredentials(credsInputs);
       history.push('/dashboard');
-      await addNewCredentials(credsInputs);
+      await queries.addNewCredentials(credsInputs);
     } catch (error) {
       console.log(error);
     }
