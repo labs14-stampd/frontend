@@ -38,11 +38,11 @@ export const Auth0Provider = ({
 
       setIsAuthenticated(isAuthenticatedFromAuth0);
 
-      if (isAuthenticated) {
+      if (isAuthenticatedFromAuth0) {
         const userFromAuth0 = await auth0FromHook.getUser();
         setUser(userFromAuth0);
 
-        const authToken = jwt.sign(user, process.env.REACT_APP_AUTH_TOKEN);
+        const authToken = jwt.sign(userFromAuth0, process.env.REACT_APP_AUTH_TOKEN);
         try {
           const result = await queries.register({ authToken });
           dispatchGlobal({ type: 'REGISTER', payload: result.data.addUser });
