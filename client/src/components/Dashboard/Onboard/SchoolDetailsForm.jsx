@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-import { addRole } from './onboardQueries';
-import { addSchoolDetails } from './onboardQueries';
+import { addRole, addSchoolDetails } from './onboardQueries';
 import Field from '../../Field';
 
 const SchoolDetailsForm = ({ history }) => {
@@ -49,78 +49,82 @@ const SchoolDetailsForm = ({ history }) => {
         placeholder="Name of Institution"
         onChange={handleChanges}
         inputValue={input.name}
-        required={true}
+        required
       />
 
       <Field
         labelText="TaxId"
         inputName="taxId"
-        placeholder={'TaxId'}
+        placeholder="TaxId"
         onChange={handleChanges}
         inputValue={input.taxId}
-        required={true}
+        required
       />
       <Field
         labelText="Address 1"
         inputName="street1"
-        placeholder={'Address 1'}
+        placeholder="Address 1"
         onChange={handleChanges}
         inputValue={input.street1}
       />
       <Field
         labelText="Address 2"
         inputName="street2"
-        placeholder={'Address 2'}
+        placeholder="Address 2"
         onChange={handleChanges}
         inputValue={input.street2}
       />
       <Field
         labelText="City"
         inputName="city"
-        placeholder={'City'}
+        placeholder="City"
         onChange={handleChanges}
         inputValue={input.city}
       />
       <Field
         labelText="State"
         inputName="state"
-        placeholder={'State'}
+        placeholder="State"
         onChange={handleChanges}
         inputValue={input.state}
       />
       <Field
         labelText="Zip Code"
         inputName="zip"
-        placeholder={'Zip Code'}
+        placeholder="Zip Code"
         onChange={handleChanges}
         inputValue={input.zip}
       />
       <Field
         labelText="Phone Number"
         inputName="phone"
-        placeholder={'Phone Number'}
+        placeholder="Phone Number"
         onChange={handleChanges}
         inputValue={input.phone}
-        required={true}
+        required
       />
       <Field
         labelText="Type of Institution"
         inputName="type"
-        placeholder={'Type of Institution'}
+        placeholder="Type of Institution"
         onChange={handleChanges}
         inputValue={input.type}
       />
       <Field
         labelText="Institution Website"
         inputName="url"
-        placeholder={'Institution Website'}
+        placeholder="Institution Website"
         onChange={handleChanges}
         inputValue={input.url}
-        required={true}
+        required
       />
       <button type="submit">Submit</button>
     </form>
   );
+};
+
+SchoolDetailsForm.propTypes = {
+  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 export default SchoolDetailsForm;

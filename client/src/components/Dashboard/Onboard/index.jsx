@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Onboard({ history }) {
-  console.log(history);
   return (
     <>
       <button type="button" onClick={() => history.push('/onboarding/school')}>
@@ -13,7 +12,7 @@ function Onboard({ history }) {
 }
 
 Onboard.propTypes = {
-  history: PropTypes.object
+  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 export default Onboard;
