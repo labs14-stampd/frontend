@@ -42,7 +42,10 @@ export const Auth0Provider = ({
         const userFromAuth0 = await auth0FromHook.getUser();
         setUser(userFromAuth0);
 
-        const authToken = jwt.sign(userFromAuth0, process.env.REACT_APP_AUTH_TOKEN);
+        const authToken = jwt.sign(
+          userFromAuth0,
+          process.env.REACT_APP_AUTH_TOKEN
+        );
         try {
           const result = await queries.register({ authToken });
           dispatchGlobal({ type: 'REGISTER', payload: result.data.addUser });
@@ -55,7 +58,7 @@ export const Auth0Provider = ({
             history.push('/dashboard');
           }
         } catch (error) {
-          console.log(error);
+          console.error(error);
         }
       }
 
@@ -64,8 +67,6 @@ export const Auth0Provider = ({
     initAuth0();
     // eslint-disable-next-line
   }, []);
-
-  console.log(typeof onRedirectCallback);
 
   const loginWithPopup = async (params = {}) => {
     setPopupOpen(true);

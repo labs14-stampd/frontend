@@ -35,7 +35,7 @@ const SchoolDetailsForm = ({ history }) => {
         roleId: 2 // Role of a school is set to always be 2
       });
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
 
     history.push('/dashboard');

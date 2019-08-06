@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { theme } from './themes';
 
-export const Global = css`
+const Global = css`
   * {
     box-sizing: border-box;
   }
@@ -58,3 +58,5 @@ export const Global = css`
     height: auto;
   }
 `;
+
+export default Global;
