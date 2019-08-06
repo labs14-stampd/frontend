@@ -18,6 +18,7 @@
     "apollo-boost": "^0.4.3",
     "graphql": "^14.4.2",
     "jsonwebtoken": "^8.5.1",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-conflux": "^0.0.2-beta.6",
     "react-dom": "^16.8.6",
