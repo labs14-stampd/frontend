@@ -13,12 +13,20 @@ export const theme = {
     },
     border: '1px solid rgba(0,0,0,0.33)',
     // fontFamily
-    radius: '6px'
+    radius: '6px',
+    font: {
+      family: 'Roboto'
+    }
   }
 };
 
-export const BaseButton = styled(Button)`
-  color: base;
+export const BaseButton = styled(Button)``;
+export const SecondaryButton = styled(Button)`
+  color: white;
+  border: 1px solid white;
+  :hover {
+    border: 2px solid white;
+  }
 `;
 
 export const BaseForm = styled(Form)``;

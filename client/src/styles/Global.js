@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { theme } from './themes';
 
 const Global = css`
   * {
@@ -12,46 +11,36 @@ const Global = css`
   h1,
   h2,
   h3,
-  h4 {
-    font-family: 'Work Sans', sans-serif;
+  h4,
+  h5 {
+    font-family: 'Poppins', 'Work Sans', sans-serif;
+    line-height: 1.8;
   }
   h1 {
     font-size: 3.8rem;
   }
-  h4 {
-    font-size: 1.6rem;
-    font-weight: 200;
-    opacity: 0.9;
-    letter-spacing: 4px;
-    text-transform: uppercase;
+  h2 {
+    font-size: 2.4rem;
   }
   p {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 3rem;
-    line-height: 1.8;
+    font-size: 1.8rem;
+    font-family: 'Roboto', sans-serif;
   }
   a {
     text-decoration: none;
-    font-size: 2rem;
-    font-family: 'Work Sans', sans-serif;
-    color: black;
+    font-size: 1.8rem;
+    font-family: 'Roboto', sans-serif;
   }
   input,
   textarea,
   button {
     -webkit-appearance: none;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
-  label {
-    font-size: 1.6rem;
-    font-weight: 200;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    font-family: 'Work Sans', sans-serif;
-  }
-  input,
-  textarea {
-    color: #929292;
+label {
+    font-size: 1.8rem;
+
+    font-family: 'Poppins', 'Work Sans', sans-serif;
   }
   img {
     width: 100%;

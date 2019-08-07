@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { BaseButton } from '../../../styles/themes';
 
 function Onboard({ history }) {
+  console.log('dsahfdfdofdosodfo');
   return (
     <>
       <BaseButton
