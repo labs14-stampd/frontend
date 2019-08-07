@@ -1,13 +1,15 @@
 import React from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
+import { BaseButton } from '../../../styles/themes';
 
 import { useAuth0 } from '../../../auth/authWrapper';
 import { globalContext } from '../../../store/reducers/globalReducer';
 
-function NavBar() {
+function NavBar(props) {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [globalState] = useStateValue(globalContext);
+  console.log(props);
 
   return (
     <NavContainter>
@@ -15,12 +17,24 @@ function NavBar() {
       <h1>{globalState.greeting}</h1>
       {!isAuthenticated ? (
         <div className="button-container">
-          <button onClick={() => loginWithRedirect({})}>Log in</button>
+          <BaseButton
+            a11yTitle="Login"
+            type="button"
+            color="banana"
+            onClick={() => loginWithRedirect({})}
+            label="Login"
+          />
         </div>
       ) : (
         <div className="button-container">
           <img src="" alt="avatar" />
-          <button onClick={() => logout()}>Log out</button>
+          <BaseButton
+            a11yTitle="Logout"
+            type="button"
+            color="banana"
+            onClick={() => logout()}
+            label="Logout"
+          />
         </div>
       )}
     </NavContainter>

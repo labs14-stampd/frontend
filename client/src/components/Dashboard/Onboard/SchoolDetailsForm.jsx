@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-import { addRole } from './onboardQueries';
-import { addSchoolDetails } from './onboardQueries';
-import Field from '../../Field';
+import { BaseForm, BaseTextInput, BaseFormField } from '../../../styles/themes';
+import queries from './queries';
 
 const SchoolDetailsForm = ({ history }) => {
   const [input, setInput] = useState({
@@ -29,98 +29,114 @@ const SchoolDetailsForm = ({ history }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await addSchoolDetails(input);
-      await addRole({
+      await queries.addSchoolDetails(input);
+      await queries.addRole({
         id: localStorage.id,
         roleId: 2 // Role of a school is set to always be 2
       });
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
 
     history.push('/dashboard');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Field
-        labelText="Name of Institution"
-        inputName="name"
-        placeholder="Name of Institution"
-        onChange={handleChanges}
-        inputValue={input.name}
-        required={true}
-      />
-
-      <Field
-        labelText="TaxId"
-        inputName="taxId"
-        placeholder={'TaxId'}
-        onChange={handleChanges}
-        inputValue={input.taxId}
-        required={true}
-      />
-      <Field
-        labelText="Address 1"
-        inputName="street1"
-        placeholder={'Address 1'}
-        onChange={handleChanges}
-        inputValue={input.street1}
-      />
-      <Field
-        labelText="Address 2"
-        inputName="street2"
-        placeholder={'Address 2'}
-        onChange={handleChanges}
-        inputValue={input.street2}
-      />
-      <Field
-        labelText="City"
-        inputName="city"
-        placeholder={'City'}
-        onChange={handleChanges}
-        inputValue={input.city}
-      />
-      <Field
-        labelText="State"
-        inputName="state"
-        placeholder={'State'}
-        onChange={handleChanges}
-        inputValue={input.state}
-      />
-      <Field
-        labelText="Zip Code"
-        inputName="zip"
-        placeholder={'Zip Code'}
-        onChange={handleChanges}
-        inputValue={input.zip}
-      />
-      <Field
-        labelText="Phone Number"
-        inputName="phone"
-        placeholder={'Phone Number'}
-        onChange={handleChanges}
-        inputValue={input.phone}
-        required={true}
-      />
-      <Field
-        labelText="Type of Institution"
-        inputName="type"
-        placeholder={'Type of Institution'}
-        onChange={handleChanges}
-        inputValue={input.type}
-      />
-      <Field
-        labelText="Institution Website"
-        inputName="url"
-        placeholder={'Institution Website'}
-        onChange={handleChanges}
-        inputValue={input.url}
-        required={true}
-      />
+    <BaseForm onSubmit={handleSubmit}>
+      <BaseFormField label="Institution">
+        <BaseTextInput
+          name="name"
+          placeholder="Name of Institution"
+          onChange={handleChanges}
+          value={input.name}
+          plain={false}
+          required
+        />
+      </BaseFormField>
+      <BaseFormField label="Tax Id">
+        <BaseTextInput
+          labelText="TaxId"
+          name="taxId"
+          placeholder="TaxId"
+          onChange={handleChanges}
+          value={input.taxId}
+          required
+        />
+      </BaseFormField>
+      <BaseFormField label="Address 1">
+        <BaseTextInput
+          name="street1"
+          placeholder="Address 1"
+          onChange={handleChanges}
+          value={input.street1}
+        />
+      </BaseFormField>
+      <BaseFormField label="Address 2">
+        <BaseTextInput
+          name="street2"
+          placeholder="Address 2"
+          onChange={handleChanges}
+          value={input.street2}
+        />
+      </BaseFormField>
+      <BaseFormField label="City">
+        <BaseTextInput
+          name="city"
+          placeholder="City"
+          onChange={handleChanges}
+          value={input.city}
+        />
+      </BaseFormField>
+      <BaseFormField label="State">
+        <BaseTextInput
+          name="state"
+          placeholder="State"
+          onChange={handleChanges}
+          value={input.state}
+        />
+      </BaseFormField>
+      <BaseFormField label="Zip Code">
+        <BaseTextInput
+          name="zip"
+          placeholder="Zip Code"
+          onChange={handleChanges}
+          value={input.zip}
+        />
+      </BaseFormField>
+      <BaseFormField label="Phone Number">
+        <BaseTextInput
+          name="phone"
+          placeholder="Phone Number"
+          onChange={handleChanges}
+          value={input.phone}
+          required
+        />
+      </BaseFormField>
+      <BaseFormField label="Type of Institution">
+        <BaseTextInput
+          name="type"
+          placeholder="Type of Institution"
+          onChange={handleChanges}
+          value={input.type}
+        />
+      </BaseFormField>
+      <BaseFormField label="Institution Website">
+        <BaseTextInput
+          labelText="Institution Website"
+          name="url"
+          placeholder="Institution Website"
+          onChange={handleChanges}
+          value={input.url}
+          required
+        />
+      </BaseFormField>
       <button type="submit">Submit</button>
-    </form>
+    </BaseForm>
   );
+};
+
+SchoolDetailsForm.propTypes = {
+  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 export default SchoolDetailsForm;

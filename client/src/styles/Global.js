@@ -1,7 +1,7 @@
-import { css } from "styled-components";
-import { theme } from "./themes";
+import { css } from 'styled-components';
+import { theme } from './themes';
 
-export const Global = css`
+const Global = css`
   * {
     box-sizing: border-box;
   }
@@ -13,7 +13,7 @@ export const Global = css`
   h2,
   h3,
   h4 {
-    font-family: "Work Sans", sans-serif;
+    font-family: 'Work Sans', sans-serif;
   }
   h1 {
     font-size: 3.8rem;
@@ -26,28 +26,28 @@ export const Global = css`
     text-transform: uppercase;
   }
   p {
-    font-family: "Work Sans", sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-size: 3rem;
     line-height: 1.8;
   }
   a {
     text-decoration: none;
     font-size: 2rem;
-    font-family: "Work Sans", sans-serif;
+    font-family: 'Work Sans', sans-serif;
     color: black;
   }
   input,
   textarea,
   button {
     -webkit-appearance: none;
-    font-family: "Work Sans", sans-serif;
+    font-family: 'Work Sans', sans-serif;
   }
   label {
     font-size: 1.6rem;
     font-weight: 200;
     letter-spacing: 4px;
     text-transform: uppercase;
-    font-family: "Work Sans", sans-serif;
+    font-family: 'Work Sans', sans-serif;
   }
   input,
   textarea {
@@ -58,3 +58,5 @@ export const Global = css`
     height: auto;
   }
 `;
+
+export default Global;

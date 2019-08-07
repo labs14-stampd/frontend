@@ -1,9 +1,14 @@
-import { createGlobalStyle } from "styled-components";
-import { Reset } from "./Reset";
-import { Global } from "./Global";
+import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle`
+import Reset from './Reset';
+import Global from './Global';
+
+const GlobalStyle = createGlobalStyle`
   ${Reset}
+  
   ${Global}
-  background: red;
+
+  background-color: red;
 `;
+
+export default GlobalStyle;

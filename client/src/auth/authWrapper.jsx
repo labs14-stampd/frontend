@@ -2,8 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import { useStateValue } from 'react-conflux';
 import jwt from 'jsonwebtoken';
+import PropTypes from 'prop-types';
 import { globalContext } from '../store/reducers/globalReducer';
-import { register } from './authQueries';
+import queries from './authQueries';
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
   window.history.replaceState({}, document.title, window.location.pathname);
@@ -33,17 +34,20 @@ export const Auth0Provider = ({
         onRedirectCallback(appState);
       }
 
-      const isAuthenticated = await auth0FromHook.isAuthenticated();
+      const isAuthenticatedFromAuth0 = await auth0FromHook.isAuthenticated();
 
-      setIsAuthenticated(isAuthenticated);
+      setIsAuthenticated(isAuthenticatedFromAuth0);
 
-      if (isAuthenticated) {
-        const user = await auth0FromHook.getUser();
-        setUser(user);
+      if (isAuthenticatedFromAuth0) {
+        const userFromAuth0 = await auth0FromHook.getUser();
+        setUser(userFromAuth0);
 
-        const authToken = jwt.sign(user, process.env.REACT_APP_AUTH_TOKEN)
+        const authToken = jwt.sign(
+          userFromAuth0,
+          process.env.REACT_APP_AUTH_TOKEN
+        );
         try {
-          const result = await register({ authToken });
+          const result = await queries.register({ authToken });
           dispatchGlobal({ type: 'REGISTER', payload: result.data.addUser });
 
           localStorage.id = result.data.addUser.id;
@@ -54,7 +58,7 @@ export const Auth0Provider = ({
             history.push('/dashboard');
           }
         } catch (error) {
-          console.log(error);
+          console.error(error);
         }
       }
 
@@ -73,18 +77,18 @@ export const Auth0Provider = ({
     } finally {
       setPopupOpen(false);
     }
-    const user = await auth0Client.getUser();
-    setUser(user);
+    const userFromAuth0 = await auth0Client.getUser();
+    setUser(userFromAuth0);
     setIsAuthenticated(true);
   };
 
   const handleRedirectCallback = async () => {
     setLoading(true);
     await auth0Client.handleRedirectCallback();
-    const user = await auth0Client.getUser();
+    const userFromAuth0 = await auth0Client.getUser();
     setLoading(false);
     setIsAuthenticated(true);
-    setUser(user);
+    setUser(userFromAuth0);
   };
   return (
     <Auth0Context.Provider
@@ -105,4 +109,13 @@ export const Auth0Provider = ({
       {children}
     </Auth0Context.Provider>
   );
+};
+
+Auth0Provider.propTypes = {
+  history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired,
+  onRedirectCallback: PropTypes.func.isRequired
 };
