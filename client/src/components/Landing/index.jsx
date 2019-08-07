@@ -5,7 +5,7 @@ import { useAuth0 } from '../../auth/authWrapper';
 import { BaseButton } from '../../styles/themes';
 import stampdBackground from '../../images/stampdbackground.svg';
 
-function Landing(props) {
+function Landing() {
   const { loginWithRedirect } = useAuth0();
   return (
     <LandingPage>
@@ -14,8 +14,10 @@ function Landing(props) {
       </div>
       <div className="cta-container">
         <div className="cta-text">
-          Lorem Epsom in the <br />
-          blockchain with <span>Stampd</span>
+          Lorem Epsom in the
+          <br />
+          blockchain with
+          <span>Stampd</span>
         </div>
         <BaseButton
           type="button"
@@ -58,9 +60,5 @@ const LandingPage = styled.div`
     }
   }
 `;
-
-Landing.propTypes = {
-  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
-};
 
 export default Landing;
