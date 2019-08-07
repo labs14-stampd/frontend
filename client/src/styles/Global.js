@@ -37,7 +37,7 @@ const Global = css`
     -webkit-appearance: none;
     font-family: 'Roboto', sans-serif;
   }
-label {
+  label {
     font-size: 1.8rem;
 
     font-family: 'Poppins', 'Work Sans', sans-serif;

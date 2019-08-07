@@ -33,7 +33,6 @@ function App() {
             path="/dashboard/credForm"
             component={CredentialForm}
           />
-          <Footer />
         </Switch>
         <GlobalStyle />
       </Grommet>

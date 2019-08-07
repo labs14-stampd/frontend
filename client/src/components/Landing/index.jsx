@@ -40,7 +40,7 @@ const LandingPage = styled.div`
   position: relative;
 
   .landing-img {
-    transform: translateX(-35%) translateY(-18%) scale(0.8);
+    transform: translateX(-35%) translateY(-18%);
     position: absolute;
     left: 0;
     z-index: -1;
@@ -57,13 +57,13 @@ const LandingPage = styled.div`
     .cta-text {
       text-align: right;
       margin-bottom: 10px;
-     h1 {
-      font-size: 5.3rem;
-      font-weight: 800;
-      span {
-        color: ${props => props.theme.global.colors.brand};
+      h1 {
+        font-size: 5.3rem;
+        font-weight: 800;
+        span {
+          color: ${props => props.theme.global.colors.brand};
+        }
       }
-     }
     }
     button {
       transform: scale(1.8);
