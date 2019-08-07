@@ -10,30 +10,30 @@ import SchoolDetailsForm from './components/Dashboard/Onboard/SchoolDetailsForm'
 import Landing from './components/Landing';
 import CredentialForm from './components/Dashboard/CredentialsForm';
 import NavBar from './components/Layout/NavBar';
-import Footer from './components/Layout/Footer';
 import GlobalStyle from './styles';
+
+import Layout from './components/Layout';
 
 function App() {
   return (
     <>
       {/* Placeholder route - to be used later */}
       <Grommet theme={theme}>
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <NavBar />
-          <PrivateRoute
-            exact
-            path="/onboarding/school"
-            component={SchoolDetailsForm}
-          />
-          <PrivateRoute exact path="/onboarding" component={Onboard} />
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute
-            exact
-            path="/dashboard/credForm"
-            component={CredentialForm}
-          />
-        </Switch>
+        <Route exact path="/" component={Landing} />
+        <Layout>
+          <Switch>
+            <PrivateRoute
+              path="/onboarding/school"
+              component={SchoolDetailsForm}
+            />
+            <PrivateRoute exact path="/onboarding" component={Onboard} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute
+              path="/dashboard/credForm"
+              component={CredentialForm}
+            />
+          </Switch>
+        </Layout>
         <GlobalStyle />
       </Grommet>
     </>

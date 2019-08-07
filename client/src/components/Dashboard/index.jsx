@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { useAuth0 } from '../../auth/authWrapper';
 
 const Dashboard = ({ history }) => {
@@ -15,7 +16,7 @@ const Dashboard = ({ history }) => {
     }
   };
   return (
-    <div>
+    <Container>
       <h1>Dashboard</h1>
       <button type="button" onClick={callApi}>
         Check if working
@@ -23,12 +24,17 @@ const Dashboard = ({ history }) => {
       <button type="button" onClick={() => history.push('/dashboard/credForm')}>
         Issue Credential
       </button>
-    </div>
+    </Container>
   );
 };
 
 Dashboard.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
+
+const Container = styled.div`
+  width: 100%;
+  min-height: 100vh;
+`;
 
 export default Dashboard;
