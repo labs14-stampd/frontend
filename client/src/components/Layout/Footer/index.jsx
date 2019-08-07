@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Footer = () => {
+const Footer = (props) => {
   return (
     <FooterContainer>
       <span>About</span>
@@ -16,6 +16,7 @@ const FooterContainer = styled.div`
   border-top: 1px solid #333;
   position: relative;
   top: 75vh;
+  background-color: ${props => props.theme.global.colors['brand']};
 `;
 
 export default Footer;
