@@ -5,7 +5,7 @@ const Footer = (props) => {
   return (
     <FooterContainer>
       <span>About</span>
-      <span color={props => props.theme.global.colors['accent-2']}>stampd2019</span>
+      <span>stampd2019</span>
       <span>Contact Us</span>
     </FooterContainer>
   );
