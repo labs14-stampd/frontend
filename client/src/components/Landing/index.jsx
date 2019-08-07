@@ -5,7 +5,7 @@ import { useAuth0 } from '../../auth/authWrapper';
 import { BaseButton } from '../../styles/themes';
 import stampdBackground from '../../images/stampdbackground.svg';
 
-function Landing({ history }) {
+function Landing(props) {
   const { loginWithRedirect } = useAuth0();
   return (
     <LandingPage>
@@ -14,7 +14,8 @@ function Landing({ history }) {
       </div>
       <div className="cta-container">
         <div className="cta-text">
-          Lorem Epsom in the blockchain with stampd
+          Lorem Epsom in the <br />
+          blockchain with <span>Stampd</span>
         </div>
         <BaseButton
           type="button"
@@ -47,8 +48,13 @@ const LandingPage = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
+    margin-right: 10%;
     .cta-text {
       font-size: 2.8rem;
+      margin-bottom: 10px;
+      span {
+        color: ${props => console.log(props)};
+      }
     }
   }
 `;

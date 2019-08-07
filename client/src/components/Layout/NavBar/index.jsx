@@ -7,7 +7,7 @@ import { BaseButton } from '../../../styles/themes';
 import { useAuth0 } from '../../../auth/authWrapper';
 import { globalContext } from '../../../store/reducers/globalReducer';
 
-function NavBar(props) {
+function NavBar() {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [globalState] = useStateValue(globalContext);
 
@@ -19,7 +19,6 @@ function NavBar(props) {
       {!isAuthenticated ? (
         <div className="button-container">
           <LoginBtn
-            {...props}
             a11yTitle="Login"
             type="button"
             onClick={() => loginWithRedirect({})}
@@ -43,6 +42,8 @@ function NavBar(props) {
 
 const NavContainter = styled.div`
   display: flex;
+  width: 100%;
+  position: fixed;
   justify-content: space-between;
   background-color: ${props => props.theme.global.colors['brand']};
   align-items: center;
