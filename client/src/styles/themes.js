@@ -18,7 +18,11 @@ export const theme = {
 };
 
 export const BaseButton = styled(Button)`
-  color: base;
+  color: white;
+  border: 1px solid white;
+  :hover {
+    border: 2px solid white;
+  }
 `;
 
 export const BaseForm = styled(Form)``;

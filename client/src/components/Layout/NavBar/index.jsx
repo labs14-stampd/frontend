@@ -13,9 +13,9 @@ function NavBar(props) {
 
   return (
     <NavContainter>
-      <Menu size='large' color='accent-1' />
-      <img src="" alt="logo" />
-      <h1>{globalState.greeting}</h1>
+      <Menu size="large" color="white" />
+      {/* <img src="" alt="logo" /> */}
+      <Logoh1>{globalState.greeting}</Logoh1>
       {!isAuthenticated ? (
         <div className="button-container">
           <LoginBtn
@@ -44,13 +44,20 @@ function NavBar(props) {
 const NavContainter = styled.div`
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #333;
-  background-color: ${props => props.theme.global.colors['brand']}
+  background-color: #3aecfc;
+  align-items: center;
+  border-bottom: 2px solid #82fdff;
 `;
 
 const LoginBtn = styled(BaseButton)`
-  border: 2px solid ${props => props.theme.global.colors['accent-1']};
-  color: ${props => props.theme.global.colors['accent-1']}
+  border: 2px solid white /*${props => props.theme.global.colors['neutral-2']}*/;
+  color: white /*${props => props.theme.global.colors['neutral-2']}*/;
+`;
+
+const Logoh1 = styled.h1`
+  color: ${props => props.theme.global.colors['brand']};
 `;
 
 export default NavBar;
+
+//${props => props.theme.global.colors['accent-3']}

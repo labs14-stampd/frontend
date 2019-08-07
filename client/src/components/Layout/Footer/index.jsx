@@ -1,22 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Footer = (props) => {
+const Footer = props => {
   return (
     <FooterContainer>
-      <span>About</span>
       <span>stampd2019</span>
-      <span>Contact Us</span>
     </FooterContainer>
   );
 };
 const FooterContainer = styled.div`
-  display: flex;
-  justify-content: space-evenly;
+  text-align: center;
   border-top: 1px solid #333;
-  position: relative;
-  top: 75vh;
-  background-color: ${props => props.theme.global.colors['brand']};
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  background-color: #3aecfc;
+  border-top: 2px solid #82fdff;
 `;
 
 export default Footer;
+
+// ${props => props.theme.global.colors['neutral-3']}
+//${props => props.theme.global.colors['accent-3']}
