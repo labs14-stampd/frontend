@@ -68,6 +68,7 @@ const LandingPage = styled.div`
     button {
       transform: scale(1.8);
       margin-top: 50px;
+      margin-right: 60px;
     }
   }
 `;
