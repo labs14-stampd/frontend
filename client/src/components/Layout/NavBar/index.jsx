@@ -44,7 +44,7 @@ function NavBar(props) {
 const NavContainter = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: #3aecfc;
+  background-color: ${props => props.theme.global.colors['brand']};
   align-items: center;
   border-bottom: 2px solid #82fdff;
 `;
@@ -55,9 +55,10 @@ const LoginBtn = styled(BaseButton)`
 `;
 
 const Logoh1 = styled.h1`
-  color: ${props => props.theme.global.colors['brand']};
+  color: white;
 `;
 
 export default NavBar;
 
 //${props => props.theme.global.colors['accent-3']}
+//${props => props.theme.global.colors['brand']}
