@@ -28,21 +28,28 @@ function Landing({ history }) {
 }
 
 const LandingPage = styled.div`
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
+  position: relative;
 
   .landing-img {
     transform: translateX(-35%) translateY(-18%) scale(0.8);
     position: absolute;
     left: 0;
     z-index: -1;
+    overflow: hidden;
   }
 
   .cta-container {
     display: flex;
-    justify-content: flex-end;
-    border: 1px solid red;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    .cta-text {
+      font-size: 2.8rem;
+    }
   }
 `;
 
