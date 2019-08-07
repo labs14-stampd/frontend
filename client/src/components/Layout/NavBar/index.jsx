@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
+import { Menu } from 'grommet-icons';
 import { BaseButton } from '../../../styles/themes';
 
 import { useAuth0 } from '../../../auth/authWrapper';
@@ -12,6 +13,7 @@ function NavBar(props) {
 
   return (
     <NavContainter>
+      <Menu />
       <img src="" alt="logo" />
       <h1>{globalState.greeting}</h1>
       {!isAuthenticated ? (
