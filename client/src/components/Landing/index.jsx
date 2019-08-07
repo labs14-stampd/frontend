@@ -14,16 +14,19 @@ function Landing() {
       </div>
       <div className="cta-container">
         <div className="cta-text">
-          Lorem Epsom in the
-          <br />
-          blockchain with
-          <span>Stampd</span>
+          <h1>
+            Lorem Epsom in the
+            <br />
+            blockchain with
+            <span> Stampd</span>
+          </h1>
         </div>
         <BaseButton
           type="button"
           onClick={() => loginWithRedirect({})}
           label="Get Started"
           primary
+          size="xlarge"
         />
       </div>
     </LandingPage>
@@ -50,13 +53,21 @@ const LandingPage = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    margin-right: 10%;
+    margin-right: 11%;
     .cta-text {
-      font-size: 2.8rem;
+      text-align: right;
       margin-bottom: 10px;
+     h1 {
+      font-size: 5.3rem;
+      font-weight: 800;
       span {
-        color: ${props => console.log(props)};
+        color: ${props => props.theme.global.colors.brand};
       }
+     }
+    }
+    button {
+      transform: scale(1.8);
+      margin-top: 50px;
     }
   }
 `;

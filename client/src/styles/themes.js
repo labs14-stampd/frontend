@@ -13,7 +13,10 @@ export const theme = {
     },
     border: '1px solid rgba(0,0,0,0.33)',
     // fontFamily
-    radius: '6px'
+    radius: '6px',
+    font: {
+      family: 'Roboto'
+    }
   }
 };
 
