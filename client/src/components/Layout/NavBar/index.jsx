@@ -13,7 +13,7 @@ function NavBar(props) {
 
   return (
     <NavContainter>
-      <Menu />
+      <Menu size='large' color='accent-1' />
       <img src="" alt="logo" />
       <h1>{globalState.greeting}</h1>
       {!isAuthenticated ? (
@@ -45,10 +45,12 @@ const NavContainter = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #333;
+  background-color: ${props => props.theme.global.colors['brand']}
 `;
 
 const LoginBtn = styled(BaseButton)`
   border: 2px solid ${props => props.theme.global.colors['accent-1']};
+  color: ${props => props.theme.global.colors['accent-1']}
 `;
 
 export default NavBar;
