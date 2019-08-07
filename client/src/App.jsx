@@ -13,10 +13,10 @@ import GlobalStyle from './styles';
 function App() {
   return (
     <>
-      <Layout>
-        <Switch>
-          {/* Placeholder route - to be used later */}
-          <Route exact path="/" component={Landing} />
+      <Switch>
+        {/* Placeholder route - to be used later */}
+        <Route exact path="/" component={Landing} />
+        <Layout>
           <PrivateRoute
             path="/onboarding/school"
             component={SchoolDetailsForm}
@@ -24,8 +24,8 @@ function App() {
           <PrivateRoute path="/onboarding" component={Onboard} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/dashboard/credForm" component={CredentialForm} />
-        </Switch>
-      </Layout>
+        </Layout>
+      </Switch>
       <GlobalStyle />
     </>
   );

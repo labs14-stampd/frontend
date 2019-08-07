@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1456.013" height="1365.185" viewBox="0 0 1456.013 1365.185">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.062" y1="0.116" x2="1.245" y2="1.218" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#528eff"/>
+      <stop offset="1" stop-color="#5c4588" stop-opacity="0.886"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.505" y1="0.31" x2="0.49" y2="1.259" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#5252ff"/>
+      <stop offset="1" stop-color="#6c66ef" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.186" y1="0.688" x2="1.287" y2="-0.607" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#7f52d5"/>
+      <stop offset="1" stop-color="#6a95ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="0.194" y1="0.121" x2="1.18" y2="1.665" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#52e4ff"/>
+      <stop offset="1" stop-color="#00298e" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_1" data-name="Group 1" transform="matrix(0.995, 0.105, -0.105, 0.995, 128.232, -0.06)" opacity="0.95">
+    <path id="XMLID_22_" d="M1010.14,150.826c88.262,102.38-5.956,234.353-5.956,364.163,0,192.783,435.143,290.572,307.637,517.076C1181.252,1250.777,761.957,1271.1,449.4,1185.318,249.077,1130.335,155.278,992.04,90.207,897.929-18.239,741-39.5,293,90.207,150.826,239.352-12.672,806.979-84.686,1010.14,150.826Z" transform="translate(-0.127 0)" fill="url(#linear-gradient)"/>
+    <path id="XMLID_21_" d="M508.465,710.978C359.4,750.385,43.743,883.362,13.3,706.5c0,0-54.761-354.273,70.064-514.14C104.211,165.622,226.224,147,226.224,147c-36.4,24.185-94.8,131.278-20.266,202.287,97.279,92.721,395.569,96.739,475.228,195.874C759.108,642.519,563.805,696.3,508.465,710.978Z" transform="translate(-0.233 -33.417)" fill="url(#linear-gradient-2)"/>
+    <path id="XMLID_20_" d="M1086.211,178.133c42.6,54.86,18.2,145.882,5.294,189.77-45.993,156.081-213.418,294.159-382.664,310.385C492.2,699,749.87,422.686,612.968,273.636,549.025,213.213,461.755,128.759,395,105.656,395,105.656,928.133-25.622,1086.211,178.133Z" transform="translate(-68.256 -14.558)" fill="url(#linear-gradient-3)"/>
+    <path id="XMLID_19_" d="M1151.488,1304.179c-571.07,268.915-899.937-29.813-1061.407-255.512C-13.65,903.789.66,663.1.66,663.1,29.2,664.645,171.23,712.088,253.454,815.318c43.842,55.092,38.067,288.189,157.018,329.836,147.9,51.77,486.607-237.527,767.636-94.748C1275.552,1105.576,1232.275,1264.417,1151.488,1304.179Z" transform="matrix(0.998, -0.07, 0.07, 0.998, -87.839, -85.281)" fill="url(#linear-gradient-4)"/>
+  </g>
+</svg>
