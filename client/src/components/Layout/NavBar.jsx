@@ -11,7 +11,9 @@ function NavBar() {
   return (
     <NavContainter>
       <nav>
-        <Menu className="hamburger" size="large" color="white" />
+        {isAuthenticated && (
+          <Menu className="hamburger" size="large" color="white" />
+        )}
         {/* <img src="" alt="logo" /> */}
         {!isAuthenticated ? (
           <div className="button__container">
@@ -43,10 +45,10 @@ const NavContainter = styled.div`
   width: 100%;
   height: 70px;
   position: fixed;
+  padding: 0 3%;
   justify-content: space-between;
   background-color: ${props => props.theme.global.colors.brand};
   align-items: center;
-  padding: 0 3%;
   top: 0;
   -webkit-box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.46);
   -moz-box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.46);
@@ -55,13 +57,17 @@ const NavContainter = styled.div`
 
   nav {
     margin: 0 auto;
-    max-width: 2000px;
+    max-width: 1600px;
     width: 100%;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 
     .button__container {
+      position: absolute;
+      right: 0;
       display: flex;
       justify-content: flex-end;
       width: 20%;

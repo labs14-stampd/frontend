@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grommet } from 'grommet';
 import PropTypes from 'prop-types';
-import NavBar from './NavBar.jsx';
-import Footer from './Footer.jsx';
+import NavBar from './NavBar';
+import Footer from './Footer';
 import { theme } from '../../styles/themes';
 
 // GlobalStyles will go here
