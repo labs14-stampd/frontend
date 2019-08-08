@@ -148,10 +148,6 @@ CredentialsForm.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
-// const CredentialButton = styled(BaseButton)`
-//   margin
-// `;
-
 const Container = styled.main`
   width: 100%;
   height: calc(100vh - 70px);
