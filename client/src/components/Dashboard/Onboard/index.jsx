@@ -42,7 +42,7 @@ const Container = styled.main`
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
-    padding: 3%;
+    padding: 37px 3%;
     display: flex;
     flex-direction: column;
     align-items: center;

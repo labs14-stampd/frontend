@@ -112,7 +112,7 @@ const SchoolDetailsForm = ({ history }) => {
 
   return (
     <SchoolForm onSubmit={handleSubmit}>
-      <Box direction="column" animation="jiggle">
+      <Box direction="column">
         <Heading margin="20px 0 0 0" alignSelf="center">
           School Details
         </Heading>
