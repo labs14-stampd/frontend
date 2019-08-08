@@ -46,19 +46,20 @@ const LandingPage = styled.div`
     left: 0;
     z-index: 1;
     overflow: hidden;
-    min-width: 1000px;
+    min-width: 1300px;
   }
 
   .cta-container {
     display: flex;
     height: 100%;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-end;
-    margin-right: 11%;
+    margin-right: 5%;
+
     .cta-text {
       text-align: right;
-      margin-bottom: 10px;
+      margin: 300px 0 10px;
       z-index: 2;
 
       h1 {
