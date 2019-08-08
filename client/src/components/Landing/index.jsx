@@ -44,12 +44,16 @@ const LandingPage = styled.div`
   }
 
   .landing-img {
-    transform: translateX(-35%) translateY(-18%);
+    transform: translateX(-38%) translateY(-18%);
     position: absolute;
     left: 0;
     z-index: 1;
     overflow: hidden;
     min-width: 1300px;
+
+    img {
+      height: 120vh;
+    }
 
     @media (max-width: 1200px) {
       transform: translateX(-40%) translateY(-25%) rotate(10deg);
@@ -74,13 +78,22 @@ const LandingPage = styled.div`
 
     .cta-text {
       text-align: right;
-      margin: 270px 0 10px;
-      width: 56.5%;
+      margin: 24vh 0 10px;
+      width: 58.5%;
       z-index: 2;
+
+      @media (max-width: 1200px) {
+        margin: 220px 0 10px;
+      }
+
+      @media (max-width: 800px) {
+        margin: 120px 0 10px;
+        width: 90%;
+      }
 
       @media (max-width: 600px) {
         margin: 120px 0 10px;
-        width: 100%;
+        width: 90%;
       }
 
       h1 {
