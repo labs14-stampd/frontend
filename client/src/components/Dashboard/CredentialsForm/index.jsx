@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { MaskedInput, Select, Box, Heading } from 'grommet';
+import { MaskedInput, Select, Box, Heading, TextArea } from 'grommet';
 
 import {
   BaseForm,
@@ -49,75 +49,76 @@ const CredentialsForm = ({ history }) => {
         <h2>Issue Credential</h2>
         <BaseForm onSubmit={handleSubmit}>
           <Box>
-            <BaseFormField>
+            <BaseFormField label="Name of Student">
               <BaseTextInput
-                inputName="name"
-                placeholder="Enter the name for the credentials"
+                name="name"
+                placeholder="Jane Doe"
                 onChange={handleChanges}
-                inputValue={credsInputs.name}
+                value={credsInputs.name}
+                required
+              />
+            </BaseFormField>
+            <BaseFormField label="Type">
+              <BaseTextInput
+                name="type"
+                placeholder="Masters, PhD, Cert, etc."
+                onChange={handleChanges}
+                value={credsInputs.type}
+                required
+              />
+            </BaseFormField>
+            <BaseFormField label="Description">
+              <TextArea
+                name="description"
+                placeholder="Summary of credential"
+                onChange={handleChanges}
+                value={credsInputs.description}
+                required
+              />
+            </BaseFormField>
+
+            <BaseFormField label="Student Email">
+              <BaseTextInput
+                name="studentEmail"
+                placeholder="Jane.Doe@gmail.com"
+                onChange={handleChanges}
+                value={credsInputs.studentEmail}
+                required
+              />
+            </BaseFormField>
+            <BaseFormField label="School Seal Image URL">
+              <BaseTextInput
+                name="imageUrl"
+                placeholder="Image"
+                onChange={handleChanges}
+                value={credsInputs.imageUrl}
                 required
               />
             </BaseFormField>
             <BaseFormField>
               <BaseTextInput
-                inputName="description"
-                placeholder="Enter a description of the credentials"
-                onChange={handleChanges}
-                inputValue={credsInputs.description}
-                required
-              />
-            </BaseFormField>
-            <BaseFormField>
-              <BaseTextInput
-                inputName="type"
-                placeholder="Select the type of crendentials"
-                onChange={handleChanges}
-                inputValue={credsInputs.type}
-                required
-              />
-            </BaseFormField>
-            <BaseFormField>
-              <BaseTextInput
-                inputName="studentEmail"
-                placeholder="Enter the email address of the student to be credentialed"
-                onChange={handleChanges}
-                inputValue={credsInputs.studentEmail}
-                required
-              />
-            </BaseFormField>
-            <BaseFormField>
-              <BaseTextInput
-                inputName="imageUrl"
-                placeholder="Enter a URL for an image corresponding to the crendentials"
-                onChange={handleChanges}
-                inputValue={credsInputs.imageUrl}
-                required
-              />
-            </BaseFormField>
-            <BaseFormField>
-              <BaseTextInput
-                inputName="criteria"
+                name="criteria"
                 placeholder="Enter the criteria for the credentials"
                 onChange={handleChanges}
-                inputValue={credsInputs.criteria}
+                value={credsInputs.criteria}
                 required
               />
             </BaseFormField>
             <BaseFormField>
               <BaseTextInput
-                inputName="issuedOn"
+                name="issuedOn"
                 placeholder="Enter the issue date for the credentials"
                 onChange={handleChanges}
-                inputValue={credsInputs.issuedOn}
+                value={credsInputs.issuedOn}
                 required
               />
             </BaseFormField>
             <BaseFormField>
               <BaseTextInput
-                inputName="expirationDate"
+                name="expirationDate"
                 placeholder="Enter the expiration date for the credentials"
                 onChange={handleChanges}
-                inputValue={credsInputs.expirationDate}
+                value={credsInputs.expirationDate}
               />
             </BaseFormField>
             <BaseButton
