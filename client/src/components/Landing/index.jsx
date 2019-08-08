@@ -14,9 +14,9 @@ function Landing() {
       <div className="cta-container">
         <div className="cta-text">
           <h1>
-            Lorem Epsom in the
+            Secure your credentials
             <br />
-            blockchain with
+            on blockchain with
             <span> Stampd</span>
           </h1>
         </div>
@@ -39,6 +39,10 @@ const LandingPage = styled.div`
   max-width: 1600px;
   margin: 0 auto;
 
+  @media (max-width: 600px) {
+    overflow: hidden;
+  }
+
   .landing-img {
     transform: translateX(-35%) translateY(-18%);
     position: absolute;
@@ -46,6 +50,18 @@ const LandingPage = styled.div`
     z-index: 1;
     overflow: hidden;
     min-width: 1300px;
+
+    @media (max-width: 1200px) {
+      transform: translateX(-40%) translateY(-25%) rotate(10deg);
+      min-width: 0;
+      margin-top: 100px;
+    }
+
+    @media (max-width: 600px) {
+      transform: rotate(-30deg);
+      margin: 230px 0 0 -200px;
+      width: 600px;
+    }
   }
 
   .cta-container {
@@ -54,17 +70,31 @@ const LandingPage = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-end;
-    margin-right: 5%;
+    margin: 0 3%;
 
     .cta-text {
       text-align: right;
-      margin: 300px 0 10px;
+      margin: 270px 0 10px;
+      width: 56.5%;
       z-index: 2;
+
+      @media (max-width: 600px) {
+        margin: 120px 0 10px;
+        width: 100%;
+      }
 
       h1 {
         font-size: 5.3rem;
         font-weight: 800;
         color: #333333;
+
+        @media (max-width: 1200px) {
+          font-size: 4rem;
+        }
+
+        @media (max-width: 600px) {
+          font-size: 3.4rem;
+        }
 
         span {
           color: ${props => props.theme.global.colors.brand};
@@ -73,8 +103,13 @@ const LandingPage = styled.div`
     }
     button {
       transform: scale(1.8);
-      margin-top: 50px;
-      margin-right: 60px;
+      margin: 50px 55px 0 0;
+      z-index: 5;
+
+      @media (max-width: 600px) {
+        transform: scale(1.4);
+        margin: 20px 25px 0 0;
+      }
     }
   }
 `;

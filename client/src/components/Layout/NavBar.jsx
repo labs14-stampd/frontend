@@ -47,9 +47,9 @@ const NavContainter = styled.div`
   background-color: ${props => props.theme.global.colors.brand};
   align-items: center;
   top: 0;
-  -webkit-box-shadow: 0px 7px 53px -20px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 7px 53px -20px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 7px 53px -20px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.46);
+  box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.46);
   z-index: 50;
 
   nav {
