@@ -1,22 +1,18 @@
 import React from 'react';
-import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
 import { Menu } from 'grommet-icons';
-import { SecondaryButton } from '../../../styles/themes';
+import { SecondaryButton } from '../../styles/themes';
 
-import { useAuth0 } from '../../../auth/authWrapper';
-import { globalContext } from '../../../store/reducers/globalReducer';
+import { useAuth0 } from '../../auth/authWrapper';
 
 function NavBar() {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
-  const [globalState] = useStateValue(globalContext);
 
   return (
     <NavContainter>
       <nav>
         <Menu size="large" color="white" />
         {/* <img src="" alt="logo" /> */}
-        {/* <Logoh1>{globalState.greeting}</Logoh1> */}
         {!isAuthenticated ? (
           <div className="button__container">
             <NavBtn
@@ -76,10 +72,6 @@ const NavContainter = styled.div`
 const NavBtn = styled(SecondaryButton)`
   border: 2px solid white /*${props => props.theme.global.colors['neutral-2']}*/;
   color: white /*${props => props.theme.global.colors['neutral-2']}*/;
-`;
-
-const LogoH1 = styled.h1`
-  color: white;
 `;
 
 export default NavBar;
