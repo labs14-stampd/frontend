@@ -51,10 +51,19 @@ const CredentialsForm = ({ history }) => {
           <Box>
             <BaseFormField label="Name of Student">
               <BaseTextInput
-                name="name"
+                name="ownerName"
                 placeholder="Jane Doe"
                 onChange={handleChanges}
-                value={credsInputs.name}
+                value={credsInputs.ownerName}
+                required
+              />
+            </BaseFormField>
+            <BaseFormField label="Name of Student">
+              <BaseTextInput
+                name="credName"
+                placeholder="Masters in Philopsophy"
+                onChange={handleChanges}
+                value={credsInputs.credName}
                 required
               />
             </BaseFormField>
