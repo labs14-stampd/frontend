@@ -6,7 +6,7 @@ export const theme = {
     colors: {
       // primary: '#444444',
       // secondary: 'palevioletred',
-      // black: '#444444',
+      black: '#333333',
       // background: 'silver',
       banana: 'crimson',
       accent: 'accent-1'
@@ -21,6 +21,7 @@ export const theme = {
 };
 
 export const BaseButton = styled(Button)``;
+
 export const SecondaryButton = styled(Button)`
   color: white;
   border: 1px solid white;
