@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import queries from './queries';
 import Field from '../../Field';
@@ -35,85 +36,122 @@ const CredentialsForm = ({ history }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Field
-        labelText="Name"
-        inputName="name"
-        placeholder="Enter the name for the credentials"
-        onChange={handleChanges}
-        inputValue={credsInputs.name}
-        required
-      />
-
-      <Field
-        labelText="Description"
-        inputName="description"
-        placeholder="Enter a description of the credentials"
-        onChange={handleChanges}
-        inputValue={credsInputs.description}
-        required
-      />
-
-      <Field
-        labelText="Type"
-        inputName="type"
-        placeholder="Select the type of crendentials"
-        onChange={handleChanges}
-        inputValue={credsInputs.type}
-        required
-      />
-
-      <Field
-        labelText="Student's Email Address"
-        inputName="studentEmail"
-        placeholder="Enter the email address of the student to be credentialed"
-        onChange={handleChanges}
-        inputValue={credsInputs.studentEmail}
-        required
-      />
-
-      <Field
-        labelText="Image URL "
-        inputName="imageUrl"
-        placeholder="Enter a URL for an image corresponding to the crendentials"
-        onChange={handleChanges}
-        inputValue={credsInputs.imageUrl}
-        required
-      />
-
-      <Field
-        labelText="Criteria"
-        inputName="criteria"
-        placeholder="Enter the criteria for the credentials"
-        onChange={handleChanges}
-        inputValue={credsInputs.criteria}
-        required
-      />
-
-      <Field
-        labelText="Issue Date"
-        inputName="issuedOn"
-        placeholder="Enter the issue date for the credentials"
-        onChange={handleChanges}
-        inputValue={credsInputs.issuedOn}
-        required
-      />
-
-      <Field
-        labelText="Expiration Date"
-        inputName="expirationDate"
-        placeholder="Enter the expiration date for the credentials"
-        onChange={handleChanges}
-        inputValue={credsInputs.expirationDate}
-      />
-
-      <button type="submit">Submit</button>
-    </form>
+    <Container>
+      <section>
+        <h2>Issue Credential</h2>
+        <form onSubmit={handleSubmit}>
+          <Field
+            labelText="Name"
+            inputName="name"
+            placeholder="Enter the name for the credentials"
+            onChange={handleChanges}
+            inputValue={credsInputs.name}
+            required
+          />
+    
+          <Field
+            labelText="Description"
+            inputName="description"
+            placeholder="Enter a description of the credentials"
+            onChange={handleChanges}
+            inputValue={credsInputs.description}
+            required
+          />
+    
+          <Field
+            labelText="Type"
+            inputName="type"
+            placeholder="Select the type of crendentials"
+            onChange={handleChanges}
+            inputValue={credsInputs.type}
+            required
+          />
+    
+          <Field
+            labelText="Student's Email Address"
+            inputName="studentEmail"
+            placeholder="Enter the email address of the student to be credentialed"
+            onChange={handleChanges}
+            inputValue={credsInputs.studentEmail}
+            required
+          />
+    
+          <Field
+            labelText="Image URL "
+            inputName="imageUrl"
+            placeholder="Enter a URL for an image corresponding to the crendentials"
+            onChange={handleChanges}
+            inputValue={credsInputs.imageUrl}
+            required
+          />
+    
+          <Field
+            labelText="Criteria"
+            inputName="criteria"
+            placeholder="Enter the criteria for the credentials"
+            onChange={handleChanges}
+            inputValue={credsInputs.criteria}
+            required
+          />
+    
+          <Field
+            labelText="Issue Date"
+            inputName="issuedOn"
+            placeholder="Enter the issue date for the credentials"
+            onChange={handleChanges}
+            inputValue={credsInputs.issuedOn}
+            required
+          />
+    
+          <Field
+            labelText="Expiration Date"
+            inputName="expirationDate"
+            placeholder="Enter the expiration date for the credentials"
+            onChange={handleChanges}
+            inputValue={credsInputs.expirationDate}
+          />
+    
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </Container>
   );
 };
 
 CredentialsForm.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
+
+const Container = styled.main`
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 3% 0;
+  position: relative;
+
+  section {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 375px;
+    height: 100vh;
+    background: ${props => props.theme.global.colors.dashBoardBg};
+    padding: 120px 3% 0;
+    border-left: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    h2 {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 37px;
+    }
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+`;
 
 export default CredentialsForm;
