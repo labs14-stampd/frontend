@@ -51,10 +51,19 @@ const CredentialsForm = ({ history }) => {
           <Box>
             <BaseFormField label="Name of Student">
               <BaseTextInput
-                name="name"
+                name="ownerName"
                 placeholder="Jane Doe"
                 onChange={handleChanges}
-                value={credsInputs.name}
+                value={credsInputs.ownerName}
+                required
+              />
+            </BaseFormField>
+            <BaseFormField label="Name of Student">
+              <BaseTextInput
+                name="credName"
+                placeholder="Masters in Philopsophy"
+                onChange={handleChanges}
+                value={credsInputs.credName}
                 required
               />
             </BaseFormField>
@@ -122,6 +131,7 @@ const CredentialsForm = ({ history }) => {
               />
             </BaseFormField>
             <BaseButton
+              margin="medium"
               type="submit"
               primary
               label="Submit"
@@ -138,9 +148,13 @@ CredentialsForm.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
+// const CredentialButton = styled(BaseButton)`
+//   margin
+// `;
+
 const Container = styled.main`
   width: 100%;
-  min-height: 100vh;
+  height: calc(100vh - 70px);
   padding: 120px 3% 0;
   position: relative;
 

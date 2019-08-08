@@ -13,6 +13,7 @@ export const theme = {
       dashBoardBg: '#ffffff',
       btnHoverColor: '#81FCED'
     },
+
     border: '1px solid rgba(0,0,0,0.33)',
     // fontFamily
     radius: '6px',

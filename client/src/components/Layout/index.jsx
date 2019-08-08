@@ -12,11 +12,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Grommet theme={theme}>
-        <Container>
-          <NavBar />
-          {children}
-          <Footer />
-        </Container>
+        <NavBar />
+        {children}
+        <Footer />
       </Grommet>
     </>
   );
@@ -28,11 +26,5 @@ Layout.propTypes = {
     PropTypes.node
   ]).isRequired
 };
-
-const Container = styled.main`
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-`;
 
 export default Layout;
