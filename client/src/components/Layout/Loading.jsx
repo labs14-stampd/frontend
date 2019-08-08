@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Loading = () => {
   return (
     <LoadingContainer>
-      <Loader type="RevolvingDot" color="#7D4CDB" height="100" width="100" />
+      <Loader type="RevolvingDot" color="#7D4CDB" height={100} width={100} />
     </LoadingContainer>
   );
 };
