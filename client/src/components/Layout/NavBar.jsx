@@ -65,6 +65,10 @@ const NavContainter = styled.div`
     align-items: center;
     position: relative;
 
+    svg {
+      cursor: pointer;
+    }
+
     .button__container {
       position: absolute;
       right: 0;
