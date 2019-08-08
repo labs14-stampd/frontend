@@ -95,7 +95,7 @@ const CredentialsForm = ({ history }) => {
                 required
               />
             </BaseFormField>
-            <BaseFormField>
+            <BaseFormField label="Criteria">
               <BaseTextInput
                 name="criteria"
                 placeholder="Enter the criteria for the credentials"
@@ -104,7 +104,7 @@ const CredentialsForm = ({ history }) => {
                 required
               />
             </BaseFormField>
-            <BaseFormField>
+            <BaseFormField label="Issued Date">
               <BaseTextInput
                 name="issuedOn"
                 placeholder="Enter the issue date for the credentials"
@@ -113,7 +113,7 @@ const CredentialsForm = ({ history }) => {
                 required
               />
             </BaseFormField>
-            <BaseFormField>
+            <BaseFormField label="Expiration Date">
               <BaseTextInput
                 name="expirationDate"
                 placeholder="Enter the expiration date for the credentials"
