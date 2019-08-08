@@ -7,6 +7,7 @@ const Global = css`
   html {
     font-size: 62.5%;
     scroll-behavior: smooth;
+    background: #f8f8f8;
   }
   h1,
   h2,

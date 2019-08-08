@@ -54,10 +54,11 @@ const NavContainter = styled.div`
   -webkit-box-shadow: 0px 7px 53px -20px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 7px 53px -20px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 7px 53px -20px rgba(0, 0, 0, 0.75);
+  z-index: 50;
 
   nav {
     margin: 0 auto;
-    max-width: 1600px;
+    max-width: 2000px;
     padding: 0 3%;
     width: 100%;
     display: flex;

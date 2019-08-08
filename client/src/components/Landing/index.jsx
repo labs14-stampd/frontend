@@ -36,15 +36,17 @@ function Landing() {
 const LandingPage = styled.div`
   height: 100vh;
   width: 100%;
-  overflow: hidden;
   position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
 
   .landing-img {
     transform: translateX(-35%) translateY(-18%);
     position: absolute;
     left: 0;
-    z-index: -1;
+    z-index: 1;
     overflow: hidden;
+    min-width: 1000px;
   }
 
   .cta-container {
@@ -57,9 +59,13 @@ const LandingPage = styled.div`
     .cta-text {
       text-align: right;
       margin-bottom: 10px;
+      z-index: 2;
+
       h1 {
         font-size: 5.3rem;
         font-weight: 800;
+        color: #333333;
+
         span {
           color: ${props => props.theme.global.colors.brand};
         }
