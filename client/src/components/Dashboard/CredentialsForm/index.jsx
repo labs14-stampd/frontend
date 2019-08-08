@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { MaskedInput, Select, Box, Heading, TextArea } from 'grommet';
+
+import {
+  BaseForm,
+  BaseTextInput,
+  BaseFormField,
+  BaseButton
+} from '../../../styles/themes';
 
 import queries from './queries';
 import Field from '../../Field';
@@ -39,80 +47,88 @@ const CredentialsForm = ({ history }) => {
     <Container>
       <section>
         <h2>Issue Credential</h2>
-        <form onSubmit={handleSubmit}>
-          <Field
-            labelText="Name"
-            inputName="name"
-            placeholder="Enter the name for the credentials"
-            onChange={handleChanges}
-            inputValue={credsInputs.name}
-            required
-          />
-    
-          <Field
-            labelText="Description"
-            inputName="description"
-            placeholder="Enter a description of the credentials"
-            onChange={handleChanges}
-            inputValue={credsInputs.description}
-            required
-          />
-    
-          <Field
-            labelText="Type"
-            inputName="type"
-            placeholder="Select the type of crendentials"
-            onChange={handleChanges}
-            inputValue={credsInputs.type}
-            required
-          />
-    
-          <Field
-            labelText="Student's Email Address"
-            inputName="studentEmail"
-            placeholder="Enter the email address of the student to be credentialed"
-            onChange={handleChanges}
-            inputValue={credsInputs.studentEmail}
-            required
-          />
-    
-          <Field
-            labelText="Image URL "
-            inputName="imageUrl"
-            placeholder="Enter a URL for an image corresponding to the crendentials"
-            onChange={handleChanges}
-            inputValue={credsInputs.imageUrl}
-            required
-          />
-    
-          <Field
-            labelText="Criteria"
-            inputName="criteria"
-            placeholder="Enter the criteria for the credentials"
-            onChange={handleChanges}
-            inputValue={credsInputs.criteria}
-            required
-          />
-    
-          <Field
-            labelText="Issue Date"
-            inputName="issuedOn"
-            placeholder="Enter the issue date for the credentials"
-            onChange={handleChanges}
-            inputValue={credsInputs.issuedOn}
-            required
-          />
-    
-          <Field
-            labelText="Expiration Date"
-            inputName="expirationDate"
-            placeholder="Enter the expiration date for the credentials"
-            onChange={handleChanges}
-            inputValue={credsInputs.expirationDate}
-          />
-    
-          <button type="submit">Submit</button>
-        </form>
+        <BaseForm onSubmit={handleSubmit}>
+          <Box>
+            <BaseFormField label="Name of Student">
+              <BaseTextInput
+                name="name"
+                placeholder="Jane Doe"
+                onChange={handleChanges}
+                value={credsInputs.name}
+                required
+              />
+            </BaseFormField>
+            <BaseFormField label="Type">
+              <BaseTextInput
+                name="type"
+                placeholder="Masters, PhD, Cert, etc."
+                onChange={handleChanges}
+                value={credsInputs.type}
+                required
+              />
+            </BaseFormField>
+            <BaseFormField label="Description">
+              <TextArea
+                name="description"
+                placeholder="Summary of credential"
+                onChange={handleChanges}
+                value={credsInputs.description}
+                required
+              />
+            </BaseFormField>
+
+            <BaseFormField label="Student Email">
+              <BaseTextInput
+                name="studentEmail"
+                placeholder="Jane.Doe@gmail.com"
+                onChange={handleChanges}
+                value={credsInputs.studentEmail}
+                required
+              />
+            </BaseFormField>
+            <BaseFormField label="School Seal Image URL">
+              <BaseTextInput
+                name="imageUrl"
+                placeholder="Image"
+                onChange={handleChanges}
+                value={credsInputs.imageUrl}
+                required
+              />
+            </BaseFormField>
+            <BaseFormField label="Criteria">
+              <BaseTextInput
+                name="criteria"
+                placeholder="Enter the criteria for the credentials"
+                onChange={handleChanges}
+                value={credsInputs.criteria}
+                required
+              />
+            </BaseFormField>
+            <BaseFormField label="Issued Date">
+              <BaseTextInput
+                name="issuedOn"
+                placeholder="Enter the issue date for the credentials"
+                onChange={handleChanges}
+                value={credsInputs.issuedOn}
+                required
+              />
+            </BaseFormField>
+            <BaseFormField label="Expiration Date">
+              <BaseTextInput
+                name="expirationDate"
+                placeholder="Enter the expiration date for the credentials"
+                onChange={handleChanges}
+                value={credsInputs.expirationDate}
+              />
+            </BaseFormField>
+            <BaseButton
+              type="submit"
+              primary
+              label="Submit"
+              alignSelf="center"
+            />
+          </Box>
+        </BaseForm>
       </section>
     </Container>
   );

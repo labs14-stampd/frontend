@@ -34,8 +34,6 @@ export const SecondaryButton = styled(Button)`
 
 export const BaseForm = styled(Form)``;
 
-export const BaseTextInput = styled(TextInput)`
-  border: ${theme.global.border};
-`;
+export const BaseTextInput = styled(TextInput)``;
 
 export const BaseFormField = styled(FormField)``;
