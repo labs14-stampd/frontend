@@ -8,7 +8,6 @@ import { theme } from '../../styles/themes';
 // GlobalStyles will go here
 
 const Layout = ({ children }) => {
-  
   return (
     <>
       <Grommet theme={theme}>
