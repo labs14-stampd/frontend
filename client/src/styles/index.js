@@ -8,7 +8,6 @@ const GlobalStyle = createGlobalStyle`
   
   ${Global}
 
-  background-color: red;
 `;
 
 export default GlobalStyle;
