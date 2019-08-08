@@ -32,7 +32,7 @@ Onboard.propTypes = {
 
 const Container = styled.main`
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
   padding: 120px 3% 0;
 
   div {
