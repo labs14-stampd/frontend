@@ -49,7 +49,7 @@ const CredentialsForm = ({ history }) => {
         <h2>Issue Credential</h2>
         <BaseForm onSubmit={handleSubmit}>
           <Box>
-            <BaseFormField label="Name of Student">
+            <CredField label="Name of Student">
               <BaseTextInput
                 name="ownerName"
                 placeholder="Jane Doe"
@@ -57,8 +57,8 @@ const CredentialsForm = ({ history }) => {
                 value={credsInputs.ownerName}
                 required
               />
-            </BaseFormField>
-            <BaseFormField label="Name of Student">
+            </CredField>
+            <CredField label="Name of Student">
               <BaseTextInput
                 name="credName"
                 placeholder="Masters in Philopsophy"
@@ -66,8 +66,8 @@ const CredentialsForm = ({ history }) => {
                 value={credsInputs.credName}
                 required
               />
-            </BaseFormField>
-            <BaseFormField label="Type">
+            </CredField>
+            <CredField label="Type">
               <BaseTextInput
                 name="type"
                 placeholder="Masters, PhD, Cert, etc."
@@ -75,8 +75,8 @@ const CredentialsForm = ({ history }) => {
                 value={credsInputs.type}
                 required
               />
-            </BaseFormField>
-            <BaseFormField label="Description">
+            </CredField>
+            <CredField label="Description">
               <TextArea
                 name="description"
                 placeholder="Summary of credential"
@@ -84,9 +84,9 @@ const CredentialsForm = ({ history }) => {
                 value={credsInputs.description}
                 required
               />
-            </BaseFormField>
+            </CredField>
 
-            <BaseFormField label="Student Email">
+            <CredField label="Student Email">
               <BaseTextInput
                 name="studentEmail"
                 placeholder="Jane.Doe@gmail.com"
@@ -94,8 +94,8 @@ const CredentialsForm = ({ history }) => {
                 value={credsInputs.studentEmail}
                 required
               />
-            </BaseFormField>
-            <BaseFormField label="School Seal Image URL">
+            </CredField>
+            <CredField label="School Seal Image URL">
               <BaseTextInput
                 name="imageUrl"
                 placeholder="Image"
@@ -103,8 +103,8 @@ const CredentialsForm = ({ history }) => {
                 value={credsInputs.imageUrl}
                 required
               />
-            </BaseFormField>
-            <BaseFormField label="Criteria">
+            </CredField>
+            <CredField label="Criteria">
               <BaseTextInput
                 name="criteria"
                 placeholder="Enter the criteria for the credentials"
@@ -112,8 +112,8 @@ const CredentialsForm = ({ history }) => {
                 value={credsInputs.criteria}
                 required
               />
-            </BaseFormField>
-            <BaseFormField label="Issued Date">
+            </CredField>
+            <CredField label="Issued Date">
               <BaseTextInput
                 name="issuedOn"
                 placeholder="Enter the issue date for the credentials"
@@ -121,15 +121,15 @@ const CredentialsForm = ({ history }) => {
                 value={credsInputs.issuedOn}
                 required
               />
-            </BaseFormField>
-            <BaseFormField label="Expiration Date">
+            </CredField>
+            <CredField label="Expiration Date">
               <BaseTextInput
                 name="expirationDate"
                 placeholder="Enter the expiration date for the credentials"
                 onChange={handleChanges}
                 value={credsInputs.expirationDate}
               />
-            </BaseFormField>
+            </CredField>
             <BaseButton
               margin="medium"
               type="submit"
@@ -148,6 +148,19 @@ CredentialsForm.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
+const CredField = styled(BaseFormField)`
+  textarea {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  label {
+    margin-left: 0;
+  }
+  input {
+    padding-left: 0;
+  }
+`;
+
 const Container = styled.main`
   width: 100%;
   height: calc(100vh - 70px);
@@ -162,7 +175,7 @@ const Container = styled.main`
     width: 375px;
     height: 100vh;
     background: ${props => props.theme.global.colors.dashBoardBg};
-    padding: 120px 3% 0;
+    padding: 120px 1.5% 0 2%;
     border-left: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
     overflow-x: hidden;
     overflow-y: auto;
