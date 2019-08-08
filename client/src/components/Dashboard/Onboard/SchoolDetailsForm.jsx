@@ -112,8 +112,10 @@ const SchoolDetailsForm = ({ history }) => {
 
   return (
     <SchoolForm onSubmit={handleSubmit}>
-    <Box direction="column" animation="jiggle">
-      <Heading margin="20px 0 0 0" alignSelf="center">School Details</Heading>
+      <Box direction="column" animation="jiggle">
+        <Heading margin="20px 0 0 0" alignSelf="center">
+          School Details
+        </Heading>
         <SchoolFormField label="Institution">
           <SchoolBaseTextInput
             name="name"
@@ -223,8 +225,8 @@ const SchoolDetailsForm = ({ history }) => {
           />
         </SchoolFormField>
         <SchoolButton type="submit" primary label="Submit" alignSelf="center" />
-    </Box>
-      </SchoolForm>
+      </Box>
+    </SchoolForm>
   );
 };
 
