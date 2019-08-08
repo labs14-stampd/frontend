@@ -11,12 +11,15 @@ const Footer = () => {
 
 const FooterContainer = styled.div`
   text-align: center;
-  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
   bottom: 0;
   width: 100%;
   color: #333333;
-  padding: 50px 0 10px;
   z-index: 5;
+  height: 40px;
 
   p {
     font-size: 1.4rem;
