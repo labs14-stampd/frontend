@@ -14,12 +14,12 @@ const FooterContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   bottom: 0;
   width: 100%;
   color: #333333;
-  z-index: 5;
+  z-index: 0;
   height: 40px;
+  margin: 15px 0;
 
   p {
     font-size: 1.4rem;
