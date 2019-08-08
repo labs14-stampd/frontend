@@ -51,7 +51,6 @@ const CredentialsForm = ({ history }) => {
           <Box>
             <BaseFormField>
               <BaseTextInput
-                labelText="Name"
                 inputName="name"
                 placeholder="Enter the name for the credentials"
                 onChange={handleChanges}
@@ -61,7 +60,6 @@ const CredentialsForm = ({ history }) => {
             </BaseFormField>
             <BaseFormField>
               <BaseTextInput
-                labelText="Description"
                 inputName="description"
                 placeholder="Enter a description of the credentials"
                 onChange={handleChanges}
@@ -71,7 +69,6 @@ const CredentialsForm = ({ history }) => {
             </BaseFormField>
             <BaseFormField>
               <BaseTextInput
-                labelText="Type"
                 inputName="type"
                 placeholder="Select the type of crendentials"
                 onChange={handleChanges}
@@ -81,7 +78,6 @@ const CredentialsForm = ({ history }) => {
             </BaseFormField>
             <BaseFormField>
               <BaseTextInput
-                labelText="Student's Email Address"
                 inputName="studentEmail"
                 placeholder="Enter the email address of the student to be credentialed"
                 onChange={handleChanges}
@@ -91,7 +87,6 @@ const CredentialsForm = ({ history }) => {
             </BaseFormField>
             <BaseFormField>
               <BaseTextInput
-                labelText="Image URL "
                 inputName="imageUrl"
                 placeholder="Enter a URL for an image corresponding to the crendentials"
                 onChange={handleChanges}
@@ -101,7 +96,6 @@ const CredentialsForm = ({ history }) => {
             </BaseFormField>
             <BaseFormField>
               <BaseTextInput
-                labelText="Criteria"
                 inputName="criteria"
                 placeholder="Enter the criteria for the credentials"
                 onChange={handleChanges}
@@ -111,7 +105,6 @@ const CredentialsForm = ({ history }) => {
             </BaseFormField>
             <BaseFormField>
               <BaseTextInput
-                labelText="Issue Date"
                 inputName="issuedOn"
                 placeholder="Enter the issue date for the credentials"
                 onChange={handleChanges}
@@ -121,7 +114,6 @@ const CredentialsForm = ({ history }) => {
             </BaseFormField>
             <BaseFormField>
               <BaseTextInput
-                labelText="Expiration Date"
                 inputName="expirationDate"
                 placeholder="Enter the expiration date for the credentials"
                 onChange={handleChanges}
