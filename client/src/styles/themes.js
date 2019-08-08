@@ -6,10 +6,12 @@ export const theme = {
     colors: {
       // primary: '#444444',
       // secondary: 'palevioletred',
-      black: '#333333',
-      // background: 'silver',
-      banana: 'crimson',
-      accent: 'accent-1'
+      fontColor: '#333333',
+      bodyBackground: '#f8f8f8',
+      teal: 'accent-1',
+      dashBoardBorder: '#d8d8d8',
+      dashBoardBg: '#ffffff',
+      btnHoverColor: '#81FCED'
     },
     border: '1px solid rgba(0,0,0,0.33)',
     // fontFamily
