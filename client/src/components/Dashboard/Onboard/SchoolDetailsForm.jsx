@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import { BaseForm, BaseTextInput, BaseFormField } from '../../../styles/themes';
 import queries from './queries';
@@ -42,7 +43,7 @@ const SchoolDetailsForm = ({ history }) => {
   };
 
   return (
-    <BaseForm onSubmit={handleSubmit}>
+    <SchoolForm onSubmit={handleSubmit}>
       <BaseFormField label="Institution">
         <BaseTextInput
           name="name"
@@ -131,12 +132,21 @@ const SchoolDetailsForm = ({ history }) => {
         />
       </BaseFormField>
       <button type="submit">Submit</button>
-    </BaseForm>
+    </SchoolForm>
   );
 };
 
 SchoolDetailsForm.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
+
+const SchoolForm = styled(BaseForm)`
+  margin: 120px auto 50px;
+  background-color: white;
+  border: 1px solid #d8d8d8;
+  border-radius: 2px;
+  max-width: 800px;
+  width: 100%;
+`;
 
 export default SchoolDetailsForm;
