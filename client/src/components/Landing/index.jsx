@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import { useAuth0 } from '../../auth/authWrapper';
 import { BaseButton } from '../../styles/themes';
 import stampdBackground from '../../images/stampdbackground.svg';

@@ -9,7 +9,6 @@ import Onboard from './components/Dashboard/Onboard';
 import SchoolDetailsForm from './components/Dashboard/Onboard/SchoolDetailsForm';
 import Landing from './components/Landing';
 import CredentialForm from './components/Dashboard/CredentialsForm';
-import NavBar from './components/Layout/NavBar';
 import GlobalStyle from './styles';
 
 import Layout from './components/Layout';
