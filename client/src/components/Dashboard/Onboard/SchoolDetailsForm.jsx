@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { MaskedInput } from 'grommet';
 
 import { BaseForm, BaseTextInput, BaseFormField } from '../../../styles/themes';
 import queries from './queries';
@@ -41,21 +42,20 @@ const SchoolDetailsForm = ({ history }) => {
 
     history.push('/dashboard');
   };
-
   return (
     <SchoolForm onSubmit={handleSubmit}>
-      <BaseFormField label="Institution">
-        <BaseTextInput
+      <SchoolFormField label="Institution">
+        <SchoolBaseTextInput
           name="name"
-          placeholder="Name of Institution"
+          placeholder="Lambda School"
           onChange={handleChanges}
           value={input.name}
           plain={false}
           required
         />
-      </BaseFormField>
-      <BaseFormField label="Tax Id">
-        <BaseTextInput
+      </SchoolFormField>
+      <SchoolFormField label="Tax Id">
+        <SchoolBaseTextInput
           labelText="TaxId"
           name="taxId"
           placeholder="TaxId"
@@ -63,66 +63,86 @@ const SchoolDetailsForm = ({ history }) => {
           value={input.taxId}
           required
         />
-      </BaseFormField>
-      <BaseFormField label="Address 1">
-        <BaseTextInput
+      </SchoolFormField>
+      <SchoolFormField label="Address 1">
+        <SchoolBaseTextInput
           name="street1"
           placeholder="Address 1"
           onChange={handleChanges}
           value={input.street1}
         />
-      </BaseFormField>
-      <BaseFormField label="Address 2">
-        <BaseTextInput
+      </SchoolFormField>
+      <SchoolFormField label="Address 2">
+        <SchoolBaseTextInput
           name="street2"
           placeholder="Address 2"
           onChange={handleChanges}
           value={input.street2}
         />
-      </BaseFormField>
-      <BaseFormField label="City">
-        <BaseTextInput
+      </SchoolFormField>
+      <SchoolFormField label="City">
+        <SchoolBaseTextInput
           name="city"
           placeholder="City"
           onChange={handleChanges}
           value={input.city}
         />
-      </BaseFormField>
-      <BaseFormField label="State">
-        <BaseTextInput
+      </SchoolFormField>
+      <SchoolFormField label="State">
+        <SchoolBaseTextInput
           name="state"
           placeholder="State"
           onChange={handleChanges}
           value={input.state}
         />
-      </BaseFormField>
-      <BaseFormField label="Zip Code">
-        <BaseTextInput
+      </SchoolFormField>
+      <SchoolFormField label="Zip Code">
+        <SchoolBaseTextInput
           name="zip"
           placeholder="Zip Code"
           onChange={handleChanges}
           value={input.zip}
         />
-      </BaseFormField>
-      <BaseFormField label="Phone Number">
-        <BaseTextInput
-          name="phone"
-          placeholder="Phone Number"
-          onChange={handleChanges}
+      </SchoolFormField>
+      <SchoolFormField label="Phone Number">
+        <SchoolMaskedInput
+          mask={[
+            { fixed: '(' },
+            {
+              length: 3,
+              regexp: /^[0-9]{1,3}$/,
+              placeholder: 'xxx'
+            },
+            { fixed: ')' },
+            { fixed: ' ' },
+            {
+              length: 3,
+              regexp: /^[0-9]{1,3}$/,
+              placeholder: 'xxx'
+            },
+            { fixed: '-' },
+            {
+              length: 4,
+              regexp: /^[0-9]{1,4}$/,
+              placeholder: 'xxxx'
+            }
+          ]}
           value={input.phone}
+          name="phone"
+          onChange={handleChanges}
           required
         />
-      </BaseFormField>
-      <BaseFormField label="Type of Institution">
-        <BaseTextInput
+      </SchoolFormField>
+      <SchoolFormField label="Type of Institution">
+        <SchoolBaseTextInput
           name="type"
           placeholder="Type of Institution"
           onChange={handleChanges}
           value={input.type}
         />
-      </BaseFormField>
-      <BaseFormField label="Institution Website">
-        <BaseTextInput
+      </SchoolFormField>
+      <SchoolFormField label="Institution Website">
+        <SchoolBaseTextInput
           labelText="Institution Website"
           name="url"
           placeholder="Institution Website"
@@ -130,7 +150,7 @@ const SchoolDetailsForm = ({ history }) => {
           value={input.url}
           required
         />
-      </BaseFormField>
+      </SchoolFormField>
       <button type="submit">Submit</button>
     </SchoolForm>
   );
@@ -147,6 +167,22 @@ const SchoolForm = styled(BaseForm)`
   border-radius: 2px;
   max-width: 800px;
   width: 100%;
+`;
+
+const SchoolBaseTextInput = styled(BaseTextInput)`
+  border: none;
+`;
+
+const SchoolFormField = styled(BaseFormField)`
+  margin: 20px;
+  border-bottom: none;
+  input {
+    /* margin-bottom: 10px; */
+  }
+`;
+
+const SchoolMaskedInput = styled(MaskedInput)`
+  /* border: ${({ theme }) => theme.global.border}; */
 `;
 
 export default SchoolDetailsForm;
