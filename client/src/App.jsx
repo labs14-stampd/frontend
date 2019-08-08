@@ -3,7 +3,9 @@ import { Route, Switch } from 'react-router-dom';
 import { Grommet } from 'grommet';
 
 import PrivateRoute from './auth/PrivateRoute';
+import {useAuth0} from './auth/authWrapper';
 import { theme } from './styles/themes';
+import Loading from './components/Layout/Loading';
 import Dashboard from './components/Dashboard';
 import Onboard from './components/Dashboard/Onboard';
 import SchoolDetailsForm from './components/Dashboard/Onboard/SchoolDetailsForm';
@@ -14,10 +16,12 @@ import GlobalStyle from './styles';
 import Layout from './components/Layout';
 
 function App() {
+  const { loading } = useAuth0();
   return (
     <>
-      {/* Placeholder route - to be used later */}
-      <Grommet theme={theme}>
+      {loading ? <Loading /> : (
+        
+        <Grommet theme={theme}>
         <Route exact path="/" component={Landing} />
         <Layout>
           <Switch>
@@ -35,6 +39,8 @@ function App() {
         </Layout>
         <GlobalStyle />
       </Grommet>
+      )}
+
     </>
   );
 }
