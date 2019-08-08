@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { Box, TextArea } from 'grommet';
 import styled from 'styled-components';
-import { MaskedInput, Select, Box, Heading, TextArea } from 'grommet';
+import { useStateValue } from 'react-conflux';
+import { globalContext, HANDLE_CRED_CHANGES } from '../../../store/reducers/globalReducer';
+
+
 
 import {
   BaseForm,
@@ -11,33 +15,47 @@ import {
 } from '../../../styles/themes';
 
 import queries from './queries';
-import Field from '../../Field';
 
 const CredentialsForm = ({ history }) => {
-  const [credsInputs, setCredsInputs] = useState({
-    name: '',
-    description: '',
-    type: '',
-    studentEmail: '',
-    imageUrl: '',
-    criteria: '',
-    issuedOn: '',
-    expirationDate: '',
-    schoolId: localStorage.id
-  });
+  const [
+    {
+      ownerName,
+      credName,
+      description,
+      studentEmail,
+      imageUrl,
+      criteria,
+      issuedOn,
+      expirationDate,
+      type,
+      schoolId
+    },
+    dispatchGlobal
+  ] = useStateValue(globalContext)
 
   const handleChanges = e => {
-    setCredsInputs({
-      ...credsInputs,
-      [e.target.name]: e.target.value
-    });
+    dispatchGlobal({
+      type: HANDLE_CRED_CHANGES,
+      payload: e.target
+    })
   };
 
   const handleSubmit = async e => {
     e.preventDefault();
     try {
       history.push('/dashboard');
-      await queries.addNewCredentials(credsInputs);
+      await queries.addNewCredentials({
+        ownerName,
+        credName,
+        description,
+        studentEmail,
+        imageUrl,
+        criteria,
+        issuedOn,
+        expirationDate,
+        type,
+        schoolId
+      });
     } catch (error) {
       console.error(error);
     }
@@ -54,7 +72,7 @@ const CredentialsForm = ({ history }) => {
                 name="ownerName"
                 placeholder="Jane Doe"
                 onChange={handleChanges}
-                value={credsInputs.ownerName}
+                value={ownerName}
                 required
               />
             </CredField>
@@ -63,7 +81,7 @@ const CredentialsForm = ({ history }) => {
                 name="credName"
                 placeholder="Masters in Philopsophy"
                 onChange={handleChanges}
-                value={credsInputs.credName}
+                value={credName}
                 required
               />
             </CredField>
@@ -72,7 +90,7 @@ const CredentialsForm = ({ history }) => {
                 name="type"
                 placeholder="Masters, PhD, Cert, etc."
                 onChange={handleChanges}
-                value={credsInputs.type}
+                value={type}
                 required
               />
             </CredField>
@@ -81,7 +99,7 @@ const CredentialsForm = ({ history }) => {
                 name="description"
                 placeholder="Summary of credential"
                 onChange={handleChanges}
-                value={credsInputs.description}
+                value={description}
                 required
               />
             </CredField>
@@ -91,7 +109,7 @@ const CredentialsForm = ({ history }) => {
                 name="studentEmail"
                 placeholder="Jane.Doe@gmail.com"
                 onChange={handleChanges}
-                value={credsInputs.studentEmail}
+                value={studentEmail}
                 required
               />
             </CredField>
@@ -100,7 +118,7 @@ const CredentialsForm = ({ history }) => {
                 name="imageUrl"
                 placeholder="Image"
                 onChange={handleChanges}
-                value={credsInputs.imageUrl}
+                value={imageUrl}
                 required
               />
             </CredField>
@@ -109,7 +127,7 @@ const CredentialsForm = ({ history }) => {
                 name="criteria"
                 placeholder="Enter the criteria for the credentials"
                 onChange={handleChanges}
-                value={credsInputs.criteria}
+                value={criteria}
                 required
               />
             </CredField>
@@ -118,7 +136,7 @@ const CredentialsForm = ({ history }) => {
                 name="issuedOn"
                 placeholder="Enter the issue date for the credentials"
                 onChange={handleChanges}
-                value={credsInputs.issuedOn}
+                value={issuedOn}
                 required
               />
             </CredField>
@@ -127,7 +145,7 @@ const CredentialsForm = ({ history }) => {
                 name="expirationDate"
                 placeholder="Enter the expiration date for the credentials"
                 onChange={handleChanges}
-                value={credsInputs.expirationDate}
+                value={expirationDate}
               />
             </CredField>
             <BaseButton
