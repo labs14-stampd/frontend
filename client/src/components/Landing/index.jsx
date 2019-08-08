@@ -39,10 +39,6 @@ const LandingPage = styled.div`
   max-width: 1600px;
   margin: 0 auto;
 
-  @media (max-width: 600px) {
-    overflow: hidden;
-  }
-
   .landing-img {
     transform: translateX(-38%) translateY(-18%);
     position: absolute;
@@ -53,18 +49,6 @@ const LandingPage = styled.div`
 
     img {
       height: 120vh;
-    }
-
-    @media (max-width: 1200px) {
-      transform: translateX(-40%) translateY(-25%) rotate(10deg);
-      min-width: 0;
-      margin-top: 100px;
-    }
-
-    @media (max-width: 600px) {
-      transform: rotate(-30deg);
-      margin: 230px 0 0 -200px;
-      width: 600px;
     }
   }
 
@@ -82,32 +66,10 @@ const LandingPage = styled.div`
       width: 58.5%;
       z-index: 2;
 
-      @media (max-width: 1200px) {
-        margin: 220px 0 10px;
-      }
-
-      @media (max-width: 800px) {
-        margin: 120px 0 10px;
-        width: 90%;
-      }
-
-      @media (max-width: 600px) {
-        margin: 120px 0 10px;
-        width: 90%;
-      }
-
       h1 {
         font-size: 5.3rem;
         font-weight: 800;
         color: #333333;
-
-        @media (max-width: 1200px) {
-          font-size: 4rem;
-        }
-
-        @media (max-width: 600px) {
-          font-size: 3.4rem;
-        }
 
         span {
           color: ${props => props.theme.global.colors.brand};
@@ -118,11 +80,6 @@ const LandingPage = styled.div`
       transform: scale(1.8);
       margin: 50px 55px 0 0;
       z-index: 5;
-
-      @media (max-width: 600px) {
-        transform: scale(1.4);
-        margin: 20px 25px 0 0;
-      }
     }
   }
 `;
