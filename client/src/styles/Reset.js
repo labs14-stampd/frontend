@@ -129,6 +129,9 @@ const Reset = css`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  textarea {
+    resize: vertical;
+  }
 `;
 
 export default Reset;
