@@ -8,6 +8,11 @@ import { useAuth0 } from '../../auth/authWrapper';
 function NavBar() {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
+  const handleLogout = () => {
+    localStorage.clear();
+    logout();
+  }
+
   return (
     <NavContainter>
       <nav>
@@ -30,7 +35,7 @@ function NavBar() {
             <NavBtn
               a11yTitle="Logout"
               type="button"
-              onClick={() => logout()}
+              onClick={handleLogout}
               label="Logout"
             />
           </div>
