@@ -59,7 +59,7 @@ const LandingPage = styled.main`
       }
 
       @media (max-width: 1200px) {
-        transform: translateX(-45%) translateY(-20%);
+        transform: translateX(-48%) translateY(-20%);
       }
 
       @media (max-width: 1000px) {
