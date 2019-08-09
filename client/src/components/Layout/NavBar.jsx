@@ -37,6 +37,11 @@ function NavBar() {
     setShown(false);
   };
 
+  const handleLogout = () => {
+    localStorage.clear();
+    logout();
+  }
+
   return (
     <NavContainter>
       <nav>
@@ -64,7 +69,7 @@ function NavBar() {
             <NavBtn
               a11yTitle="Logout"
               type="button"
-              onClick={() => logout()}
+              onClick={handleLogout}
               label="Logout"
             />
           </div>
