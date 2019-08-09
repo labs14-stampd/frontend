@@ -66,16 +66,19 @@ const CredentialsForm = ({ history }) => {
   return (
     <Container>
       <CertificateArea>
-        <div>
-          <img src={imageUrl || emblem} alt="school seal" />
-        </div>
-        <h1>{credName || '[Credential Name]'}</h1>
-        <h3>{description || '[Description]'}</h3>
-        <h3>Issued on: {issuedOn || '[August 10, 2019]'}</h3>
-        <h3>Issued by: [School of the Sequoias]</h3>
-        <h2>{ownerName || 'John Doe'}</h2>
+        <section>
+          <div>
+            <img src={imageUrl || emblem} alt="school seal" />
+          </div>
+          <h1>{credName || '[Credential Name]'}</h1>
+          <h3>{description || '[Description]'}</h3>
+          <h3>Issued on: {issuedOn || '[August 10, 2019]'}</h3>
+          <h3>Issued by: [School of the Sequoias]</h3>
+          <h2>{ownerName || 'John Doe'}</h2>
+        </section>
+        <div></div>
       </CertificateArea>
-      <section>
+      <CredentialSideForm>
         <h2>Issue Credential</h2>
         <BaseForm onSubmit={handleSubmit}>
           <Box>
@@ -169,7 +172,7 @@ const CredentialsForm = ({ history }) => {
             />
           </Box>
         </BaseForm>
-      </section>
+      </CredentialSideForm>
     </Container>
   );
 };
@@ -195,63 +198,67 @@ const CredField = styled(BaseFormField)`
 const Container = styled.main`
   width: 100%;
   height: calc(100vh - 70px);
-  padding: 120px 3% 0;
+  padding-top: 120px;
   position: relative;
+`
+const CredentialSideForm = styled.section`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 375px;
+  height: 100vh;
+  background: ${props => props.theme.global.colors.dashBoardBg};
+  padding: 120px 20px 0;
+  border-left: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
+  overflow-x: hidden;
+  overflow-y: auto;
 
-  section {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 375px;
-    height: 100vh;
-    background: ${props => props.theme.global.colors.dashBoardBg};
-    padding: 120px 20px 0;
-    border-left: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    h2 {
-      width: 100%;
-      text-align: center;
-      margin-bottom: 37px;
-    }
-    form {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-    }
+  h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 37px;
+  }
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
-/*
-    Centering:
-    • width -> Subtract 375px from width to account for form at the right that has absolute positioning
-    • margin-left -> for percentage-based width, half of 100% minus the percent value used in the width property setting
-        example: 100% - 90% (width percent value) = 10% / 2 =  5% (final margin-left value)
-          OR: calc((100% - 90%) / 2)
- */
 const CertificateArea = styled.div`
-  width: calc(90% - 375px);
-  background: ${props => props.theme.global.colors.dashBoardBg};
-  border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px;
-  margin-left: 5%;
+  justify-content: space-between;
+  width: 100%;
 
-  & > * {
-    text-align: center;
-    margin-bottom: 15px;
+  section {
+    width: calc(100% - 500px);
+    max-width: 840px;
+    background: ${props => props.theme.global.colors.dashBoardBg};
+    border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 37.5px 50px 32.5px;
+    margin: 0 auto;
+
+    & > * {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    & > *:first-child {
+      max-width: 125px;
+      margin-bottom: 50px;
+    }
+
+    & > *:last-child {
+      margin-top: 25px;
+    }
   }
 
-  & > *:first-child {
-    margin-bottom: 50px;
-  }
-
-  & > *:last-child {
-    margin-top: 20px;
+  div {
+    width: 375px;
   }
 `;
 
