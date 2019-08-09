@@ -1,18 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Menu } from 'grommet-icons';
+import { Menu, Close } from 'grommet-icons';
+import { Box, Button, Layer, Text } from 'grommet';
 import { SecondaryButton } from '../../styles/themes';
 
 import { useAuth0 } from '../../auth/authWrapper';
 
+const MenuLayer = ({ onClose }) => (
+  <MenuBar
+    position="left"
+    full="vertical"
+    plain={true}
+    onClickOutside={() => onClose()}
+  >
+    <Box background="brand" fill="vertical">
+      {['First', 'Second', 'Third'].map(name => (
+        <Button
+          key={name}
+          onClick={onClose}
+          hoverIndicator={{ background: 'light-5' }}
+        >
+          <Box pad={{ horizontal: 'medium', vertical: 'small' }}>
+            <Text size="large">{name}</Text>
+          </Box>
+        </Button>
+      ))}
+    </Box>
+  </MenuBar>
+);
+
 function NavBar() {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const [isShown, setShown] = useState(false);
+
+  const onClose = () => {
+    setShown(false);
+  };
 
   return (
     <NavContainter>
       <nav>
         {isAuthenticated && (
-          <Menu className="hamburger" size="large" color="white" />
+          <Menu
+            onClick={() => setShown(!isShown)}
+            className="hamburger"
+            size="large"
+            color="white"
+          />
         )}
         {/* <img src="" alt="logo" /> */}
         {!isAuthenticated ? (
@@ -36,6 +70,7 @@ function NavBar() {
           </div>
         )}
       </nav>
+      {isShown && <MenuLayer onClose={onClose} />}
     </NavContainter>
   );
 }
@@ -79,12 +114,15 @@ const NavContainter = styled.div`
   }
 `;
 
+const MenuBar = styled(Layer)`
+  margin-top: 70px;
+  width: 275px;
+  height: calc(100vh - 70px);
+`;
+
 const NavBtn = styled(SecondaryButton)`
   border: 2px solid white /*${props => props.theme.global.colors['neutral-2']}*/;
   color: white /*${props => props.theme.global.colors['neutral-2']}*/;
 `;
 
 export default NavBar;
-
-// ${props => props.theme.global.colors['accent-3']}
-// ${props => props.theme.global.colors['brand']}
