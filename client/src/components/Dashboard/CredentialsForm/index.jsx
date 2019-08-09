@@ -63,6 +63,16 @@ const CredentialsForm = ({ history }) => {
 
   return (
     <Container>
+      <CertificateArea>
+        <div>
+          <img src={imageUrl} alt="school seal"/>
+        </div>
+        <h1>{credName || "[Certifcate of Completion]"}</h1>
+        <h3>{description || "[Applicant has demonstrated proficiency hooah]"}</h3>
+        <h3>Issued on: {issuedOn || "[January 1, 0 BC]"}</h3>
+        <h3>Issued by: ["School of Knowing Everything There Is"]</h3>
+        <h2>{ownerName || "John Doe"}</h2>
+      </CertificateArea>
       <section>
         <h2>Issue Credential</h2>
         <BaseForm onSubmit={handleSubmit}>
@@ -76,7 +86,7 @@ const CredentialsForm = ({ history }) => {
                 required
               />
             </CredField>
-            <CredField label="Name of Student">
+            <CredField label="Credential Name">
               <BaseTextInput
                 name="credName"
                 placeholder="Masters in Philopsophy"
@@ -208,6 +218,29 @@ const Container = styled.main`
       display: flex;
       flex-direction: column;
     }
+  }
+`;
+
+const CertificateArea = styled.div`
+  width: calc(100% - 375px);
+  background: ${props => props.theme.global.colors.dashBoardBg};
+  border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+
+  & > * {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  & > *:first-child {
+    margin-bottom: 50px;
+  }
+
+  & > *:last-child {
+    margin-top: 20px;
   }
 `;
 
