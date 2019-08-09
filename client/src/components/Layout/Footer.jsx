@@ -10,20 +10,13 @@ const Footer = () => {
 };
 
 const FooterContainer = styled.div`
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   bottom: 0;
   width: 100%;
   color: #333333;
-  z-index: 0;
-  height: 40px;
+  background: #f8f8f8;
+  padding-bottom: 10px;
   margin: 15px 0;
-
-  p {
-    font-size: 1.4rem;
-  }
+  z-index: 0;
 `;
 
 export default Footer;

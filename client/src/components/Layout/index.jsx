@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
 import { theme } from '../../styles/themes';
+import styled from 'styled-components';
 
 // GlobalStyles will go here
 
@@ -12,9 +13,11 @@ const Layout = ({ children }) => {
   return (
     <>
       <Grommet theme={theme}>
-        <NavBar />
-        {children}
-        <Footer />
+        <Container>
+          <NavBar />
+          {children}
+          <Footer />
+        </Container>
       </Grommet>
     </>
   );
@@ -26,5 +29,10 @@ Layout.propTypes = {
     PropTypes.node
   ]).isRequired
 };
+
+const Container = styled.main`
+  width: 100%;
+  position: relative;
+`;
 
 export default Layout;
