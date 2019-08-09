@@ -76,7 +76,8 @@ const CredentialsForm = ({ history }) => {
           <h3>Issued by: [School of the Sequoias]</h3>
           <h2>{ownerName || 'John Doe'}</h2>
         </section>
-        <div></div>
+        {/* DO NOT DELETE - ghost div for alignment */}
+        <div />
       </CertificateArea>
       <CredentialSideForm>
         <h2>Issue Credential</h2>
