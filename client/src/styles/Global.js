@@ -16,6 +16,7 @@ const Global = css`
   h5 {
     font-family: 'Poppins', 'Work Sans', sans-serif;
     line-height: 1.8;
+    color: #333333;
   }
   h1 {
     font-size: 3.8rem;
@@ -26,22 +27,25 @@ const Global = css`
   p {
     font-size: 1.8rem;
     font-family: 'Roboto', sans-serif;
+    color: #333333;
   }
   a {
     text-decoration: none;
     font-size: 1.8rem;
     font-family: 'Roboto', sans-serif;
+    color: #333333;
   }
   input,
   textarea,
   button {
     -webkit-appearance: none;
     font-family: 'Roboto', sans-serif;
+    color: #333333;
   }
   label {
     font-size: 1.8rem;
-
     font-family: 'Poppins', 'Work Sans', sans-serif;
+    color: #333333;
   }
   img {
     width: 100%;

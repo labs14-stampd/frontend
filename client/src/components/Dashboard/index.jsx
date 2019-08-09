@@ -6,9 +6,15 @@ import {} from 'grommet';
 const Dashboard = ({ history }) => {
   return (
     <Container>
-      <button type="button" onClick={() => history.push('/dashboard/credForm')}>
-        Issue Credential
-      </button>
+      <div>
+        {' '}
+        <button
+          type="button"
+          onClick={() => history.push('/dashboard/credForm')}
+        >
+          Issue Credential
+        </button>
+      </div>
     </Container>
   );
 };
@@ -20,10 +26,19 @@ Dashboard.propTypes = {
 const Container = styled.div`
   padding: 70px 3% 0;
   margin: 0 auto;
-  max-width: 1600px;
   min-height: 100vh;
   width: 100%;
   background: #f8f8f8;
+
+  div:first-of-type {
+    margin: 50px auto 0;
+    max-width: 1600px;
+    width: 100%;
+    background: white;
+    min-height: calc(100vh - 170px);
+    border: 1px solid #d8d8d8;
+    border-radius: 2px;
+  }
 `;
 
 export default Dashboard;

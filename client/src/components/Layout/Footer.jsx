@@ -4,12 +4,12 @@ import styled from 'styled-components';
 const Footer = () => {
   return (
     <FooterContainer>
-      <span>© Stampd 2019</span>
+      <p>© Stampd 2019</p>
     </FooterContainer>
   );
 };
+
 const FooterContainer = styled.div`
-  text-align: center;
   bottom: 0;
   width: 100%;
   color: #333333;
