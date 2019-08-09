@@ -221,14 +221,22 @@ const Container = styled.main`
   }
 `;
 
+/*
+    Centering:
+    • width -> Subtract 375px from width to account for form at the right that has absolute positioning
+    • margin-left -> for percentage-based width, half of 100% minus the percent value used in the width property setting
+        example: 100% - 90% (width percent value) = 10% / 2 =  5% (final margin-left value)
+          OR: calc((100% - 90%) / 2)
+ */
 const CertificateArea = styled.div`
-  width: calc(100% - 375px);
+  width: calc(90% - 375px);
   background: ${props => props.theme.global.colors.dashBoardBg};
   border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 50px;
+  margin-left: 5%;
 
   & > * {
     text-align: center;

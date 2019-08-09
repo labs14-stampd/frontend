@@ -24,7 +24,7 @@ function App() {
         <Loading />
       ) : (
         <Grommet theme={theme}>
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/" component={CredentialForm} />
           <Layout>
             <Switch>
               <PrivateRoute
