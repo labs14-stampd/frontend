@@ -21,15 +21,15 @@ You can find the deployed project at [www.stampdcert.com](www.stampdcert.com).
 <br>
 <br>
 
-🚫 4️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
-
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![Conflux](https://img.shields.io/badge/types-React--Conflux-blue)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/cd475e07-33f5-4729-80c6-2e2f9f431b14/deploy-status)](https://app.netlify.com/sites/stampdcerts/deploys)
+![React](https://img.shields.io/badge/react-v16.8.6-blue)
+[![Conflux](https://img.shields.io/badge/react--conflux-0.0.2--beta.6-blue)](https://www.npmjs.com/package/react-conflux)
+![apollo-boost](https://img.shields.io/badge/apollo--boost-v0.4.3-blue)
+![styled-components](https://img.shields.io/badge/styled--components-v4.3.2-ff69b4)
+[![grommet](https://img.shields.io/badge/design--system-v2.grommet.io-7D4CDB)](https://v2.grommet.io/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-
-🚫 more info on using badges [here](https://github.com/badges/shields)
+![eslint](https://img.shields.io/badge/eslint-airbnb-hotpink)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cd475e07-33f5-4729-80c6-2e2f9f431b14/deploy-status)](https://app.netlify.com/sites/stampdcerts/deploys)
 
 ## Project Overview
 
