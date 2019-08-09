@@ -66,16 +66,6 @@ const CredentialsForm = ({ history }) => {
   return (
     <Container>
       <CertificateArea>
-<<<<<<< HEAD
-        <div>
-          <img src={imageUrl || emblem} alt="school seal" />
-        </div>
-        <h1>{credName || '[Credential Name]'}</h1>
-        <h3>{description || '[Description]'}</h3>
-        <h3>Issued on: {issuedOn || '[August 10, 2019]'}</h3>
-        <h3>Issued by: [School of the Sequoias]</h3>
-        <h2>{ownerName || 'John Doe'}</h2>
-=======
         <section>
           <div>
             <img src={imageUrl || emblem} alt="school seal" />
@@ -88,7 +78,6 @@ const CredentialsForm = ({ history }) => {
         </section>
         {/* DO NOT DELETE - ghost div for alignment */}
         <div />
->>>>>>> 6e9100798dfb0472542c552933f2b95f46ea4339
       </CertificateArea>
       <CredentialSideForm>
         <h2>Issue Credential</h2>

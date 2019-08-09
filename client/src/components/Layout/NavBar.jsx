@@ -1,18 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Menu } from 'grommet-icons';
+import { Menu, Close } from 'grommet-icons';
+import { Box, Button, Layer, Text } from 'grommet';
 import { SecondaryButton } from '../../styles/themes';
 
 import { useAuth0 } from '../../auth/authWrapper';
 
+const MenuLayer = ({ onClose }) => (
+  <Layer position="left" full="vertical" modal={false} plain={true}>
+    <Box background="brand" fill="vertical">
+      <Box pad={{ horizontal: 'medium', vertical: 'small' }}>
+        <Text size="large">Title</Text>
+      </Box>
+      {['First', 'Second', 'Third'].map(name => (
+        <Button
+          key={name}
+          onClick={onClose}
+          hoverIndicator={{ background: 'light-5' }}
+        >
+          <Box pad={{ horizontal: 'medium', vertical: 'small' }}>
+            <Text size="large">{name}</Text>
+          </Box>
+        </Button>
+      ))}
+    </Box>
+  </Layer>
+);
+
 function NavBar() {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const [isShown, setShown] = useState(false);
+
+  const onClose = () => {
+    setShown(false);
+  };
 
   return (
     <NavContainter>
       <nav>
         {isAuthenticated && (
-          <Menu className="hamburger" size="large" color="white" />
+          <Menu
+            onClick={() => setShown(!isShown)}
+            className="hamburger"
+            size="large"
+            color="white"
+          />
         )}
         {/* <img src="" alt="logo" /> */}
         {!isAuthenticated ? (
@@ -36,6 +68,7 @@ function NavBar() {
           </div>
         )}
       </nav>
+      {isShown && <MenuLayer onClose={onClose} />}
     </NavContainter>
   );
 }
