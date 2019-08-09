@@ -15,9 +15,9 @@ function Landing() {
         <div className="cta-container">
           <div className="cta-text">
             <h1>
-              Simple. Verified. Blockchain.
+              Easy. Verified. Blockchain.
               <br />
-              Credentials with
+              Issue credentials with
               <span> Stampd</span>
             </h1>
           </div>
@@ -39,7 +39,7 @@ const LandingPage = styled.main`
   padding: 0 3%;
 
   div {
-    height: 100vh;
+    height: calc(100vh - 70px);
     width: 100%;
     position: relative;
     max-width: 1600px;
@@ -53,6 +53,26 @@ const LandingPage = styled.main`
       overflow: hidden;
       min-width: 1300px;
       height: auto;
+
+      @media (max-width: 1500px) {
+        transform: translateX(-40%) translateY(-20%);
+      }
+
+      @media (max-width: 1200px) {
+        transform: translateX(-48%) translateY(-20%);
+      }
+
+      @media (max-width: 1000px) {
+        transform: translateX(-58%) translateY(-20%);
+      }
+
+      @media (max-width: 800px) {
+        transform: translateX(-52%) scale(0.6) rotate(-36deg);
+      }
+
+      @media (max-width: 600px) {
+        transform: translateX(-50%) scale(0.6) rotate(-40deg);
+      }
 
       img {
         height: 120vh;
@@ -72,9 +92,45 @@ const LandingPage = styled.main`
         width: 58.5%;
         z-index: 2;
 
+        @media (max-width: 1200px) {
+          margin: 20vh 0 10px;
+          width: 60%;
+        }
+
+        @media (max-width: 1000px) {
+          margin: 23vh 0 10px;
+          width: 72%;
+        }
+
+        @media (max-width: 800px) {
+          margin: 15vh 0 10px;
+          width: 90%;
+        }
+
+        @media (max-width: 800px) {
+          margin: 15vh 0 10px;
+          width: 100%;
+        }
+
+        @media (max-width: 600px) {
+          width: 90%;
+        }
+
         h1 {
           font-size: 5.3rem;
           font-weight: 800;
+
+          @media (max-width: 1500px) {
+            font-size: 4rem;
+          }
+
+          @media (max-width: 1000px) {
+            font-size: 3.5rem;
+          }
+
+          @media (max-width: 600px) {
+            font-size: 3rem;
+          }
 
           span {
             color: ${props => props.theme.global.colors.brand};
@@ -85,6 +141,11 @@ const LandingPage = styled.main`
         transform: scale(1.8);
         margin: 50px 55px 0 0;
         z-index: 5;
+
+        @media (max-width: 600px) {
+          transform: scale(1.4);
+          margin: 30px 5% 0 0;
+        }
       }
     }
   }

@@ -24,6 +24,7 @@ export const theme = {
 };
 
 export const BaseButton = styled(Button)``;
+
 export const SecondaryButton = styled(Button)`
   color: white;
   border: 1px solid white;
