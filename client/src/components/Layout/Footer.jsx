@@ -16,7 +16,14 @@ const FooterContainer = styled.div`
   background: #f8f8f8;
   padding-bottom: 10px;
   margin: 15px 0;
+  text-align: center;
   z-index: 0;
+
+  p {
+    margin: 0 auto;
+    text-align: center;
+    width: 200px;
+  }
 `;
 
 export default Footer;

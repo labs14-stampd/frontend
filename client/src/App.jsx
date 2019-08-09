@@ -24,9 +24,9 @@ function App() {
         <Loading />
       ) : (
         <Grommet theme={theme}>
-          <Route exact path="/" component={Landing} />
           <Layout>
             <Switch>
+              <Route exact path="/" component={Landing} />
               <PrivateRoute
                 path="/onboarding/school"
                 component={SchoolDetailsForm}
