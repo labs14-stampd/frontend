@@ -9,7 +9,7 @@ const Dashboard = ({ history }) => {
   useEffect(() => {
     async function getUserData() {
       try {
-        const id = await localStorage.getItem('id');
+        const id = localStorage.id;
         const data = await queries.getUserById({
           id
         });
