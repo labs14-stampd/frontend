@@ -37,7 +37,7 @@ You can find the deployed project at [www.stampdcert.com](www.stampdcert.com).
 
 [Product Canvas](https://www.notion.so/Stampd-495609cb1e06435daf900fdaf5ee55f1)
 
-<!-- 1[UX Design files](🚫add link to design files here) - 🚫 delete if not applicable -->
+[UX Design files](https://drive.google.com/drive/u/0/folders/12ppna_6DvD4g6tGLlvLW5DPJjferFuYu)
 
 To transform the way education and training credentials are traditionally verified by building an application that provides simple, economical, efficient and reliable vetting of credentials utilizing the transformative technology of blockchain. 
 
@@ -56,8 +56,6 @@ To transform the way education and training credentials are traditionally verifi
 
 -    Virtual DOM provides superior performance over alternatives like jQuery.
 -    ReactJS is a such a popular libary, many modules are available as is plenty of up-to-date information.
--    The team has expentisve experience in ReactJS, facilitating the development process.
--    point four
 
 #### React-Conflux
 
@@ -91,35 +89,26 @@ To transform the way education and training credentials are traditionally verifi
 
 #### [Back end](https://github.com/labs14-stampd/backend) built using:
 
-#### Node
+#### Node/Express
 
--    point one
--    point two
--    point three
+-    Javascript in the backend
+-    Express allows for easy API creation
+-    Middleware pattern
 
-#### Express
-
--    point one
--    point two
--    point three
 
 #### GraphQL
 
--    point one
--    point two
--    point three
+-    Built on top of express
+-    One endpoint
+-    Schema is built into GraphQL playground
 
 #### PostgresQL
 
--    point one
--    point two
--    point three
+-    Works well with Heroku
 
 #### Web3
 
--    point one
--    point two
--    point three
+-    The only way or app can intergrate and deploy to blockchain networks -- needs more wordsmithing
 
 
 # APIs
@@ -154,11 +143,10 @@ When you do it your way you can go anywhere you choose. Let your heart take you 
 
 Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful. -->
 
-# 3️⃣ Environment Variables
+# Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
-🚫These are just examples, replace them with the specifics for your app
 
     *  REACT_APP_AUTH0_DOMAIN - This is an Auth0 domain, generated in the Auth0 dashboard
     *  REACT_APP_AUTH0_CLIENT_ID - This is an Auth0 clientId, generated in the Auth0 dashboard
