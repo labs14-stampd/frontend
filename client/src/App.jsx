@@ -11,6 +11,7 @@ import Onboard from './components/Dashboard/Onboard';
 import SchoolDetailsForm from './components/Dashboard/Onboard/SchoolDetailsForm';
 import Landing from './components/Landing';
 import CredentialForm from './components/Dashboard/CredentialsForm';
+import ErrorPage from './components/ErrorPage';
 import GlobalStyle from './styles';
 
 import Layout from './components/Layout';
@@ -36,6 +37,8 @@ function App() {
                 path="/dashboard/credForm"
                 component={CredentialForm}
               />
+              {/* Error route */}
+              <Route component={ErrorPage} />
             </Switch>
           </Layout>
           <GlobalStyle />
