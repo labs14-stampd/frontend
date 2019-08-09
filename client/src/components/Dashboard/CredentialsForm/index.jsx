@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { Box, TextArea } from 'grommet';
 import styled from 'styled-components';
 import { useStateValue } from 'react-conflux';
-import { globalContext, HANDLE_CRED_CHANGES } from '../../../store/reducers/globalReducer';
-import emblem from '../../../images/certEmblem.png'
-
+import {
+  globalContext,
+  HANDLE_CRED_CHANGES
+} from '../../../store/reducers/globalReducer';
+import emblem from '../../../images/certEmblem.png';
 
 import {
   BaseForm,
@@ -31,13 +33,13 @@ const CredentialsForm = ({ history }) => {
       schoolId
     },
     dispatchGlobal
-  ] = useStateValue(globalContext)
+  ] = useStateValue(globalContext);
 
   const handleChanges = e => {
     dispatchGlobal({
       type: HANDLE_CRED_CHANGES,
       payload: e.target
-    })
+    });
   };
 
   const handleSubmit = async e => {
@@ -65,13 +67,13 @@ const CredentialsForm = ({ history }) => {
     <Container>
       <CertificateArea>
         <div>
-          <img src={imageUrl || emblem} alt="school seal"/>
+          <img src={imageUrl || emblem} alt="school seal" />
         </div>
-        <h1>{credName || "[Certifcate of Completion]"}</h1>
-        <h3>{description || "[Applicant has demonstrated proficiency hooah]"}</h3>
-        <h3>Issued on: {issuedOn || "[January 1, 0 BC]"}</h3>
-        <h3>Issued by: ["School of Knowing Everything There Is"]</h3>
-        <h2>{ownerName || "John Doe"}</h2>
+        <h1>{credName || '[Credential Name]'}</h1>
+        <h3>{description || '[Description]'}</h3>
+        <h3>Issued on: {issuedOn || '[August 10, 2019]'}</h3>
+        <h3>Issued by: [School of the Sequoias]</h3>
+        <h2>{ownerName || 'John Doe'}</h2>
       </CertificateArea>
       <section>
         <h2>Issue Credential</h2>
@@ -89,7 +91,7 @@ const CredentialsForm = ({ history }) => {
             <CredField label="Credential Name">
               <BaseTextInput
                 name="credName"
-                placeholder="Masters in Philopsophy"
+                placeholder="Masters in Philosophy"
                 onChange={handleChanges}
                 value={credName}
                 required
@@ -107,7 +109,7 @@ const CredentialsForm = ({ history }) => {
             <CredField label="Description">
               <TextArea
                 name="description"
-                placeholder="Summary of credential"
+                placeholder="Student demostrated ability..."
                 onChange={handleChanges}
                 value={description}
                 required
@@ -126,7 +128,7 @@ const CredentialsForm = ({ history }) => {
             <CredField label="School Seal Image URL">
               <BaseTextInput
                 name="imageUrl"
-                placeholder="Image"
+                placeholder="www.image.com/schoolSeal"
                 onChange={handleChanges}
                 value={imageUrl}
                 required
@@ -135,7 +137,7 @@ const CredentialsForm = ({ history }) => {
             <CredField label="Criteria">
               <BaseTextInput
                 name="criteria"
-                placeholder="Enter the criteria for the credentials"
+                placeholder="Completed studies in..."
                 onChange={handleChanges}
                 value={criteria}
                 required
@@ -144,7 +146,7 @@ const CredentialsForm = ({ history }) => {
             <CredField label="Issued Date">
               <BaseTextInput
                 name="issuedOn"
-                placeholder="Enter the issue date for the credentials"
+                placeholder="August 10, 2019"
                 onChange={handleChanges}
                 value={issuedOn}
                 required
@@ -153,7 +155,7 @@ const CredentialsForm = ({ history }) => {
             <CredField label="Expiration Date">
               <BaseTextInput
                 name="expirationDate"
-                placeholder="Enter the expiration date for the credentials"
+                placeholder="September 7, 2023"
                 onChange={handleChanges}
                 value={expirationDate}
               />
@@ -186,6 +188,7 @@ const CredField = styled(BaseFormField)`
   }
   input {
     padding-left: 0;
+    width: 350px;
   }
 `;
 
@@ -203,7 +206,7 @@ const Container = styled.main`
     width: 375px;
     height: 100vh;
     background: ${props => props.theme.global.colors.dashBoardBg};
-    padding: 120px 1.5% 0 2%;
+    padding: 120px 20px 0;
     border-left: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
     overflow-x: hidden;
     overflow-y: auto;
