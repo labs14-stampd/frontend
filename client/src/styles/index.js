@@ -5,9 +5,7 @@ import Global from './Global';
 
 const GlobalStyle = createGlobalStyle`
   ${Reset}
-  
   ${Global}
-
 `;
 
 export default GlobalStyle;
