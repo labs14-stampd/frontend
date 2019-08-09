@@ -2,21 +2,19 @@
 
 You can find the deployed project at [www.stampdcert.com](www.stampdcert.com).
 
-## 4️⃣ Contributors
+## Contributors
 
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
+|                                                     [Byron Holmes](https://github.com/byronholmes2018)                                                     |                                                      [Joe Baucus](https://github.com/joepound)                                                      |                                                    [Nathan Thomas](https://github.com/nwthomas)                                                     |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/byronholmes2018) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/joepound) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/nwthomas) |
+|                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                        |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/byronholmes2018)                             |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/joepound)                                | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/nwthomas) |
+|                       [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                        |                    [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                    |                    [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                    |
 
-|                                       [Byron Holmes](https://github.com/byronholmes2018)                                        |                                       [Joe Baucus](https://github.com/joepound)                                        |                                       [Nathan Thomas](https://github.com/nwthomas)                                        |
-|:-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/byronholmes2018)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/joepound)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/nwthomas)                       |  
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/byronholmes2018)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/joepound)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/nwthomas)           |          
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
-
-|                                       [Brannan Conrad](https://github.com/BrannanC)                                        |                                       [Megan Jeffcoat](https://github.com/meganjeffcoat)                                        |                                       [Cecil John Tantay](https://github.com/cjbt)                                        |
-|:-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/BrannanC)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/meganjeffcoat)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/cjbt)                       |  
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/BrannanC)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/meganjeffcoat)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/cjbt)            |        
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/cjtantay) |
+|                                                    [Brannan Conrad](https://github.com/BrannanC)                                                    |                                                     [Megan Jeffcoat](https://github.com/meganjeffcoat)                                                     |                                                  [Cecil John Tantay](https://github.com/cjbt)                                                   |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/BrannanC) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/meganjeffcoat) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/cjbt) |
+|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/BrannanC)                                |                                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/meganjeffcoat)                                 |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/cjbt)                                |
+|                    [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                    |                       [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                        |              [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/cjtantay)              |
 
 
 
@@ -41,69 +39,110 @@ You can find the deployed project at [www.stampdcert.com](www.stampdcert.com).
 
 <!-- 1[UX Design files](🚫add link to design files here) - 🚫 delete if not applicable -->
 
-🚫 Replace lorem ipsum with a description of your project
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+To transform the way education and training credentials are traditionally verified by building an application that provides simple, economical, efficient and reliable vetting of credentials utilizing the transformative technology of blockchain. 
 
 
-### 4️⃣ Key Features
+### Key Features
 
--    feature one
--    feature two
--    feature three
--    feature four
--    feature five
+-    Institutions can issue credentials to the ethereum blockchain network
+-    Students can create an account to view and share credentials from issuing institution
+-    Credentials are verfied and tracked
 
-## 1️⃣ Tech Stack
+## Tech Stack
 
 ### Front end built using:
 
-#### React/React-Conflux/Apollo/
+#### React
 
-🚫 Why did you choose this framework?
-
--    point one
--    point two
--    point three
+-    Virtual DOM provides superior performance over alternatives like jQuery.
+-    ReactJS is a such a popular libary, many modules are available as is plenty of up-to-date information.
+-    The team has expentisve experience in ReactJS, facilitating the development process.
 -    point four
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+#### React-Conflux
 
-#### Front end deployed to `🚫insert service here`
+-    Redux-like pattern
+-    Allows for context dependent redux store
+-    One way binding (One source of truth)
+-    Built around React hooks
 
-#### [Back end](🚫link to back end repo here) built using:
 
-#### 🚫 back end framework goes here
+
+#### Styled-Components
+
+
+-    CSS in JS
+-    Powerful way to style components using props
+-    Allows for rapid styling and reusability
+
+#### Grommet
+
+-    Simple, clean looking components
+-    Pleasant built-in color palletes
+-    Built with styled-components
+-    Good ease-of-use to other component libraries
+
+#### Apollo-boost
+
+-    stand-alone and Defacto way to query a GraphQL server without the need of the state management you get from `react-apollo`
+
+
+#### Front end deployed to `Netlify`
+
+#### [Back end](https://github.com/labs14-stampd/backend) built using:
+
+#### Node
 
 -    point one
 -    point two
 -    point three
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+#### Express
+
+-    point one
+-    point two
+-    point three
+
+#### GraphQL
+
+-    point one
+-    point two
+-    point three
+
+#### PostgresQL
+
+-    point one
+-    point two
+-    point three
+
+#### Web3
+
+-    point one
+-    point two
+-    point three
+
 
 # APIs
 
-## 2️⃣ Authentication API here
+## Auth0
 
 🚫Replace text below with a description of the API
 
 Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
 
-## 2️⃣ Payment API here
+<!-- ## 2️⃣ Payment API here
 
 🚫Replace text below with a description of the API
 
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
+This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it. -->
 
-## 3️⃣ Misc API here
+## Infura
 
 🚫Replace text below with a description of the API
 
 You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
 
-## 3️⃣ Misc API here
+<!-- ## 3️⃣ Misc API here
 
 🚫Replace text below with a description of the API
 
@@ -113,7 +152,7 @@ When you do it your way you can go anywhere you choose. Let your heart take you 
 
 🚫Replace text below with a description of the API
 
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
+Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful. -->
 
 # 3️⃣ Environment Variables
 
@@ -121,16 +160,12 @@ In order for the app to function correctly, the user must set up their own envir
 
 🚫These are just examples, replace them with the specifics for your app
 
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_databaseURL - in the Firebase dashboard
-    *  REACT_APP_projectID - in the Firebase dashboard
-    *  REACT_APP_storageBucket - in the Firebase dashboard
-    *  REACT_APP_messagingSenderId - in the Firebase dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
+    *  REACT_APP_AUTH0_DOMAIN - This is an Auth0 domain, generated in the Auth0 dashboard
+    *  REACT_APP_AUTH0_CLIENT_ID - This is an Auth0 clientId, generated in the Auth0 dashboard
+    *  REACT_APP_SENTRY - Sentry URL that connects front end for continuous intergration
+    *  REACT_APP_GRAPHQL_URI - Backend GraphQL API of Stampd
+    *  REACT_APP_AUTH0_AUDIENCE - Audience to access token from Auth0
+    *  REACT_APP_AUTH_TOKEN - JWT token that is sent to the backend that consist of user given by Auth0
 
 # 5️⃣ Content Licenses
 
@@ -144,19 +179,23 @@ In order for the app to function correctly, the user must set up their own envir
 # 4️⃣ Testing
 
 🚫Document what you used for testing and why
+Testing library/react
 
-# 4️⃣ Installation Instructions
+# Installation Instructions
 
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
+- Clone this repo
+- `cd` into this repo
+- `yarn install` to install all required dependencies
+- `yarn start` to start local instance of CRA
+- `yarn test` to start CRA testing environment
 
-## Other Scripts
+<!-- ## Other Scripts
 
 🚫replace these examples with your own
 
-    * typecheck - runs the TypeScript compiler
     * build - creates a build of the application
     * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
+    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them -->
 
 # Contributing
 
@@ -196,4 +235,4 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](🚫_link to your backend readme here_) for details on the backend of our project.
+See [Backend Documentation](https://github.com/labs14-stampd/backend) for details on the backend of our project.
