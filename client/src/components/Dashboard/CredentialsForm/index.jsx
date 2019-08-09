@@ -4,7 +4,7 @@ import { Box, TextArea } from 'grommet';
 import styled from 'styled-components';
 import { useStateValue } from 'react-conflux';
 import { globalContext, HANDLE_CRED_CHANGES } from '../../../store/reducers/globalReducer';
-
+import emblem from '../../../images/certEmblem.png'
 
 
 import {
@@ -65,7 +65,7 @@ const CredentialsForm = ({ history }) => {
     <Container>
       <CertificateArea>
         <div>
-          <img src={imageUrl} alt="school seal"/>
+          <img src={imageUrl || emblem} alt="school seal"/>
         </div>
         <h1>{credName || "[Certifcate of Completion]"}</h1>
         <h3>{description || "[Applicant has demonstrated proficiency hooah]"}</h3>
