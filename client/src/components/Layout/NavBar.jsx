@@ -7,11 +7,13 @@ import { SecondaryButton } from '../../styles/themes';
 import { useAuth0 } from '../../auth/authWrapper';
 
 const MenuLayer = ({ onClose }) => (
-  <Layer position="left" full="vertical" modal={false} plain={true}>
+  <MenuBar
+    position="left"
+    full="vertical"
+    plain={true}
+    onClickOutside={() => onClose()}
+  >
     <Box background="brand" fill="vertical">
-      <Box pad={{ horizontal: 'medium', vertical: 'small' }}>
-        <Text size="large">Title</Text>
-      </Box>
       {['First', 'Second', 'Third'].map(name => (
         <Button
           key={name}
@@ -24,7 +26,7 @@ const MenuLayer = ({ onClose }) => (
         </Button>
       ))}
     </Box>
-  </Layer>
+  </MenuBar>
 );
 
 function NavBar() {
@@ -112,12 +114,15 @@ const NavContainter = styled.div`
   }
 `;
 
+const MenuBar = styled(Layer)`
+  margin-top: 70px;
+  width: 275px;
+  height: calc(100vh - 70px);
+`;
+
 const NavBtn = styled(SecondaryButton)`
   border: 2px solid white /*${props => props.theme.global.colors['neutral-2']}*/;
   color: white /*${props => props.theme.global.colors['neutral-2']}*/;
 `;
 
 export default NavBar;
-
-// ${props => props.theme.global.colors['accent-3']}
-// ${props => props.theme.global.colors['brand']}
