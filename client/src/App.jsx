@@ -6,7 +6,7 @@ import PrivateRoute from './auth/PrivateRoute';
 import { useAuth0 } from './auth/authWrapper';
 import { theme } from './styles/themes';
 import Loading from './components/Layout/Loading';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard/SchoolDashboard';
 import Onboard from './components/Dashboard/Onboard';
 import SchoolDetailsForm from './components/Dashboard/Onboard/SchoolDetailsForm';
 import Landing from './components/Landing';
