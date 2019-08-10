@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {} from 'grommet';
 
+import queries from './queries';
+
 const Dashboard = ({ history }) => {
+  useEffect(() => {
+    async function getUserData() {
+      try {
+        const id = localStorage.id;
+        const data = await queries.getUserById({
+          id
+        });
+        console.log(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    getUserData();
+  }, []);
   return (
     <Container>
       <div>
-        {' '}
+        <h2>School Name Here</h2>
         <button
           type="button"
           onClick={() => history.push('/dashboard/credForm')}

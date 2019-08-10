@@ -72,7 +72,10 @@ const CredentialsForm = ({ history }) => {
           </div>
           <h1>{credName || '[Credential Name]'}</h1>
           <h3>{description || '[Description]'}</h3>
-          <h3>Issued on: {issuedOn || '[August 10, 2019]'}</h3>
+          <h3>
+            Issued on:
+            {issuedOn || '[August 10, 2019]'}
+          </h3>
           <h3>Issued by: [School of the Sequoias]</h3>
           <h2>{ownerName || 'John Doe'}</h2>
         </section>
@@ -201,7 +204,8 @@ const Container = styled.main`
   height: calc(100vh - 70px);
   padding-top: 120px;
   position: relative;
-`
+`;
+
 const CredentialSideForm = styled.section`
   position: absolute;
   top: 0;
@@ -215,31 +219,6 @@ const CredentialSideForm = styled.section`
   overflow-x: hidden;
   overflow-y: auto;
 
-<<<<<<< HEAD
-  section {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 375px;
-    height: 100vh;
-    background: ${props => props.theme.global.colors.dashBoardBg};
-    padding: 120px 20px 0;
-    border-left: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    h2 {
-      width: 100%;
-      text-align: center;
-      margin-bottom: 37px;
-    }
-    form {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-=======
   h2 {
     width: 100%;
     text-align: center;
@@ -249,7 +228,6 @@ const CredentialSideForm = styled.section`
     width: 100%;
     display: flex;
     flex-direction: column;
->>>>>>> 6e9100798dfb0472542c552933f2b95f46ea4339
   }
 `;
 
@@ -260,7 +238,7 @@ const CertificateArea = styled.div`
 
   section {
     width: calc(100% - 500px);
-    max-width: 840px;
+    max-width: 1000px;
     background: ${props => props.theme.global.colors.dashBoardBg};
     border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
     display: flex;
