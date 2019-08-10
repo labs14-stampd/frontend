@@ -25,9 +25,14 @@ Easy. Verified. Blockchain. Credentials with Stampd.
 
 ## Table of Contents
 
+- [Screenshots](#screenshots)
 - [Getting Started](#getting-started)
   - [Installation and Setup](#installation-and-setup)
   - [Environment Variables](#environment-variables)
+
+## Screenshots
+
+![Landing page screenshot](./assets/landing-screenshot.png)
 
 You can find the deployed project at [www.stampdcert.com](www.stampdcert.com).
 
