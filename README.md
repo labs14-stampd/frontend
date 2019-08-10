@@ -25,11 +25,23 @@ Easy. Verified. Blockchain. Credentials with Stampd.
 
 ## Table of Contents
 
+- [Introduction](#introduction)
+- [Contributors](#contributors)
 - [Screenshots](#screenshots)
 - [Getting Started](#getting-started)
   - [Installation and Setup](#installation-and-setup)
   - [Environment Variables](#environment-variables)
 - [Technology Stack](#technology-stack)
+  - [React](#react)
+  - [React-Conflux](#react-conflux)
+  - [Styled-Components](#styled-components)
+  - [Grommet](#grommet)
+  - [Apollo-Boost](#apollo-boost)
+  - [Netlify](#netlify)
+  - [Production Dependencies](#production-dependencies)
+  - [Development Dependencies](#development-dependencies)
+- [APIs Used](#apis-used)
+- [Testing](#testing)
 - [Contributing and Getting Involved](#contributing-and-getting-involved)
   - [Issue and Bug Requests](#issue-and-bug-requests)
   - [Feature Requests](#feature-requests)
@@ -50,92 +62,17 @@ This repository contains a **yarn.lock** file. Please do not remove this file fr
 
 #### Installation and Setup
 
+To get the client running locally, clone this repo and use the following commands/steps:
+
+1. **cd** into the `root` directory and then into the `client` directory
+2. Use the **yarn** command in the `client` directory to install all required dependencies
+3. Use the **yarn install** command to start the local instance of `React` in your default browser
+4. Use the **yarn test** command to start the `React` testing environment
+5. Use the **yarn lint** command to start the `Eslint` linting environment
+
 #### Environment Variables
 
-You can find the deployed project at [www.stampdcert.com](www.stampdcert.com).
-
-## Project Overview
-
-[Trello Board](https://trello.com/b/uvhiXJ58/stampd)
-
-[Product Canvas](https://www.notion.so/Stampd-495609cb1e06435daf900fdaf5ee55f1)
-
-[UX Design files](https://drive.google.com/drive/u/0/folders/12ppna_6DvD4g6tGLlvLW5DPJjferFuYu)
-
-To transform the way education and training credentials are traditionally verified by building an application that provides simple, economical, efficient and reliable vetting of credentials utilizing the transformative technology of blockchain.
-
-### Key Features
-
-## Tech Stack
-
-### Front end built using:
-
-#### React
-
-- Virtual DOM provides superior performance over alternatives like jQuery.
-- ReactJS is a such a popular libary, many modules are available as is plenty of up-to-date information.
-
-#### React-Conflux
-
-- Redux-like pattern
-- Allows for context dependent redux store
-- One way binding (One source of truth)
-- Built around React hooks
-
-#### Styled-Components
-
-- CSS in JS
-- Powerful way to style components using props
-- Allows for rapid styling and reusability
-
-#### Grommet
-
-- Simple, clean looking components
-- Pleasant built-in color palletes
-- Built with styled-components
-- Good ease-of-use to other component libraries
-
-#### Apollo-boost
-
-- stand-alone and Defacto way to query a GraphQL server without the need of the state management you get from `react-apollo`
-
-#### Front end deployed to `Netlify`
-
-# APIs
-
-## Auth0
-
-🚫Replace text below with a description of the API
-
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
-
-<!-- ## 2️⃣ Payment API here
-
-🚫Replace text below with a description of the API
-
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it. -->
-
-## Infura
-
-🚫Replace text below with a description of the API
-
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
-
-<!-- ## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful. -->
-
-# Environment Variables
-
-In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
+In order for the app to function correctly, the user must set up their own environment variables. There should be a `.env` file containing the following:
 
     *  REACT_APP_AUTH0_DOMAIN - This is an Auth0 domain, generated in the Auth0 dashboard
     *  REACT_APP_AUTH0_CLIENT_ID - This is an Auth0 clientId, generated in the Auth0 dashboard
@@ -144,35 +81,97 @@ In order for the app to function correctly, the user must set up their own envir
     *  REACT_APP_AUTH0_AUDIENCE - Audience to access token from Auth0
     *  REACT_APP_AUTH_TOKEN - JWT token that is sent to the backend that consist of user given by Auth0
 
-# 5️⃣ Content Licenses
+## Technology Stack
 
-🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
+The following is a short list of the major dependencies and methods used (with the reasons we used them) followed by complete and exhaustive ones with all production and development packages incorporated in the client build.
 
-| Image Filename | Source / Creator | License                                                                      |
-| -------------- | ---------------- | ---------------------------------------------------------------------------- |
-| doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
-| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
+#### React
 
-# 4️⃣ Testing
+- Virtual DOM provides superior performance over alternatives like `jQuery`.
+- `ReactJS` is a such a popular libary that many modules are available. Also, it's easy to find relevant and timely information when debugging errors.
+
+#### React-Conflux
+
+- `Redux`-like pattern for state management
+- Allows for context-dependent `redux`-like state stores
+- One way binding (one source of truth)
+- Built around `React Hooks` and the `Context API`
+
+#### Styled-Components
+
+- `CSS` in `JS`
+- Powerful way to style components using props
+- Allows for rapid styling and reusability
+
+#### Grommet
+
+- Simple, clean looking components come styled out-of-the-box
+- Pleasant built-in color palletes
+- Built with `styled-components`
+- Good ease-of-use to other component libraries
+
+#### Apollo-boost
+
+- Stand-alone and defacto way to query a `GraphQL` server without the need of the state management you get from `react-apollo`
+
+#### Netlify
+
+- Preferred method of deployement due to automatic `SSL` certificates and easy continuous integration setup
+- Close coupling with GitHub makes for a superior development experience
+
+#### Production Dependencies
+
+- [@auth0/auth0-spa-js](https://github.com/auth0/auth0-spa-js)
+- [@sentry/browser](https://www.npmjs.com/package/@sentry/browser)
+- [apollo-boost](https://github.com/apollographql/apollo-client/tree/master/packages/apollo-boost)
+- [graphql](https://www.npmjs.com/package/graphql)
+- [grommet](https://www.npmjs.com/package/grommet)
+- [grommet-icons](https://github.com/grommet/grommet-icons)
+- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
+- [prop-types](https://www.npmjs.com/package/prop-types)
+- [react](https://www.npmjs.com/package/react)
+- [react-conflux](https://github.com/dustinmyers/react-conflux)
+- [react-dom](https://www.npmjs.com/package/react-dom)
+- [react-loader-spinner](https://www.npmjs.com/package/react-loader-spinner)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [react-scripts](https://www.npmjs.com/package/react-scripts)
+- [styled-components](https://github.com/styled-components/styled-components)
+
+#### Development Dependencies
+
+- [eslint](https://eslint.org/)
+- [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
+- [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
+- [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import)
+- [eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
+- [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
+- [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react)
+- [prettier](https://github.com/prettier/prettier)
+
+## APIs Used
+
+#### Auth0
+
+🚫Replace text below with a description of the API
+
+Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+
+#### Infura
+
+🚫Replace text below with a description of the API
+
+You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
+
+#### Stripe
+
+🚫Replace text below with a description of the API
+
+This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
+
+## Testing
 
 🚫Document what you used for testing and why
 Testing library/react
-
-# Installation Instructions
-
-- Clone this repo
-- `cd` into this repo
-- `yarn install` to install all required dependencies
-- `yarn start` to start local instance of CRA
-- `yarn test` to start CRA testing environment
-
-<!-- ## Other Scripts
-
-🚫replace these examples with your own
-
-    * build - creates a build of the application
-    * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them -->
 
 ## Contributing and Getting Involved
 
