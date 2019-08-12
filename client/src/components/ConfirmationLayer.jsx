@@ -19,7 +19,7 @@ function ConfirmationLayer({ onClose, yesFunc, noFunc }) {
   };
 
   return (
-    <Layer position="top" onClickOutside={onClose}>
+    <Layer position="center" onClickOutside={onClose}>
       <Box pad="large" gap="medium">
         <Text>Are you sure?</Text>
         <Box direction="row" gap="medium" align="center">
