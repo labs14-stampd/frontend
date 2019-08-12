@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { BaseButton } from '../../../styles/themes';
 
-import CredCard from './CredCard';
+import CredCard from '../Card/CredCard';
 
 import queries from './queries';
 import {
@@ -37,14 +37,15 @@ const MainDashboard = ({ history }) => {
         {state.schoolDataSuccess && (
           <h2>{state.schoolData.schoolDetails.name}</h2>
         )}
-        <IssueCredButtonContainer>
+        <div>
+          <input type="text" name="searchText" placeholder="Search" />
           <IssueCredButton
             type="button"
             onClick={() => history.push('/dashboard/credForm')}
             label="+ Issue Credential"
             primary
           />
-        </IssueCredButtonContainer>
+        </div>
       </SchoolDetails>
       {state.schoolDataSuccess &&
         state.schoolData.schoolDetails.credentials.map(cred => {
@@ -59,9 +60,44 @@ MainDashboard.propTypes = {
 };
 
 const SchoolDetails = styled.section`
-  margin: 50px auto 0;
+  margin: 50px auto 30px;
   max-width: 1600px;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    display: flex;
+    width: 68%;
+    justify-content: flex-end;
+    align-items: center;
+
+    input {
+      background: white url('../../../images/search-icon.svg') no-repeat scroll
+        1px 1px;
+      background-size: 20px;
+      background-position: right 13px center;
+      border: 2px solid ${({ theme }) => theme.global.colors.searchBarBorder};
+      color: ${({ theme }) => theme.global.colors.searchBarColor};
+      height: 40px;
+      margin-right: 1.5%;
+      padding: 25px 3% 25px 2.5%;
+      transition: 0.25s ease-in-out;
+      width: 220px;
+      caret-color: grey;
+      border-radius: 50px;
+      font-size: 1.8rem;
+
+      &:focus {
+        color: ${({ theme }) => theme.global.colors.brand};
+        border-color: ${({ theme }) => theme.global.colors.brand};
+        outline: none;
+        padding-left: 15px;
+        width: 50%;
+      }
+    }
+  }
 `;
 
 const IssueCredButton = styled(BaseButton)`
@@ -69,12 +105,7 @@ const IssueCredButton = styled(BaseButton)`
   color: white;
   text-align: right;
   border-radius: 50px;
-`;
-
-const IssueCredButtonContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 20px;
+  margin-left: 2%;
 `;
 
 export default MainDashboard;
