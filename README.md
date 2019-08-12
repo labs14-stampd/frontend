@@ -158,9 +158,7 @@ Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do 
 
 #### Infura
 
-🚫Replace text below with a description of the API
-
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
+Infura gives 3 big benefits to developers of Ethereum-based apps: speed, scalability and data storage. It provides speed by allow quick access to the Ethereum blockchain, without having to set up an Ethereum node or wallet. Infura provides scalability by managing nodes for the developer. Finally, it allows for off-chain data storage, which is huge, since on-chain data storage is complicated and expensive.
 
 #### Stripe
 
