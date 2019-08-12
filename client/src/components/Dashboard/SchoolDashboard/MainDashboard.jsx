@@ -55,8 +55,10 @@ const MainDashboard = ({ history }) => {
   return (
     <>
       <SchoolDetails>
-        {state.schoolDataSuccess && (
+        {state.schoolDataSuccess ? (
           <h2>{state.schoolData.schoolDetails.name}</h2>
+        ) : (
+          <div />
         )}
         <div>
           <input
@@ -87,7 +89,9 @@ const MainDashboard = ({ history }) => {
           </InfiniteScroll>
         </Box>
       ) : (
-        <NothingFound>No results were found...</NothingFound>
+        state.schoolDataSuccess && (
+          <NothingFound>No results were found...</NothingFound>
+        )
       )}
     </>
   );
