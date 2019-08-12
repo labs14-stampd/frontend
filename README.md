@@ -160,9 +160,7 @@ Infura gives 3 big benefits to developers of Ethereum-based apps: speed, scalabi
 
 #### Stripe
 
-🚫Replace text below with a description of the API
-
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
+Stripe is a service that allows users to make and accept online payments. Through its API, Stripe frees developers the technological, security and regulatory burdens that come with handling sensitive user payment information, such as credit card numbers. Stripe also allows for the processing of many kinds of transactions, including one-time payments and subscriptions, and these transactions maybe processed using a variety of payment methods. 
 
 ## Testing
 
