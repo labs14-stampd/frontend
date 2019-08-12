@@ -19,7 +19,7 @@ const CredCard = ({ credName }) => {
 };
 
 const CredContainer = styled.section`
-  margin: 50px auto 0;
+  margin: 10px auto 0;
   max-width: 1600px;
   width: 100%;
   background: white;
@@ -27,6 +27,7 @@ const CredContainer = styled.section`
   border: 1px solid #d8d8d8;
   border-radius: 2px;
   display: flex;
+  justify-content: space-between;
 `;
 
 export default CredCard;
