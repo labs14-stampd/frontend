@@ -50,7 +50,8 @@ const CredentialsForm = ({ history }) => {
     try {
       toast.info('Credential Submitted', {
         position: toast.POSITION.BOTTOM_CENTER, 
-        containerId: 1
+        containerId: 1, 
+        hideProgressBar: true
       });
       await queries.addNewCredentials({
         ownerName,
@@ -66,10 +67,13 @@ const CredentialsForm = ({ history }) => {
       });
       toast.dismiss(1);
       toast.success('Success!!', {
-        position: toast.POSITION.BOTTOM_CENTER
+        position: toast.POSITION.BOTTOM_CENTER, 
+        hideProgressBar: true
       });
     } catch (error) {
-      toast.error('Error submitting credential');
+      toast.error('Error submitting credential',{
+        hideProgressBar: true
+      });
       console.error(error);
     }
   };
