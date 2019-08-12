@@ -8,7 +8,8 @@ import styled from 'styled-components';
 import { useStateValue } from 'react-conflux';
 import {
   globalContext,
-  HANDLE_CRED_CHANGES
+  HANDLE_CRED_CHANGES,
+  RESET_CREDENTIAL_FORM
 } from '../../../store/reducers/globalReducer';
 import emblem from '../../../images/certEmblem.png';
 
@@ -79,6 +80,9 @@ const CredentialsForm = ({ history }) => {
         }
       );
       setIsSubmitting(false);
+      dispatchGlobal({
+        type: RESET_CREDENTIAL_FORM
+      });
     } catch (error) {
       toast.error('Error submitting credential', {
         hideProgressBar: true,
