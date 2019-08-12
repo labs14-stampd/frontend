@@ -1,6 +1,7 @@
+import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
-import React from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+
 import PropTypes from 'prop-types';
 import { Box, TextArea } from 'grommet';
 import styled from 'styled-components';
@@ -20,8 +21,8 @@ import {
 
 import queries from './queries';
 
-
 const CredentialsForm = ({ history }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [
     {
       ownerName,
@@ -47,10 +48,11 @@ const CredentialsForm = ({ history }) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    setIsSubmitting(true);
     try {
       toast.info('Credential Submitted', {
-        position: toast.POSITION.BOTTOM_CENTER, 
-        containerId: 1, 
+        position: toast.POSITION.BOTTOM_CENTER,
+        containerId: 1,
         hideProgressBar: true
       });
       await queries.addNewCredentials({
@@ -67,14 +69,16 @@ const CredentialsForm = ({ history }) => {
       });
       toast.dismiss(1);
       toast.success('Success!!', {
-        position: toast.POSITION.BOTTOM_CENTER, 
+        position: toast.POSITION.BOTTOM_CENTER,
         hideProgressBar: true
       });
+      setIsSubmitting(false);
     } catch (error) {
-      toast.error('Error submitting credential',{
+      toast.error('Error submitting credential', {
         hideProgressBar: true
       });
       console.error(error);
+      setIsSubmitting(false);
     }
   };
 
@@ -188,6 +192,7 @@ const CredentialsForm = ({ history }) => {
               primary
               label="Submit"
               alignSelf="center"
+              disabled={isSubmitting}
             />
           </Box>
         </BaseForm>
