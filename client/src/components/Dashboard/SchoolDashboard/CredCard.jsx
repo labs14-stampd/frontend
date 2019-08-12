@@ -24,11 +24,19 @@ const CredContainer = styled.section`
   width: 100%;
   background: white;
   /* min-height: calc(100vh - 170px); */
-  border: 1px solid #d8d8d8;
+  -webkit-box-shadow: -2px 5px 25px -17px rgba(0,0,0,0.61);
+  -moz-box-shadow: -2px 5px 25px -17px rgba(0,0,0,0.61);
+  box-shadow: -2px 5px 25px -17px rgba(0,0,0,0.61);
   border-radius: 2px;
   display: flex;
   justify-content: space-between;
   padding: 20px 0;
+
+  :hover {
+    -webkit-box-shadow: 0px 0px 15px -2px rgba(125,76,219,1);
+    -moz-box-shadow: 0px 0px 15px -2px rgba(125,76,219,1);
+    box-shadow: 0px 0px 15px -2px rgba(125,76,219,1);
+  }
 `;
 
 export default CredCard;
