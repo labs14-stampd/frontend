@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { InfiniteScroll, Box, Grid } from 'grommet';
+
 import { BaseButton } from '../../../styles/themes';
 
 import CredCard from '../Card/CredCard';
@@ -48,10 +50,19 @@ const MainDashboard = ({ history }) => {
           />
         </div>
       </SchoolDetails>
-      {state.schoolDataSuccess &&
-        state.schoolData.schoolDetails.credentials.map(cred => {
-          return <CredCard key={cred.id} cred={cred} />;
-        })}
+      {state.schoolDataSuccess && (
+        <Box height="75vh" overflow="auto">
+          <InfiniteScroll
+            items={state.schoolData.schoolDetails.credentials}
+            step={10}
+            onMore={() => console.log('!!! onMore')}
+          >
+            {item => {
+              return <CredCard key={item.id} cred={item} />;
+            }}
+          </InfiniteScroll>
+        </Box>
+      )}
     </>
   );
 };
