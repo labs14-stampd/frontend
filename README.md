@@ -160,7 +160,7 @@ Infura gives 3 big benefits to developers of Ethereum-based apps: speed, scalabi
 
 #### Stripe
 
-Stripe is a service that allows users to make and accept online payments. Through its API, Stripe frees developers the technological, security and regulatory burdens that come with handling sensitive user payment information, such as credit card numbers. Stripe also allows for the processing of many kinds of transactions, including one-time payments and subscriptions, and these transactions maybe processed using a variety of payment methods. 
+Stripe is a service that allows users to make and accept online payments. Through its API, Stripe frees developers from the technological, security and regulatory burdens that come with handling sensitive user payment information, such as credit card numbers. Stripe also allows for the processing of many kinds of transactions, including one-time payments and subscriptions, and these transactions maybe processed using a variety of payment methods. 
 
 ## Testing
 
