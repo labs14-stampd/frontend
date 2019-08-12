@@ -8,14 +8,14 @@ import CredCardStudentName from './CredCardStudentName';
 import CredCardDeleteBtn from './CredCardDeleteBtn';
 
 const CredCard = ({ cred }) => {
-  const { credName, criteria, ownerName } = cred;
+  const { credName, criteria, ownerName, id } = cred;
   return (
     <CredContainer>
       <CredCardViewBtn />
       <CredCardSchoolName credName={credName} criteria={criteria} />
       <CredCardDateIssued />
       <CredCardStudentName ownerName={ownerName} />
-      <CredCardDeleteBtn />
+      <CredCardDeleteBtn credId={id} />
     </CredContainer>
   );
 };

@@ -35,7 +35,7 @@ const MainDashboard = ({ history }) => {
       }
     }
     getUserData();
-  }, [dispatch]);
+  }, [dispatch]); // Re-render whenever an action in schoolContext is dispatched
   let searchResult = [];
   if (state.schoolData) {
     const searchTerms = ['credName', 'criteria', 'ownerName', 'issuedOn'];
