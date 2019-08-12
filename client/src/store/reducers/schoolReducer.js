@@ -8,7 +8,6 @@ export const REMOVE_CREDENTIAL_START = 'REMOVE_CREDENTIAL_START';
 export const REMOVE_CREDENTIAL_SUCCESS = 'REMOVE_CREDENTIAL_SUCCESS';
 export const REMOVE_CREDENTIAL_ERROR = 'REMOVE_CREDENTIAL_ERROR';
 
-
 export const schoolContext = createContext();
 
 const initialState = {

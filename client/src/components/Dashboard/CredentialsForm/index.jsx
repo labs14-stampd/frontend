@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import PropTypes from 'prop-types';
 import { Box, TextArea } from 'grommet';
 import styled from 'styled-components';
