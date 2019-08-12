@@ -4,7 +4,8 @@ const queries = {
   addNewCredentials(body) {
     return client.mutate({
       variables: {
-        name: body.name,
+        credName: body.credName,
+        ownerName: body.ownerName,
         description: body.description,
         type: body.type,
         studentEmail: body.studentEmail,
@@ -16,7 +17,8 @@ const queries = {
       },
       mutation: gql`
         mutation AddNewCredential(
-          $name: String!
+          $credName: String!
+          $ownerName: String!
           $description: String!
           $type: String!
           $studentEmail: String!
@@ -27,7 +29,8 @@ const queries = {
           $schoolId: ID!
         ) {
           addNewCredential(
-            name: $name
+            credName: $credName
+            ownerName: $ownerName
             description: $description
             type: $type
             studentEmail: $studentEmail
@@ -37,7 +40,8 @@ const queries = {
             expirationDate: $expirationDate
             schoolId: $schoolId
           ) {
-            name
+            credName
+            ownerName
             txHash
             description
             studentEmail
