@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
 import { Trash } from 'grommet-icons';
 import { BaseButton } from '../../../styles/themes';
@@ -6,19 +7,31 @@ import { BaseButton } from '../../../styles/themes';
 import ConfirmationLayer from '../../ConfirmationLayer';
 
 import queries from '../SchoolDashboard/queries';
+import {
+  schoolContext,
+  REMOVE_CREDENTIAL_START,
+  REMOVE_CREDENTIAL_SUCCESS,
+  REMOVE_CREDENTIAL_ERROR
+} from '../../../store/reducers/schoolReducer';
 
 const CredCardDeleteBtn = ({ credId }) => {
+  const [, dispatch] = useStateValue(schoolContext);
+
   const [
     hasActiveConfirmationDialog,
     setHasActiveConfirmationDialog
   ] = useState(false);
 
-  //  Handling of loading states can be done here
-  const confirmRemoveCredential = e => {
-    alert('start delete');
-    queries.removeCredential(credId);
-    alert('end delete');
-  }
+  //  Handling of loading states can be done here as well
+  const confirmRemoveCredential = async e => {
+    try {
+      dispatch({ type: REMOVE_CREDENTIAL_START });
+      await queries.removeCredential(credId);
+      dispatch({ type: REMOVE_CREDENTIAL_SUCCESS, payload: { credId } });
+    } catch {
+      dispatch({ type: REMOVE_CREDENTIAL_ERROR });
+    }
+  };
 
   return (
     <>
@@ -26,7 +39,7 @@ const CredCardDeleteBtn = ({ credId }) => {
       {hasActiveConfirmationDialog && (
         // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
         <ConfirmationLayer
-          onClose={() => setHasActiveConfirmationDialog(false)} // Needed to make the layer disappear 
+          onClose={() => setHasActiveConfirmationDialog(false)} // Needed to make the layer disappear
           yesFunc={confirmRemoveCredential}
         />
       )}
