@@ -1,11 +1,25 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+import { Trash } from 'grommet-icons';
+import { BaseButton } from '../../../styles/themes';
 
 const CredCardDeleteBtn = () => {
   return (
-    <div>
-        <button>delete</button>
-      </div>
-  )
-}
+    <CredCardDelBtnContainer>
+      <CredCardDeleteButton>
+        <Trash />
+      </CredCardDeleteButton>
+    </CredCardDelBtnContainer>
+  );
+};
 
-export default CredCardDeleteBtn
+const CredCardDelBtnContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3%;
+`;
+
+const CredCardDeleteButton = styled(BaseButton)``;
+
+export default CredCardDeleteBtn;
