@@ -1,37 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { StateProvider as SchoolProvider, useStateValue } from 'react-conflux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {} from 'grommet';
 
-import queries from './queries';
+import MainDashboard from './MainDashboard';
+import {
+  schoolReducer,
+  schoolContext
+} from '../../../store/reducers/schoolReducer';
 
 const Dashboard = ({ history }) => {
-  useEffect(() => {
-    async function getUserData() {
-      try {
-        const id = localStorage.id;
-        const data = await queries.getUserById({
-          id
-        });
-        console.log(data);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    getUserData();
-  }, []);
   return (
-    <Container>
-      <div>
-        <h2>School Name Here</h2>
-        <button
-          type="button"
-          onClick={() => history.push('/dashboard/credForm')}
-        >
-          Issue Credential
-        </button>
-      </div>
-    </Container>
+    <SchoolProvider reducer={schoolReducer} stateContext={schoolContext}>
+      <Container>
+        <MainDashboard history={history} />
+      </Container>
+    </SchoolProvider>
   );
 };
 
