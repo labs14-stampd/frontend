@@ -3,6 +3,7 @@ import { createContext } from 'react';
 export const SCHOOL_DATA_START = 'SCHOOL_DATA_START';
 export const SCHOOL_DATA_SUCCESS = 'SCHOOL_DATA_SUCCESS';
 export const SCHOOL_DATA_ERROR = 'SCHOOL_DATA_ERROR';
+export const SEARCH_HANDLE_CHANGE = 'SEARCH_HANDLE_CHANGE';
 
 export const schoolContext = createContext();
 
@@ -10,7 +11,8 @@ const initialState = {
   schoolData: null,
   schoolDataSuccess: false,
   schoolDataStart: false,
-  schoolDataError: false
+  schoolDataError: false,
+  schoolSearchInput: ''
 };
 
 export const schoolReducer = (state = initialState, action) => {
@@ -35,6 +37,11 @@ export const schoolReducer = (state = initialState, action) => {
         ...state,
         schoolDataError: true,
         schoolDataStart: false
+      };
+    case SEARCH_HANDLE_CHANGE:
+      return {
+        ...state,
+        schoolSearchInput: action.payload
       };
     default:
       return state;
