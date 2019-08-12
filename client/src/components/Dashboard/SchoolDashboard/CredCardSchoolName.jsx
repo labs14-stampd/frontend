@@ -1,12 +1,19 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 
-const CredCardSchoolName = ({credName}) => {
+const CredCardSchoolName = ({ credName }) => {
   return (
-    <div>
-        <h2>{credName}</h2>
-        <p>Credential description here. Lorem Ipsomething something idk</p>
-      </div>
-  )
-}
+    <SchoolNameContainer>
+      <h2>{credName}</h2>
+      <p>Credential description here. Lorem Ipsomething something idk</p>
+    </SchoolNameContainer>
+  );
+};
 
-export default CredCardSchoolName
+const SchoolNameContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+export default CredCardSchoolName;

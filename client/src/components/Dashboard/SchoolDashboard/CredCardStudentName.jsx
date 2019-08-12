@@ -1,11 +1,18 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 
 const CredCardStudentName = () => {
   return (
-    <dir>
-        <h3>Cecil John Tantay</h3>
-      </dir>
-  )
-}
+    <StudentNameContainer>
+      <h3>Cecil John Tantay</h3>
+    </StudentNameContainer>
+  );
+};
 
-export default CredCardStudentName
+const StudentNameContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export default CredCardStudentName;
