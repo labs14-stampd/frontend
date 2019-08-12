@@ -27,7 +27,7 @@ Dashboard.propTypes = {
 const Container = styled.div`
   padding: 70px 3% 0;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
   width: 100%;
   background: #f8f8f8;
 `;

@@ -65,10 +65,10 @@ const SchoolDetails = styled.section`
 `;
 
 const IssueCredButton = styled(BaseButton)`
-  border-radius: 5%;
-  padding: 10px 10px;
+  padding: 12px 15px;
   color: white;
   text-align: right;
+  border-radius: 50px;
 `;
 
 const IssueCredButtonContainer = styled.div`
