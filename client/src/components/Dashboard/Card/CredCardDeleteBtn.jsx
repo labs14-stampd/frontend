@@ -18,6 +18,11 @@ const CredCardDelBtnContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: 3%;
+  transition: opacity 0.3s;
+
+  :hover {
+    opacity: 0.6;
+  }
 `;
 
 const CredCardDeleteButton = styled(BaseButton)``;

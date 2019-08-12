@@ -11,17 +11,13 @@ const CredCardStudentName = ({ ownerName }) => {
 };
 
 CredCardStudentName.propTypes = {
-  ownerName: PropTypes.string
-};
-
-CredCardStudentName.defaultProps = {
-  ownerName: ''
+  ownerName: PropTypes.string.isRequired
 };
 
 const StudentNameContainer = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
+  width: 20%;
 `;
 
 export default CredCardStudentName;

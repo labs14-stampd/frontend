@@ -11,8 +11,8 @@ const CredCardDateIssued = () => {
 
 const DateIssuedContainer = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
+  width: 12%;
 `;
 
 export default CredCardDateIssued;
