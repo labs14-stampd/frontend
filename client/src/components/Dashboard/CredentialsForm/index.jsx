@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import PropTypes from 'prop-types';
@@ -209,7 +209,6 @@ const CredentialsForm = ({ history }) => {
           </Box>
         </BaseForm>
       </CredentialSideForm>
-      <ToastContainer />
     </Container>
   );
 };
@@ -237,12 +236,6 @@ const Container = styled.main`
   height: calc(100vh - 70px);
   padding-top: 120px;
   position: relative;
-  .brand-background {
-    background: ${props => props.theme.global.colors.brand};
-  }
-  .status-ok {
-    background: ${props => props.theme.global.colors['status-ok']};
-  }
 `;
 
 const CredentialSideForm = styled.section`
