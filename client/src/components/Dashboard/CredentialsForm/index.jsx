@@ -50,9 +50,11 @@ const CredentialsForm = ({ history }) => {
     setIsSubmitting(true);
     try {
       toast.info(`Submitting for ${ownerName}`, {
+        className: 'brand-background',
         position: toast.POSITION.BOTTOM_CENTER,
         containerId: 1,
-        hideProgressBar: true
+        hideProgressBar: true,
+        autoClose: false
       });
       await queries.addNewCredentials({
         ownerName,
@@ -67,14 +69,21 @@ const CredentialsForm = ({ history }) => {
         schoolId: localStorage.id
       });
       toast.dismiss(1);
-      toast.success(`Success!! Credential issued for ${ownerName}`, {
-        position: toast.POSITION.BOTTOM_CENTER,
-        hideProgressBar: true
-      });
+      toast.success(
+        `Success!! Blockchain verification available in 5 minutes!`,
+        {
+          className: 'status-ok',
+          position: toast.POSITION.BOTTOM_CENTER,
+          hideProgressBar: true,
+          autoClose: false
+        }
+      );
       setIsSubmitting(false);
     } catch (error) {
       toast.error('Error submitting credential', {
-        hideProgressBar: true
+        hideProgressBar: true,
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: false
       });
       console.error(error);
       setIsSubmitting(false);
@@ -224,6 +233,12 @@ const Container = styled.main`
   height: calc(100vh - 70px);
   padding-top: 120px;
   position: relative;
+  .brand-background {
+    background: ${props => props.theme.global.colors.brand};
+  }
+  .status-ok {
+    background: ${props => props.theme.global.colors['status-ok']};
+  }
 `;
 
 const CredentialSideForm = styled.section`
