@@ -155,6 +155,7 @@ const NothingFound = styled.p`
   text-align: center;
   font-size: 2.4rem;
   margin-top: 20vh;
+  color: ${({ theme }) => theme.global.colors['status-disabled']};
 `;
 
 export default MainDashboard;

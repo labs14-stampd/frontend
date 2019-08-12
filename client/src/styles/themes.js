@@ -15,7 +15,8 @@ export const theme = {
       focus: 'accent-4',
       navbarHoverBg: '#ffffff',
       searchBarBorder: '#d8d8d8',
-      searchBarColor: '#d8d8d8'
+      searchBarColor: '#d8d8d8',
+      dashboardNotFoundColor: '#d8d8d8'
     },
     border: '1px solid rgba(0,0,0,0.33)',
     // fontFamily
