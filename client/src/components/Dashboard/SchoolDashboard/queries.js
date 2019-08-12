@@ -50,6 +50,23 @@ const queries = {
         }
       `
     });
+  },
+
+  removeCredential(id) {
+    return client.mutate({
+      variables: { id },
+      mutation: gql`
+        mutation RemoveCredential(
+          $id: ID!
+        ) {
+          removeCredential (
+            id: $id
+          ) {
+            id
+          }
+        }
+      `
+    })
   }
 };
 

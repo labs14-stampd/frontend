@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import CredCardViewBtn from './CredCardViewBtn';
@@ -9,10 +9,9 @@ import CredCardDeleteBtn from './CredCardDeleteBtn';
 import { Button, Layer } from 'grommet';
 import emblem from '../../../images/certEmblem.png';
 
-
 const CredCard = ({ cred }) => {
-  const [show, setShow] = React.useState();
-  const { credName, criteria, ownerName } = cred;
+  const [show, setShow] = useState();
+  const { credName, criteria, ownerName, id } = cred;
   return (
     <CredContainer>
       <CredCardViewBtn getModal = {()=>setShow(true)}/>
@@ -42,7 +41,7 @@ const CredCard = ({ cred }) => {
       <CredCardSchoolName credName={credName} criteria={criteria} />
       <CredCardDateIssued />
       <CredCardStudentName ownerName={ownerName} />
-      <CredCardDeleteBtn />
+      <CredCardDeleteBtn credId={id} />
     </CredContainer>
   );
 };

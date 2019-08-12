@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Grommet } from 'grommet';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import PrivateRoute from './auth/PrivateRoute';
 import { useAuth0 } from './auth/authWrapper';
@@ -40,6 +42,7 @@ function App() {
               {/* Error route */}
               <Route component={ErrorPage} />
             </Switch>
+            <ToastContainer />
           </Layout>
           <GlobalStyle />
         </Grommet>
