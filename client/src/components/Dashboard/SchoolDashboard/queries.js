@@ -1,14 +1,18 @@
 import client, { gql } from '../../../clientQuery';
 
 const queries = {
-  getUserById(userId) {
+  getUserById(body) {
     return client.query({
       variables: {
-        id: userId
+        id: body.id
       },
       query: gql`
-        query GetUserById($id: ID!) {
-          getUserById(id: id) {
+        query GetUserById(
+          $id: ID!
+        ) {
+          getUserById (
+            id: $id
+          ) {
             id
             username
             email
