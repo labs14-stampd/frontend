@@ -1,35 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Menu } from 'grommet-icons';
-import { Box, Button, Layer, Text } from 'grommet';
 import { SecondaryButton } from '../../styles/themes';
 
 import { useAuth0 } from '../../auth/authWrapper';
+import MenuLayer from './MenuLayer';
 
-const MenuLayer = ({ onClose }) => (
-  <MenuBar
-    position="left"
-    full="vertical"
-    plain
-    onClickOutside={() => onClose()}
-  >
-    <Box background="brand" fill="vertical">
-      {['First', 'Second', 'Third'].map(name => (
-        <Button
-          key={name}
-          onClick={onClose}
-          hoverIndicator={{ background: 'light-5' }}
-        >
-          <Box pad={{ horizontal: 'medium', vertical: 'small' }}>
-            <Text size="large">{name}</Text>
-          </Box>
-        </Button>
-      ))}
-    </Box>
-  </MenuBar>
-);
-
-function NavBar() {
+function NavBar({ history }) {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [isShown, setShown] = useState(false);
 
@@ -75,7 +52,7 @@ function NavBar() {
           </div>
         )}
       </nav>
-      {isShown && <MenuLayer onClose={onClose} />}
+      {isShown && <MenuLayer onClose={onClose} history={history} />}
     </NavContainter>
   );
 }
@@ -117,12 +94,6 @@ const NavContainter = styled.div`
       width: 20%;
     }
   }
-`;
-
-const MenuBar = styled(Layer)`
-  margin-top: 70px;
-  width: 275px;
-  height: calc(100vh - 70px);
 `;
 
 const NavBtn = styled(SecondaryButton)`

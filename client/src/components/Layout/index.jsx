@@ -8,12 +8,12 @@ import { theme } from '../../styles/themes';
 
 // GlobalStyles will go here
 
-const Layout = ({ children }) => {
+const Layout = ({ children, history }) => {
   return (
     <>
       <Grommet theme={theme}>
         <Container>
-          <NavBar />
+          <NavBar history={history} />
           {children}
           <Footer />
         </Container>
