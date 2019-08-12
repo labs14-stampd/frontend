@@ -14,6 +14,7 @@ const initialState = {
 };
 
 export const schoolReducer = (state = initialState, action) => {
+  console.log(action);
   switch (action.type) {
     case SCHOOL_DATA_START:
       return {

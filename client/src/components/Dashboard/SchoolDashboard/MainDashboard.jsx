@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {} from 'grommet';
 
-import CredCard from './CredCard'
+import CredCard from './CredCard';
 
 import queries from './queries';
 import {
@@ -46,7 +46,7 @@ const MainDashboard = ({ history }) => {
       </SchoolDetails>
       {state.schoolDataSuccess &&
         state.schoolData.schoolDetails.credentials.map(cred => {
-          return <CredCard key={cred.id} credName={cred.credName} />;
+          return <CredCard key={cred.id} cred={cred} />;
         })}
     </>
   );

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CredCardSchoolName = ({ credName }) => {
+const CredCardSchoolName = ({ credName, criteria }) => {
   return (
     <SchoolNameContainer>
       <h2>{credName}</h2>
-      <p>Credential description here. Lorem Ipsomething something idk</p>
+      <p>{criteria}</p>
     </SchoolNameContainer>
   );
 };
