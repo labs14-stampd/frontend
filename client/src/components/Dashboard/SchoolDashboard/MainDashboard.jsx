@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import {} from 'grommet';
+import { BaseButton } from '../../../styles/themes';
 
-import CredCard from './CredCard'
+import CredCard from './CredCard';
 
 import queries from './queries';
 import {
@@ -37,12 +37,14 @@ const MainDashboard = ({ history }) => {
         {state.schoolDataSuccess && (
           <h2>{state.schoolData.schoolDetails.name}</h2>
         )}
-        <button
-          type="button"
-          onClick={() => history.push('/dashboard/credForm')}
-        >
-          Issue Credential
-        </button>
+        <IssueCredButtonContainer>
+          <IssueCredButton
+            type="button"
+            onClick={() => history.push('/dashboard/credForm')}
+            label="+ Issue Credential"
+            primary
+          />
+        </IssueCredButtonContainer>
       </SchoolDetails>
       {state.schoolDataSuccess &&
         state.schoolData.schoolDetails.credentials.map(cred => {
@@ -60,6 +62,19 @@ const SchoolDetails = styled.section`
   margin: 50px auto 0;
   max-width: 1600px;
   width: 100%;
+`;
+
+const IssueCredButton = styled(BaseButton)`
+  border-radius: 5%;
+  padding: 10px 10px;
+  color: white;
+  text-align: right;
+`;
+
+const IssueCredButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
 `;
 
 export default MainDashboard;
