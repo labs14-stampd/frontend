@@ -62,6 +62,4 @@ const SchoolDetails = styled.section`
   width: 100%;
 `;
 
-
-
 export default MainDashboard;

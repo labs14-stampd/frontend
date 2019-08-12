@@ -28,6 +28,7 @@ const CredContainer = styled.section`
   border-radius: 2px;
   display: flex;
   justify-content: space-between;
+  padding: 20px 0;
 `;
 
 export default CredCard;

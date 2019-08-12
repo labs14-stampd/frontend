@@ -23,6 +23,8 @@ const CardCredViewButton = styled(BaseButton)`
 
   :hover {
     border-color: #7d4cdb;
+    background-color: #7d4cdb;
+    color: white;
   }
 `;
 
