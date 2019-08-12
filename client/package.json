@@ -16,6 +16,7 @@
     "@auth0/auth0-spa-js": "^1.1.1",
     "@sentry/browser": "^5.5.0",
     "apollo-boost": "^0.4.3",
+    "fuzzy-search": "^3.0.1",
     "graphql": "^14.4.2",
     "grommet": "^2.7.4",
     "grommet-icons": "^4.2.0",
