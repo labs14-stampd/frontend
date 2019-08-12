@@ -47,6 +47,9 @@ const Global = css`
     font-family: 'Poppins', 'Work Sans', sans-serif;
     color: #333333;
   }
+  input {
+    font-family: 'Roboto', sans-serif;
+  }
   img {
     width: 100%;
     height: auto;

@@ -25,7 +25,7 @@ const globalReducer = (state = initialState, action) => {
       return {
         ...state,
         [action.payload.name]: action.payload.value
-      }
+      };
     default:
       return state;
   }
