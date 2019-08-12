@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Box, Button, Layer, Text } from 'grommet';
 
@@ -29,5 +30,11 @@ function ConfirmationLayer({ onClose, yesFunc, noFunc }) {
     </Layer>
   );
 }
+
+ConfirmationLayer.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  yesFunc: PropTypes.func,
+  noFunc: PropTypes.func
+};
 
 export default ConfirmationLayer;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Trash } from 'grommet-icons';
 import { BaseButton } from '../../../styles/themes';
@@ -9,13 +9,15 @@ const CredCardDeleteBtn = () => {
   const [
     hasActiveConfirmationDialog,
     setHasActiveConfirmationDialog
-  ] = React.useState(false);
+  ] = useState(false);
 
   return (
     <>
+      {/* Render the confirmation layer if it is set to be active in this component's local state */}
       {hasActiveConfirmationDialog && (
+        // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
         <ConfirmationLayer
-          onClose={() => setHasActiveConfirmationDialog(false)}
+          onClose={() => setHasActiveConfirmationDialog(false)} // Needed to make the layer disappear 
           yesFunc={() => alert('Confirms deletion....')}
           noFunc={() => alert('Negates deletion...')}
         />
@@ -23,7 +25,7 @@ const CredCardDeleteBtn = () => {
 
       <CredCardDelBtnContainer>
         <CredCardDeleteButton
-          onClick={() => setHasActiveConfirmationDialog(true)}
+          onClick={() => setHasActiveConfirmationDialog(true)} // This state value setting will cause the layer to appear
         >
           <Trash />
         </CredCardDeleteButton>
