@@ -21,15 +21,19 @@ const CredCard = ({ cred }) => {
 };
 
 CredCard.propTypes = {
-  credName: PropTypes.string,
-  criteria: PropTypes.string,
-  ownerName: PropTypes.string
+  cred: PropTypes.shape({
+    credName: PropTypes.string,
+    criteria: PropTypes.string,
+    ownerName: PropTypes.string
+  })
 };
 
 CredCard.defaultProps = {
-  credName: '',
-  criteria: '',
-  ownerName: ''
+  cred: {
+    credName: '',
+    criteria: '',
+    ownerName: ''
+  }
 };
 
 const CredContainer = styled.section`
@@ -43,7 +47,7 @@ const CredContainer = styled.section`
   box-shadow: -2px 5px 25px -17px rgba(0, 0, 0, 0.61);
   border-radius: 2px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding: 20px 0;
   transition: box-shadow 0.5s;
 

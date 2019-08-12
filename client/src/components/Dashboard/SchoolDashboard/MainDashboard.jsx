@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { InfiniteScroll, Box, Grid } from 'grommet';
+import { InfiniteScroll, Box } from 'grommet';
 import FuzzySearch from 'fuzzy-search';
 
 import { BaseButton } from '../../../styles/themes';
@@ -35,7 +35,7 @@ const MainDashboard = ({ history }) => {
       }
     }
     getUserData();
-  }, []);
+  }, [dispatch]);
   let searchResult = [];
   if (state.schoolData) {
     const searchTerms = ['credName', 'criteria', 'ownerName', 'issuedOn'];
@@ -78,11 +78,7 @@ const MainDashboard = ({ history }) => {
       </SchoolDetails>
       {state.schoolDataSuccess && searchResult.length ? (
         <Box height="75vh" overflow="auto">
-          <InfiniteScroll
-            items={searchResult}
-            step={10}
-            onMore={() => console.log('!!! onMore')}
-          >
+          <InfiniteScroll items={searchResult} step={10}>
             {item => {
               return <CredCard key={item.id} cred={item} />;
             }}

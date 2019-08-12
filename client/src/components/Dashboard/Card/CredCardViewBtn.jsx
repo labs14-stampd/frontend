@@ -12,9 +12,9 @@ const CredCardViewBtn = () => {
 
 const CardCredBtnContainer = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-left: 3%;
+  width: 15%;
 `;
 
 const CardCredViewButton = styled(BaseButton)`
