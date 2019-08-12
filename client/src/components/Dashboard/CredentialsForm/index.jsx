@@ -1,5 +1,5 @@
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
+import { ToastContainer, toast, style } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, TextArea } from 'grommet';
@@ -68,7 +68,9 @@ const CredentialsForm = ({ history }) => {
       toast.dismiss(1);
       toast.success('Success!!', {
         position: toast.POSITION.BOTTOM_CENTER, 
-        hideProgressBar: true
+        hideProgressBar: true, 
+        
+
       });
     } catch (error) {
       toast.error('Error submitting credential',{

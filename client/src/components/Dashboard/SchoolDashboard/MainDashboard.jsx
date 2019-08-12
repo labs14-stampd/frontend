@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { InfiniteScroll, Box, Grid } from 'grommet';
+import { InfiniteScroll, Box } from 'grommet';
+import FuzzySearch from 'fuzzy-search';
 
 import { BaseButton } from '../../../styles/themes';
 
@@ -14,7 +15,8 @@ import {
   schoolContext,
   SCHOOL_DATA_START,
   SCHOOL_DATA_SUCCESS,
-  SCHOOL_DATA_ERROR
+  SCHOOL_DATA_ERROR,
+  SEARCH_HANDLE_CHANGE
 } from '../../../store/reducers/schoolReducer';
 
 const MainDashboard = ({ history }) => {
@@ -33,15 +35,39 @@ const MainDashboard = ({ history }) => {
       }
     }
     getUserData();
-  }, []);
+  }, [dispatch]);
+  let searchResult = [];
+  if (state.schoolData) {
+    const searchTerms = ['credName', 'criteria', 'ownerName', 'issuedOn'];
+    const searchOptions = {
+      caseSensitive: false
+    };
+    const searcher = new FuzzySearch(
+      state.schoolData.schoolDetails.credentials,
+      searchTerms,
+      searchOptions
+    );
+    searchResult = searcher.search(state.schoolSearchInput);
+  }
+  const handleChange = e => {
+    dispatch({ type: SEARCH_HANDLE_CHANGE, payload: e.target.value });
+  };
   return (
     <>
       <SchoolDetails>
-        {state.schoolDataSuccess && (
+        {state.schoolDataSuccess ? (
           <h2>{state.schoolData.schoolDetails.name}</h2>
+        ) : (
+          <div />
         )}
         <div>
-          <input type="text" name="searchText" placeholder="Search" />
+          <input
+            type="text"
+            name="searchText"
+            placeholder="Search"
+            onChange={handleChange}
+            value={state.schoolSearchInput}
+          />
           <IssueCredButton
             type="button"
             onClick={() => history.push('/dashboard/credForm')}
@@ -50,18 +76,18 @@ const MainDashboard = ({ history }) => {
           />
         </div>
       </SchoolDetails>
-      {state.schoolDataSuccess && (
+      {state.schoolDataSuccess && searchResult.length ? (
         <Box height="75vh" overflow="auto">
-          <InfiniteScroll
-            items={state.schoolData.schoolDetails.credentials}
-            step={10}
-            onMore={() => console.log('!!! onMore')}
-          >
+          <InfiniteScroll items={searchResult} step={10}>
             {item => {
               return <CredCard key={item.id} cred={item} />;
             }}
           </InfiniteScroll>
         </Box>
+      ) : (
+        state.schoolDataSuccess && (
+          <NothingFound>No results were found...</NothingFound>
+        )
       )}
     </>
   );
@@ -122,6 +148,13 @@ const IssueCredButton = styled(BaseButton)`
   text-align: right;
   border-radius: 50px;
   margin-left: 2%;
+`;
+
+const NothingFound = styled.p`
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  margin-top: 20vh;
 `;
 
 export default MainDashboard;

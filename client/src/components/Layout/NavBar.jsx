@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Menu, Close } from 'grommet-icons';
+import { Menu } from 'grommet-icons';
 import { Box, Button, Layer, Text } from 'grommet';
 import { SecondaryButton } from '../../styles/themes';
 

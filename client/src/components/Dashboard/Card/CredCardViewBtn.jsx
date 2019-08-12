@@ -2,19 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import { BaseButton } from '../../../styles/themes';
 
-const CredCardViewBtn = () => {
+const CredCardViewBtn = ({getModal}) => {
+
   return (
     <CardCredBtnContainer>
-      <CardCredViewButton label="View" a11yTitle="view credentials button" />
+      <CardCredViewButton label="View" a11yTitle="view credentials button" onClick={getModal} />
     </CardCredBtnContainer>
   );
 };
 
 const CardCredBtnContainer = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-left: 3%;
+  width: 15%;
 `;
 
 const CardCredViewButton = styled(BaseButton)`
