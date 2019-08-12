@@ -48,7 +48,7 @@ const MainDashboard = ({ history }) => {
       </SchoolDetails>
       {state.schoolDataSuccess &&
         state.schoolData.schoolDetails.credentials.map(cred => {
-          return <CredCard key={cred.id} credName={cred.credName} />;
+          return <CredCard key={cred.id} cred={cred} />;
         })}
     </>
   );

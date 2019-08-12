@@ -1,12 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const CredCardStudentName = () => {
+const CredCardStudentName = ({ ownerName }) => {
   return (
     <StudentNameContainer>
-      <h3>Cecil John Tantay</h3>
+      <h3>{ownerName}</h3>
     </StudentNameContainer>
   );
+};
+
+CredCardStudentName.propTypes = {
+  ownerName: PropTypes.string
+};
+
+CredCardStudentName.defaultProps = {
+  ownerName: ''
 };
 
 const StudentNameContainer = styled.div`
