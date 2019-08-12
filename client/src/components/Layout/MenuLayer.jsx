@@ -49,6 +49,8 @@ const MenuBar = styled(Layer)`
   margin-top: 70px;
   width: 275px;
   height: calc(100vh - 70px);
+  animation: none;
+  transition: 0.3s;
 
   .navbar__link {
     transition: opacity 0.3s;
