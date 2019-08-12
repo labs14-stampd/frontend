@@ -165,13 +165,21 @@ Stripe is a service that allows users to make and accept online payments. Throug
 
 ## Testing
 
+Testing is performed using the following dependencies:
+
+- [@testing-library/react](https://github.com/testing-library/react-testing-library)
+- [jest-dom](https://github.com/testing-library/jest-dom)
+- [react-test-renderer](https://reactjs.org/docs/test-renderer.html)
+
+In addition, we have incorporated custom test helpers called `renderWithProviderRouter` and `rendererWithProviderRouter` in order to accomodate testing while using both [React-Conflux](https://github.com/dustinmyers/react-conflux) and [React Router](https://www.npmjs.com/package/react-router).
+
 ## Project Management
 
 The following documents and links contain all the project management documents for Stampd. Included are a Trello board, the project vision document (which contains links to the UX wireframes and layouts), and the Google Drive with our user interviews:
 
-1. [Trello Board](https://trello.com/b/uvhiXJ58/stampd)
-2. [Project Vision Document](https://www.notion.so/Stampd-495609cb1e06435daf900fdaf5ee55f1)
-3. [User Interviews](https://drive.google.com/drive/folders/17dBTV1TwsZ6fkYOwTTcnmQUYVyi7ptS0?usp=sharing)
+- [Trello Board](https://trello.com/b/uvhiXJ58/stampd)
+- [Project Vision Document](https://www.notion.so/Stampd-495609cb1e06435daf900fdaf5ee55f1)
+- [User Interviews](https://drive.google.com/drive/folders/17dBTV1TwsZ6fkYOwTTcnmQUYVyi7ptS0?usp=sharing)
 
 ## Contributing and Getting Involved
 
