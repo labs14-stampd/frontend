@@ -5,11 +5,20 @@ import { BaseButton } from '../../../styles/themes';
 
 import ConfirmationLayer from '../../ConfirmationLayer';
 
-const CredCardDeleteBtn = () => {
+import queries from '../SchoolDashboard/queries';
+
+const CredCardDeleteBtn = ({ credId }) => {
   const [
     hasActiveConfirmationDialog,
     setHasActiveConfirmationDialog
   ] = useState(false);
+
+  //  Handling of loading states can be done here
+  const confirmRemoveCredential = e => {
+    alert('start delete');
+    queries.removeCredential(credId);
+    alert('end delete');
+  }
 
   return (
     <>
@@ -18,8 +27,7 @@ const CredCardDeleteBtn = () => {
         // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
         <ConfirmationLayer
           onClose={() => setHasActiveConfirmationDialog(false)} // Needed to make the layer disappear 
-          yesFunc={() => alert('Confirms deletion....')}
-          noFunc={() => alert('Negates deletion...')}
+          yesFunc={confirmRemoveCredential}
         />
       )}
 
