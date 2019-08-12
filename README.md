@@ -1,152 +1,78 @@
-# Stampd
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cd475e07-33f5-4729-80c6-2e2f9f431b14/deploy-status)](https://app.netlify.com/sites/stampdcerts/deploys)
+![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg) ![React](https://img.shields.io/badge/react-v16.8.6-blue) [![Conflux](https://img.shields.io/badge/react--conflux-0.0.2--beta.6-blue)](https://www.npmjs.com/package/react-conflux) ![apollo-boost](https://img.shields.io/badge/apollo--boost-v0.4.3-blue) ![styled-components](https://img.shields.io/badge/styled--components-v4.3.2-ff69b4) [![grommet](https://img.shields.io/badge/design--system-v2.grommet.io-7D4CDB)](https://v2.grommet.io/) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) ![eslint](https://img.shields.io/badge/eslint-airbnb-hotpink)
 
-You can find the deployed project at [www.stampdcert.com](www.stampdcert.com).
+#
+
+<h1 align="center"><img src="./assets/readme-header.png" /></h1>
+
+# Stampd Client
+
+## Introduction
+
+The education industry has a big problem; in addition to the student debt crisis and other issues, post-student life is often a complete mess. One of these key areas is the credentialing process. Employers and students are often left hanging while employment verifications or the general verification process takes days (or even weeks) to finish. This leaves employers at risk of being understaffed, schools in danger of being short-staffed in their registrars' offices, and students in a position of losing out on great jobs. This is exactly the part where Stampd comes in.
+
+Stampd is a blockchain-based project that allows educational institutions to permanently issue fully verified credentials that are stamped to the Ethereum blockchain. Using blockchain technology, educational institutions can have a fast and cost-effective way to take care of their students; within minutes, a school can issue a credential and email it out, while employers can have peace of mind in knowing that there's no secret way the credential could have been modified or tampered with. This enables fast hires, low budgetary costs, and happy employees.
+
+Easy. Verified. Blockchain. Credentials with Stampd.
 
 ## Contributors
 
-|                                                     [Byron Holmes](https://github.com/byronholmes2018)                                                     |                                                     [Megan Jeffcoat](https://github.com/meganjeffcoat)                                                     |                                 [Nathan Thomas](https://github.com/nwthomas)                                  |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-| [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/byronholmes2018) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/meganjeffcoat) |         [<img src="client/assets/nwthomas_profile.JPG" width = "200" />](https://github.com/nwthomas)         |
-|                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                        |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/byronholmes2018)                                |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/meganjeffcoat)           | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/nwthomas) |
-|                       [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                        |                       [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                        | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
+|                                            [Aljoe Bacus](https://github.com/joepound)                                             |                                               [Brannan Conrad](https://github.com/BrannanC)                                               |                                      [Byron Holmes](https://github.com/byronholmes2018)                                       |                                            [Megan Jeffcoat](https://github.com/meganjeffcoat)                                            |                                           [CJ Tantay](https://github.com/cjbt)                                            |                                         [Nathan Thomas](https://github.com/nwthomas)                                          |
+| :-------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: |
+|      [<img src="https://avatars2.githubusercontent.com/u/14357797?s=460&v=4" width = "150" />](https://github.com/joepound)       |          [<img src="https://avatars1.githubusercontent.com/u/39506884?s=460&v=4" width = "150" />](https://github.com/BrannanC)           | [<img src="https://avatars1.githubusercontent.com/u/40626585?s=460&v=4" width = "150" />](https://github.com/byronholmes2018) |       [<img src="https://avatars3.githubusercontent.com/u/44781690?s=400&v=4" width = "150" />](https://github.com/meganjeffcoat)        |     [<img src="https://avatars3.githubusercontent.com/u/8962594?s=460&v=4" width = "150" />](https://github.com/cjbt)     |    [<img src="https://avatars3.githubusercontent.com/u/28681364?s=460&v=4" width = "150" />](https://github.com/nwthomas)     |
+|                       [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/joepound)                       |                           [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/BrannanC)                           |                 [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/byronholmes2018)                  |                        [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/meganjeffcoat)                        |                     [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/cjbt)                     |                     [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/nwthomas)                     |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/in/aljoe-luis-bacus/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/in/brannan-conrad-18852616b/) |                                                                                                                               | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/in/megan-jeffcoat-b46b8287/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/in/cjtantay/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/in/nwthomas-dev/) |
 
-|                                 [Brannan Conrad](https://github.com/BrannanC)                                 |                                                      [Joe Bacus](https://github.com/joepound)                                                       |                                     [Cecil John Tantay](https://github.com/cjbt)                                      |
-| :-----------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------: |
-|           [<img src="client/assets/bcon_profile.png" width = "200" />](https://github.com/BrannanC)           | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/joepound) |                [<img src="client/assets/cjbt_profile1.png" width = "200" />](https://github.com/cjbt)                 |
-|             [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/BrannanC)             |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/joepound)                                |                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/cjbt)                   |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |                    [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                    | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/cjtantay) |
+## Table of Contents
 
+- [Introduction](#introduction)
+- [Contributors](#contributors)
+- [Screenshots](#screenshots)
+- [Getting Started](#getting-started)
+  - [Installation and Setup](#installation-and-setup)
+  - [Environment Variables](#environment-variables)
+- [Technology Stack](#technology-stack)
+  - [React](#react)
+  - [React-Conflux](#react-conflux)
+  - [Styled-Components](#styled-components)
+  - [Grommet](#grommet)
+  - [Apollo-Boost](#apollo-boost)
+  - [Netlify](#netlify)
+  - [Production Dependencies](#production-dependencies)
+  - [Development Dependencies](#development-dependencies)
+- [APIs Used](#apis-used)
+- [Testing](#testing)
+- [Contributing and Getting Involved](#contributing-and-getting-involved)
+  - [Issue and Bug Requests](#issue-and-bug-requests)
+  - [Feature Requests](#feature-requests)
+  - [Pull Request Guidelines](#pull-request-guidelines)
+- [Additional Documentation](#additional-documentation)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
+## Screenshots
 
-<br>
-<br>
+![Landing page screenshot](./assets/landing-screenshot.png)
 
-![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![React](https://img.shields.io/badge/react-v16.8.6-blue)
-[![Conflux](https://img.shields.io/badge/react--conflux-0.0.2--beta.6-blue)](https://www.npmjs.com/package/react-conflux)
-![apollo-boost](https://img.shields.io/badge/apollo--boost-v0.4.3-blue)
-![styled-components](https://img.shields.io/badge/styled--components-v4.3.2-ff69b4)
-[![grommet](https://img.shields.io/badge/design--system-v2.grommet.io-7D4CDB)](https://v2.grommet.io/)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-![eslint](https://img.shields.io/badge/eslint-airbnb-hotpink)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/cd475e07-33f5-4729-80c6-2e2f9f431b14/deploy-status)](https://app.netlify.com/sites/stampdcerts/deploys)
+![Credential issuance screenshot](./assets/issue-cert-screenshot.png)
 
-## Project Overview
+## Getting Started
 
-[Trello Board](https://trello.com/b/uvhiXJ58/stampd)
+This repository contains a **yarn.lock** file. Please do not remove this file from your local code, as the integrity of the application cannot be gauranteed if versions that may be incompatible with each other are used by installing the newest version of each dependency.
 
-[Product Canvas](https://www.notion.so/Stampd-495609cb1e06435daf900fdaf5ee55f1)
+#### Installation and Setup
 
-[UX Design files](https://drive.google.com/drive/u/0/folders/12ppna_6DvD4g6tGLlvLW5DPJjferFuYu)
+To get the client running locally, clone this repo and use the following commands/steps:
 
-To transform the way education and training credentials are traditionally verified by building an application that provides simple, economical, efficient and reliable vetting of credentials utilizing the transformative technology of blockchain. 
+1. **cd** into the `root` directory and then into the `client` directory
+2. Use the **yarn** command in the `client` directory to install all required dependencies
+3. Use the **yarn install** command to start the local instance of `React` in your default browser
+4. Use the **yarn test** command to start the `React` testing environment
+5. Use the **yarn lint** command to start the `Eslint` linting environment
 
+#### Environment Variables
 
-### Key Features
-
--    Institutions can issue credentials to the ethereum blockchain network
--    Students can create an account to view and share credentials from issuing institution
--    Credentials are verfied and tracked
-
-## Tech Stack
-
-### Front end built using:
-
-#### React
-
--    Virtual DOM provides superior performance over alternatives like jQuery.
--    ReactJS is a such a popular libary, many modules are available as is plenty of up-to-date information.
-
-#### React-Conflux
-
--    Redux-like pattern
--    Allows for context dependent redux store
--    One way binding (One source of truth)
--    Built around React hooks
-
-
-
-#### Styled-Components
-
-
--    CSS in JS
--    Powerful way to style components using props
--    Allows for rapid styling and reusability
-
-#### Grommet
-
--    Simple, clean looking components
--    Pleasant built-in color palletes
--    Built with styled-components
--    Good ease-of-use to other component libraries
-
-#### Apollo-boost
-
--    stand-alone and Defacto way to query a GraphQL server without the need of the state management you get from `react-apollo`
-
-
-#### Front end deployed to `Netlify`
-
-#### [Back end](https://github.com/labs14-stampd/backend) built using:
-
-#### Node/Express
-
--    Javascript in the backend
--    Express allows for easy API creation
--    Middleware pattern
-
-
-#### GraphQL
-
--    Built on top of express
--    One endpoint
--    Schema is built into GraphQL playground
-
-#### PostgresQL
-
--    Works well with Heroku
-
-#### Web3
-
--    The only way or app can intergrate and deploy to blockchain networks -- needs more wordsmithing
-
-
-# APIs
-
-## Auth0
-
-🚫Replace text below with a description of the API
-
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
-
-<!-- ## 2️⃣ Payment API here
-
-🚫Replace text below with a description of the API
-
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it. -->
-
-## Infura
-
-🚫Replace text below with a description of the API
-
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
-
-<!-- ## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful. -->
-
-# Environment Variables
-
-In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
-
+In order for the app to function correctly, the user must set up their own environment variables. There should be a `.env` file containing the following:
 
     *  REACT_APP_AUTH0_DOMAIN - This is an Auth0 domain, generated in the Auth0 dashboard
     *  REACT_APP_AUTH0_CLIENT_ID - This is an Auth0 clientId, generated in the Auth0 dashboard
@@ -155,59 +81,110 @@ In order for the app to function correctly, the user must set up their own envir
     *  REACT_APP_AUTH0_AUDIENCE - Audience to access token from Auth0
     *  REACT_APP_AUTH_TOKEN - JWT token that is sent to the backend that consist of user given by Auth0
 
-# 5️⃣ Content Licenses
+## Technology Stack
 
-🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
+The following is a short list of the major dependencies and methods used (with the reasons we used them) followed by complete and exhaustive ones with all production and development packages incorporated in the client build.
 
-| Image Filename | Source / Creator | License                                                                      |
-| -------------- | ---------------- | ---------------------------------------------------------------------------- |
-| doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
-| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
+#### React
 
-# 4️⃣ Testing
+- Virtual DOM provides superior performance over alternatives like `jQuery`
+- `ReactJS` is a such a popular libary that many modules are available. Also, it's easy to find relevant and timely information when debugging errors
+
+#### React-Conflux
+
+- `Redux`-like pattern for state management
+- Allows for context-dependent `redux`-like state stores
+- One way binding (one source of truth)
+- Built around `React Hooks` and the `Context API`
+
+#### Styled-Components
+
+- `CSS` in `JS`
+- Powerful way to style components using props
+- Allows for rapid styling and reusability
+
+#### Grommet
+
+- Simple, clean looking components come styled out-of-the-box
+- Pleasant built-in color palletes
+- Built with `styled-components`
+- Good ease-of-use to other component libraries
+
+#### Apollo-boost
+
+- Stand-alone and defacto way to query a `GraphQL` server without the need of the state management you get from `react-apollo`
+
+#### Netlify
+
+- Preferred method of deployement due to automatic `SSL` certificates and easy continuous integration setup
+- Close coupling with GitHub makes for a superior development experience
+
+#### Production Dependencies
+
+- [@auth0/auth0-spa-js](https://github.com/auth0/auth0-spa-js)
+- [@sentry/browser](https://www.npmjs.com/package/@sentry/browser)
+- [apollo-boost](https://github.com/apollographql/apollo-client/tree/master/packages/apollo-boost)
+- [graphql](https://www.npmjs.com/package/graphql)
+- [grommet](https://www.npmjs.com/package/grommet)
+- [grommet-icons](https://github.com/grommet/grommet-icons)
+- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
+- [prop-types](https://www.npmjs.com/package/prop-types)
+- [react](https://www.npmjs.com/package/react)
+- [react-conflux](https://github.com/dustinmyers/react-conflux)
+- [react-dom](https://www.npmjs.com/package/react-dom)
+- [react-loader-spinner](https://www.npmjs.com/package/react-loader-spinner)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [react-scripts](https://www.npmjs.com/package/react-scripts)
+- [styled-components](https://github.com/styled-components/styled-components)
+
+#### Development Dependencies
+
+- [eslint](https://eslint.org/)
+- [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
+- [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
+- [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import)
+- [eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
+- [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
+- [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react)
+- [prettier](https://github.com/prettier/prettier)
+
+## APIs Used
+
+#### Auth0
+
+Auth0 provides authentication as a service. It provides developers with the ability to secure their applications using industry standards, like OAuth 2.0 and JSON Web Tokens (JWTs), without needing to become security experts themselves. Auth0 is a full-featured service, offering many options such as Single Sign-on (SSO), Multi-factor Authentication (MFA) and IP blacklisting.
+
+#### Infura
+
+Infura gives 3 big benefits to developers of Ethereum-based apps: speed, scalability and data storage. It provides speed by allow quick access to the Ethereum blockchain, without having to set up an Ethereum node or wallet. Infura provides scalability by managing nodes for the developer. Finally, it allows for off-chain data storage, which is huge, since on-chain data storage is complicated and expensive.
+
+#### Stripe
+
+Stripe is a service that allows users to make and accept online payments. Through its API, Stripe frees developers from the technological, security and regulatory burdens that come with handling sensitive user payment information, such as credit card numbers. Stripe also allows for the processing of many kinds of transactions, including one-time payments and subscriptions, and these transactions maybe processed using a variety of payment methods. 
+
+## Testing
 
 🚫Document what you used for testing and why
 Testing library/react
 
-# Installation Instructions
+## Contributing and Getting Involved
 
-- Clone this repo
-- `cd` into this repo
-- `yarn install` to install all required dependencies
-- `yarn start` to start local instance of CRA
-- `yarn test` to start CRA testing environment
+If you spot a bug or would like to request a feature, we welcome and are grateful for any contributions from the community. Please review the process for contributing to this project by reading the [contribution guidelines](CONTRIBUTING.md).
 
-<!-- ## Other Scripts
+Also, please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
-🚫replace these examples with your own
+#### Issue and Bug Requests
 
-    * build - creates a build of the application
-    * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them -->
+If you are having an issue with the existing project code, please submit a bug report under the following guidelines:
 
-# Contributing
+- Check first to see if your issue has already been reported.
+- Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
+- Create a live example of the problem.
+- Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes, where you believe the issue is originating from, and any potential solutions you have considered.
 
-When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
-
-Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
-
-## Issue/Bug Request
-   
- **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
- - Check first to see if your issue has already been reported.
- - Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
- - Create a live example of the problem.
- - Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes,  where you believe the issue is originating from, and any potential solutions you have considered.
-
-### Feature Requests
+#### Feature Requests
 
 We would love to hear from you about new features which would improve this app and further the aims of our project. Please provide as much detail and information as possible to show us why you think your new feature should be implemented.
-
-### Pull Requests
-
-If you have developed a patch, bug fix, or new feature that would improve this app, please submit a pull request. It is best to communicate your ideas with the developers first before investing a great deal of time into a pull request to ensure that it will mesh smoothly with the project.
-
-Remember that this project is licensed under the MIT license, and by submitting a pull request, you agree that your work will be, too.
 
 #### Pull Request Guidelines
 
@@ -217,10 +194,20 @@ Remember that this project is licensed under the MIT license, and by submitting 
 - Include the relevant issue number, if applicable.
 - You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
 
-### Attribution
-
-These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
-
-## Documentation
+## Additional Documentation
 
 See [Backend Documentation](https://github.com/labs14-stampd/backend) for details on the backend of our project.
+
+## License
+
+[MIT](LICENSE)
+
+## Acknowledgements
+
+- [Lambda School](https://lambdaschool.com/) - Thank you for educating us, equipping us with our current skillset, and pushing us towards success.
+- [Josh Knell](https://github.com/BigKnell) - The Big Boss. The Big Cheese. Thanks for teaching us the basics and for keeping it real. Banjo on.
+- [Dustin Myers](https://github.com/dustinmyers) - The Legend himself. Dustin is the reason we can even write a single line of code in React. Thanks for your leadership, Dustin.
+- [Luis Hernandez](https://github.com/luishrd) - Luis, thanks for teaching us about the Bros and Homies. Your leadership in Lambda School back-end week lets us build servers and move mountains.
+- [John Mitchell](https://github.com/jrmmba8314) - You opened up the statically-typed world of Java to us. Thank you for being a steady hand at the wheel when we needed it.
+- [Dan Levy](https://danlevy.net/) - Thanks for all of your advice, Dan. You consistently come through with gold when we need it. Your advice is invaluable, and you care about students.
+- [Coffee](https://en.wikipedia.org/wiki/Coffee) - We'd like to thank coffee for the productivity of this Labs project. Seriously. Thanks.
