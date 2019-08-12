@@ -152,9 +152,7 @@ The following is a short list of the major dependencies and methods used (with t
 
 #### Auth0
 
-🚫Replace text below with a description of the API
-
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+Auth0 provides authentication as a service. It provides developers with the ability to secure their applications using industry standards, like OAuth 2.0 and JSON Web Tokens (JWTs), without needing to become security experts themselves. Auth0 is a full-featured service, offering many options such as Single Sign-on (SSO), Multi-factor Authentication (MFA) and IP blacklisting.
 
 #### Infura
 
