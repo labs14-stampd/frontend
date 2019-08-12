@@ -77,13 +77,13 @@ const MainDashboard = ({ history }) => {
         </div>
       </SchoolDetails>
       {state.schoolDataSuccess && searchResult.length ? (
-        <Box height="75vh" overflow="auto">
+        <CredListContainer height="75vh" overflow="auto">
           <InfiniteScroll items={searchResult} step={10}>
             {item => {
               return <CredCard key={item.id} cred={item} />;
             }}
           </InfiniteScroll>
-        </Box>
+        </CredListContainer>
       ) : (
         state.schoolDataSuccess && (
           <NothingFound>No results were found...</NothingFound>
@@ -155,6 +155,12 @@ const NothingFound = styled.p`
   text-align: center;
   font-size: 2.4rem;
   margin-top: 20vh;
+`;
+
+const CredListContainer = styled(Box)`
+  section:last-of-type {
+    margin-bottom: 15px;
+  }
 `;
 
 export default MainDashboard;
