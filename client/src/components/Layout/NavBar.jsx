@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Menu } from 'grommet-icons';
 import { SecondaryButton } from '../../styles/themes';
 
@@ -56,6 +57,10 @@ function NavBar({ history }) {
     </NavContainter>
   );
 }
+
+NavBar.propTypes = {
+  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+};
 
 const NavContainter = styled.div`
   display: flex;

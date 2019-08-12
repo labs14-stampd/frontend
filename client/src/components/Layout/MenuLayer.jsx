@@ -41,7 +41,8 @@ const MenuLayer = ({ onClose, history }) => {
 };
 
 MenuLayer.propTypes = {
-  onClose: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 const MenuBar = styled(Layer)`

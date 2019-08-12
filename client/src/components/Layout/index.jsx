@@ -26,7 +26,8 @@ Layout.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ]).isRequired
+  ]).isRequired,
+  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 const Container = styled.main`
