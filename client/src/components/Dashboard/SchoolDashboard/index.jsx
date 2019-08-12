@@ -1,5 +1,5 @@
 import React from 'react';
-import { StateProvider as SchoolProvider, useStateValue } from 'react-conflux';
+import { StateProvider as SchoolProvider } from 'react-conflux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {} from 'grommet';
@@ -30,16 +30,6 @@ const Container = styled.div`
   min-height: 100vh;
   width: 100%;
   background: #f8f8f8;
-
-  div:first-of-type {
-    margin: 50px auto 0;
-    max-width: 1600px;
-    width: 100%;
-    background: white;
-    min-height: calc(100vh - 170px);
-    border: 1px solid #d8d8d8;
-    border-radius: 2px;
-  }
 `;
 
 export default Dashboard;
