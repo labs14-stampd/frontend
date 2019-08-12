@@ -87,8 +87,8 @@ The following is a short list of the major dependencies and methods used (with t
 
 #### React
 
-- Virtual DOM provides superior performance over alternatives like `jQuery`.
-- `ReactJS` is a such a popular libary that many modules are available. Also, it's easy to find relevant and timely information when debugging errors.
+- Virtual DOM provides superior performance over alternatives like `jQuery`
+- `ReactJS` is a such a popular libary that many modules are available. Also, it's easy to find relevant and timely information when debugging errors
 
 #### React-Conflux
 
