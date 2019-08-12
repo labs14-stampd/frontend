@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 const Reset = css`
-  /* http://meyerweb.com/eric/tools/css/reset/ 
+  /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -128,6 +128,9 @@ const Reset = css`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+  textarea {
+    resize: vertical;
   }
 `;
 

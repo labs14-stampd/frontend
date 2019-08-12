@@ -4,26 +4,40 @@ import { Button, Form, TextInput, FormField } from 'grommet';
 export const theme = {
   global: {
     colors: {
-      primary: '#444444',
-      secondary: 'palevioletred',
-      black: '#444444',
-      background: 'silver',
-      banana: 'crimson'
+      // primary: '#444444',
+      // secondary: 'palevioletred',
+      fontColor: '#333333',
+      bodyBackground: '#f8f8f8',
+      teal: 'accent-1',
+      dashBoardBorder: '#d8d8d8',
+      dashBoardBg: '#ffffff',
+      btnHoverColor: '#81FCED',
+      focus: 'accent-4',
+      navbarHoverBg: '#ffffff',
+      searchBarBorder: '#d8d8d8',
+      searchBarColor: '#d8d8d8'
     },
     border: '1px solid rgba(0,0,0,0.33)',
     // fontFamily
-    radius: '6px'
+    radius: '6px',
+    font: {
+      family: 'Roboto'
+    }
   }
 };
 
-export const BaseButton = styled(Button)`
-  color: ${theme.global.colors.primary};
+export const BaseButton = styled(Button)``;
+
+export const SecondaryButton = styled(Button)`
+  color: white;
+  border: 1px solid white;
+  :hover {
+    border: 2px solid white;
+  }
 `;
 
 export const BaseForm = styled(Form)``;
 
-export const BaseTextInput = styled(TextInput)`
-  border: ${theme.global.border};
-`;
+export const BaseTextInput = styled(TextInput)``;
 
 export const BaseFormField = styled(FormField)``;
