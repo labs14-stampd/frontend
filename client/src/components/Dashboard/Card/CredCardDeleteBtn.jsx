@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
 import { Trash } from 'grommet-icons';
+import { toast } from 'react-toastify';
 import { BaseButton } from '../../../styles/themes';
 
 import ConfirmationLayer from '../../ConfirmationLayer';
@@ -27,6 +28,16 @@ const CredCardDeleteBtn = ({ credId }) => {
     try {
       dispatch({ type: REMOVE_CREDENTIAL_START });
       await queries.removeCredential(credId);
+      toast.dismiss(1);
+      toast.success(
+        `Success! Credential deleted`,
+        {
+          className: 'status-ok',
+          position: toast.POSITION.BOTTOM_CENTER,
+          hideProgressBar: true,
+          autoClose: false
+        }
+      );
       dispatch({ type: REMOVE_CREDENTIAL_SUCCESS, payload: { credId } });
     } catch {
       dispatch({ type: REMOVE_CREDENTIAL_ERROR });
