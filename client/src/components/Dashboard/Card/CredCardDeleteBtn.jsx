@@ -18,6 +18,7 @@ const CredCardDelBtnContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: 3%;
+  cursor: pointer;
   transition: opacity 0.3s;
 
   :hover {
