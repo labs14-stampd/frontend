@@ -10,7 +10,7 @@ const MenuLayer = ({ onClose }) => (
   <MenuBar
     position="left"
     full="vertical"
-    plain={true}
+    plain
     onClickOutside={() => onClose()}
   >
     <Box background="brand" fill="vertical">
@@ -40,7 +40,7 @@ function NavBar() {
   const handleLogout = () => {
     localStorage.clear();
     logout();
-  }
+  };
 
   return (
     <NavContainter>
@@ -128,6 +128,12 @@ const MenuBar = styled(Layer)`
 const NavBtn = styled(SecondaryButton)`
   border: 2px solid white /*${props => props.theme.global.colors['neutral-2']}*/;
   color: white /*${props => props.theme.global.colors['neutral-2']}*/;
+  transition: background 0.3s, color 0.3s;
+
+  :hover {
+    color: ${({ theme }) => theme.global.colors.brand};
+    background: ${({ theme }) => theme.global.colors.navbarHoverBg};
+  }
 `;
 
 export default NavBar;

@@ -12,7 +12,8 @@ export const theme = {
       dashBoardBorder: '#d8d8d8',
       dashBoardBg: '#ffffff',
       btnHoverColor: '#81FCED',
-      focus: 'accent-4'
+      focus: 'accent-4',
+      navbarHoverBg: '#ffffff'
     },
     border: '1px solid rgba(0,0,0,0.33)',
     // fontFamily
