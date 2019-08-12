@@ -3,13 +3,32 @@ import styled from 'styled-components';
 import { Trash } from 'grommet-icons';
 import { BaseButton } from '../../../styles/themes';
 
+import ConfirmationLayer from '../../ConfirmationLayer';
+
 const CredCardDeleteBtn = () => {
+  const [
+    hasActiveConfirmationDialog,
+    setHasActiveConfirmationDialog
+  ] = React.useState(false);
+
   return (
-    <CredCardDelBtnContainer>
-      <CredCardDeleteButton>
-        <Trash />
-      </CredCardDeleteButton>
-    </CredCardDelBtnContainer>
+    <>
+      {hasActiveConfirmationDialog && (
+        <ConfirmationLayer
+          onClose={() => setHasActiveConfirmationDialog(false)}
+          yesFunc={() => alert('Confirms deletion....')}
+          noFunc={() => alert('Negates deletion...')}
+        />
+      )}
+
+      <CredCardDelBtnContainer>
+        <CredCardDeleteButton
+          onClick={() => setHasActiveConfirmationDialog(true)}
+        >
+          <Trash />
+        </CredCardDeleteButton>
+      </CredCardDelBtnContainer>
+    </>
   );
 };
 
