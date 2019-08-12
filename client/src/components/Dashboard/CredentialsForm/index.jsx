@@ -1,3 +1,5 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, TextArea } from 'grommet';
@@ -17,6 +19,7 @@ import {
 } from '../../../styles/themes';
 
 import queries from './queries';
+
 
 const CredentialsForm = ({ history }) => {
   const [
@@ -45,7 +48,10 @@ const CredentialsForm = ({ history }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      history.push('/dashboard');
+      toast.info('Credential Submitted', {
+        position: toast.POSITION.BOTTOM_CENTER, 
+        containerId: 1
+      });
       await queries.addNewCredentials({
         ownerName,
         credName,
@@ -58,7 +64,12 @@ const CredentialsForm = ({ history }) => {
         type,
         schoolId
       });
+      toast.dismiss(1);
+      toast.success('Success!!', {
+        position: toast.POSITION.BOTTOM_CENTER
+      });
     } catch (error) {
+      toast.error('Error submitting credential');
       console.error(error);
     }
   };
@@ -177,6 +188,7 @@ const CredentialsForm = ({ history }) => {
           </Box>
         </BaseForm>
       </CredentialSideForm>
+      <ToastContainer />
     </Container>
   );
 };
