@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { BaseButton } from '../../../styles/themes';
 
 import CredCard from '../Card/CredCard';
+import searchIcon from '../../../images/search-icon.svg';
 
 import queries from './queries';
 import {
@@ -74,20 +75,24 @@ const SchoolDetails = styled.section`
     align-items: center;
 
     input {
-      background: white url('../../../images/search-icon.svg') no-repeat scroll
-        1px 1px;
+      background: white url(${searchIcon}) no-repeat scroll 5px 5px;
       background-size: 20px;
       background-position: right 13px center;
       border: 2px solid ${({ theme }) => theme.global.colors.searchBarBorder};
       color: ${({ theme }) => theme.global.colors.searchBarColor};
       height: 40px;
       margin-right: 1.5%;
-      padding: 25px 3% 25px 2.5%;
+      padding: 25px 5% 25px 2.5%;
       transition: 0.25s ease-in-out;
       width: 220px;
       caret-color: grey;
       border-radius: 50px;
       font-size: 1.8rem;
+
+      ::placeholder {
+        color: ${({ theme }) => theme.global.colors.searchBarColor};
+        font-weight: 700;
+      }
 
       &:focus {
         color: ${({ theme }) => theme.global.colors.brand};
