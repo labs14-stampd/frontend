@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Menu } from 'grommet-icons';
 import { SecondaryButton } from '../../styles/themes';
 
 import { useAuth0 } from '../../auth/authWrapper';
+import MenuLayer from './MenuLayer';
 
-function NavBar() {
+function NavBar({ history }) {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const [isShown, setShown] = useState(false);
+
+  const onClose = () => {
+    setShown(false);
+  };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    logout();
+  };
 
   return (
     <NavContainter>
       <nav>
         {isAuthenticated && (
-          <Menu className="hamburger" size="large" color="white" />
+          <Menu
+            onClick={() => setShown(!isShown)}
+            className="hamburger"
+            size="large"
+            color="white"
+          />
         )}
         {/* <img src="" alt="logo" /> */}
         {!isAuthenticated ? (
@@ -30,15 +47,20 @@ function NavBar() {
             <NavBtn
               a11yTitle="Logout"
               type="button"
-              onClick={() => logout()}
+              onClick={handleLogout}
               label="Logout"
             />
           </div>
         )}
       </nav>
+      {isShown && <MenuLayer onClose={onClose} history={history} />}
     </NavContainter>
   );
 }
+
+NavBar.propTypes = {
+  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+};
 
 const NavContainter = styled.div`
   display: flex;
@@ -82,9 +104,12 @@ const NavContainter = styled.div`
 const NavBtn = styled(SecondaryButton)`
   border: 2px solid white /*${props => props.theme.global.colors['neutral-2']}*/;
   color: white /*${props => props.theme.global.colors['neutral-2']}*/;
+  transition: background 0.3s, color 0.3s;
+
+  :hover {
+    color: ${({ theme }) => theme.global.colors.brand};
+    background: ${({ theme }) => theme.global.colors.navbarHoverBg};
+  }
 `;
 
 export default NavBar;
-
-// ${props => props.theme.global.colors['accent-3']}
-// ${props => props.theme.global.colors['brand']}
