@@ -27,7 +27,7 @@ const CredCardDeleteBtn = () => {
         <CredCardDeleteButton
           onClick={() => setHasActiveConfirmationDialog(true)} // This state value setting will cause the layer to appear
         >
-          <Trash />
+          <TrashButton />
         </CredCardDeleteButton>
       </CredCardDelBtnContainer>
     </>
@@ -39,12 +39,15 @@ const CredCardDelBtnContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: 3%;
-  cursor: pointer;
   transition: opacity 0.3s;
 
   :hover {
     opacity: 0.6;
   }
+`;
+
+const TrashButton = styled(Trash)`
+  cursor: pointer;
 `;
 
 const CredCardDeleteButton = styled(BaseButton)``;
