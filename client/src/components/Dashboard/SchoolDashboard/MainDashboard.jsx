@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {} from 'grommet';
 
+import CredCard from './CredCard'
+
 import queries from './queries';
 import {
   schoolContext,
@@ -42,16 +44,10 @@ const MainDashboard = ({ history }) => {
           Issue Credential
         </button>
       </SchoolDetails>
-      <CredContainer>
-        {state.schoolDataSuccess &&
-          state.schoolData.schoolDetails.credentials.map(cred => {
-            return (
-              <div key={cred.id}>
-                <h2>{cred.credName}</h2>
-              </div>
-            );
-          })}
-      </CredContainer>
+      {state.schoolDataSuccess &&
+        state.schoolData.schoolDetails.credentials.map(cred => {
+          return <CredCard key={cred.id} credName={cred.credName} />;
+        })}
     </>
   );
 };
@@ -66,14 +62,6 @@ const SchoolDetails = styled.section`
   width: 100%;
 `;
 
-const CredContainer = styled.section`
-  margin: 50px auto 0;
-  max-width: 1600px;
-  width: 100%;
-  background: white;
-  /* min-height: calc(100vh - 170px); */
-  border: 1px solid #d8d8d8;
-  border-radius: 2px;
-`;
+
 
 export default MainDashboard;
