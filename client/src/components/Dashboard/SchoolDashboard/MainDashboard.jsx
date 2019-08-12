@@ -19,7 +19,6 @@ import {
   SEARCH_HANDLE_CHANGE
 } from '../../../store/reducers/schoolReducer';
 
-
 const MainDashboard = ({ history }) => {
   const [state, dispatch] = useStateValue(schoolContext);
   useEffect(() => {
@@ -48,10 +47,10 @@ const MainDashboard = ({ history }) => {
       searchTerms,
       searchOptions
     );
-    searchResult = searcher.search(state.schoolSearchInput)
+    searchResult = searcher.search(state.schoolSearchInput);
   }
   const handleChange = e => {
-    dispatch({ type: SEARCH_HANDLE_CHANGE, payload: e.target.value})
+    dispatch({ type: SEARCH_HANDLE_CHANGE, payload: e.target.value });
   };
   return (
     <>
@@ -60,7 +59,13 @@ const MainDashboard = ({ history }) => {
           <h2>{state.schoolData.schoolDetails.name}</h2>
         )}
         <div>
-          <input type="text" name="searchText" placeholder="Search" onChange={handleChange} value={state.schoolSearchInput}/>
+          <input
+            type="text"
+            name="searchText"
+            placeholder="Search"
+            onChange={handleChange}
+            value={state.schoolSearchInput}
+          />
           <IssueCredButton
             type="button"
             onClick={() => history.push('/dashboard/credForm')}
@@ -69,7 +74,7 @@ const MainDashboard = ({ history }) => {
           />
         </div>
       </SchoolDetails>
-      {state.schoolDataSuccess && (
+      {state.schoolDataSuccess && searchResult.length ? (
         <Box height="75vh" overflow="auto">
           <InfiniteScroll
             items={searchResult}
@@ -81,6 +86,8 @@ const MainDashboard = ({ history }) => {
             }}
           </InfiniteScroll>
         </Box>
+      ) : (
+        <NothingFound>No results were found...</NothingFound>
       )}
     </>
   );
@@ -141,6 +148,13 @@ const IssueCredButton = styled(BaseButton)`
   text-align: right;
   border-radius: 50px;
   margin-left: 2%;
+`;
+
+const NothingFound = styled.p`
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  margin-top: 20vh;
 `;
 
 export default MainDashboard;
