@@ -33,8 +33,7 @@ const CredentialsForm = ({ history }) => {
       criteria,
       issuedOn,
       expirationDate,
-      type,
-      schoolId
+      type
     },
     dispatchGlobal
   ] = useStateValue(globalContext);
@@ -50,7 +49,7 @@ const CredentialsForm = ({ history }) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      toast.info('Credential Submitted', {
+      toast.info(`Submitting for ${ownerName}`, {
         position: toast.POSITION.BOTTOM_CENTER,
         containerId: 1,
         hideProgressBar: true
@@ -65,10 +64,10 @@ const CredentialsForm = ({ history }) => {
         issuedOn,
         expirationDate,
         type,
-        schoolId
+        schoolId: localStorage.id
       });
       toast.dismiss(1);
-      toast.success('Success!!', {
+      toast.success(`Success!! Credential issued for ${ownerName}`, {
         position: toast.POSITION.BOTTOM_CENTER,
         hideProgressBar: true
       });
