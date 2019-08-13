@@ -214,16 +214,45 @@ const CredentialsForm = ({ history }) => {
                   }
                 ]}
                 name="issuedOn"
-                placeholder="August 10, 2019"
+                placeholder="M/D/YYYY"
                 onChange={handleChanges}
                 value={issuedOn}
                 required
               />
             </CredField>
             <CredField label="Expiration Date">
-              <BaseTextInput
+              <DateMaskedInput
+                mask={[
+                  {
+                    length: [1, 2],
+                    options: Array.from({ length: 12 }, (v, k) => k + 1),
+                    regexp: /^1[0,1-2]$|^0?[1-9]$|^0$/,
+                    placeholder: 'mm'
+                  },
+                  { fixed: '/' },
+                  {
+                    length: [1, 2],
+                    options: Array.from(
+                      {
+                        length: daysInMonth(
+                          parseInt(issuedOn.split('/')[0], 10)
+                        )
+                      },
+                      (v, k) => k + 1
+                    ),
+                    regexp: /^[1-2][0-9]$|^3[0-1]$|^0?[1-9]$|^0$/,
+                    placeholder: 'dd'
+                  },
+                  { fixed: '/' },
+                  {
+                    length: 4,
+                    options: Array.from({ length: 100 }, (v, k) => 2019 - k),
+                    regexp: /^[1-2]$|^19$|^20$|^19[0-9]$|^20[0-9]$|^19[0-9][0-9]$|^20[0-9][0-9]$/,
+                    placeholder: 'yyyy'
+                  }
+                ]}
                 name="expirationDate"
-                placeholder="September 7, 2023"
+                placeholder="M/D/YYYY"
                 onChange={handleChanges}
                 value={expirationDate}
               />
