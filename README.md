@@ -171,7 +171,7 @@ Testing is performed using the following dependencies:
 - [jest-dom](https://github.com/testing-library/jest-dom)
 - [react-test-renderer](https://reactjs.org/docs/test-renderer.html)
 
-In addition, we have incorporated custom test helpers called `renderWithProviderRouter` and `rendererWithProviderRouter` in order to accomodate testing while using both [React-Conflux](https://github.com/dustinmyers/react-conflux) and [React Router](https://www.npmjs.com/package/react-router).
+In addition, we have incorporated custom test helpers called `renderWithRouter` and `rendererWithRouter` in order to accomodate testing while using [React Router](https://www.npmjs.com/package/react-router).
 
 ## Project Management
 
