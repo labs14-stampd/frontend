@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { BaseButton } from '../../../styles/themes';
 
-const CredCardViewBtn = () => {
+const CredCardViewBtn = ({getModal}) => {
+
   return (
     <CardCredBtnContainer>
-      <CardCredViewButton label="View" a11yTitle="view credentials button" />
+      <CardCredViewButton label="View" a11yTitle="view credentials button" onClick={getModal} />
     </CardCredBtnContainer>
   );
 };

@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 import { Box, TextArea } from 'grommet';
 import styled from 'styled-components';
 import { useStateValue } from 'react-conflux';
 import {
   globalContext,
-  HANDLE_CRED_CHANGES
+  HANDLE_CRED_CHANGES,
+  RESET_CREDENTIAL_FORM
 } from '../../../store/reducers/globalReducer';
 import emblem from '../../../images/certEmblem.png';
 
@@ -19,6 +22,7 @@ import {
 import queries from './queries';
 
 const CredentialsForm = ({ history }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [
     {
       ownerName,
@@ -29,8 +33,7 @@ const CredentialsForm = ({ history }) => {
       criteria,
       issuedOn,
       expirationDate,
-      type,
-      schoolId
+      type
     },
     dispatchGlobal
   ] = useStateValue(globalContext);
@@ -44,8 +47,15 @@ const CredentialsForm = ({ history }) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    setIsSubmitting(true);
     try {
-      history.push('/dashboard');
+      toast.info(`Submitting for ${ownerName}`, {
+        className: 'brand-background',
+        position: toast.POSITION.BOTTOM_CENTER,
+        containerId: 1,
+        hideProgressBar: true,
+        autoClose: false
+      });
       await queries.addNewCredentials({
         ownerName,
         credName,
@@ -56,10 +66,30 @@ const CredentialsForm = ({ history }) => {
         issuedOn,
         expirationDate,
         type,
-        schoolId
+        schoolId: localStorage.id
+      });
+      toast.dismiss(1);
+      toast.success(
+        `Success!! Blockchain verification available in 5 minutes!`,
+        {
+          className: 'status-ok',
+          position: toast.POSITION.BOTTOM_CENTER,
+          hideProgressBar: true,
+          autoClose: false
+        }
+      );
+      setIsSubmitting(false);
+      dispatchGlobal({
+        type: RESET_CREDENTIAL_FORM
       });
     } catch (error) {
+      toast.error('Error submitting credential', {
+        hideProgressBar: true,
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: false
+      });
       console.error(error);
+      setIsSubmitting(false);
     }
   };
 
@@ -173,6 +203,7 @@ const CredentialsForm = ({ history }) => {
               primary
               label="Submit"
               alignSelf="center"
+              disabled={isSubmitting}
             />
           </Box>
         </BaseForm>

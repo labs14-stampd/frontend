@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Grommet } from 'grommet';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import PrivateRoute from './auth/PrivateRoute';
 import { useAuth0 } from './auth/authWrapper';
@@ -16,7 +18,7 @@ import GlobalStyle from './styles';
 
 import Layout from './components/Layout';
 
-function App() {
+function App(props) {
   const { loading } = useAuth0();
   return (
     <>
@@ -24,7 +26,7 @@ function App() {
         <Loading />
       ) : (
         <Grommet theme={theme}>
-          <Layout>
+          <Layout {...props}>
             <Switch>
               <Route exact path="/" component={Landing} />
               <PrivateRoute
@@ -40,6 +42,7 @@ function App() {
               {/* Error route */}
               <Route component={ErrorPage} />
             </Switch>
+            <ToastContainer />
           </Layout>
           <GlobalStyle />
         </Grommet>
