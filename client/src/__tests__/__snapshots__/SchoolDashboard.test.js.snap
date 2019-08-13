@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Dashboard /> tests <Dashboard /> matches previous snapshot matches the snapshot of App 1`] = `
+exports[`<Dashboard /> tests <Dashboard /> matches previous snapshot matches the snapshot of Dashboard 1`] = `
 <div
   className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
 >

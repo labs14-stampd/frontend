@@ -1,6 +1,6 @@
+/* eslint-disable */
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { StateProvider } from 'react-conflux';
 import { Grommet } from 'grommet';
 import { theme } from '../styles/themes';
 
@@ -19,7 +19,7 @@ describe('<Dashboard />', () => {
   });
 
   describe('tests <Dashboard /> matches previous snapshot', () => {
-    it('matches the snapshot of App', () => {
+    it('matches the snapshot of Dashboard', () => {
       const tree = rendererWithRouter(
         <Grommet theme={theme}>
           <Dashboard history={{ location: { pathname: '/' } }} />
