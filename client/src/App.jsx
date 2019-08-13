@@ -18,7 +18,7 @@ import GlobalStyle from './styles';
 
 import Layout from './components/Layout';
 
-function App() {
+function App(props) {
   const { loading } = useAuth0();
   return (
     <>
@@ -26,7 +26,7 @@ function App() {
         <Loading />
       ) : (
         <Grommet theme={theme}>
-          <Layout>
+          <Layout {...props}>
             <Switch>
               <Route exact path="/" component={Landing} />
               <PrivateRoute

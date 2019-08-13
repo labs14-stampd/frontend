@@ -6,9 +6,10 @@ import { InfiniteScroll, Box } from 'grommet';
 import FuzzySearch from 'fuzzy-search';
 
 import { BaseButton } from '../../../styles/themes';
+import searchIcon from '../../../images/search-icon.svg';
 
 import CredCard from '../Card/CredCard';
-import searchIcon from '../../../images/search-icon.svg';
+import DashboardLoading from '../DashboardLoading';
 
 import queries from './queries';
 import {
@@ -76,18 +77,24 @@ const MainDashboard = ({ history }) => {
           />
         </div>
       </SchoolDetails>
-      {state.schoolDataSuccess && searchResult.length ? (
-        <CredListContainer height="75vh" overflow="auto">
-          <InfiniteScroll items={searchResult} step={10}>
-            {item => {
-              return <CredCard key={item.id} cred={item} />;
-            }}
-          </InfiniteScroll>
-        </CredListContainer>
+      {state.schoolDataStart ? (
+        <DashboardLoading />
       ) : (
-        state.schoolDataSuccess && (
-          <NothingFound>No results were found...</NothingFound>
-        )
+        <>
+          {state.schoolDataSuccess && searchResult.length ? (
+            <Box height="75vh" overflow="auto">
+              <InfiniteScroll items={searchResult} step={10}>
+                {item => {
+                  return <CredCard key={item.id} cred={item} />;
+                }}
+              </InfiniteScroll>
+            </Box>
+          ) : (
+            state.schoolDataSuccess && (
+              <NothingFound>No results were found...</NothingFound>
+            )
+          )}
+        </>
       )}
     </>
   );
@@ -155,6 +162,7 @@ const NothingFound = styled.p`
   text-align: center;
   font-size: 2.4rem;
   margin-top: 20vh;
+  color: ${({ theme }) => theme.global.colors['status-disabled']};
 `;
 
 const CredListContainer = styled(Box)`
