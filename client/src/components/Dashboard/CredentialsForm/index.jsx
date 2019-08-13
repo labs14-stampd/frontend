@@ -11,6 +11,10 @@ import {
   RESET_CREDENTIAL_FORM
 } from '../../../store/reducers/globalReducer';
 import emblem from '../../../images/certEmblem.png';
+import {
+  schoolContext,
+  UPDATE_CRED_DATA
+} from '../../../store/reducers/schoolReducer';
 
 import {
   BaseForm,
@@ -24,6 +28,8 @@ import queries from './queries';
 const daysInMonth = month => new Date(2019, month, 0).getDate();
 
 const CredentialsForm = ({ history }) => {
+  const [stateSchool, dispatchSchool] = useStateValue(schoolContext);
+  const { name } = stateSchool.schoolData.schoolDetails;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [
     {
@@ -58,7 +64,7 @@ const CredentialsForm = ({ history }) => {
         hideProgressBar: true,
         autoClose: false
       });
-      await queries.addNewCredentials({
+      const credData = await queries.addNewCredentials({
         ownerName,
         credName,
         description,
@@ -69,6 +75,14 @@ const CredentialsForm = ({ history }) => {
         expirationDate,
         type,
         schoolId: localStorage.id
+      });
+      dispatchSchool({
+        type: UPDATE_CRED_DATA,
+        payload: credData.data.addNewCredential.schoolsUserInfo.schoolDetails.credentials.sort(
+          (a, b) => {
+            return a.id - b.id;
+          }
+        )
       });
       toast.dismiss(1);
       toast.success(
@@ -90,7 +104,6 @@ const CredentialsForm = ({ history }) => {
         position: toast.POSITION.BOTTOM_CENTER,
         autoClose: false
       });
-      console.error(error);
       setIsSubmitting(false);
     }
   };
@@ -106,9 +119,12 @@ const CredentialsForm = ({ history }) => {
           <h3>{description || '[Description]'}</h3>
           <h3>
             Issued on:
-            {issuedOn || '[August 10, 2019]'}
+            {issuedOn || ' [August 10, 2019]'}
           </h3>
-          <h3>Issued by: [School of the Sequoias]</h3>
+          <h3>
+            Issued by:
+            {stateSchool.schoolDataSuccess && name}
+          </h3>
           <h2>{ownerName || 'John Doe'}</h2>
         </section>
         {/* DO NOT DELETE - ghost div for alignment */}

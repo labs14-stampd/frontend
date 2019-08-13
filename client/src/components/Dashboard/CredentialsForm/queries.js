@@ -49,6 +49,23 @@ const queries = {
             issuedOn
             expirationDate
             schoolId
+            schoolsUserInfo {
+              schoolDetails {
+                credentials {
+                  id
+                  credName
+                  description
+                  ownerName
+                  type
+                  studentEmail
+                  imageUrl
+                  criteria
+                  valid
+                  issuedOn
+                  expirationDate
+                }
+              }
+            }
           }
         }
       `
