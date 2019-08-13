@@ -6,9 +6,10 @@ import { InfiniteScroll, Box } from 'grommet';
 import FuzzySearch from 'fuzzy-search';
 
 import { BaseButton } from '../../../styles/themes';
+import searchIcon from '../../../images/search-icon.svg';
 
 import CredCard from '../Card/CredCard';
-import searchIcon from '../../../images/search-icon.svg';
+import DashboardLoading from '../DashboardLoading';
 
 import queries from './queries';
 import {
@@ -22,19 +23,21 @@ import {
 const MainDashboard = ({ history }) => {
   const [state, dispatch] = useStateValue(schoolContext);
   useEffect(() => {
-    dispatch({ type: SCHOOL_DATA_START });
-    async function getUserData() {
-      try {
-        const { id } = localStorage;
-        const data = await queries.getUserById({
-          id
-        });
-        dispatch({ type: SCHOOL_DATA_SUCCESS, payload: data });
-      } catch (err) {
-        dispatch({ type: SCHOOL_DATA_ERROR });
+    if (!state.schoolData) {
+      dispatch({ type: SCHOOL_DATA_START });
+      async function getUserData() {
+        try {
+          const { id } = localStorage;
+          const data = await queries.getUserById({
+            id
+          });
+          dispatch({ type: SCHOOL_DATA_SUCCESS, payload: data });
+        } catch (err) {
+          dispatch({ type: SCHOOL_DATA_ERROR });
+        }
       }
+      getUserData();
     }
-    getUserData();
   }, [dispatch]); // Re-render whenever an action in schoolContext is dispatched
   let searchResult = [];
   if (state.schoolData) {
@@ -76,18 +79,24 @@ const MainDashboard = ({ history }) => {
           />
         </div>
       </SchoolDetails>
-      {state.schoolDataSuccess && searchResult.length ? (
-        <Box height="75vh" overflow="auto">
-          <InfiniteScroll items={searchResult} step={10}>
-            {item => {
-              return <CredCard key={item.id} cred={item} />;
-            }}
-          </InfiniteScroll>
-        </Box>
+      {state.schoolDataStart ? (
+        <DashboardLoading />
       ) : (
-        state.schoolDataSuccess && (
-          <NothingFound>No results were found...</NothingFound>
-        )
+        <>
+          {state.schoolDataSuccess && searchResult.length ? (
+            <Box height="75vh" overflow="auto">
+              <InfiniteScroll items={searchResult} step={10}>
+                {item => {
+                  return <CredCard key={item.id} cred={item} />;
+                }}
+              </InfiniteScroll>
+            </Box>
+          ) : (
+            state.schoolDataSuccess && (
+              <NothingFound>No results were found...</NothingFound>
+            )
+          )}
+        </>
       )}
     </>
   );
@@ -156,6 +165,12 @@ const NothingFound = styled.p`
   font-size: 2.4rem;
   margin-top: 20vh;
   color: ${({ theme }) => theme.global.colors['status-disabled']};
+`;
+
+const CredListContainer = styled(Box)`
+  section:last-of-type {
+    margin-bottom: 15px;
+  }
 `;
 
 export default MainDashboard;

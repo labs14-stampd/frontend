@@ -29,15 +29,12 @@ const CredCardDeleteBtn = ({ credId }) => {
       dispatch({ type: REMOVE_CREDENTIAL_START });
       await queries.removeCredential(credId);
       toast.dismiss(1);
-      toast.success(
-        `Success! Credential deleted`,
-        {
-          className: 'status-ok',
-          position: toast.POSITION.BOTTOM_CENTER,
-          hideProgressBar: true,
-          autoClose: false
-        }
-      );
+      toast.success(`Success! Credential deleted`, {
+        className: 'status-ok',
+        position: toast.POSITION.BOTTOM_CENTER,
+        hideProgressBar: true,
+        autoClose: true
+      });
       dispatch({ type: REMOVE_CREDENTIAL_SUCCESS, payload: { credId } });
     } catch {
       dispatch({ type: REMOVE_CREDENTIAL_ERROR });
