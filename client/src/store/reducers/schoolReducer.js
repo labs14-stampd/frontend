@@ -67,7 +67,9 @@ export const schoolReducer = (state = initialState, action) => {
           ...state.schoolData,
           schoolDetails: {
             ...state.schoolData.schoolDetails,
-            credentials: state.schoolData.schoolDetails.credentials.filter(credential => credential.id !== id)
+            credentials: state.schoolData.schoolDetails.credentials.filter(
+              credential => credential.id !== id
+            )
           }
         }
       };

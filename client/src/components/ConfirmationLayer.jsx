@@ -24,7 +24,7 @@ function ConfirmationLayer({ onClose, yesFunc, noFunc }) {
         <Text>Are you sure?</Text>
         <Box direction="row" gap="medium" align="center">
           <Button label="Yes" onClick={handleYes} />
-          <Button label="No" primary={true} onClick={handleNo} />
+          <Button label="No" primary onClick={handleNo} />
         </Box>
       </Box>
     </Layer>
