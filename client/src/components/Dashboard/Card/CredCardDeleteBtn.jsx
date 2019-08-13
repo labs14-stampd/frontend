@@ -33,7 +33,7 @@ const CredCardDeleteBtn = ({ credId }) => {
         className: 'status-ok',
         position: toast.POSITION.BOTTOM_CENTER,
         hideProgressBar: true,
-        autoClose: false
+        autoClose: true
       });
       dispatch({ type: REMOVE_CREDENTIAL_SUCCESS, payload: { credId } });
     } catch {

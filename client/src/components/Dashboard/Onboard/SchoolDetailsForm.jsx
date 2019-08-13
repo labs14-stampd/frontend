@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { toast } from 'react-toastify';
 import { MaskedInput, Select, Box, Heading } from 'grommet';
 
 import {
@@ -102,6 +103,12 @@ const SchoolDetailsForm = ({ history }) => {
       await queries.addRole({
         id: localStorage.id,
         roleId: 2 // Role of a school is set to always be 2
+      });
+      toast.success(`School Details added succesfully`, {
+        className: 'status-ok',
+        position: toast.POSITION.BOTTOM_CENTER,
+        hideProgressBar: true,
+        autoClose: true
       });
       history.push('/dashboard');
     } catch (err) {
