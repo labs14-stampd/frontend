@@ -23,19 +23,21 @@ import {
 const MainDashboard = ({ history }) => {
   const [state, dispatch] = useStateValue(schoolContext);
   useEffect(() => {
-    dispatch({ type: SCHOOL_DATA_START });
-    async function getUserData() {
-      try {
-        const { id } = localStorage;
-        const data = await queries.getUserById({
-          id
-        });
-        dispatch({ type: SCHOOL_DATA_SUCCESS, payload: data });
-      } catch (err) {
-        dispatch({ type: SCHOOL_DATA_ERROR });
+    if (!state.schoolData) {
+      dispatch({ type: SCHOOL_DATA_START });
+      async function getUserData() {
+        try {
+          const { id } = localStorage;
+          const data = await queries.getUserById({
+            id
+          });
+          dispatch({ type: SCHOOL_DATA_SUCCESS, payload: data });
+        } catch (err) {
+          dispatch({ type: SCHOOL_DATA_ERROR });
+        }
       }
+      getUserData();
     }
-    getUserData();
   }, [dispatch]); // Re-render whenever an action in schoolContext is dispatched
   let searchResult = [];
   if (state.schoolData) {
