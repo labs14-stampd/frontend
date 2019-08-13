@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Dashboard /> tests <Dashboard /> matches previous snapshot matches the snapshot of App 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
+>
+  <div
+    className="sc-kAzzGY bGuLmf"
+  >
+    <section
+      className="sc-fjdhpX jYWTeZ"
+    >
+      <div />
+      <div>
+        <input
+          name="searchText"
+          onChange={[Function]}
+          placeholder="Search"
+          type="text"
+          value=""
+        />
+        <button
+          className="sc-bdVaJa sc-jzJRlG bkSOxo StyledButton-sc-323bzc-0 aNlbA"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          + Issue Credential
+        </button>
+      </div>
+    </section>
+  </div>
+</div>
+`;
