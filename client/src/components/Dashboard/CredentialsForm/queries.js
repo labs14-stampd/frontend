@@ -54,6 +54,7 @@ const queries = {
                 credentials {
                   id
                   credName
+                  credHash
                   description
                   ownerName
                   type

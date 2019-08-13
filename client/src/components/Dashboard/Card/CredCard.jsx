@@ -12,6 +12,7 @@ import emblem from '../../../images/certEmblem.png';
 const CredCard = ({ cred }) => {
   const [show, setShow] = useState();
   const { credName, criteria, ownerName, id, credHash } = cred;
+  console.log(credHash);
   return (
     <CredContainer>
       <CredCardViewBtn getModal={() => setShow(true)} />
