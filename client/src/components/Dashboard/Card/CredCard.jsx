@@ -11,37 +11,36 @@ import emblem from '../../../images/certEmblem.png';
 
 const CredCard = ({ cred }) => {
   const [show, setShow] = useState();
-  const { credName, criteria, ownerName, id } = cred;
+  const { credName, criteria, ownerName, id, credHash } = cred;
   return (
     <CredContainer>
-      <CredCardViewBtn getModal = {()=>setShow(true)}/>
+      <CredCardViewBtn getModal={() => setShow(true)} />
       {show && (
         <Layer
           onEsc={() => setShow(false)}
           onClickOutside={() => setShow(false)}
         >
-        <CertificateArea>
-        <section>
-          <div>
-            <img src={cred.imageUrl || cred.emblem} alt="school seal" />
-          </div>
-          <h1>{cred.credName }</h1>
-          <h3>{cred.description }</h3>
-          <h3>
-            Issued on:
-            {cred.issuedOn }
-          </h3>
-          <h3>Issued by: [School of the Sequoias]</h3>
-          <h2>{cred.ownerName }</h2>
-        </section>
-        
-      </CertificateArea>
+          <CertificateArea>
+            <section>
+              <div>
+                <img src={cred.imageUrl || cred.emblem} alt="school seal" />
+              </div>
+              <h1>{cred.credName}</h1>
+              <h3>{cred.description}</h3>
+              <h3>
+                Issued on:
+                {cred.issuedOn}
+              </h3>
+              <h3>Issued by: [School of the Sequoias]</h3>
+              <h2>{cred.ownerName}</h2>
+            </section>
+          </CertificateArea>
         </Layer>
       )}
       <CredCardSchoolName credName={credName} criteria={criteria} />
       <CredCardDateIssued />
       <CredCardStudentName ownerName={ownerName} />
-      <CredCardDeleteBtn credId={id} />
+      <CredCardDeleteBtn credId={id} credHash={credHash} />
     </CredContainer>
   );
 };
@@ -90,7 +89,7 @@ const CertificateArea = styled.div`
   width: 100%;
 
   section {
-    width:100%;
+    width: 100%;
     background: ${props => props.theme.global.colors.dashBoardBg};
     display: flex;
     flex-direction: column;
