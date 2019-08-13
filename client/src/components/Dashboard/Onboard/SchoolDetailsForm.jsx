@@ -103,11 +103,10 @@ const SchoolDetailsForm = ({ history }) => {
         id: localStorage.id,
         roleId: 2 // Role of a school is set to always be 2
       });
+      history.push('/dashboard');
     } catch (err) {
       console.error(err);
     }
-
-    history.push('/dashboard');
   };
 
   return (
