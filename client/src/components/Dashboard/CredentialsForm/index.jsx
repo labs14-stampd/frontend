@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
-import { Box, TextArea } from 'grommet';
+import { Box, TextArea, MaskedInput } from 'grommet';
 import styled from 'styled-components';
 import { useStateValue } from 'react-conflux';
 import {
@@ -20,6 +20,8 @@ import {
 } from '../../../styles/themes';
 
 import queries from './queries';
+
+const daysInMonth = month => new Date(2019, month, 0).getDate();
 
 const CredentialsForm = ({ history }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -181,7 +183,36 @@ const CredentialsForm = ({ history }) => {
               />
             </CredField>
             <CredField label="Issued Date">
-              <BaseTextInput
+              <DateMaskedInput
+                mask={[
+                  {
+                    length: [1, 2],
+                    options: Array.from({ length: 12 }, (v, k) => k + 1),
+                    regexp: /^1[0,1-2]$|^0?[1-9]$|^0$/,
+                    placeholder: 'mm'
+                  },
+                  { fixed: '/' },
+                  {
+                    length: [1, 2],
+                    options: Array.from(
+                      {
+                        length: daysInMonth(
+                          parseInt(issuedOn.split('/')[0], 10)
+                        )
+                      },
+                      (v, k) => k + 1
+                    ),
+                    regexp: /^[1-2][0-9]$|^3[0-1]$|^0?[1-9]$|^0$/,
+                    placeholder: 'dd'
+                  },
+                  { fixed: '/' },
+                  {
+                    length: 4,
+                    options: Array.from({ length: 100 }, (v, k) => 2019 - k),
+                    regexp: /^[1-2]$|^19$|^20$|^19[0-9]$|^20[0-9]$|^19[0-9][0-9]$|^20[0-9][0-9]$/,
+                    placeholder: 'yyyy'
+                  }
+                ]}
                 name="issuedOn"
                 placeholder="August 10, 2019"
                 onChange={handleChanges}
@@ -297,5 +328,7 @@ const CertificateArea = styled.div`
     width: 375px;
   }
 `;
+
+const DateMaskedInput = styled(MaskedInput)``;
 
 export default CredentialsForm;
