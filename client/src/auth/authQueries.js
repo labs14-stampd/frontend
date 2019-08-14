@@ -10,7 +10,6 @@ const queries = {
         mutation AddUser($authToken: String!) {
           addUser(authToken: $authToken) {
             id
-            username
             email
             roleId
           }
