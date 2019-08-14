@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Loader from 'react-loader-spinner';
 import { useStateValue } from 'react-conflux';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Trash } from 'grommet-icons';
 import { toast } from 'react-toastify';
@@ -64,7 +65,7 @@ const CredCardDeleteBtn = ({ credId, credHash }) => {
           } // This state value setting will cause the layer to appear
         >
           {isDeleting ? (
-            <Loader type="Oval" color="#d8d8d8" height="30" width="30" />
+            <Loader type="Oval" color="#d8d8d8" height={30} width={30} />
           ) : (
             <TrashButton />
           )}
@@ -72,6 +73,11 @@ const CredCardDeleteBtn = ({ credId, credHash }) => {
       </CredCardDelBtnContainer>
     </>
   );
+};
+
+CredCardDeleteBtn.propTypes = {
+  credId: PropTypes.string.isRequired,
+  credHash: PropTypes.string.isRequired
 };
 
 const CredCardDelBtnContainer = styled.div`

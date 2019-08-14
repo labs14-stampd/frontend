@@ -54,7 +54,6 @@ export const Auth0Provider = ({
 
         try {
           const result = await queries.register({ authToken });
-          console.log(result.data.addUser);
           dispatchGlobal({ type: REGISTER, payload: result.data.addUser });
 
           if (result.data.addUser.roleId === null) {
