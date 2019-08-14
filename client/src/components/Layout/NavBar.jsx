@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Menu } from 'grommet-icons';
+import { Link } from 'react-router-dom';
 import { SecondaryButton } from '../../styles/themes';
 
 import { useAuth0 } from '../../auth/authWrapper';
 import MenuLayer from './MenuLayer';
+import stampdLogoWhite from '../../images/stampd_full_white.svg';
 
 function NavBar({ history }) {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
@@ -23,15 +25,21 @@ function NavBar({ history }) {
   return (
     <NavContainter>
       <nav>
-        {isAuthenticated && (
-          <Menu
-            onClick={() => setShown(!isShown)}
-            className="hamburger"
-            size="large"
-            color="white"
-          />
-        )}
-        {/* <img src="" alt="logo" /> */}
+        <div>
+          {isAuthenticated && (
+            <Menu
+              onClick={() => setShown(!isShown)}
+              className="hamburger"
+              size="large"
+              color="white"
+            />
+          )}
+          <div>
+            <Link to={isAuthenticated ? '/dashboard' : '/'}>
+              <img src={stampdLogoWhite} alt="Stampd logo" draggable="false" />
+            </Link>
+          </div>
+        </div>
         {!isAuthenticated ? (
           <div className="button__container">
             <NavBtn
@@ -87,8 +95,20 @@ const NavContainter = styled.div`
     align-items: center;
     position: relative;
 
+    div:first-of-type {
+      display: flex;
+      align-items: center;
+      width: 40%;
+
+      div {
+        width: 102px;
+        height: auto;
+      }
+    }
+
     svg {
       cursor: pointer;
+      margin-right: 4%;
     }
 
     .button__container {
