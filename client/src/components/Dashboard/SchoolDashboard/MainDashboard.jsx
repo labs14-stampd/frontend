@@ -95,7 +95,11 @@ const MainDashboard = ({ history }) => {
             </Box>
           ) : (
             schoolState.schoolDataSuccess && (
-              <NothingFound>No results were found...</NothingFound>
+              <NothingFound>
+                {!schoolState.schoolData.schoolDetails.credentials.length
+                  ? 'Issue a credential to get started...'
+                  : 'No results were found..'}
+              </NothingFound>
             )
           )}
         </>
