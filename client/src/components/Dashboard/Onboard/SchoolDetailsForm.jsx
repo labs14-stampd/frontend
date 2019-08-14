@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
+import { useStateValue } from 'react-conflux';
 import { MaskedInput, Select, Box, Heading } from 'grommet';
 
 import {
@@ -11,8 +12,10 @@ import {
   BaseButton
 } from '../../../styles/themes';
 import queries from './queries';
+import { globalContext } from '../../../store/reducers/globalReducer';
 
 const SchoolDetailsForm = ({ history }) => {
+  const [{ user }] = useStateValue(globalContext);
   const [input, setInput] = useState({
     name: '',
     taxId: '',
@@ -24,7 +27,7 @@ const SchoolDetailsForm = ({ history }) => {
     phone: '',
     type: '',
     url: '',
-    userId: localStorage.id
+    userId: user.id
   });
 
   const states = [
@@ -101,7 +104,7 @@ const SchoolDetailsForm = ({ history }) => {
     try {
       await queries.addSchoolDetails(input);
       await queries.addRole({
-        id: localStorage.id,
+        id: user.id,
         roleId: 2 // Role of a school is set to always be 2
       });
       toast.success(`School Details added succesfully`, {
