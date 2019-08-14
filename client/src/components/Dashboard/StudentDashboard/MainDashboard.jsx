@@ -7,26 +7,25 @@ import FuzzySearch from 'fuzzy-search';
 
 import { BaseButton } from '../../../styles/themes';
 import searchIcon from '../../../images/search-icon.svg';
-
 import CredCard from '../Card/CredCard';
 import DashboardLoading from '../DashboardLoading';
 
-import queries from './queries';
+// import queries from './queries';
 import {
-  schoolContext,
-  SCHOOL_DATA_START,
-  SCHOOL_DATA_SUCCESS,
-  SCHOOL_DATA_ERROR,
+  studentContext,
+  STUDENT_DATA_START,
+  STUDENT_DATA_SUCCESS,
+  STUDENT_DATA_ERROR,
   SEARCH_HANDLE_CHANGE
-} from '../../../store/reducers/schoolReducer';
+} from '../../../store/reducers/studentReducer';
 import { globalContext } from '../../../store/reducers/globalReducer';
 
 const MainDashboard = ({ history }) => {
   const [{ user }] = useStateValue(globalContext);
-  const [schoolState, schoolDispatch] = useStateValue(schoolContext);
+  const [studentState, studentDispatch] = useStateValue(studentContext);
   useEffect(() => {
-    if (!schoolState.schoolData) {
-      schoolDispatch({ type: SCHOOL_DATA_START });
+    if (!studentState.studentData) {
+      studentDispatch({ type: STUDENT_DATA_START });
       async function getUserData() {
         try {
           const { id } = user;
