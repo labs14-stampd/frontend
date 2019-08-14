@@ -7,12 +7,8 @@ const queries = {
         id: body.id
       },
       query: gql`
-        query GetUserById(
-          $id: ID!
-        ) {
-          getUserById (
-            id: $id
-          ) {
+        query GetUserById($id: ID!) {
+          getUserById(id: $id) {
             id
             username
             email
@@ -34,6 +30,7 @@ const queries = {
               url
               credentials {
                 id
+                credHash
                 credName
                 description
                 ownerName
@@ -52,21 +49,17 @@ const queries = {
     });
   },
 
-  removeCredential(id) {
+  removeCredential(id, credHash) {
     return client.mutate({
-      variables: { id },
+      variables: { id, credHash },
       mutation: gql`
-        mutation RemoveCredential(
-          $id: ID!
-        ) {
-          removeCredential (
-            id: $id
-          ) {
+        mutation RemoveCredential($id: ID!, $credHash: String!) {
+          removeCredential(id: $id, credHash: $credHash) {
             id
           }
         }
       `
-    })
+    });
   }
 };
 

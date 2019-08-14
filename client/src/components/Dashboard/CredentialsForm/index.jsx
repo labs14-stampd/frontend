@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
-import { Box, TextArea } from 'grommet';
+import { Box, TextArea, MaskedInput } from 'grommet';
 import styled from 'styled-components';
 import { useStateValue } from 'react-conflux';
 import {
@@ -11,6 +11,10 @@ import {
   RESET_CREDENTIAL_FORM
 } from '../../../store/reducers/globalReducer';
 import emblem from '../../../images/certEmblem.png';
+import {
+  schoolContext,
+  UPDATE_CRED_DATA
+} from '../../../store/reducers/schoolReducer';
 
 import {
   BaseForm,
@@ -21,7 +25,11 @@ import {
 
 import queries from './queries';
 
+const daysInMonth = month => new Date(2019, month, 0).getDate();
+
 const CredentialsForm = ({ history }) => {
+  const [stateSchool, dispatchSchool] = useStateValue(schoolContext);
+  const { name } = stateSchool.schoolData.schoolDetails;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [
     {
@@ -33,7 +41,8 @@ const CredentialsForm = ({ history }) => {
       criteria,
       issuedOn,
       expirationDate,
-      type
+      type,
+      user
     },
     dispatchGlobal
   ] = useStateValue(globalContext);
@@ -56,7 +65,7 @@ const CredentialsForm = ({ history }) => {
         hideProgressBar: true,
         autoClose: false
       });
-      await queries.addNewCredentials({
+      const credData = await queries.addNewCredentials({
         ownerName,
         credName,
         description,
@@ -66,7 +75,15 @@ const CredentialsForm = ({ history }) => {
         issuedOn,
         expirationDate,
         type,
-        schoolId: localStorage.id
+        schoolId: user.id
+      });
+      dispatchSchool({
+        type: UPDATE_CRED_DATA,
+        payload: credData.data.addNewCredential.schoolsUserInfo.schoolDetails.credentials.sort(
+          (a, b) => {
+            return a.id - b.id;
+          }
+        )
       });
       toast.dismiss(1);
       toast.success(
@@ -88,7 +105,6 @@ const CredentialsForm = ({ history }) => {
         position: toast.POSITION.BOTTOM_CENTER,
         autoClose: false
       });
-      console.error(error);
       setIsSubmitting(false);
     }
   };
@@ -104,9 +120,12 @@ const CredentialsForm = ({ history }) => {
           <h3>{description || '[Description]'}</h3>
           <h3>
             Issued on:
-            {issuedOn || '[August 10, 2019]'}
+            {issuedOn || ' [August 10, 2019]'}
           </h3>
-          <h3>Issued by: [School of the Sequoias]</h3>
+          <h3>
+            Issued by:
+            {stateSchool.schoolDataSuccess && name}
+          </h3>
           <h2>{ownerName || 'John Doe'}</h2>
         </section>
         {/* DO NOT DELETE - ghost div for alignment */}
@@ -181,18 +200,76 @@ const CredentialsForm = ({ history }) => {
               />
             </CredField>
             <CredField label="Issued Date">
-              <BaseTextInput
+              <DateMaskedInput
+                mask={[
+                  {
+                    length: [1, 2],
+                    options: Array.from({ length: 12 }, (v, k) => k + 1),
+                    regexp: /^1[0,1-2]$|^0?[1-9]$|^0$/,
+                    placeholder: 'mm'
+                  },
+                  { fixed: '/' },
+                  {
+                    length: [1, 2],
+                    options: Array.from(
+                      {
+                        length: daysInMonth(
+                          parseInt(issuedOn.split('/')[0], 10)
+                        )
+                      },
+                      (v, k) => k + 1
+                    ),
+                    regexp: /^[1-2][0-9]$|^3[0-1]$|^0?[1-9]$|^0$/,
+                    placeholder: 'dd'
+                  },
+                  { fixed: '/' },
+                  {
+                    length: 4,
+                    options: Array.from({ length: 100 }, (v, k) => 2019 - k),
+                    regexp: /^[1-2]$|^19$|^20$|^19[0-9]$|^20[0-9]$|^19[0-9][0-9]$|^20[0-9][0-9]$/,
+                    placeholder: 'yyyy'
+                  }
+                ]}
                 name="issuedOn"
-                placeholder="August 10, 2019"
+                placeholder="M/D/YYYY"
                 onChange={handleChanges}
                 value={issuedOn}
                 required
               />
             </CredField>
             <CredField label="Expiration Date">
-              <BaseTextInput
+              <DateMaskedInput
+                mask={[
+                  {
+                    length: [1, 2],
+                    options: Array.from({ length: 12 }, (v, k) => k + 1),
+                    regexp: /^1[0,1-2]$|^0?[1-9]$|^0$/,
+                    placeholder: 'mm'
+                  },
+                  { fixed: '/' },
+                  {
+                    length: [1, 2],
+                    options: Array.from(
+                      {
+                        length: daysInMonth(
+                          parseInt(issuedOn.split('/')[0], 10)
+                        )
+                      },
+                      (v, k) => k + 1
+                    ),
+                    regexp: /^[1-2][0-9]$|^3[0-1]$|^0?[1-9]$|^0$/,
+                    placeholder: 'dd'
+                  },
+                  { fixed: '/' },
+                  {
+                    length: 4,
+                    options: Array.from({ length: 100 }, (v, k) => 2019 - k),
+                    regexp: /^[1-2]$|^19$|^20$|^19[0-9]$|^20[0-9]$|^19[0-9][0-9]$|^20[0-9][0-9]$/,
+                    placeholder: 'yyyy'
+                  }
+                ]}
                 name="expirationDate"
-                placeholder="September 7, 2023"
+                placeholder="M/D/YYYY"
                 onChange={handleChanges}
                 value={expirationDate}
               />
@@ -297,5 +374,7 @@ const CertificateArea = styled.div`
     width: 375px;
   }
 `;
+
+const DateMaskedInput = styled(MaskedInput)``;
 
 export default CredentialsForm;
