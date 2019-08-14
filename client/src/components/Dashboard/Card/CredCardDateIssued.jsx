@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CredCardDateIssued = () => {
+const CredCardDateIssued = ({ date }) => {
   return (
     <DateIssuedContainer>
-      <p>2/2/2018</p>
+      <p>{date}</p>
     </DateIssuedContainer>
   );
 };

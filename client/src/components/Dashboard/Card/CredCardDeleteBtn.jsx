@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Loader from 'react-loader-spinner';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
 import { Trash } from 'grommet-icons';
@@ -17,6 +18,7 @@ import {
 
 const CredCardDeleteBtn = ({ credId, credHash }) => {
   const [, dispatch] = useStateValue(schoolContext);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const [
     hasActiveConfirmationDialog,
@@ -25,6 +27,7 @@ const CredCardDeleteBtn = ({ credId, credHash }) => {
 
   //  Handling of loading states can be done here as well
   const confirmRemoveCredential = async e => {
+    setIsDeleting(true);
     try {
       dispatch({ type: REMOVE_CREDENTIAL_START });
       await queries.removeCredential(credId, credHash);
@@ -36,8 +39,10 @@ const CredCardDeleteBtn = ({ credId, credHash }) => {
         autoClose: true
       });
       dispatch({ type: REMOVE_CREDENTIAL_SUCCESS, payload: { credId } });
+      setIsDeleting(false);
     } catch {
       dispatch({ type: REMOVE_CREDENTIAL_ERROR });
+      setIsDeleting(false);
     }
   };
 
@@ -54,9 +59,15 @@ const CredCardDeleteBtn = ({ credId, credHash }) => {
 
       <CredCardDelBtnContainer>
         <CredCardDeleteButton
-          onClick={() => setHasActiveConfirmationDialog(true)} // This state value setting will cause the layer to appear
+          onClick={
+            isDeleting ? null : () => setHasActiveConfirmationDialog(true)
+          } // This state value setting will cause the layer to appear
         >
-          <TrashButton />
+          {isDeleting ? (
+            <Loader type="Oval" color="#d8d8d8" height="30" width="30" />
+          ) : (
+            <TrashButton />
+          )}
         </CredCardDeleteButton>
       </CredCardDelBtnContainer>
     </>
