@@ -123,7 +123,7 @@ const SchoolDetailsForm = ({ history }) => {
     <SchoolForm onSubmit={handleSubmit}>
       <Box direction="column">
         <Heading margin="20px 0 0 0" alignSelf="center">
-          School Register
+          Student Register
         </Heading>
         <SchoolFormField label="Institution">
           <SchoolBaseTextInput
