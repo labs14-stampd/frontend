@@ -5,7 +5,7 @@ import {} from 'grommet';
 
 import MainDashboard from './MainDashboard';
 
-const Dashboard = ({ history }) => {
+const SchoolDashboard = ({ history }) => {
   return (
     <Container>
       <MainDashboard history={history} />
@@ -13,7 +13,7 @@ const Dashboard = ({ history }) => {
   );
 };
 
-Dashboard.propTypes = {
+SchoolDashboard.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
@@ -25,4 +25,4 @@ const Container = styled.div`
   background: #f8f8f8;
 `;
 
-export default Dashboard;
+export default SchoolDashboard;
