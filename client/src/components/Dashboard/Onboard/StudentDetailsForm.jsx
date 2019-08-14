@@ -102,12 +102,12 @@ const SchoolDetailsForm = ({ history }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await queries.addSchoolDetails(input);
+      await queries.addSchoolDetails(input); // need to make addStudentDetails query
       await queries.addRole({
         id: user.id,
-        roleId: 2 // Role of a school is set to always be 2
+        roleId: 3 // Role of a student is set to always be 3
       });
-      toast.success(`School Details added succesfully`, {
+      toast.success(`Student Details added succesfully`, {
         className: 'status-ok',
         position: toast.POSITION.BOTTOM_CENTER,
         hideProgressBar: true,
@@ -125,23 +125,32 @@ const SchoolDetailsForm = ({ history }) => {
         <Heading margin="20px 0 0 0" alignSelf="center">
           Student Register
         </Heading>
-        <StudentFormField label="Institution">
+        <StudentFormField label="First Name">
           <StudentBaseTextInput
-            name="name"
-            placeholder="Lambda School"
+            name="firstName"
+            placeholder="Jane"
             onChange={handleChanges}
-            value={input.name}
+            value={input.firstName}
             plain={false}
             required
           />
         </StudentFormField>
-        <StudentFormField label="Tax Id">
+        <StudentFormField label="Middle Name">
           <StudentBaseTextInput
-            labelText="TaxId"
-            name="taxId"
-            placeholder="TaxId"
+            name="middleName"
+            placeholder="Emily"
             onChange={handleChanges}
-            value={input.taxId}
+            value={input.middleName}
+            plain={false}
+          />
+        </StudentFormField>
+        <StudentFormField label="Last Name">
+          <StudentBaseTextInput
+            name="lastName"
+            placeholder="Doe"
+            onChange={handleChanges}
+            value={input.lastName}
+            plain={false}
             required
           />
         </StudentFormField>
@@ -212,24 +221,6 @@ const SchoolDetailsForm = ({ history }) => {
             value={input.phone}
             name="phone"
             onChange={handleChanges}
-            required
-          />
-        </StudentFormField>
-        <StudentFormField label="Type of Institution">
-          <StudentBaseTextInput
-            name="type"
-            placeholder="University"
-            onChange={handleChanges}
-            value={input.type}
-          />
-        </StudentFormField>
-        <StudentFormField label="Institution Website">
-          <StudentBaseTextInput
-            labelText="Institution Website"
-            name="url"
-            placeholder="ls.dev"
-            onChange={handleChanges}
-            value={input.url}
             required
           />
         </StudentFormField>
