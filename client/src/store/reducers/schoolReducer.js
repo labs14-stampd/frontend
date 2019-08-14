@@ -58,7 +58,6 @@ export const schoolReducer = (state = initialState, action) => {
         removeCredentialError: false
       };
     case REMOVE_CREDENTIAL_SUCCESS:
-      const id = action.payload.credId;
       return {
         ...state,
         removeCredentialStart: false,
@@ -69,7 +68,7 @@ export const schoolReducer = (state = initialState, action) => {
           schoolDetails: {
             ...state.schoolData.schoolDetails,
             credentials: state.schoolData.schoolDetails.credentials.filter(
-              credential => credential.id !== id
+              credential => credential.id !== action.payload.credId
             )
           }
         }
