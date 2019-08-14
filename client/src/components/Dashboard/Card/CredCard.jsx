@@ -6,13 +6,22 @@ import CredCardSchoolName from './CredCardSchoolName';
 import CredCardDateIssued from './CredCardDateIssued';
 import CredCardStudentName from './CredCardStudentName';
 import CredCardDeleteBtn from './CredCardDeleteBtn';
-import { Button, Layer } from 'grommet';
+import { Layer } from 'grommet';
 import emblem from '../../../images/certEmblem.png';
 
 const CredCard = ({ cred }) => {
   const [show, setShow] = useState();
-  const { credName, criteria, ownerName, id, credHash } = cred;
-  console.log(credHash);
+  const {
+    credName,
+    criteria,
+    ownerName,
+    id,
+    credHash,
+    issuedOn,
+    description,
+    imageUrl
+  } = cred;
+  console.log(cred);
   return (
     <CredContainer>
       <CredCardViewBtn getModal={() => setShow(true)} />
@@ -24,22 +33,22 @@ const CredCard = ({ cred }) => {
           <CertificateArea>
             <section>
               <div>
-                <img src={cred.imageUrl || cred.emblem} alt="school seal" />
+                <img src={imageUrl || emblem} alt="school seal" />
               </div>
-              <h1>{cred.credName}</h1>
-              <h3>{cred.description}</h3>
+              <h1>{credName}</h1>
+              <h3>{description}</h3>
               <h3>
                 Issued on:
-                {cred.issuedOn}
+                {issuedOn}
               </h3>
               <h3>Issued by: [School of the Sequoias]</h3>
-              <h2>{cred.ownerName}</h2>
+              <h2>{ownerName}</h2>
             </section>
           </CertificateArea>
         </Layer>
       )}
       <CredCardSchoolName credName={credName} criteria={criteria} />
-      <CredCardDateIssued />
+      <CredCardDateIssued date={issuedOn} />
       <CredCardStudentName ownerName={ownerName} />
       <CredCardDeleteBtn credId={id} credHash={credHash} />
     </CredContainer>
