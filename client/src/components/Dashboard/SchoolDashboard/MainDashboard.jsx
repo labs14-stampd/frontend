@@ -19,47 +19,49 @@ import {
   SCHOOL_DATA_ERROR,
   SEARCH_HANDLE_CHANGE
 } from '../../../store/reducers/schoolReducer';
+import { globalContext } from '../../../store/reducers/globalReducer';
 
 const MainDashboard = ({ history }) => {
-  const [state, dispatch] = useStateValue(schoolContext);
+  const [{ user }] = useStateValue(globalContext);
+  const [schoolState, schoolDispatch] = useStateValue(schoolContext);
   useEffect(() => {
-    if (!state.schoolData) {
-      dispatch({ type: SCHOOL_DATA_START });
+    if (!schoolState.schoolData) {
+      schoolDispatch({ type: SCHOOL_DATA_START });
       async function getUserData() {
         try {
-          const { id } = localStorage;
+          const { id } = user;
           const data = await queries.getUserById({
             id
           });
-          dispatch({ type: SCHOOL_DATA_SUCCESS, payload: data });
+          schoolDispatch({ type: SCHOOL_DATA_SUCCESS, payload: data });
         } catch (err) {
-          dispatch({ type: SCHOOL_DATA_ERROR });
+          schoolDispatch({ type: SCHOOL_DATA_ERROR });
         }
       }
       getUserData();
     }
-  }, [dispatch]); // Re-render whenever an action in schoolContext is dispatched
+  }, [schoolDispatch]); // Re-render whenever an action in schoolContext is dispatched
   let searchResult = [];
-  if (state.schoolData) {
+  if (schoolState.schoolData) {
     const searchTerms = ['credName', 'criteria', 'ownerName', 'issuedOn'];
     const searchOptions = {
       caseSensitive: false
     };
     const searcher = new FuzzySearch(
-      state.schoolData.schoolDetails.credentials,
+      schoolState.schoolData.schoolDetails.credentials,
       searchTerms,
       searchOptions
     );
-    searchResult = searcher.search(state.schoolSearchInput);
+    searchResult = searcher.search(schoolState.schoolSearchInput);
   }
   const handleChange = e => {
-    dispatch({ type: SEARCH_HANDLE_CHANGE, payload: e.target.value });
+    schoolDispatch({ type: SEARCH_HANDLE_CHANGE, payload: e.target.value });
   };
   return (
     <>
       <SchoolDetails>
-        {state.schoolDataSuccess ? (
-          <h2>{state.schoolData.schoolDetails.name}</h2>
+        {schoolState.schoolDataSuccess ? (
+          <h2>{schoolState.schoolData.schoolDetails.name}</h2>
         ) : (
           <div />
         )}
@@ -69,7 +71,7 @@ const MainDashboard = ({ history }) => {
             name="searchText"
             placeholder="Search"
             onChange={handleChange}
-            value={state.schoolSearchInput}
+            value={schoolState.schoolSearchInput}
           />
           <IssueCredButton
             type="button"
@@ -79,11 +81,11 @@ const MainDashboard = ({ history }) => {
           />
         </div>
       </SchoolDetails>
-      {state.schoolDataStart ? (
+      {schoolState.schoolDataStart ? (
         <DashboardLoading />
       ) : (
         <>
-          {state.schoolDataSuccess && searchResult.length ? (
+          {schoolState.schoolDataSuccess && searchResult.length ? (
             <Box height="75vh" overflow="auto">
               <InfiniteScroll items={searchResult} step={10}>
                 {item => {
@@ -92,7 +94,7 @@ const MainDashboard = ({ history }) => {
               </InfiniteScroll>
             </Box>
           ) : (
-            state.schoolDataSuccess && (
+            schoolState.schoolDataSuccess && (
               <NothingFound>No results were found...</NothingFound>
             )
           )}
