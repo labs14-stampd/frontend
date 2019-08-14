@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Layer } from 'grommet';
 import CredCardViewBtn from './CredCardViewBtn';
 import CredCardSchoolName from './CredCardSchoolName';
 import CredCardDateIssued from './CredCardDateIssued';
 import CredCardStudentName from './CredCardStudentName';
 import CredCardDeleteBtn from './CredCardDeleteBtn';
-import { Layer } from 'grommet';
 import emblem from '../../../images/certEmblem.png';
 
 const CredCard = ({ cred }) => {
@@ -21,7 +21,6 @@ const CredCard = ({ cred }) => {
     description,
     imageUrl
   } = cred;
-  console.log(cred);
   return (
     <CredContainer>
       <CredCardViewBtn getModal={() => setShow(true)} />

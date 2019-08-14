@@ -169,10 +169,4 @@ const NothingFound = styled.p`
   color: ${({ theme }) => theme.global.colors['status-disabled']};
 `;
 
-const CredListContainer = styled(Box)`
-  section:last-of-type {
-    margin-bottom: 15px;
-  }
-`;
-
 export default MainDashboard;
