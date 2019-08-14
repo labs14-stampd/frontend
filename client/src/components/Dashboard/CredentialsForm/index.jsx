@@ -41,7 +41,8 @@ const CredentialsForm = ({ history }) => {
       criteria,
       issuedOn,
       expirationDate,
-      type
+      type,
+      user
     },
     dispatchGlobal
   ] = useStateValue(globalContext);
@@ -74,7 +75,7 @@ const CredentialsForm = ({ history }) => {
         issuedOn,
         expirationDate,
         type,
-        schoolId: localStorage.id
+        schoolId: user.id
       });
       dispatchSchool({
         type: UPDATE_CRED_DATA,
