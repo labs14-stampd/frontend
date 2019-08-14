@@ -120,13 +120,13 @@ const SchoolDetailsForm = ({ history }) => {
   };
 
   return (
-    <SchoolForm onSubmit={handleSubmit}>
+    <StudentForm onSubmit={handleSubmit}>
       <Box direction="column">
         <Heading margin="20px 0 0 0" alignSelf="center">
           Student Register
         </Heading>
-        <SchoolFormField label="Institution">
-          <SchoolBaseTextInput
+        <StudentFormField label="Institution">
+          <StudentBaseTextInput
             name="name"
             placeholder="Lambda School"
             onChange={handleChanges}
@@ -134,9 +134,9 @@ const SchoolDetailsForm = ({ history }) => {
             plain={false}
             required
           />
-        </SchoolFormField>
-        <SchoolFormField label="Tax Id">
-          <SchoolBaseTextInput
+        </StudentFormField>
+        <StudentFormField label="Tax Id">
+          <StudentBaseTextInput
             labelText="TaxId"
             name="taxId"
             placeholder="TaxId"
@@ -144,32 +144,32 @@ const SchoolDetailsForm = ({ history }) => {
             value={input.taxId}
             required
           />
-        </SchoolFormField>
-        <SchoolFormField label="Address 1">
-          <SchoolBaseTextInput
+        </StudentFormField>
+        <StudentFormField label="Address 1">
+          <StudentBaseTextInput
             name="street1"
             placeholder="123 Fake street"
             onChange={handleChanges}
             value={input.street1}
           />
-        </SchoolFormField>
-        <SchoolFormField label="Address 2">
-          <SchoolBaseTextInput
+        </StudentFormField>
+        <StudentFormField label="Address 2">
+          <StudentBaseTextInput
             name="street2"
             placeholder="Apt B"
             onChange={handleChanges}
             value={input.street2}
           />
-        </SchoolFormField>
-        <SchoolFormField label="City">
-          <SchoolBaseTextInput
+        </StudentFormField>
+        <StudentFormField label="City">
+          <StudentBaseTextInput
             name="city"
             placeholder="San Francisco"
             onChange={handleChanges}
             value={input.city}
           />
-        </SchoolFormField>
-        <SchoolFormField
+        </StudentFormField>
+        <StudentFormField
           label="State"
           name="state"
           component={Select}
@@ -178,16 +178,16 @@ const SchoolDetailsForm = ({ history }) => {
           value={input.state}
           placeholder="State"
         />
-        <SchoolFormField label="Zip Code">
-          <SchoolBaseTextInput
+        <StudentFormField label="Zip Code">
+          <StudentBaseTextInput
             name="zip"
             placeholder="90210"
             onChange={handleChanges}
             value={input.zip}
           />
-        </SchoolFormField>
-        <SchoolFormField label="Phone Number">
-          <SchoolMaskedInput
+        </StudentFormField>
+        <StudentFormField label="Phone Number">
+          <StudentMaskedInput
             mask={[
               { fixed: '(' },
               {
@@ -214,17 +214,17 @@ const SchoolDetailsForm = ({ history }) => {
             onChange={handleChanges}
             required
           />
-        </SchoolFormField>
-        <SchoolFormField label="Type of Institution">
-          <SchoolBaseTextInput
+        </StudentFormField>
+        <StudentFormField label="Type of Institution">
+          <StudentBaseTextInput
             name="type"
             placeholder="University"
             onChange={handleChanges}
             value={input.type}
           />
-        </SchoolFormField>
-        <SchoolFormField label="Institution Website">
-          <SchoolBaseTextInput
+        </StudentFormField>
+        <StudentFormField label="Institution Website">
+          <StudentBaseTextInput
             labelText="Institution Website"
             name="url"
             placeholder="ls.dev"
@@ -232,10 +232,15 @@ const SchoolDetailsForm = ({ history }) => {
             value={input.url}
             required
           />
-        </SchoolFormField>
-        <SchoolButton type="submit" primary label="Submit" alignSelf="center" />
+        </StudentFormField>
+        <StudentButton
+          type="submit"
+          primary
+          label="Submit"
+          alignSelf="center"
+        />
       </Box>
-    </SchoolForm>
+    </StudentForm>
   );
 };
 
@@ -243,7 +248,7 @@ SchoolDetailsForm.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
-const SchoolForm = styled(BaseForm)`
+const StudentForm = styled(BaseForm)`
   margin: 120px auto 100px;
   background-color: white;
   border: 1px solid #d8d8d8;
@@ -252,16 +257,16 @@ const SchoolForm = styled(BaseForm)`
   width: 100%;
 `;
 
-const SchoolButton = styled(BaseButton)`
+const StudentButton = styled(BaseButton)`
   text-align: center;
   margin: 15px 20px 50px;
 `;
 
-const SchoolBaseTextInput = styled(BaseTextInput)`
+const StudentBaseTextInput = styled(BaseTextInput)`
   border: none;
 `;
 
-const SchoolFormField = styled(BaseFormField)`
+const StudentFormField = styled(BaseFormField)`
   margin: 20px;
   border-bottom: none;
   input {
@@ -269,7 +274,7 @@ const SchoolFormField = styled(BaseFormField)`
   }
 `;
 
-const SchoolMaskedInput = styled(MaskedInput)`
+const StudentMaskedInput = styled(MaskedInput)`
   /* border: ${({ theme }) => theme.global.border}; */
 `;
 
