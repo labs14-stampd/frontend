@@ -15,7 +15,7 @@ import {
   REMOVE_CREDENTIAL_ERROR
 } from '../../../store/reducers/schoolReducer';
 
-const CredCardDeleteBtn = ({ credId }) => {
+const CredCardDeleteBtn = ({ credId, credHash }) => {
   const [, dispatch] = useStateValue(schoolContext);
 
   const [
@@ -27,7 +27,7 @@ const CredCardDeleteBtn = ({ credId }) => {
   const confirmRemoveCredential = async e => {
     try {
       dispatch({ type: REMOVE_CREDENTIAL_START });
-      await queries.removeCredential(credId);
+      await queries.removeCredential(credId, credHash);
       toast.dismiss(1);
       toast.success(`Success! Credential deleted`, {
         className: 'status-ok',

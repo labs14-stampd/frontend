@@ -7,6 +7,7 @@ export const SEARCH_HANDLE_CHANGE = 'SEARCH_HANDLE_CHANGE';
 export const REMOVE_CREDENTIAL_START = 'REMOVE_CREDENTIAL_START';
 export const REMOVE_CREDENTIAL_SUCCESS = 'REMOVE_CREDENTIAL_SUCCESS';
 export const REMOVE_CREDENTIAL_ERROR = 'REMOVE_CREDENTIAL_ERROR';
+export const UPDATE_CRED_DATA = 'UPDATE_CRED_DATA';
 
 export const schoolContext = createContext();
 
@@ -67,7 +68,9 @@ export const schoolReducer = (state = initialState, action) => {
           ...state.schoolData,
           schoolDetails: {
             ...state.schoolData.schoolDetails,
-            credentials: state.schoolData.schoolDetails.credentials.filter(credential => credential.id !== id)
+            credentials: state.schoolData.schoolDetails.credentials.filter(
+              credential => credential.id !== id
+            )
           }
         }
       };
@@ -77,6 +80,17 @@ export const schoolReducer = (state = initialState, action) => {
         removeCredentialStart: false,
         removeCredentialSuccess: false,
         removeCredentialError: true
+      };
+    case UPDATE_CRED_DATA:
+      return {
+        ...state,
+        schoolData: {
+          ...state.schoolData,
+          schoolDetails: {
+            ...state.schoolData.schoolDetails,
+            credentials: action.payload
+          }
+        }
       };
     default:
       return state;
