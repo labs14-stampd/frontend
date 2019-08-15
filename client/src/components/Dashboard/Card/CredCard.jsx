@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Layer } from 'grommet';
+import { useStateValue } from 'react-conflux';
+
 import CredCardViewBtn from './CredCardViewBtn';
 import CredCardSchoolName from './CredCardSchoolName';
 import CredCardDateIssued from './CredCardDateIssued';
 import CredCardStudentName from './CredCardStudentName';
 import CredCardDeleteBtn from './CredCardDeleteBtn';
 import emblem from '../../../images/certEmblem.png';
+import { globalContext } from '../../../store/reducers/globalReducer';
 
 const CredCard = ({ cred }) => {
+  const [{ user }] = useStateValue(globalContext);
   const [show, setShow] = useState();
   const {
     credName,
@@ -49,7 +53,9 @@ const CredCard = ({ cred }) => {
       <CredCardSchoolName credName={credName} criteria={criteria} />
       <CredCardDateIssued date={issuedOn} />
       <CredCardStudentName ownerName={ownerName} />
-      <CredCardDeleteBtn credId={id} credHash={credHash} />
+      {user.roleId === '2' && (
+        <CredCardDeleteBtn credId={id} credHash={credHash} />
+      )}
     </CredContainer>
   );
 };
