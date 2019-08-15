@@ -22,10 +22,8 @@ import { globalContext } from '../../../store/reducers/globalReducer';
 
 const Dashboard = ({ history }) => {
   const [{ user }] = useStateValue(globalContext);
-  console.log('user', user);
   const [schoolState, schoolDispatch] = useStateValue(schoolContext);
   const [studentState, studentDispatch] = useStateValue(studentContext);
-  console.log(studentState);
   useEffect(() => {
     if (!schoolState.schoolData) {
       user.roleId === '2'
