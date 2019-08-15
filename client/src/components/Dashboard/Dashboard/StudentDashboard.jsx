@@ -38,7 +38,7 @@ const StudentDashboard = ({ history }) => {
     <>
       <StudentDetails>
         {studentState.studentDataSuccess ? (
-          <h2>{studentState.studentData.studentDetails.name}</h2>
+          <h2>{studentState.studentData.studentDetails.fullName}</h2>
         ) : (
           <div />
         )}
