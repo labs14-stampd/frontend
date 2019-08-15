@@ -17,16 +17,15 @@ import { globalContext } from '../../../store/reducers/globalReducer';
 const SchoolDetailsForm = ({ history }) => {
   const [{ user }] = useStateValue(globalContext);
   const [input, setInput] = useState({
-    name: '',
-    taxId: '',
+    firstName: '',
+    lastName: '',
+    middleName: '',
     street1: '',
     street2: '',
     city: '',
     state: '',
     zip: '',
     phone: '',
-    type: '',
-    url: '',
     userId: user.id
   });
 
@@ -102,7 +101,7 @@ const SchoolDetailsForm = ({ history }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await queries.addSchoolDetails(input); // need to make addStudentDetails query
+      await queries.addStudentDetail({fullName:`${input.firstName} ${input.lastName}`, ...input}); 
       await queries.addRole({
         id: user.id,
         roleId: 3 // Role of a student is set to always be 3
