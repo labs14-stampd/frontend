@@ -2,13 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 import { Box, Button, Layer, Text } from 'grommet';
 import PropTypes from 'prop-types';
+import { useStateValue } from 'react-conflux';
+import { globalContext } from '../../store/reducers/globalReducer';
 
 const MenuLayer = ({ onClose, history }) => {
+  const [{ user }] = useStateValue(globalContext);
   const navRoute = (e, route) => {
     e.preventDefault();
     history.push(route);
     onClose();
   };
+  const menuArray =
+    user.roleId === '2'
+      ? [
+          { name: 'Dashboard', route: '/dashboard' },
+          { name: 'Issue Credential', route: '/dashboard/credForm' },
+          { name: 'About', route: '/about' },
+          { name: 'Contact', route: '/contact' }
+        ]
+      : [
+          { name: 'Dashboard', route: '/dashboard' },
+          { name: 'About', route: '/about' },
+          { name: 'Contact', route: '/contact' }
+        ];
   return (
     <MenuBar
       position="left"
@@ -17,12 +33,7 @@ const MenuLayer = ({ onClose, history }) => {
       onClickOutside={() => onClose()}
     >
       <Box pad="medium" background="brand" fill="vertical">
-        {[
-          { name: 'Dashboard', route: '/dashboard' },
-          { name: 'Issue Credential', route: '/dashboard/credForm' },
-          { name: 'About', route: '/about' },
-          { name: 'Contact', route: '/contact' }
-        ].map(navItem => (
+        {menuArray.map(navItem => (
           <Button
             key={navItem.name}
             onClick={e => navRoute(e, navItem.route)}
