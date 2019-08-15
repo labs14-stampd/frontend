@@ -21,26 +21,8 @@ import {
 } from '../../../store/reducers/schoolReducer';
 import { globalContext } from '../../../store/reducers/globalReducer';
 
-const MainDashboard = ({ history }) => {
-  const [{ user }] = useStateValue(globalContext);
+const SchoolDashboard = ({ history }) => {
   const [schoolState, schoolDispatch] = useStateValue(schoolContext);
-  useEffect(() => {
-    if (!schoolState.schoolData) {
-      schoolDispatch({ type: SCHOOL_DATA_START });
-      async function getUserData() {
-        try {
-          const { id } = user;
-          const data = await queries.getUserById({
-            id
-          });
-          schoolDispatch({ type: SCHOOL_DATA_SUCCESS, payload: data });
-        } catch (err) {
-          schoolDispatch({ type: SCHOOL_DATA_ERROR });
-        }
-      }
-      getUserData();
-    }
-  }, [schoolDispatch]); // Re-render whenever an action in schoolContext is dispatched
   let searchResult = [];
   if (schoolState.schoolData) {
     const searchTerms = ['credName', 'criteria', 'ownerName', 'issuedOn'];
@@ -108,7 +90,7 @@ const MainDashboard = ({ history }) => {
   );
 };
 
-MainDashboard.propTypes = {
+SchoolDashboard.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
@@ -178,4 +160,4 @@ const CredCardContainer = styled(Box)`
   overflow: 'auto';
 `;
 
-export default MainDashboard;
+export default SchoolDashboard;

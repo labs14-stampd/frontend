@@ -8,7 +8,7 @@ import PrivateRoute from './auth/PrivateRoute';
 import { useAuth0 } from './auth/authWrapper';
 import { theme } from './styles/themes';
 import Loading from './components/Layout/Loading';
-import SchoolDashboard from './components/Dashboard/SchoolDashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 import Onboard from './components/Dashboard/Onboard';
 import SchoolDetailsForm from './components/Dashboard/Onboard/SchoolDetailsForm';
 import StudentDetailsForm from './components/Dashboard/Onboard/StudentDetailsForm';
@@ -42,7 +42,7 @@ function App(props) {
               <PrivateRoute
                 exact
                 path="/dashboard"
-                component={SchoolDashboard}
+                component={Dashboard}
               />
               <PrivateRoute
                 path="/dashboard/credForm"
