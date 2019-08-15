@@ -18,7 +18,6 @@ function Onboard({ history }) {
             type="button"
             onClick={() => history.push('/onboarding/student')}
             label="Student"
-            disabled
           />
         </div>
       </Container>
@@ -61,16 +60,6 @@ const Container = styled.main`
       :hover {
         background: ${props => props.theme.global.colors.brand};
         color: ${props => props.theme.global.colors['accent-4']};
-      }
-    }
-
-    button:last-of-type {
-      border: 2px solid grey;
-      color: grey;
-      :hover {
-        background: white;
-        border: 2px solid grey;
-        color: grey;
       }
     }
   }

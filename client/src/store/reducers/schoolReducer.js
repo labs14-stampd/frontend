@@ -1,4 +1,6 @@
-import { createContext } from 'react';
+import {
+  createContext
+} from 'react';
 
 export const SCHOOL_DATA_START = 'SCHOOL_DATA_START';
 export const SCHOOL_DATA_SUCCESS = 'SCHOOL_DATA_SUCCESS';
@@ -28,22 +30,22 @@ export const schoolReducer = (state = initialState, action) => {
       return {
         ...state,
         schoolDataStart: true,
-        schoolDataSuccess: false,
-        schoolDataError: false
+          schoolDataSuccess: false,
+          schoolDataError: false
       };
     case SCHOOL_DATA_SUCCESS:
       return {
         ...state,
         schoolDataStart: false,
-        schoolDataSuccess: true,
-        schoolDataError: false,
-        schoolData: action.payload.data.getUserById
+          schoolDataSuccess: true,
+          schoolDataError: false,
+          schoolData: action.payload.data.getUserById
       };
     case SCHOOL_DATA_ERROR:
       return {
         ...state,
         schoolDataError: true,
-        schoolDataStart: false
+          schoolDataStart: false
       };
     case SEARCH_HANDLE_CHANGE:
       return {
@@ -54,32 +56,31 @@ export const schoolReducer = (state = initialState, action) => {
       return {
         ...state,
         removeCredentialStart: true,
-        removeCredentialSuccess: false,
-        removeCredentialError: false
+          removeCredentialSuccess: false,
+          removeCredentialError: false
       };
     case REMOVE_CREDENTIAL_SUCCESS:
-      const id = action.payload.credId;
       return {
         ...state,
         removeCredentialStart: false,
-        removeCredentialSuccess: true,
-        removeCredentialError: false,
-        schoolData: {
-          ...state.schoolData,
-          schoolDetails: {
-            ...state.schoolData.schoolDetails,
-            credentials: state.schoolData.schoolDetails.credentials.filter(
-              credential => credential.id !== id
-            )
+          removeCredentialSuccess: true,
+          removeCredentialError: false,
+          schoolData: {
+            ...state.schoolData,
+            schoolDetails: {
+              ...state.schoolData.schoolDetails,
+              credentials: state.schoolData.schoolDetails.credentials.filter(
+                credential => credential.id !== action.payload.credId
+              )
+            }
           }
-        }
       };
     case REMOVE_CREDENTIAL_ERROR:
       return {
         ...state,
         removeCredentialStart: false,
-        removeCredentialSuccess: false,
-        removeCredentialError: true
+          removeCredentialSuccess: false,
+          removeCredentialError: true
       };
     case UPDATE_CRED_DATA:
       return {

@@ -17,16 +17,18 @@ const initialState = {
   criteria: '',
   issuedOn: '',
   expirationDate: '',
-  schoolId: localStorage.id
+  schoolId: null,
+  studentId: null
 };
 
 const globalReducer = (state = initialState, action) => {
   switch (action.type) {
-    case REGISTER: 
+    case REGISTER:
       return {
         ...state,
-        user: action.payload
-      }
+        user: action.payload,
+        schoolId: action.payload.id
+      };
     case ON_BOARD_DETAILS:
       return state;
     case HANDLE_CRED_CHANGES:
@@ -46,7 +48,7 @@ const globalReducer = (state = initialState, action) => {
         criteria: '',
         issuedOn: '',
         expirationDate: '',
-        schoolId: localStorage.id
+        schoolId: state.user.id
       };
     default:
       return state;
