@@ -1,22 +1,15 @@
 import React from 'react';
-import { StateProvider as SchoolProvider } from 'react-conflux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {} from 'grommet';
 
 import MainDashboard from './MainDashboard';
-import {
-  schoolReducer,
-  schoolContext
-} from '../../../store/reducers/schoolReducer';
 
 const Dashboard = ({ history }) => {
   return (
-    <SchoolProvider reducer={schoolReducer} stateContext={schoolContext}>
-      <Container>
-        <MainDashboard history={history} />
-      </Container>
-    </SchoolProvider>
+    <Container>
+      <MainDashboard history={history} />
+    </Container>
   );
 };
 
@@ -25,7 +18,7 @@ Dashboard.propTypes = {
 };
 
 const Container = styled.div`
-  padding: 70px 3% 0;
+  padding: 70px 2% 0;
   margin: 0 auto;
   min-height: calc(100vh - 70px);
   width: 100%;

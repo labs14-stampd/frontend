@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import Loader from 'react-loader-spinner';
 import { useStateValue } from 'react-conflux';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Trash } from 'grommet-icons';
 import { toast } from 'react-toastify';
@@ -15,8 +17,9 @@ import {
   REMOVE_CREDENTIAL_ERROR
 } from '../../../store/reducers/schoolReducer';
 
-const CredCardDeleteBtn = ({ credId }) => {
+const CredCardDeleteBtn = ({ credId, credHash }) => {
   const [, dispatch] = useStateValue(schoolContext);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const [
     hasActiveConfirmationDialog,
@@ -24,20 +27,23 @@ const CredCardDeleteBtn = ({ credId }) => {
   ] = useState(false);
 
   //  Handling of loading states can be done here as well
-  const confirmRemoveCredential = async e => {
+  const confirmRemoveCredential = async () => {
+    setIsDeleting(true);
     try {
       dispatch({ type: REMOVE_CREDENTIAL_START });
-      await queries.removeCredential(credId);
+      await queries.removeCredential(credId, credHash);
       toast.dismiss(1);
       toast.success(`Success! Credential deleted`, {
         className: 'status-ok',
         position: toast.POSITION.BOTTOM_CENTER,
         hideProgressBar: true,
-        autoClose: false
+        autoClose: true
       });
       dispatch({ type: REMOVE_CREDENTIAL_SUCCESS, payload: { credId } });
+      setIsDeleting(false);
     } catch {
       dispatch({ type: REMOVE_CREDENTIAL_ERROR });
+      setIsDeleting(false);
     }
   };
 
@@ -54,13 +60,24 @@ const CredCardDeleteBtn = ({ credId }) => {
 
       <CredCardDelBtnContainer>
         <CredCardDeleteButton
-          onClick={() => setHasActiveConfirmationDialog(true)} // This state value setting will cause the layer to appear
+          onClick={
+            isDeleting ? null : () => setHasActiveConfirmationDialog(true)
+          } // This state value setting will cause the layer to appear
         >
-          <TrashButton />
+          {isDeleting ? (
+            <Loader type="Oval" color="#d8d8d8" height={30} width={30} />
+          ) : (
+            <TrashButton />
+          )}
         </CredCardDeleteButton>
       </CredCardDelBtnContainer>
     </>
   );
+};
+
+CredCardDeleteBtn.propTypes = {
+  credId: PropTypes.string.isRequired,
+  credHash: PropTypes.string.isRequired
 };
 
 const CredCardDelBtnContainer = styled.div`

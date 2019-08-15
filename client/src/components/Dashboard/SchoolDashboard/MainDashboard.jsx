@@ -6,9 +6,10 @@ import { InfiniteScroll, Box } from 'grommet';
 import FuzzySearch from 'fuzzy-search';
 
 import { BaseButton } from '../../../styles/themes';
+import searchIcon from '../../../images/search-icon.svg';
 
 import CredCard from '../Card/CredCard';
-import searchIcon from '../../../images/search-icon.svg';
+import DashboardLoading from '../DashboardLoading';
 
 import queries from './queries';
 import {
@@ -18,45 +19,49 @@ import {
   SCHOOL_DATA_ERROR,
   SEARCH_HANDLE_CHANGE
 } from '../../../store/reducers/schoolReducer';
+import { globalContext } from '../../../store/reducers/globalReducer';
 
 const MainDashboard = ({ history }) => {
-  const [state, dispatch] = useStateValue(schoolContext);
+  const [{ user }] = useStateValue(globalContext);
+  const [schoolState, schoolDispatch] = useStateValue(schoolContext);
   useEffect(() => {
-    dispatch({ type: SCHOOL_DATA_START });
-    async function getUserData() {
-      try {
-        const { id } = localStorage;
-        const data = await queries.getUserById({
-          id
-        });
-        dispatch({ type: SCHOOL_DATA_SUCCESS, payload: data });
-      } catch (err) {
-        dispatch({ type: SCHOOL_DATA_ERROR });
+    if (!schoolState.schoolData) {
+      schoolDispatch({ type: SCHOOL_DATA_START });
+      async function getUserData() {
+        try {
+          const { id } = user;
+          const data = await queries.getUserById({
+            id
+          });
+          schoolDispatch({ type: SCHOOL_DATA_SUCCESS, payload: data });
+        } catch (err) {
+          schoolDispatch({ type: SCHOOL_DATA_ERROR });
+        }
       }
+      getUserData();
     }
-    getUserData();
-  }, [dispatch]); // Re-render whenever an action in schoolContext is dispatched
+  }, [schoolDispatch]); // Re-render whenever an action in schoolContext is dispatched
   let searchResult = [];
-  if (state.schoolData) {
+  if (schoolState.schoolData) {
     const searchTerms = ['credName', 'criteria', 'ownerName', 'issuedOn'];
     const searchOptions = {
       caseSensitive: false
     };
     const searcher = new FuzzySearch(
-      state.schoolData.schoolDetails.credentials,
+      schoolState.schoolData.schoolDetails.credentials,
       searchTerms,
       searchOptions
     );
-    searchResult = searcher.search(state.schoolSearchInput);
+    searchResult = searcher.search(schoolState.schoolSearchInput);
   }
   const handleChange = e => {
-    dispatch({ type: SEARCH_HANDLE_CHANGE, payload: e.target.value });
+    schoolDispatch({ type: SEARCH_HANDLE_CHANGE, payload: e.target.value });
   };
   return (
     <>
       <SchoolDetails>
-        {state.schoolDataSuccess ? (
-          <h2>{state.schoolData.schoolDetails.name}</h2>
+        {schoolState.schoolDataSuccess ? (
+          <h2>{schoolState.schoolData.schoolDetails.name}</h2>
         ) : (
           <div />
         )}
@@ -66,7 +71,7 @@ const MainDashboard = ({ history }) => {
             name="searchText"
             placeholder="Search"
             onChange={handleChange}
-            value={state.schoolSearchInput}
+            value={schoolState.schoolSearchInput}
           />
           <IssueCredButton
             type="button"
@@ -76,18 +81,28 @@ const MainDashboard = ({ history }) => {
           />
         </div>
       </SchoolDetails>
-      {state.schoolDataSuccess && searchResult.length ? (
-        <Box height="75vh" overflow="auto">
-          <InfiniteScroll items={searchResult} step={10}>
-            {item => {
-              return <CredCard key={item.id} cred={item} />;
-            }}
-          </InfiniteScroll>
-        </Box>
+      {schoolState.schoolDataStart ? (
+        <DashboardLoading />
       ) : (
-        state.schoolDataSuccess && (
-          <NothingFound>No results were found...</NothingFound>
-        )
+        <>
+          {schoolState.schoolDataSuccess && searchResult.length ? (
+            <CredCardContainer>
+              <InfiniteScroll items={searchResult} step={10}>
+                {item => {
+                  return <CredCard key={item.id} cred={item} />;
+                }}
+              </InfiniteScroll>
+            </CredCardContainer>
+          ) : (
+            schoolState.schoolDataSuccess && (
+              <NothingFound>
+                {!schoolState.schoolData.schoolDetails.credentials.length
+                  ? 'Issue a credential to get started...'
+                  : 'No results were found..'}
+              </NothingFound>
+            )
+          )}
+        </>
       )}
     </>
   );
@@ -156,6 +171,11 @@ const NothingFound = styled.p`
   font-size: 2.4rem;
   margin-top: 20vh;
   color: ${({ theme }) => theme.global.colors['status-disabled']};
+`;
+
+const CredCardContainer = styled(Box)`
+  height: 75vh;
+  overflow: 'auto';
 `;
 
 export default MainDashboard;

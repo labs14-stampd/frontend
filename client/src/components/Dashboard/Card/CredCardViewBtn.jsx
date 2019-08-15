@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { BaseButton } from '../../../styles/themes';
 
 const CredCardViewBtn = ({ getModal }) => {
@@ -12,6 +13,10 @@ const CredCardViewBtn = ({ getModal }) => {
       />
     </CardCredBtnContainer>
   );
+};
+
+CredCardViewBtn.propTypes = {
+  getModal: PropTypes.func.isRequired
 };
 
 const CardCredBtnContainer = styled.div`

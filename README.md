@@ -42,6 +42,7 @@ Easy. Verified. Blockchain. Credentials with Stampd.
   - [Development Dependencies](#development-dependencies)
 - [APIs Used](#apis-used)
 - [Testing](#testing)
+- [Project Management](#project-management)
 - [Contributing and Getting Involved](#contributing-and-getting-involved)
   - [Issue and Bug Requests](#issue-and-bug-requests)
   - [Feature Requests](#feature-requests)
@@ -160,12 +161,25 @@ Infura gives 3 big benefits to developers of Ethereum-based apps: speed, scalabi
 
 #### Stripe
 
-Stripe is a service that allows users to make and accept online payments. Through its API, Stripe frees developers from the technological, security and regulatory burdens that come with handling sensitive user payment information, such as credit card numbers. Stripe also allows for the processing of many kinds of transactions, including one-time payments and subscriptions, and these transactions maybe processed using a variety of payment methods. 
+Stripe is a service that allows users to make and accept online payments. Through its API, Stripe frees developers from the technological, security and regulatory burdens that come with handling sensitive user payment information, such as credit card numbers. Stripe also allows for the processing of many kinds of transactions, including one-time payments and subscriptions, and these transactions maybe processed using a variety of payment methods.
 
 ## Testing
 
-🚫Document what you used for testing and why
-Testing library/react
+Testing is performed using the following dependencies:
+
+- [@testing-library/react](https://github.com/testing-library/react-testing-library)
+- [jest-dom](https://github.com/testing-library/jest-dom)
+- [react-test-renderer](https://reactjs.org/docs/test-renderer.html)
+
+In addition, we have incorporated custom test helpers called `renderWithRouter` and `rendererWithRouter` in order to accomodate testing while using [React Router](https://www.npmjs.com/package/react-router).
+
+## Project Management
+
+The following documents and links contain all the project management documents for Stampd. Included are a Trello board, the project vision document (which contains links to the UX wireframes and layouts), and the Google Drive with our user interviews:
+
+- [Trello Board](https://trello.com/b/uvhiXJ58/stampd)
+- [Project Vision Document](https://www.notion.so/Stampd-495609cb1e06435daf900fdaf5ee55f1)
+- [User Interviews](https://drive.google.com/drive/folders/17dBTV1TwsZ6fkYOwTTcnmQUYVyi7ptS0?usp=sharing)
 
 ## Contributing and Getting Involved
 

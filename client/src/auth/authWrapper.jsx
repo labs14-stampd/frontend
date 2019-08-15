@@ -3,7 +3,7 @@ import createAuth0Client from '@auth0/auth0-spa-js';
 import { useStateValue } from 'react-conflux';
 import jwt from 'jsonwebtoken';
 import PropTypes from 'prop-types';
-import { globalContext } from '../store/reducers/globalReducer';
+import { globalContext, REGISTER } from '../store/reducers/globalReducer';
 import queries from './authQueries';
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
@@ -40,17 +40,21 @@ export const Auth0Provider = ({
 
       if (isAuthenticatedFromAuth0) {
         const userFromAuth0 = await auth0FromHook.getUser();
+
+        // Change property name from nickname to username
+        userFromAuth0.username = userFromAuth0.nickname;
+        userFromAuth0.nickname = undefined;
+
         setUser(userFromAuth0);
 
         const authToken = jwt.sign(
           userFromAuth0,
           process.env.REACT_APP_AUTH_TOKEN
         );
+
         try {
           const result = await queries.register({ authToken });
-          dispatchGlobal({ type: 'REGISTER', payload: result.data.addUser });
-
-          localStorage.id = result.data.addUser.id;
+          dispatchGlobal({ type: REGISTER, payload: result.data.addUser });
 
           if (result.data.addUser.roleId === null) {
             history.push('/onboarding');
