@@ -75,6 +75,65 @@ const queries = {
         }
       `
     });
+  },
+  addStudentDetail(body){
+    return client.mutate({
+      variables: {
+        fullName: body.fullName,
+        firstName: body.firstName,
+        lastName: body.lastName,
+        middleName: body.middleName,
+        street1: body.street1,
+        street2: body.street2,
+        city: body.city,
+        state: body.state,
+        zip: body.zip,
+        phone: body.phone,
+        userId: body.userId
+      },
+      mutation: gql`
+        mutation AddStudentDetail(
+          $fullName: String
+          $firstName: String
+          $lastName: String
+          $middleName: String
+          $street1: String
+          $street2: String
+          $city: String
+          $state: String
+          $zip: String
+          $phone: String!
+          $userId: ID!
+        ) {
+          addStudentDetail(
+            fullName: $fullName
+            firstName: $firstName
+            lastName: $lastName
+            middleName: $middleName
+            street1: $street1
+            street2: $street2
+            city: $city
+            state: $state
+            zip: $zip
+            phone: $phone
+            userId: $userId
+          ) {
+            id
+            fullName
+            firstName
+            lastName
+            middleName
+            street1
+            street2
+            city
+            state
+            zip
+            phone
+            userId
+          }
+        }
+      `
+    });
   }
 };
 
