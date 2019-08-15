@@ -1,4 +1,4 @@
-import renderWithRouter from './renderWithRouter/renderWithRouter';
-import rendererWithRouter from './rendererWithRouter/rendererWithRouter';
+import renderWithRouterAndProviders from './renderWithRouter/renderWithRouterAndProviders';
+import rendererWithRouterAndProviders from './rendererWithRouter/rendererWithRouterAndProviders';
 
-export { renderWithRouter, rendererWithRouter };
+export { renderWithRouterAndProviders, rendererWithRouterAndProviders };

@@ -33,9 +33,7 @@ exports[`<CredCard /> matches the snapshot of App 1`] = `
   <div
     className="sc-htoDjs erhmUl"
   >
-    <p>
-      2/2/2018
-    </p>
+    <p />
   </div>
   <div
     className="sc-dnqmqq jubHKb"

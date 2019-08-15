@@ -20,13 +20,13 @@ const initialState = {
   schoolId: localStorage.id
 };
 
-const globalReducer = (state = initialState, action) => {
+export const globalReducer = (state = initialState, action) => {
   switch (action.type) {
-    case REGISTER: 
+    case REGISTER:
       return {
         ...state,
         user: action.payload
-      }
+      };
     case ON_BOARD_DETAILS:
       return state;
     case HANDLE_CRED_CHANGES:

@@ -4,13 +4,16 @@ import '@testing-library/jest-dom/extend-expect';
 import { Grommet } from 'grommet';
 import { theme } from '../styles/themes';
 
-import { renderWithRouter, rendererWithRouter } from '../testHelpers';
+import {
+  renderWithRouterAndProviders,
+  rendererWithRouterAndProviders
+} from '../testHelpers';
 import Dashboard from '../components/Dashboard/SchoolDashboard';
 
 describe('<Dashboard />', () => {
   describe('tests that <Dashboard /> renders without crashing', () => {
     it('should renders the SchoolDashboard component without crashing', () => {
-      const helpers = renderWithRouter(
+      const helpers = renderWithRouterAndProviders(
         <Grommet theme={theme}>
           <Dashboard history={{ location: { pathname: '/' } }} />
         </Grommet>
@@ -20,7 +23,7 @@ describe('<Dashboard />', () => {
 
   describe('tests <Dashboard /> matches previous snapshot', () => {
     it('matches the snapshot of Dashboard', () => {
-      const tree = rendererWithRouter(
+      const tree = rendererWithRouterAndProviders(
         <Grommet theme={theme}>
           <Dashboard history={{ location: { pathname: '/' } }} />
         </Grommet>

@@ -5,7 +5,7 @@ exports[`<MainDashboard /> within school tests <MainDashboard /> within school m
   className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
 >
   <section
-    className="sc-fjdhpX jYWTeZ"
+    className="sc-cSHVUG chVKOk"
   >
     <div />
     <div>
@@ -17,7 +17,7 @@ exports[`<MainDashboard /> within school tests <MainDashboard /> within school m
         value=""
       />
       <button
-        className="sc-bdVaJa sc-jzJRlG bkSOxo StyledButton-sc-323bzc-0 aNlbA"
+        className="sc-bdVaJa sc-kAzzGY hWLJXC StyledButton-sc-323bzc-0 aNlbA"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
