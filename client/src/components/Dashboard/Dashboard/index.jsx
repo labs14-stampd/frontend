@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useStateValue } from 'react-conflux';
 
 import SchoolDashboard from './SchoolDashboard';
-//import StudentDashboard from './StudentDashboard';
+import StudentDashboard from './StudentDashboard';
 import queries from './queries';
 import {
   schoolContext,
@@ -25,7 +25,7 @@ const Dashboard = ({ history }) => {
   console.log('user', user);
   const [schoolState, schoolDispatch] = useStateValue(schoolContext);
   const [studentState, studentDispatch] = useStateValue(studentContext);
-  console.log('schoolstate', schoolState);
+  console.log(studentState);
   useEffect(() => {
     if (!schoolState.schoolData) {
       user.roleId === '2'
@@ -48,10 +48,14 @@ const Dashboard = ({ history }) => {
       }
       getUserData();
     }
-  }, [schoolDispatch]);
+  }, [schoolDispatch, studentDispatch]);
   return (
     <Container>
-      <SchoolDashboard history={history} />
+      {user.roleId === '2' ? (
+        <SchoolDashboard history={history} />
+      ) : (
+        <StudentDashboard history={history} />
+      )}
     </Container>
   );
 };

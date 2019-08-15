@@ -1,4 +1,6 @@
-import { createContext } from 'react';
+import {
+  createContext
+} from 'react';
 
 export const STUDENT_DATA_START = 'STUDENT_DATA_START';
 export const STUDENT_DATA_SUCCESS = 'STUDENT_DATA_SUCCESS';
@@ -21,21 +23,22 @@ export const studentReducer = (state = initialState, action) => {
       return {
         ...state,
         studentDataStart: true,
-        studentDataSuccess: false,
-        studentDataError: false
+          studentDataSuccess: false,
+          studentDataError: false
       };
     case STUDENT_DATA_SUCCESS:
       return {
         ...state,
         studentDataStart: false,
-        studentDataSuccess: true,
-        studentDataError: false
+          studentDataSuccess: true,
+          studentDataError: false,
+          studentData: action.payload.data.getUserById
       };
     case STUDENT_DATA_ERROR:
       return {
         ...state,
         studentDataError: true,
-        studentDataStart: false
+          studentDataStart: false
       };
     case SEARCH_HANDLE_CHANGE:
       return {

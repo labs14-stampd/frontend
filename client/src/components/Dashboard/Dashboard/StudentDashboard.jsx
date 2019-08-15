@@ -10,57 +10,35 @@ import searchIcon from '../../../images/search-icon.svg';
 import CredCard from '../Card/CredCard';
 import DashboardLoading from '../DashboardLoading';
 
-// import queries from './queries';
 import {
   studentContext,
-  STUDENT_DATA_START,
-  STUDENT_DATA_SUCCESS,
-  STUDENT_DATA_ERROR,
   SEARCH_HANDLE_CHANGE
 } from '../../../store/reducers/studentReducer';
 import { globalContext } from '../../../store/reducers/globalReducer';
 
-const MainDashboard = ({ history }) => {
-  const [{ user }] = useStateValue(globalContext);
+const StudentDashboard = ({ history }) => {
   const [studentState, studentDispatch] = useStateValue(studentContext);
-  useEffect(() => {
-    if (!studentState.studentData) {
-      studentDispatch({ type: STUDENT_DATA_START });
-      async function getUserData() {
-        try {
-          const { id } = user;
-          const data = await queries.getUserById({
-            id
-          });
-          schoolDispatch({ type: SCHOOL_DATA_SUCCESS, payload: data });
-        } catch (err) {
-          schoolDispatch({ type: SCHOOL_DATA_ERROR });
-        }
-      }
-      getUserData();
-    }
-  }, [schoolDispatch]); // Re-render whenever an action in schoolContext is dispatched
   let searchResult = [];
-  if (schoolState.schoolData) {
+  if (studentState.studentData) {
     const searchTerms = ['credName', 'criteria', 'ownerName', 'issuedOn'];
     const searchOptions = {
       caseSensitive: false
     };
     const searcher = new FuzzySearch(
-      schoolState.schoolData.schoolDetails.credentials,
+      studentState.studentData.studentDetails.credentials,
       searchTerms,
       searchOptions
     );
-    searchResult = searcher.search(schoolState.schoolSearchInput);
+    searchResult = searcher.search(studentState.studentSearchInput);
   }
   const handleChange = e => {
-    schoolDispatch({ type: SEARCH_HANDLE_CHANGE, payload: e.target.value });
+    studentDispatch({ type: SEARCH_HANDLE_CHANGE, payload: e.target.value });
   };
   return (
     <>
-      <SchoolDetails>
-        {schoolState.schoolDataSuccess ? (
-          <h2>{schoolState.schoolData.schoolDetails.name}</h2>
+      <StudentDetails>
+        {studentState.studentDataSuccess ? (
+          <h2>{studentState.studentData.studentDetails.name}</h2>
         ) : (
           <div />
         )}
@@ -70,21 +48,15 @@ const MainDashboard = ({ history }) => {
             name="searchText"
             placeholder="Search"
             onChange={handleChange}
-            value={schoolState.schoolSearchInput}
-          />
-          <IssueCredButton
-            type="button"
-            onClick={() => history.push('/dashboard/credForm')}
-            label="+ Issue Credential"
-            primary
+            value={studentState.studentSearchInput}
           />
         </div>
-      </SchoolDetails>
-      {schoolState.schoolDataStart ? (
+      </StudentDetails>
+      {studentState.studentDataStart ? (
         <DashboardLoading />
       ) : (
         <>
-          {schoolState.schoolDataSuccess && searchResult.length ? (
+          {studentState.studentDataSuccess && searchResult.length ? (
             <Box height="75vh" overflow="auto">
               <InfiniteScroll items={searchResult} step={10}>
                 {item => {
@@ -93,10 +65,10 @@ const MainDashboard = ({ history }) => {
               </InfiniteScroll>
             </Box>
           ) : (
-            schoolState.schoolDataSuccess && (
+            studentState.studentDataSuccess && (
               <NothingFound>
-                {!schoolState.schoolData.schoolDetails.credentials.length
-                  ? 'Issue a credential to get started...'
+                {!studentState.studentData.studentDetails.credentials.length
+                  ? "You don't have any credentials yet..."
                   : 'No results were found..'}
               </NothingFound>
             )
@@ -107,11 +79,11 @@ const MainDashboard = ({ history }) => {
   );
 };
 
-MainDashboard.propTypes = {
+StudentDashboard.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
-const SchoolDetails = styled.section`
+const StudentDetails = styled.section`
   margin: 50px auto 30px;
   max-width: 1600px;
   width: 100%;
@@ -172,4 +144,4 @@ const NothingFound = styled.p`
   color: ${({ theme }) => theme.global.colors['status-disabled']};
 `;
 
-export default MainDashboard;
+export default StudentDashboard;
