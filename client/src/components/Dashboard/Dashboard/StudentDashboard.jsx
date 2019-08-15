@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { InfiniteScroll, Box } from 'grommet';
 import FuzzySearch from 'fuzzy-search';
 
-import { BaseButton } from '../../../styles/themes';
 import searchIcon from '../../../images/search-icon.svg';
 import CredCard from '../Card/CredCard';
 import DashboardLoading from '../DashboardLoading';
@@ -14,7 +13,6 @@ import {
   studentContext,
   SEARCH_HANDLE_CHANGE
 } from '../../../store/reducers/studentReducer';
-import { globalContext } from '../../../store/reducers/globalReducer';
 
 const StudentDashboard = ({ history }) => {
   const [studentState, studentDispatch] = useStateValue(studentContext);
@@ -126,14 +124,6 @@ const StudentDetails = styled.section`
       }
     }
   }
-`;
-
-const IssueCredButton = styled(BaseButton)`
-  padding: 12px 15px;
-  color: white;
-  text-align: right;
-  border-radius: 50px;
-  margin-left: 2%;
 `;
 
 const NothingFound = styled.p`

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -11,15 +11,10 @@ import searchIcon from '../../../images/search-icon.svg';
 import CredCard from '../Card/CredCard';
 import DashboardLoading from '../DashboardLoading';
 
-import queries from './queries';
 import {
   schoolContext,
-  SCHOOL_DATA_START,
-  SCHOOL_DATA_SUCCESS,
-  SCHOOL_DATA_ERROR,
   SEARCH_HANDLE_CHANGE
 } from '../../../store/reducers/schoolReducer';
-import { globalContext } from '../../../store/reducers/globalReducer';
 
 const SchoolDashboard = ({ history }) => {
   const [schoolState, schoolDispatch] = useStateValue(schoolContext);

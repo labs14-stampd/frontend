@@ -23,7 +23,7 @@ import { globalContext } from '../../../store/reducers/globalReducer';
 const Dashboard = ({ history }) => {
   const [{ user }] = useStateValue(globalContext);
   const [schoolState, schoolDispatch] = useStateValue(schoolContext);
-  const [studentState, studentDispatch] = useStateValue(studentContext);
+  const [, studentDispatch] = useStateValue(studentContext);
   useEffect(() => {
     if (!schoolState.schoolData) {
       user.roleId === '2'
@@ -46,7 +46,7 @@ const Dashboard = ({ history }) => {
       }
       getUserData();
     }
-  }, [schoolDispatch, studentDispatch]);
+  }, [schoolDispatch, schoolState.schoolData, user, studentDispatch]);
   return (
     <Container>
       {user.roleId === '2' ? (
