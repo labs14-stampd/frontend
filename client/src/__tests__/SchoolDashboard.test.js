@@ -8,6 +8,7 @@ import {
   renderWithRouterAndProviders,
   rendererWithRouterAndProviders
 } from '../testHelpers';
+
 import Dashboard from '../components/Dashboard/SchoolDashboard';
 
 describe('<Dashboard />', () => {

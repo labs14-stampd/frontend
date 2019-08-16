@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { StateProvider } from 'react-conflux';
 import { Grommet } from 'grommet';
 import { theme } from '../styles/themes';
 import {
@@ -10,7 +9,6 @@ import {
 } from '../testHelpers';
 
 import MainDashboard from '../components/Dashboard/SchoolDashboard/MainDashboard';
-import { schoolReducer, schoolContext } from '../store/reducers/schoolReducer';
 
 describe('<MainDashboard /> within school', () => {
   describe('tests that <MainDashboard /> within school renders without crashing', () => {

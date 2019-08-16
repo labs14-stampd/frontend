@@ -12,7 +12,11 @@ export const UPDATE_CRED_DATA = 'UPDATE_CRED_DATA';
 export const schoolContext = createContext();
 
 const initialState = {
-  schoolData: null,
+  schoolData: {
+    schoolDetails: {
+      name: ''
+    }
+  },
   schoolDataSuccess: false,
   schoolDataStart: false,
   schoolDataError: false,
