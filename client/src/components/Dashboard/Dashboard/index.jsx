@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useStateValue } from 'react-conflux';
+import Loader from 'react-loader-spinner';
 
 import SchoolDashboard from './SchoolDashboard';
 import StudentDashboard from './StudentDashboard';
@@ -22,8 +23,6 @@ import { globalContext } from '../../../store/reducers/globalReducer';
 
 const Dashboard = ({ history }) => {
   const [{ user }] = useStateValue(globalContext);
-  console.log('dash user', user);
-  console.log(user.roleId === '3');
   const [schoolState, schoolDispatch] = useStateValue(schoolContext);
   const [studentState, studentDispatch] = useStateValue(studentContext);
   useEffect(() => {
@@ -52,7 +51,7 @@ const Dashboard = ({ history }) => {
   return (
     <Container>
       {!schoolState.schoolData && !studentState.studentData ? (
-        'loader'
+        <Loader type="RevolvingDot" color="#7D4CDB" height={100} width={100} />
       ) : (
         <>
           {Number(user.roleId) === 2 && <SchoolDashboard history={history} />}
