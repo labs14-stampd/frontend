@@ -13,10 +13,13 @@ import {
   BaseButton
 } from '../../../styles/themes';
 import queries from './queries';
-import { globalContext } from '../../../store/reducers/globalReducer';
+import {
+  globalContext,
+  ON_BOARD_DETAILS
+} from '../../../store/reducers/globalReducer';
 
 const SchoolDetailsForm = ({ history }) => {
-  const [{ user }] = useStateValue(globalContext);
+  const [{ user }, dispatchGlobal] = useStateValue(globalContext);
   const [input, setInput] = useState({
     name: '',
     taxId: '',
@@ -44,6 +47,10 @@ const SchoolDetailsForm = ({ history }) => {
       await queries.addRole({
         id: user.id,
         roleId: 2 // Role of a school is set to always be 2
+      });
+      dispatchGlobal({
+        type: ON_BOARD_DETAILS,
+        payload: { ...user, roleId: 2 }
       });
       toast.success(`School Details added succesfully`, {
         className: 'status-ok',

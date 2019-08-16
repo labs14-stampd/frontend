@@ -10,7 +10,6 @@ import StudentSettings from './StudentSettings';
 const Settings = props => {
   const [{ user }] = useStateValue(globalContext);
   const [schoolState, schoolDispatch] = useStateValue(schoolContext);
-  console.log(user);
   return (
     <Container>
       <StudentSettings {...props} />

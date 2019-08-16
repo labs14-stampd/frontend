@@ -76,7 +76,7 @@ const queries = {
       `
     });
   },
-  addStudentDetail(body){
+  addStudentDetail(body) {
     return client.mutate({
       variables: {
         fullName: body.fullName,
@@ -130,6 +130,20 @@ const queries = {
             zip
             phone
             userId
+            credentials {
+              id
+              credHash
+              credName
+              description
+              ownerName
+              type
+              studentEmail
+              imageUrl
+              criteria
+              valid
+              issuedOn
+              expirationDate
+            }
           }
         }
       `

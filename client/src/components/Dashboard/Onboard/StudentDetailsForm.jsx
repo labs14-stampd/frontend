@@ -12,10 +12,19 @@ import {
   BaseButton
 } from '../../../styles/themes';
 import queries from './queries';
-import { globalContext } from '../../../store/reducers/globalReducer';
+import {
+  globalContext,
+  ON_BOARD_DETAILS
+} from '../../../store/reducers/globalReducer';
+import {
+  studentContext,
+  SET_STUDENT_DATA
+} from '../../../store/reducers/studentReducer';
+import c from '../../../store/constants';
 
 const SchoolDetailsForm = ({ history }) => {
-  const [{ user }] = useStateValue(globalContext);
+  const [{ user }, dispatchGlobal] = useStateValue(globalContext);
+  const [, dispatchStudent] = useStateValue(studentContext);
   const [input, setInput] = useState({
     firstName: '',
     lastName: '',
@@ -29,68 +38,6 @@ const SchoolDetailsForm = ({ history }) => {
     userId: user.id
   });
 
-  const states = [
-    'AL',
-    'AK',
-    'AS',
-    'AZ',
-    'AR',
-    'CA',
-    'CO',
-    'CT',
-    'DE',
-    'DC',
-    'FM',
-    'FL',
-    'GA',
-    'GU',
-    'HI',
-    'ID',
-    'IL',
-    'IN',
-    'IA',
-    'KS',
-    'KY',
-    'LA',
-    'ME',
-    'MH',
-    'MD',
-    'MA',
-    'MI',
-    'MN',
-    'MS',
-    'MO',
-    'MT',
-    'NE',
-    'NV',
-    'NH',
-    'NJ',
-    'NM',
-    'NY',
-    'NC',
-    'ND',
-    'MP',
-    'OH',
-    'OK',
-    'OR',
-    'PW',
-    'PA',
-    'PR',
-    'RI',
-    'SC',
-    'SD',
-    'TN',
-    'TX',
-    'UT',
-    'VT',
-    'VI',
-    'VA',
-    'WA',
-    'WV',
-    'WI',
-    'WY'
-  ];
-
   const handleChanges = e => {
     setInput({
       ...input,
@@ -101,10 +48,21 @@ const SchoolDetailsForm = ({ history }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await queries.addStudentDetail({fullName:`${input.firstName} ${input.lastName}`, ...input}); 
+      const details = await queries.addStudentDetail({
+        fullName: `${input.firstName} ${input.lastName}`,
+        ...input
+      });
       await queries.addRole({
         id: user.id,
         roleId: 3 // Role of a student is set to always be 3
+      });
+      dispatchGlobal({
+        type: ON_BOARD_DETAILS,
+        payload: { ...user, roleId: 3 }
+      });
+      dispatchStudent({
+        type: SET_STUDENT_DATA,
+        payload: { ...details }
       });
       toast.success(`Student Details added succesfully`, {
         className: 'status-ok',
@@ -181,7 +139,7 @@ const SchoolDetailsForm = ({ history }) => {
           label="State"
           name="state"
           component={Select}
-          options={states}
+          options={c.states}
           onChange={({ option }) => setInput({ ...input, state: option })}
           value={input.state}
           placeholder="State"
