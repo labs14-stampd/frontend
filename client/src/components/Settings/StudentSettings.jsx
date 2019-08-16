@@ -10,11 +10,10 @@ import {
   BaseTextInput,
   BaseFormField,
   BaseButton
-} from '../../../styles/themes';
-import queries from './queries';
-import { globalContext } from '../../../store/reducers/globalReducer';
+} from '../../styles/themes';
+import { globalContext } from '../../store/reducers/globalReducer';
 
-const SchoolDetailsForm = ({ history }) => {
+const StudentSettings = ({ history }) => {
   const [{ user }] = useStateValue(globalContext);
   const [input, setInput] = useState({
     firstName: '',
@@ -100,22 +99,25 @@ const SchoolDetailsForm = ({ history }) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    try {
-      await queries.addStudentDetail({fullName:`${input.firstName} ${input.lastName}`, ...input}); 
-      await queries.addRole({
-        id: user.id,
-        roleId: 3 // Role of a student is set to always be 3
-      });
-      toast.success(`Student Details added succesfully`, {
-        className: 'status-ok',
-        position: toast.POSITION.BOTTOM_CENTER,
-        hideProgressBar: true,
-        autoClose: true
-      });
-      history.push('/dashboard');
-    } catch (err) {
-      console.error(err);
-    }
+    // try {
+    //   await queries.addStudentDetail({
+    //     fullName: `${input.firstName} ${input.lastName}`,
+    //     ...input
+    //   });
+    //   await queries.addRole({
+    //     id: user.id,
+    //     roleId: 3 // Role of a student is set to always be 3
+    //   });
+    //   toast.success(`Student Details added succesfully`, {
+    //     className: 'status-ok',
+    //     position: toast.POSITION.BOTTOM_CENTER,
+    //     hideProgressBar: true,
+    //     autoClose: true
+    //   });
+    //   history.push('/dashboard');
+    // } catch (err) {
+    //   console.error(err);
+    // }
   };
 
   return (
@@ -234,7 +236,7 @@ const SchoolDetailsForm = ({ history }) => {
   );
 };
 
-SchoolDetailsForm.propTypes = {
+StudentSettings.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
@@ -268,4 +270,4 @@ const StudentMaskedInput = styled(MaskedInput)`
   /* border: ${({ theme }) => theme.global.border}; */
 `;
 
-export default SchoolDetailsForm;
+export default StudentSettings;

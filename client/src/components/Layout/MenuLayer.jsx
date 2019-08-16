@@ -4,6 +4,7 @@ import { Box, Button, Layer, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import { useStateValue } from 'react-conflux';
 import { globalContext } from '../../store/reducers/globalReducer';
+import c from '../../store/constants';
 
 const MenuLayer = ({ onClose, history }) => {
   const [{ user }] = useStateValue(globalContext);
@@ -12,21 +13,7 @@ const MenuLayer = ({ onClose, history }) => {
     history.push(route);
     onClose();
   };
-  const menuArray =
-    user.roleId === '2'
-      ? [
-          { name: 'Dashboard', route: '/dashboard' },
-          { name: 'Issue Credential', route: '/dashboard/credForm' },
-          { name: 'Settings', route: '/settings' },
-          { name: 'About', route: '/about' },
-          { name: 'Contact', route: '/contact' }
-        ]
-      : [
-          { name: 'Dashboard', route: '/dashboard' },
-          { name: 'Settings', route: '/settings' },
-          { name: 'About', route: '/about' },
-          { name: 'Contact', route: '/contact' }
-        ];
+  const menuArray = user.roleId === '2' ? c.schoolRoutes : c.studentRoutes;
   return (
     <MenuBar
       position="left"

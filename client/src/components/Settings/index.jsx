@@ -5,15 +5,15 @@ import { useStateValue } from 'react-conflux';
 import { globalContext } from '../../store/reducers/globalReducer';
 import { schoolContext } from '../../store/reducers/schoolReducer';
 
-const Settings = () => {
+import StudentSettings from './StudentSettings';
+
+const Settings = props => {
   const [{ user }] = useStateValue(globalContext);
   const [schoolState, schoolDispatch] = useStateValue(schoolContext);
   console.log(user);
   return (
     <Container>
-      <div>
-        <h2>{user.email}</h2>
-      </div>
+      <StudentSettings {...props} />
     </Container>
   );
 };
