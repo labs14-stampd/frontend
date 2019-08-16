@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CredCardStudentName /> should match the previous snapshot of the component 1`] = `
+<div
+  className="sc-bdVaJa gCaJfX"
+>
+  <h3>
+    testing
+  </h3>
+</div>
+`;
