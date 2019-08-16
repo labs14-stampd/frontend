@@ -17,11 +17,13 @@ const MenuLayer = ({ onClose, history }) => {
       ? [
           { name: 'Dashboard', route: '/dashboard' },
           { name: 'Issue Credential', route: '/dashboard/credForm' },
+          { name: 'Settings', route: '/settings' },
           { name: 'About', route: '/about' },
           { name: 'Contact', route: '/contact' }
         ]
       : [
           { name: 'Dashboard', route: '/dashboard' },
+          { name: 'Settings', route: '/settings' },
           { name: 'About', route: '/about' },
           { name: 'Contact', route: '/contact' }
         ];

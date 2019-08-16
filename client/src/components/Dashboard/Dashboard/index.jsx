@@ -67,7 +67,6 @@ const Container = styled.div`
   margin: 0 auto;
   min-height: calc(100vh - 70px);
   width: 100%;
-  background: #f8f8f8;
 `;
 
 export default Dashboard;
