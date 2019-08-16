@@ -12,6 +12,10 @@ import {
   BaseFormField,
   BaseButton
 } from '../../../styles/themes';
+import {
+  schoolContext,
+  SET_SCHOOL_DATA
+} from '../../../store/reducers/schoolReducer';
 import queries from './queries';
 import {
   globalContext,
@@ -20,6 +24,7 @@ import {
 
 const SchoolDetailsForm = ({ history }) => {
   const [{ user }, dispatchGlobal] = useStateValue(globalContext);
+  const [, schoolDispatch] = useStateValue(schoolContext);
   const [input, setInput] = useState({
     name: '',
     taxId: '',
@@ -43,15 +48,21 @@ const SchoolDetailsForm = ({ history }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await queries.addSchoolDetails(input);
+      const details = await queries.addSchoolDetails(input);
       await queries.addRole({
         id: user.id,
-        roleId: 2 // Role of a school is set to always be 2
+        roleId: '2' // Role of a school is set to always be 2
       });
       dispatchGlobal({
         type: ON_BOARD_DETAILS,
-        payload: { ...user, roleId: 2 }
+        payload: { ...user, roleId: '2' }
       });
+      console.log({ ...user, roleId: '2' });
+      schoolDispatch({
+        type: SET_SCHOOL_DATA,
+        payload: { ...details }
+      });
+      console.log('details', details);
       toast.success(`School Details added succesfully`, {
         className: 'status-ok',
         position: toast.POSITION.BOTTOM_CENTER,

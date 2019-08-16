@@ -32,6 +32,7 @@ const StudentDashboard = ({ history }) => {
   const handleChange = e => {
     studentDispatch({ type: SEARCH_HANDLE_CHANGE, payload: e.target.value });
   };
+  if (!studentState.studentData) return <div />;
   return (
     <>
       <StudentDetails>

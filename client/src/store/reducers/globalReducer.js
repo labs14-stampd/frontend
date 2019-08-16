@@ -30,6 +30,7 @@ const globalReducer = (state = initialState, action) => {
         schoolId: action.payload.id
       };
     case ON_BOARD_DETAILS:
+      console.log(action.payload);
       return {
         ...state,
         user: action.payload

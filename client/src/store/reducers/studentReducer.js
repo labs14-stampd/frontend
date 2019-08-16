@@ -50,7 +50,8 @@ export const studentReducer = (state = initialState, action) => {
         studentData: {
           ...state.studentData,
           studentDetails: action.payload.data.addStudentDetail
-        }
+        },
+        studentDataSuccess: true
       };
     default:
       return state;

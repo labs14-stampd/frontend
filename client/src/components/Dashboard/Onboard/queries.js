@@ -71,6 +71,20 @@ const queries = {
             phone
             url
             userId
+            credentials {
+              id
+              credHash
+              credName
+              description
+              ownerName
+              type
+              studentEmail
+              imageUrl
+              criteria
+              valid
+              issuedOn
+              expirationDate
+            }
           }
         }
       `

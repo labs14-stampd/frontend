@@ -18,6 +18,7 @@ import {
 
 const SchoolDashboard = ({ history }) => {
   const [schoolState, schoolDispatch] = useStateValue(schoolContext);
+  console.log('dashstate', schoolState);
   let searchResult = [];
   if (schoolState.schoolData) {
     const searchTerms = ['credName', 'criteria', 'ownerName', 'issuedOn'];
@@ -34,14 +35,11 @@ const SchoolDashboard = ({ history }) => {
   const handleChange = e => {
     schoolDispatch({ type: SEARCH_HANDLE_CHANGE, payload: e.target.value });
   };
+  if (!schoolState.schoolData) return <div />;
   return (
     <>
       <SchoolDetails>
-        {schoolState.schoolDataSuccess ? (
-          <h2>{schoolState.schoolData.schoolDetails.name}</h2>
-        ) : (
-          <div />
-        )}
+        {true ? <h2>{schoolState.schoolData.schoolDetails.name}</h2> : <div />}
         <div>
           <input
             type="text"
