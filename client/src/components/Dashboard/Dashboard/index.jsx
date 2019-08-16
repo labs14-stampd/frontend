@@ -57,7 +57,6 @@ const Dashboard = ({ history }) => {
         <>
           {Number(user.roleId) === 2 && <SchoolDashboard history={history} />}
           {Number(user.roleId) === 3 && <StudentDashboard history={history} />}
-          <h1>Hello</h1>
         </>
       )}
     </Container>
