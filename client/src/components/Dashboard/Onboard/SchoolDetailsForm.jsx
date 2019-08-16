@@ -55,9 +55,9 @@ const SchoolDetailsForm = ({ history }) => {
       });
       dispatchGlobal({
         type: ON_BOARD_DETAILS,
-        payload: { ...user, roleId: '2' }
+        payload: { ...user, roleId: 2 }
       });
-      console.log({ ...user, roleId: '2' });
+      console.log({ ...user, roleId: 2 });
       schoolDispatch({
         type: SET_SCHOOL_DATA,
         payload: { ...details }

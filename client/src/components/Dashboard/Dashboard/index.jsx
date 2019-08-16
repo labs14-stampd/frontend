@@ -23,6 +23,7 @@ import { globalContext } from '../../../store/reducers/globalReducer';
 const Dashboard = ({ history }) => {
   const [{ user }] = useStateValue(globalContext);
   console.log('dash user', user);
+  console.log(user.roleId === '3');
   const [schoolState, schoolDispatch] = useStateValue(schoolContext);
   const [studentState, studentDispatch] = useStateValue(studentContext);
   useEffect(() => {
@@ -52,10 +53,12 @@ const Dashboard = ({ history }) => {
     <Container>
       {!schoolState.schoolData && !studentState.studentData ? (
         'loader'
-      ) : user.roleId === '2' ? (
-        <SchoolDashboard history={history} />
       ) : (
-        <StudentDashboard history={history} />
+        <>
+          {Number(user.roleId) === 2 && <SchoolDashboard history={history} />}
+          {Number(user.roleId) === 3 && <StudentDashboard history={history} />}
+          <h1>Hello</h1>
+        </>
       )}
     </Container>
   );
