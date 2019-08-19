@@ -18,7 +18,6 @@ import {
 
 const SchoolDashboard = ({ history }) => {
   const [schoolState, schoolDispatch] = useStateValue(schoolContext);
-  console.log('dashstate', schoolState);
   let searchResult = [];
   if (schoolState.schoolData) {
     const searchTerms = ['credName', 'criteria', 'ownerName', 'issuedOn'];

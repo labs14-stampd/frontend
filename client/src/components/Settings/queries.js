@@ -172,6 +172,20 @@ const queries = {
         }
       `
     });
+  },
+  deleteUserEmail(body) {
+    return client.mutate({
+      variables: {
+        id: body.id
+      },
+      mutation: gql`
+        mutation DeleteUserEmail($id: ID!) {
+          deleteUserEmail(id: $id) {
+            id
+          }
+        }
+      `
+    });
   }
 };
 

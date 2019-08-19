@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
 import { MaskedInput, Select, Box, Heading } from 'grommet';
+import { Trash } from 'grommet-icons';
 
 import queries from './queries';
 import {
@@ -16,8 +17,10 @@ import { globalContext } from '../../store/reducers/globalReducer';
 import c from '../../store/constants';
 import {
   studentContext,
-  STUDENT_EMAIL_UPDATE
+  STUDENT_EMAIL_UPDATE,
+  REMOVE_STUDENT_EMAIL
 } from '../../store/reducers/studentReducer';
+import ConfirmationLayer from '../../components/ConfirmationLayer';
 
 const StudentSettings = ({ history }) => {
   const [{ user }] = useStateValue(globalContext);
@@ -36,6 +39,11 @@ const StudentSettings = ({ history }) => {
   });
   const [email, setEmail] = useState('');
 
+  const [
+    hasActiveConfirmationDialog,
+    setHasActiveConfirmationDialog
+  ] = useState(false);
+
   const handleChanges = e => {
     setInput({
       ...input,
@@ -50,7 +58,6 @@ const StudentSettings = ({ history }) => {
         userId: user.id,
         email
       });
-      console.log('data', data);
       studentDispatch({
         type: STUDENT_EMAIL_UPDATE,
         payload: data.addUserEmail
@@ -61,6 +68,7 @@ const StudentSettings = ({ history }) => {
         hideProgressBar: true,
         autoClose: true
       });
+      setEmail('');
     } catch (err) {
       console.error(err);
     }
@@ -85,6 +93,26 @@ const StudentSettings = ({ history }) => {
     }
   };
 
+  const confirmRemoveEmail = async id => {
+    try {
+      await queries.deleteUserEmail({ id });
+      toast.success(`Email is deleted`, {
+        className: 'status-ok',
+        position: toast.POSITION.BOTTOM_CENTER,
+        hideProgressBar: true,
+        autoClose: true
+      });
+      const updateEmailList = studentState.studentData.studentDetails.emailList.filter(
+        email => {
+          return email.id !== id;
+        }
+      );
+      studentDispatch({ type: REMOVE_STUDENT_EMAIL, payload: updateEmailList });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <>
       <StudentForm onSubmit={submitEmail}>
@@ -92,7 +120,7 @@ const StudentSettings = ({ history }) => {
           <Heading margin="20px 0 0 0" alignSelf="center">
             Add an Email
           </Heading>
-          <StudentFormField label="First Name">
+          <StudentFormField label="Email">
             <StudentBaseTextInput
               name="email"
               placeholder="fakeemail@email.com"
@@ -110,8 +138,20 @@ const StudentSettings = ({ history }) => {
         </Box>
       </StudentForm>
       <Box direction="column">
-        {studentState.studentData.studentDetails.emailList.map(x => (
-          <p>{x.email}</p>
+        {studentState.studentData.studentDetails.emailList.map(emailObj => (
+          <>
+            <p>{emailObj.email}</p>
+            {hasActiveConfirmationDialog && (
+              // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
+              <ConfirmationLayer
+                onClose={() => setHasActiveConfirmationDialog(false)} // Needed to make the layer disappear
+                yesFunc={() => confirmRemoveEmail(emailObj.id)}
+              />
+            )}
+            <div onClick={() => setHasActiveConfirmationDialog(true)}>
+              <TrashButton />{' '}
+            </div>
+          </>
         ))}
       </Box>
       <StudentForm onSubmit={handleSubmit}>
@@ -259,6 +299,10 @@ const StudentFormField = styled(BaseFormField)`
 
 const StudentMaskedInput = styled(MaskedInput)`
   /* border: ${({ theme }) => theme.global.border}; */
+`;
+
+const TrashButton = styled(Trash)`
+  cursor: pointer;
 `;
 
 export default StudentSettings;

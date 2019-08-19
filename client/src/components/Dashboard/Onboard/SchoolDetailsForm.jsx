@@ -57,12 +57,10 @@ const SchoolDetailsForm = ({ history }) => {
         type: ON_BOARD_DETAILS,
         payload: { ...user, roleId: 2 }
       });
-      console.log({ ...user, roleId: 2 });
       schoolDispatch({
         type: SET_SCHOOL_DATA,
         payload: { ...details }
       });
-      console.log('details', details);
       toast.success(`School Details added succesfully`, {
         className: 'status-ok',
         position: toast.POSITION.BOTTOM_CENTER,
