@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
 import { MaskedInput, Select, Box, Heading } from 'grommet';
 
+import queries from './queries';
 import {
   BaseForm,
   BaseTextInput,
@@ -13,24 +14,41 @@ import {
 } from '../../styles/themes';
 import { globalContext } from '../../store/reducers/globalReducer';
 import c from '../../store/constants';
-import { studentContext } from '../../store/reducers/studentReducer';
+import {
+  studentContext,
+  STUDENT_DATA_START,
+  STUDENT_DATA_SUCCESS,
+  STUDENT_DATA_ERROR
+} from '../../store/reducers/studentReducer';
 
 const StudentSettings = ({ history }) => {
   const [{ user }] = useStateValue(globalContext);
   const [studentState, studentDispatch] = useStateValue(studentContext);
   const [input, setInput] = useState({
-    firstName: '',
-    lastName: '',
-    middleName: '',
-    street1: '',
-    street2: '',
-    city: '',
-    state: '',
-    zip: '',
-    phone: '',
+    firstName: studentState.studentData.studentDetails.firstName,
+    lastName: studentState.studentData.studentDetails.lastName,
+    middleName: studentState.studentData.studentDetails.middleName,
+    street1: studentState.studentData.studentDetails.street1,
+    street2: studentState.studentData.studentDetails.street2,
+    city: studentState.studentData.studentDetails.city,
+    state: studentState.studentData.studentDetails.state,
+    zip: studentState.studentData.studentDetails.zip,
+    phone: studentState.studentData.studentDetails.phone,
     userId: user.id
   });
   const [email, setEmail] = useState('');
+
+  async function getUserData() {
+    try {
+      const { id } = user;
+      const data = await queries.getUserById({
+        id
+      });
+      studentDispatch({ type: STUDENT_DATA_SUCCESS, payload: data });
+    } catch (err) {
+      studentDispatch({ type: STUDENT_DATA_ERROR });
+    }
+  }
 
   const handleChanges = e => {
     setInput({
@@ -39,32 +57,47 @@ const StudentSettings = ({ history }) => {
     });
   };
 
+  const sumbitEmail = async e => {
+    e.preventDefault();
+    try {
+      await queries.addUserEmail({
+        userId: user.id,
+        email
+      });
+      // await getUserData();
+      toast.success(`Email added succesfully`, {
+        className: 'status-ok',
+        position: toast.POSITION.BOTTOM_CENTER,
+        hideProgressBar: true,
+        autoClose: true
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const handleSubmit = async e => {
     e.preventDefault();
-    // try {
-    //   await queries.addStudentDetail({
-    //     fullName: `${input.firstName} ${input.lastName}`,
-    //     ...input
-    //   });
-    //   await queries.addRole({
-    //     id: user.id,
-    //     roleId: 3 // Role of a student is set to always be 3
-    //   });
-    //   toast.success(`Student Details added succesfully`, {
-    //     className: 'status-ok',
-    //     position: toast.POSITION.BOTTOM_CENTER,
-    //     hideProgressBar: true,
-    //     autoClose: true
-    //   });
-    //   history.push('/dashboard');
-    // } catch (err) {
-    //   console.error(err);
-    // }
+    try {
+      await queries.updateStudentDetail({
+        fullName: `${input.firstName} ${input.lastName}`,
+        ...input,
+        id: studentState.studentData.studentDetails.id
+      });
+      toast.success(`Student Details updated succesfully`, {
+        className: 'status-ok',
+        position: toast.POSITION.BOTTOM_CENTER,
+        hideProgressBar: true,
+        autoClose: true
+      });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
     <>
-      <StudentForm>
+      <StudentForm onSubmit={sumbitEmail}>
         <Box direction="column">
           <Heading margin="20px 0 0 0" alignSelf="center">
             Add an Email
@@ -78,12 +111,23 @@ const StudentSettings = ({ history }) => {
               plain={false}
             />
           </StudentFormField>
+          <StudentButton
+            type="submit"
+            primary
+            label="Add Email"
+            alignSelf="center"
+          />
         </Box>
       </StudentForm>
+      <Box direction="column">
+        {studentState.studentData.emailList.map(x => (
+          <p>{x.email}</p>
+        ))}
+      </Box>
       <StudentForm onSubmit={handleSubmit}>
         <Box direction="column">
           <Heading margin="20px 0 0 0" alignSelf="center">
-            Student Register
+            Update Student Details
           </Heading>
           <StudentFormField label="First Name">
             <StudentBaseTextInput

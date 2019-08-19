@@ -1,6 +1,4 @@
-import client, {
-  gql
-} from '../../../clientQuery';
+import client, { gql } from '../../../clientQuery';
 
 const queries = {
   getUserById(body) {
@@ -8,7 +6,7 @@ const queries = {
       variables: {
         id: body.id
       },
-      query: gql `
+      query: gql`
         query GetUserById($id: ID!) {
           getUserById(id: $id) {
             id
@@ -17,6 +15,10 @@ const queries = {
             profilePicture
             roleId
             sub
+            emailList {
+              email
+              id
+            }
             token
             tokenExpiration
             schoolDetails {
@@ -42,7 +44,7 @@ const queries = {
                 criteria
                 valid
                 issuedOn
-                expirationDate  
+                expirationDate
               }
             }
             studentDetails {
@@ -71,7 +73,7 @@ const queries = {
                 valid
                 issuedOn
                 expirationDate
-             }
+              }
             }
           }
         }
@@ -85,7 +87,7 @@ const queries = {
         id,
         credHash
       },
-      mutation: gql `
+      mutation: gql`
         mutation RemoveCredential($id: ID!, $credHash: String!) {
           removeCredential(id: $id, credHash: $credHash) {
             id
