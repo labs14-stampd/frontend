@@ -22,6 +22,13 @@ describe('<Onboard />', () => {
     expect(tree.toJSON()).toMatchSnapshot();
   });
 
+  it('should display the form title to the screen successfully', () => {
+    const { getByText } = renderWithRouterAndProviders(
+      <Onboard history={{ location: { pathname: '/' } }} />
+    );
+    expect(getByText(/Choose Account Type/i)).toBeDefined();
+  });
+
   it('should work when the school button is clicked', () => {
     const mock = jest.fn();
     const { getByText } = renderWithRouterAndProviders(
@@ -30,5 +37,16 @@ describe('<Onboard />', () => {
     const schoolBtn = getByText(/School/i);
     schoolBtn.click();
     expect(mock).toHaveBeenCalledTimes(1);
+  });
+
+  it('should work when the student button is clicked', () => {
+    const mock = jest.fn();
+    const { getByText } = renderWithRouterAndProviders(
+      <Onboard history={{ location: { pathname: '/' }, push: mock }} />
+    );
+    const studentBtn = getByText(/Student/i);
+    studentBtn.click();
+    studentBtn.click();
+    expect(mock).toHaveBeenCalledTimes(2);
   });
 });
