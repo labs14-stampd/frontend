@@ -17,16 +17,15 @@ import { globalContext } from '../../../store/reducers/globalReducer';
 const SchoolDetailsForm = ({ history }) => {
   const [{ user }] = useStateValue(globalContext);
   const [input, setInput] = useState({
-    name: '',
-    taxId: '',
+    firstName: '',
+    lastName: '',
+    middleName: '',
     street1: '',
     street2: '',
     city: '',
     state: '',
     zip: '',
     phone: '',
-    type: '',
-    url: '',
     userId: user.id
   });
 
@@ -102,12 +101,12 @@ const SchoolDetailsForm = ({ history }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await queries.addSchoolDetails(input);
+      await queries.addStudentDetail({fullName:`${input.firstName} ${input.lastName}`, ...input}); 
       await queries.addRole({
         id: user.id,
-        roleId: 2 // Role of a school is set to always be 2
+        roleId: 3 // Role of a student is set to always be 3
       });
-      toast.success(`School Details added succesfully`, {
+      toast.success(`Student Details added succesfully`, {
         className: 'status-ok',
         position: toast.POSITION.BOTTOM_CENTER,
         hideProgressBar: true,
@@ -120,56 +119,65 @@ const SchoolDetailsForm = ({ history }) => {
   };
 
   return (
-    <SchoolForm onSubmit={handleSubmit}>
+    <StudentForm onSubmit={handleSubmit}>
       <Box direction="column">
         <Heading margin="20px 0 0 0" alignSelf="center">
-          School Register
+          Student Register
         </Heading>
-        <SchoolFormField label="Institution">
-          <SchoolBaseTextInput
-            name="name"
-            placeholder="Lambda School"
+        <StudentFormField label="First Name">
+          <StudentBaseTextInput
+            name="firstName"
+            placeholder="Jane"
             onChange={handleChanges}
-            value={input.name}
+            value={input.firstName}
             plain={false}
             required
           />
-        </SchoolFormField>
-        <SchoolFormField label="Tax Id">
-          <SchoolBaseTextInput
-            labelText="TaxId"
-            name="taxId"
-            placeholder="TaxId"
+        </StudentFormField>
+        <StudentFormField label="Middle Name">
+          <StudentBaseTextInput
+            name="middleName"
+            placeholder="Emily"
             onChange={handleChanges}
-            value={input.taxId}
+            value={input.middleName}
+            plain={false}
+          />
+        </StudentFormField>
+        <StudentFormField label="Last Name">
+          <StudentBaseTextInput
+            name="lastName"
+            placeholder="Doe"
+            onChange={handleChanges}
+            value={input.lastName}
+            plain={false}
             required
           />
-        </SchoolFormField>
-        <SchoolFormField label="Address 1">
-          <SchoolBaseTextInput
+        </StudentFormField>
+        <StudentFormField label="Address 1">
+          <StudentBaseTextInput
             name="street1"
             placeholder="123 Fake street"
             onChange={handleChanges}
             value={input.street1}
           />
-        </SchoolFormField>
-        <SchoolFormField label="Address 2">
-          <SchoolBaseTextInput
+        </StudentFormField>
+        <StudentFormField label="Address 2">
+          <StudentBaseTextInput
             name="street2"
             placeholder="Apt B"
             onChange={handleChanges}
             value={input.street2}
           />
-        </SchoolFormField>
-        <SchoolFormField label="City">
-          <SchoolBaseTextInput
+        </StudentFormField>
+        <StudentFormField label="City">
+          <StudentBaseTextInput
             name="city"
             placeholder="San Francisco"
             onChange={handleChanges}
             value={input.city}
           />
-        </SchoolFormField>
-        <SchoolFormField
+        </StudentFormField>
+        <StudentFormField
           label="State"
           name="state"
           component={Select}
@@ -178,16 +186,16 @@ const SchoolDetailsForm = ({ history }) => {
           value={input.state}
           placeholder="State"
         />
-        <SchoolFormField label="Zip Code">
-          <SchoolBaseTextInput
+        <StudentFormField label="Zip Code">
+          <StudentBaseTextInput
             name="zip"
             placeholder="90210"
             onChange={handleChanges}
             value={input.zip}
           />
-        </SchoolFormField>
-        <SchoolFormField label="Phone Number">
-          <SchoolMaskedInput
+        </StudentFormField>
+        <StudentFormField label="Phone Number">
+          <StudentMaskedInput
             mask={[
               { fixed: '(' },
               {
@@ -214,28 +222,15 @@ const SchoolDetailsForm = ({ history }) => {
             onChange={handleChanges}
             required
           />
-        </SchoolFormField>
-        <SchoolFormField label="Type of Institution">
-          <SchoolBaseTextInput
-            name="type"
-            placeholder="University"
-            onChange={handleChanges}
-            value={input.type}
-          />
-        </SchoolFormField>
-        <SchoolFormField label="Institution Website">
-          <SchoolBaseTextInput
-            labelText="Institution Website"
-            name="url"
-            placeholder="ls.dev"
-            onChange={handleChanges}
-            value={input.url}
-            required
-          />
-        </SchoolFormField>
-        <SchoolButton type="submit" primary label="Submit" alignSelf="center" />
+        </StudentFormField>
+        <StudentButton
+          type="submit"
+          primary
+          label="Submit"
+          alignSelf="center"
+        />
       </Box>
-    </SchoolForm>
+    </StudentForm>
   );
 };
 
@@ -243,7 +238,7 @@ SchoolDetailsForm.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
-const SchoolForm = styled(BaseForm)`
+const StudentForm = styled(BaseForm)`
   margin: 120px auto 100px;
   background-color: white;
   border: 1px solid #d8d8d8;
@@ -252,16 +247,16 @@ const SchoolForm = styled(BaseForm)`
   width: 100%;
 `;
 
-const SchoolButton = styled(BaseButton)`
+const StudentButton = styled(BaseButton)`
   text-align: center;
   margin: 15px 20px 50px;
 `;
 
-const SchoolBaseTextInput = styled(BaseTextInput)`
+const StudentBaseTextInput = styled(BaseTextInput)`
   border: none;
 `;
 
-const SchoolFormField = styled(BaseFormField)`
+const StudentFormField = styled(BaseFormField)`
   margin: 20px;
   border-bottom: none;
   input {
@@ -269,7 +264,7 @@ const SchoolFormField = styled(BaseFormField)`
   }
 `;
 
-const SchoolMaskedInput = styled(MaskedInput)`
+const StudentMaskedInput = styled(MaskedInput)`
   /* border: ${({ theme }) => theme.global.border}; */
 `;
 

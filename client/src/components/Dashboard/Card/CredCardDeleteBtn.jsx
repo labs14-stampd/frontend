@@ -9,7 +9,7 @@ import { BaseButton } from '../../../styles/themes';
 
 import ConfirmationLayer from '../../ConfirmationLayer';
 
-import queries from '../SchoolDashboard/queries';
+import queries from '../Dashboard/queries';
 import {
   schoolContext,
   REMOVE_CREDENTIAL_START,

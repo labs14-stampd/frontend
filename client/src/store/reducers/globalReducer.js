@@ -17,7 +17,8 @@ const initialState = {
   criteria: '',
   issuedOn: '',
   expirationDate: '',
-  schoolId: localStorage.id
+  schoolId: null,
+  studentId: null
 };
 
 export const globalReducer = (state = initialState, action) => {
@@ -25,7 +26,8 @@ export const globalReducer = (state = initialState, action) => {
     case REGISTER:
       return {
         ...state,
-        user: action.payload
+        user: action.payload,
+        schoolId: action.payload.id
       };
     case ON_BOARD_DETAILS:
       return state;
@@ -46,7 +48,7 @@ export const globalReducer = (state = initialState, action) => {
         criteria: '',
         issuedOn: '',
         expirationDate: '',
-        schoolId: localStorage.id
+        schoolId: state.user.id
       };
     default:
       return state;
