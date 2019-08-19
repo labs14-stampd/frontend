@@ -35,17 +35,73 @@ describe('<SchoolDetailsForm />', () => {
     });
 
     it('tests the Institution label renders correctly', () => {
-      const { getByText } = renderWithRouterAndProviders(
-        <SchoolDetailsForm history={{ location: { pathname: '/' } }} />
-      );
-      expect(getByText(/Institution/i)).toBeDefined();
-    });
-
-    it('tests the Institution label renders correctly', () => {
       const { getAllByText } = renderWithRouterAndProviders(
         <SchoolDetailsForm history={{ location: { pathname: '/' } }} />
       );
       expect(getAllByText(/Institution/i)).toBeDefined();
+    });
+
+    it('tests the Tax Id label renders correctly', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <SchoolDetailsForm history={{ location: { pathname: '/' } }} />
+      );
+      expect(getByText(/Tax Id/i)).toBeDefined();
+    });
+
+    it('tests the Address 1 label renders correctly', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <SchoolDetailsForm history={{ location: { pathname: '/' } }} />
+      );
+      expect(getByText(/Address 1/i)).toBeDefined();
+    });
+
+    it('tests the Address 2 label renders correctly', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <SchoolDetailsForm history={{ location: { pathname: '/' } }} />
+      );
+      expect(getByText(/Address 2/i)).toBeDefined();
+    });
+
+    it('tests the City label renders correctly', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <SchoolDetailsForm history={{ location: { pathname: '/' } }} />
+      );
+      expect(getByText(/City/i)).toBeDefined();
+    });
+
+    it('tests the State label renders correctly', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <SchoolDetailsForm history={{ location: { pathname: '/' } }} />
+      );
+      expect(getByText(/State/i)).toBeDefined();
+    });
+
+    it('tests the Zip label renders correctly', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <SchoolDetailsForm history={{ location: { pathname: '/' } }} />
+      );
+      expect(getByText(/Zip/i)).toBeDefined();
+    });
+
+    it('tests the Phone Number label renders correctly', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <SchoolDetailsForm history={{ location: { pathname: '/' } }} />
+      );
+      expect(getByText(/Phone Number/i)).toBeDefined();
+    });
+
+    it('tests the Type of Institution label renders correctly', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <SchoolDetailsForm history={{ location: { pathname: '/' } }} />
+      );
+      expect(getByText(/Type of Institution/i)).toBeDefined();
+    });
+
+    it('tests the Institution Website label renders correctly', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <SchoolDetailsForm history={{ location: { pathname: '/' } }} />
+      );
+      expect(getByText(/Institution Website/i)).toBeDefined();
     });
   });
 });
