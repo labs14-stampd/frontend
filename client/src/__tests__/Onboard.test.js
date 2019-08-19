@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import {
   renderWithRouterAndProviders,
   rendererWithRouterAndProviders
-} from '../testHelpers';
+} from '../__testHelpers__';
 
 import Onboard from '../components/Dashboard/Onboard';
 

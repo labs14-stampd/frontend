@@ -1,11 +1,10 @@
 /* eslint-disable */
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-
 import {
   renderWithRouterAndProviders,
   rendererWithRouterAndProviders
-} from '../testHelpers';
+} from '../__testHelpers__';
 
 import CredentialsForm from '../components/Dashboard/CredentialsForm';
 

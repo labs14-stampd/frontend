@@ -1,13 +1,13 @@
 /* eslint-disable */
 import React from 'react';
 import { Router } from 'react-router-dom';
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
-import { Grommet } from 'grommet';
 import {
   StateProvider as GlobalProvider,
   StateProvider as SchoolProvider
 } from 'react-conflux';
+import { Grommet } from 'grommet';
 import {
   schoolReducer,
   schoolContext
@@ -17,8 +17,10 @@ import {
   globalContext
 } from '../../store/reducers/globalReducer';
 import { theme } from '../../styles/themes';
+jest.mock('../../store/reducers/globalReducer');
+jest.mock('../../store/reducers/schoolReducer');
 
-const rendererWithRouterAndProviders = (
+const renderWithRouterAndProviders = (
   ui,
   {
     route = '/',
@@ -26,7 +28,7 @@ const rendererWithRouterAndProviders = (
   } = {}
 ) => {
   return {
-    ...renderer.create(
+    ...render(
       <GlobalProvider reducer={globalReducer} stateContext={globalContext}>
         <SchoolProvider reducer={schoolReducer} stateContext={schoolContext}>
           <Grommet theme={theme}>
@@ -39,4 +41,4 @@ const rendererWithRouterAndProviders = (
   };
 };
 
-export default rendererWithRouterAndProviders;
+export default renderWithRouterAndProviders;

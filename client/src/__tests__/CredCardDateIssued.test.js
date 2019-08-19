@@ -5,7 +5,7 @@ import { fireEvent } from '@testing-library/react';
 import {
   renderWithRouterAndProviders,
   rendererWithRouterAndProviders
-} from '../testHelpers';
+} from '../__testHelpers__';
 
 import CredCardDateIssued from '../components/Dashboard/Card/CredCardDateIssued';
 
