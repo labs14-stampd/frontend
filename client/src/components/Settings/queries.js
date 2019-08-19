@@ -12,6 +12,7 @@ const queries = {
           addUserEmail(userId: $userId, email: $email) {
             email
             id
+            userId
           }
         }
       `
@@ -31,10 +32,6 @@ const queries = {
             profilePicture
             roleId
             sub
-            emailList {
-              email
-              id
-            }
             token
             tokenExpiration
             schoolDetails {
@@ -76,6 +73,10 @@ const queries = {
               zip
               phone
               userId
+              emailList {
+                email
+                id
+              }
               credentials {
                 id
                 credHash

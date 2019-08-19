@@ -16,9 +16,7 @@ import { globalContext } from '../../store/reducers/globalReducer';
 import c from '../../store/constants';
 import {
   studentContext,
-  STUDENT_DATA_START,
-  STUDENT_DATA_SUCCESS,
-  STUDENT_DATA_ERROR
+  STUDENT_EMAIL_UPDATE
 } from '../../store/reducers/studentReducer';
 
 const StudentSettings = ({ history }) => {
@@ -38,18 +36,6 @@ const StudentSettings = ({ history }) => {
   });
   const [email, setEmail] = useState('');
 
-  async function getUserData() {
-    try {
-      const { id } = user;
-      const data = await queries.getUserById({
-        id
-      });
-      studentDispatch({ type: STUDENT_DATA_SUCCESS, payload: data });
-    } catch (err) {
-      studentDispatch({ type: STUDENT_DATA_ERROR });
-    }
-  }
-
   const handleChanges = e => {
     setInput({
       ...input,
@@ -57,14 +43,18 @@ const StudentSettings = ({ history }) => {
     });
   };
 
-  const sumbitEmail = async e => {
+  const submitEmail = async e => {
     e.preventDefault();
     try {
-      await queries.addUserEmail({
+      const { data } = await queries.addUserEmail({
         userId: user.id,
         email
       });
-      // await getUserData();
+      console.log('data', data);
+      studentDispatch({
+        type: STUDENT_EMAIL_UPDATE,
+        payload: data.addUserEmail
+      });
       toast.success(`Email added succesfully`, {
         className: 'status-ok',
         position: toast.POSITION.BOTTOM_CENTER,
@@ -97,7 +87,7 @@ const StudentSettings = ({ history }) => {
 
   return (
     <>
-      <StudentForm onSubmit={sumbitEmail}>
+      <StudentForm onSubmit={submitEmail}>
         <Box direction="column">
           <Heading margin="20px 0 0 0" alignSelf="center">
             Add an Email
@@ -120,7 +110,7 @@ const StudentSettings = ({ history }) => {
         </Box>
       </StudentForm>
       <Box direction="column">
-        {studentState.studentData.emailList.map(x => (
+        {studentState.studentData.studentDetails.emailList.map(x => (
           <p>{x.email}</p>
         ))}
       </Box>

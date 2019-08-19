@@ -5,6 +5,7 @@ export const STUDENT_DATA_SUCCESS = 'STUDENT_DATA_SUCCESS';
 export const STUDENT_DATA_ERROR = 'STUDENT_DATA_ERROR';
 export const SEARCH_HANDLE_CHANGE = 'SEARCH_HANDLE_CHANGE';
 export const SET_STUDENT_DATA = 'SET_STUDENT_DATA';
+export const STUDENT_EMAIL_UPDATE = 'STUDENT_EMAIL_UPDATE';
 
 export const studentContext = createContext();
 
@@ -26,6 +27,7 @@ export const studentReducer = (state = initialState, action) => {
         studentDataError: false
       };
     case STUDENT_DATA_SUCCESS:
+      console.log('payload', action.payload);
       return {
         ...state,
         studentDataStart: false,
@@ -52,6 +54,21 @@ export const studentReducer = (state = initialState, action) => {
           studentDetails: action.payload.data.addStudentDetail
         },
         studentDataSuccess: true
+      };
+    case STUDENT_EMAIL_UPDATE:
+      console.log(action.payload);
+      return {
+        ...state,
+        studentData: {
+          ...state.studentData,
+          studentDetails: {
+            ...state.studentData.studentDetails,
+            emailList: [
+              ...state.studentData.studentDetails.emailList,
+              action.payload
+            ]
+          }
+        }
       };
     default:
       return state;
