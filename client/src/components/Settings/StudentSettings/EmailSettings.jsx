@@ -21,21 +21,14 @@ import {
 } from '../../../store/reducers/studentReducer';
 import ConfirmationLayer from '../../ConfirmationLayer';
 
-const EmailSettings = ({ history }) => {
+const EmailSettings = () => {
   const [{ user }] = useStateValue(globalContext);
   const [studentState, studentDispatch] = useStateValue(studentContext);
-  const [input, setInput] = useState({
-    firstName: studentState.studentData.studentDetails.firstName,
-    lastName: studentState.studentData.studentDetails.lastName,
-    middleName: studentState.studentData.studentDetails.middleName,
-    street1: studentState.studentData.studentDetails.street1,
-    street2: studentState.studentData.studentDetails.street2,
-    city: studentState.studentData.studentDetails.city,
-    state: studentState.studentData.studentDetails.state,
-    zip: studentState.studentData.studentDetails.zip,
-    phone: studentState.studentData.studentDetails.phone,
-    userId: user.id
-  });
+  const emailList = studentState.studentData.studentDetails.emailList.sort(
+    (a, b) => {
+      return a.email > b.email ? 1 : -1;
+    }
+  );
   const [email, setEmail] = useState('');
 
   const [
@@ -116,8 +109,8 @@ const EmailSettings = ({ history }) => {
           <p>{user.email}</p>
           <TrashButton disabled={true} color="searchBarBorder" />{' '}
         </EmailContainer>
-        {studentState.studentData.studentDetails.emailList.map(emailObj => (
-          <EmailContainer>
+        {emailList.map(emailObj => (
+          <EmailContainer key={emailObj.id}>
             <p>{emailObj.email}</p>
             {hasActiveConfirmationDialog && (
               // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
@@ -132,10 +125,6 @@ const EmailSettings = ({ history }) => {
       </EmailBox>
     </>
   );
-};
-
-EmailSettings.propTypes = {
-  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 const StudentForm = styled(BaseForm)`
