@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { Router } from 'react-router-dom';
 import { render } from '@testing-library/react';
@@ -6,6 +7,7 @@ import {
   StateProvider as GlobalProvider,
   StateProvider as SchoolProvider
 } from 'react-conflux';
+import { Grommet } from 'grommet';
 import {
   schoolReducer,
   schoolContext
@@ -14,6 +16,7 @@ import {
   globalReducer,
   globalContext
 } from '../../store/reducers/globalReducer';
+import { theme } from '../../styles/themes';
 
 const renderWithRouterAndProviders = (
   ui,
@@ -26,7 +29,9 @@ const renderWithRouterAndProviders = (
     ...render(
       <GlobalProvider reducer={globalReducer} stateContext={globalContext}>
         <SchoolProvider reducer={schoolReducer} stateContext={schoolContext}>
-          <Router history={history}>{ui}</Router>
+          <Grommet theme={theme}>
+            <Router history={history}>{ui}</Router>
+          </Grommet>
         </SchoolProvider>
       </GlobalProvider>
     ),

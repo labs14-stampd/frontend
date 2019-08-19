@@ -1,7 +1,9 @@
+/* eslint-disable */
 import React from 'react';
 import { Router } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import { createMemoryHistory } from 'history';
+import { Grommet } from 'grommet';
 import {
   StateProvider as GlobalProvider,
   StateProvider as SchoolProvider
@@ -14,6 +16,7 @@ import {
   globalReducer,
   globalContext
 } from '../../store/reducers/globalReducer';
+import { theme } from '../../styles/themes';
 
 const rendererWithRouterAndProviders = (
   ui,
@@ -26,7 +29,9 @@ const rendererWithRouterAndProviders = (
     ...renderer.create(
       <GlobalProvider reducer={globalReducer} stateContext={globalContext}>
         <SchoolProvider reducer={schoolReducer} stateContext={schoolContext}>
-          <Router history={history}>{ui}</Router>
+          <Grommet theme={theme}>
+            <Router history={history}>{ui}</Router>
+          </Grommet>
         </SchoolProvider>
       </GlobalProvider>
     ),

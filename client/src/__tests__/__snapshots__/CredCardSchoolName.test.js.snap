@@ -2,13 +2,17 @@
 
 exports[`<CredCardSchoolName /> should match the previous snapshot of the component 1`] = `
 <div
-  className="sc-bdVaJa bNAnn"
+  className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
 >
-  <h2>
-    testName
-  </h2>
-  <p>
-    testing
-  </p>
+  <div
+    className="sc-EHOje gwsCUe"
+  >
+    <h2>
+      testName
+    </h2>
+    <p>
+      testing
+    </p>
+  </div>
 </div>
 `;
