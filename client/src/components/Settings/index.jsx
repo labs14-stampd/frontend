@@ -5,7 +5,7 @@ import { useStateValue } from 'react-conflux';
 import { globalContext } from '../../store/reducers/globalReducer';
 import { schoolContext } from '../../store/reducers/schoolReducer';
 
-import StudentSettings from './StudentSettings';
+import StudentSettings from './StudentSettings/StudentSettings';
 
 const Settings = props => {
   const [{ user }] = useStateValue(globalContext);
