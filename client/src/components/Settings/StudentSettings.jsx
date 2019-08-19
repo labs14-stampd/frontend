@@ -137,9 +137,10 @@ const StudentSettings = ({ history }) => {
           />
         </Box>
       </StudentForm>
-      <Box direction="column">
+      <EmailBox direction="column">
+        <h2>Email List</h2>
         {studentState.studentData.studentDetails.emailList.map(emailObj => (
-          <>
+          <EmailContainer>
             <p>{emailObj.email}</p>
             {hasActiveConfirmationDialog && (
               // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
@@ -148,12 +149,10 @@ const StudentSettings = ({ history }) => {
                 yesFunc={() => confirmRemoveEmail(emailObj.id)}
               />
             )}
-            <div onClick={() => setHasActiveConfirmationDialog(true)}>
-              <TrashButton />{' '}
-            </div>
-          </>
+            <TrashButton onClick={() => setHasActiveConfirmationDialog(true)} />{' '}
+          </EmailContainer>
         ))}
-      </Box>
+      </EmailBox>
       <StudentForm onSubmit={handleSubmit}>
         <Box direction="column">
           <Heading margin="20px 0 0 0" alignSelf="center">
@@ -303,6 +302,33 @@ const StudentMaskedInput = styled(MaskedInput)`
 
 const TrashButton = styled(Trash)`
   cursor: pointer;
+`;
+
+const EmailBox = styled(Box)`
+  margin: 12px auto 0px;
+  max-width: 800px;
+`;
+
+const EmailContainer = styled.section`
+  margin: 10px auto 0;
+  max-width: 800px;
+  width: 100%;
+  background: white;
+  /* min-height: calc(100vh - 170px); */
+  -webkit-box-shadow: -2px 5px 25px -17px rgba(0, 0, 0, 0.61);
+  -moz-box-shadow: -2px 5px 25px -17px rgba(0, 0, 0, 0.61);
+  box-shadow: -2px 5px 25px -17px rgba(0, 0, 0, 0.61);
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 3%;
+  transition: box-shadow 0.5s;
+
+  :hover {
+    -webkit-box-shadow: 0px 0px 15px -2px rgba(125, 76, 219, 1);
+    -moz-box-shadow: 0px 0px 15px -2px rgba(125, 76, 219, 1);
+    box-shadow: 0px 0px 15px -2px rgba(125, 76, 219, 1);
+  }
 `;
 
 export default StudentSettings;

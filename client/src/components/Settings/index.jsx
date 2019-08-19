@@ -22,12 +22,6 @@ const Container = styled.section`
   margin: 0 auto;
   min-height: calc(100vh - 70px);
   width: 100%;
-
-  div {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1600px;
-  }
 `;
 
 export default Settings;
