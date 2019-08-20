@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
-import { MaskedInput, Select, Box, Heading, Tab, Tabs } from 'grommet';
+import { MaskedInput, Select, Box, Heading } from 'grommet';
 
 import queries from '../queries';
 import {
@@ -15,9 +14,8 @@ import {
 import { globalContext } from '../../../store/reducers/globalReducer';
 import c from '../../../store/constants';
 import { studentContext } from '../../../store/reducers/studentReducer';
-import EmailSettings from './EmailSettings';
 
-const DetailSettings = ({ history }) => {
+const DetailSettings = () => {
   const [{ user }] = useStateValue(globalContext);
   const [studentState, studentDispatch] = useStateValue(studentContext);
   const [input, setInput] = useState({
@@ -172,10 +170,6 @@ const DetailSettings = ({ history }) => {
       </StudentForm>
     </>
   );
-};
-
-DetailSettings.propTypes = {
-  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 const StudentForm = styled(BaseForm)`

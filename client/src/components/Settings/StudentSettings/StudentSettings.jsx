@@ -8,7 +8,7 @@ import DetailSettings from './DetailsSettings';
 
 const StudentSettings = ({ history }) => {
   return (
-    <Tabs>
+    <Tabs margin={{ vertical: '30px' }} justify="center">
       <Tab title="Emails">
         <EmailSettings />
       </Tab>

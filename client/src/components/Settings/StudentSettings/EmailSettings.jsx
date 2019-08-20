@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
@@ -83,10 +82,8 @@ const EmailSettings = () => {
     <>
       <StudentForm onSubmit={submitEmail}>
         <Box direction="column">
-          <Heading margin="20px 0 0 0" alignSelf="center">
-            Add an Email
-          </Heading>
-          <StudentFormField label="Email">
+          <h2>Add an Email</h2>
+          <StudentFormField>
             <StudentBaseTextInput
               name="email"
               placeholder="fakeemail@email.com"
@@ -129,8 +126,6 @@ const EmailSettings = () => {
 
 const StudentForm = styled(BaseForm)`
   margin: 120px auto 100px;
-  background-color: white;
-  border: 1px solid #d8d8d8;
   border-radius: 2px;
   max-width: 800px;
   width: 100%;
@@ -143,14 +138,12 @@ const StudentButton = styled(BaseButton)`
 
 const StudentBaseTextInput = styled(BaseTextInput)`
   border: none;
+  width: 100%;
+  max-width: 800px;
 `;
 
 const StudentFormField = styled(BaseFormField)`
-  margin: 20px;
   border-bottom: none;
-  input {
-    /* margin-bottom: 10px; */
-  }
 `;
 
 const TrashButton = styled(Trash)`
