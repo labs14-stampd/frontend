@@ -35,6 +35,7 @@ const EmailSettings = () => {
     hasActiveConfirmationDialog,
     setHasActiveConfirmationDialog
   ] = useState(false);
+  const [userEmailIdToDelete, setUserEmailIdToDelete] = useState(null);
 
   const submitEmail = async e => {
     e.preventDefault();
@@ -110,14 +111,23 @@ const EmailSettings = () => {
           <p>{user.email}</p>
           <TrashButton disabled={true} color="searchBarBorder" />{' '}
         </EmailSectionContainer>
+        {hasActiveConfirmationDialog && (
+          // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
+          <ConfirmationLayer
+            onClose={() => setHasActiveConfirmationDialog(false)} // Needed to make the layer disappear
+            yesFunc={() => {
+              console.log('emailContainer', userEmailIdToDelete);
+              return confirmRemoveEmail(userEmailIdToDelete);
+            }}
+          />
+        )}
         {emailList.map(emailObj => (
           <EmailContainer
             key={emailObj.id}
             id={emailObj.id}
             email={emailObj.email}
+            setUserEmailIdToDelete={setUserEmailIdToDelete}
             setHasActiveConfirmationDialog={setHasActiveConfirmationDialog}
-            hasActiveConfirmationDialog={hasActiveConfirmationDialog}
-            confirmRemoveEmail={confirmRemoveEmail}
           />
         ))}
       </EmailBox>

@@ -7,9 +7,8 @@ import ConfirmationLayer from '../../ConfirmationLayer';
 const EmailContainer = ({
   id,
   email,
-  setHasActiveConfirmationDialog,
-  hasActiveConfirmationDialog,
-  confirmRemoveEmail
+  setUserEmailIdToDelete,
+  setHasActiveConfirmationDialog
 }) => {
   const [emailId, setEmailId] = React.useState(id);
   return (
@@ -17,22 +16,10 @@ const EmailContainer = ({
       <EmailCtn>
         <p>{email}</p>
         <p>{id}</p>
-        {hasActiveConfirmationDialog && (
-          // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
-          <>
-            <ConfirmationLayer
-              onClose={() => setHasActiveConfirmationDialog(false)} // Needed to make the layer disappear
-              yesFunc={() => {
-                console.log('emailContainer', emailId);
-                return confirmRemoveEmail(emailId);
-              }}
-              id={id}
-            />
-          </>
-        )}
         <TrashButton
           onClick={() => {
-            return setHasActiveConfirmationDialog(true);
+            setUserEmailIdToDelete(id);
+            setHasActiveConfirmationDialog(true);
           }}
         />{' '}
       </EmailCtn>
