@@ -6,7 +6,7 @@ import { Tab, Tabs } from 'grommet';
 import EmailSettings from './EmailSettings';
 import DetailSettings from './DetailsSettings';
 
-const StudentSettings = ({ history }) => {
+const StudentSettings = () => {
   return (
     <Tabs margin={{ vertical: '30px' }} justify="center">
       <Tab title="Emails">
@@ -17,10 +17,6 @@ const StudentSettings = ({ history }) => {
       </Tab>
     </Tabs>
   );
-};
-
-StudentSettings.propTypes = {
-  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 export default StudentSettings;

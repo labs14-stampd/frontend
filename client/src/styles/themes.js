@@ -24,6 +24,18 @@ export const theme = {
     font: {
       family: 'Roboto'
     }
+  },
+  tab: {
+    active: {
+      color: 'brand'
+    },
+    color: '#333333',
+    border: {
+      color: '#f8f8f8',
+      active: {
+        color: 'brand'
+      }
+    }
   }
 };
 

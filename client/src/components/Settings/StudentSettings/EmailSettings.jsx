@@ -81,24 +81,26 @@ const EmailSettings = () => {
   return (
     <>
       <StudentForm onSubmit={submitEmail}>
-        <Box direction="column">
-          <h2>Add an Email</h2>
-          <StudentFormField>
-            <StudentBaseTextInput
-              name="email"
-              placeholder="fakeemail@email.com"
-              onChange={e => setEmail(e.target.value)}
-              value={email}
-              plain={false}
-            />
-          </StudentFormField>
+        <EmailSection direction="column">
+          <Box direction="column">
+            <h2>Add an Email</h2>
+            <StudentFormField>
+              <StudentBaseTextInput
+                name="email"
+                placeholder="fakeemail@email.com"
+                onChange={e => setEmail(e.target.value)}
+                value={email}
+                plain={false}
+              />
+            </StudentFormField>
+          </Box>
           <StudentButton
             type="submit"
             primary
             label="Add Email"
             alignSelf="center"
           />
-        </Box>
+        </EmailSection>
       </StudentForm>
       <EmailBox direction="column">
         <h2>Emails</h2>
@@ -124,8 +126,12 @@ const EmailSettings = () => {
   );
 };
 
+const EmailSection = styled(Box)`
+  justify-content: space-between;
+`;
+
 const StudentForm = styled(BaseForm)`
-  margin: 120px auto 100px;
+  margin: 50px auto 10px;
   border-radius: 2px;
   max-width: 800px;
   width: 100%;
@@ -133,13 +139,14 @@ const StudentForm = styled(BaseForm)`
 
 const StudentButton = styled(BaseButton)`
   text-align: center;
-  margin: 15px 20px 50px;
+  margin: 10px 20px 15px;
 `;
 
 const StudentBaseTextInput = styled(BaseTextInput)`
   border: none;
   width: 100%;
   max-width: 800px;
+  padding-left: 0;
 `;
 
 const StudentFormField = styled(BaseFormField)`
@@ -151,7 +158,7 @@ const TrashButton = styled(Trash)`
 `;
 
 const EmailBox = styled(Box)`
-  margin: 12px auto 0px;
+  margin: 5px auto 0px;
   max-width: 800px;
 `;
 
