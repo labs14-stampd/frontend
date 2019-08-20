@@ -34,14 +34,11 @@ const SchoolDashboard = ({ history }) => {
   const handleChange = e => {
     schoolDispatch({ type: SEARCH_HANDLE_CHANGE, payload: e.target.value });
   };
+  if (!schoolState.schoolData) return <div />;
   return (
     <>
       <SchoolDetails>
-        {schoolState.schoolDataSuccess ? (
-          <h2>{schoolState.schoolData.schoolDetails.name}</h2>
-        ) : (
-          <div />
-        )}
+        {true ? <h2>{schoolState.schoolData.schoolDetails.name}</h2> : <div />}
         <div>
           <input
             type="text"

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useStateValue } from 'react-conflux';
+import Loader from 'react-loader-spinner';
 
 import SchoolDashboard from './SchoolDashboard';
 import StudentDashboard from './StudentDashboard';
@@ -23,9 +24,9 @@ import { globalContext } from '../../../store/reducers/globalReducer';
 const Dashboard = ({ history }) => {
   const [{ user }] = useStateValue(globalContext);
   const [schoolState, schoolDispatch] = useStateValue(schoolContext);
-  const [, studentDispatch] = useStateValue(studentContext);
+  const [studentState, studentDispatch] = useStateValue(studentContext);
   useEffect(() => {
-    if (!schoolState.schoolData) {
+    if (!schoolState.schoolData && !studentState.schoolData) {
       user.roleId === '2'
         ? schoolDispatch({ type: SCHOOL_DATA_START })
         : studentDispatch({ type: STUDENT_DATA_START });
@@ -46,13 +47,16 @@ const Dashboard = ({ history }) => {
       }
       getUserData();
     }
-  }, [schoolDispatch, schoolState.schoolData, user, studentDispatch]);
+  }, []);
   return (
     <Container>
-      {user.roleId === '2' ? (
-        <SchoolDashboard history={history} />
+      {!schoolState.schoolData && !studentState.studentData ? (
+        <Loader type="RevolvingDot" color="#7D4CDB" height={100} width={100} />
       ) : (
-        <StudentDashboard history={history} />
+        <>
+          {Number(user.roleId) === 2 && <SchoolDashboard history={history} />}
+          {Number(user.roleId) === 3 && <StudentDashboard history={history} />}
+        </>
       )}
     </Container>
   );
@@ -67,7 +71,6 @@ const Container = styled.div`
   margin: 0 auto;
   min-height: calc(100vh - 70px);
   width: 100%;
-  background: #f8f8f8;
 `;
 
 export default Dashboard;

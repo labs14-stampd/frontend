@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
 import { MaskedInput, Select, Box, Heading } from 'grommet';
+import c from '../../../store/constants';
 
 import {
   BaseForm,
@@ -11,11 +12,19 @@ import {
   BaseFormField,
   BaseButton
 } from '../../../styles/themes';
+import {
+  schoolContext,
+  SET_SCHOOL_DATA
+} from '../../../store/reducers/schoolReducer';
 import queries from './queries';
-import { globalContext } from '../../../store/reducers/globalReducer';
+import {
+  globalContext,
+  ON_BOARD_DETAILS
+} from '../../../store/reducers/globalReducer';
 
 const SchoolDetailsForm = ({ history }) => {
-  const [{ user }] = useStateValue(globalContext);
+  const [{ user }, dispatchGlobal] = useStateValue(globalContext);
+  const [, schoolDispatch] = useStateValue(schoolContext);
   const [input, setInput] = useState({
     name: '',
     taxId: '',
@@ -29,69 +38,6 @@ const SchoolDetailsForm = ({ history }) => {
     url: '',
     userId: user.id
   });
-
-  const states = [
-    'AL',
-    'AK',
-    'AS',
-    'AZ',
-    'AR',
-    'CA',
-    'CO',
-    'CT',
-    'DE',
-    'DC',
-    'FM',
-    'FL',
-    'GA',
-    'GU',
-    'HI',
-    'ID',
-    'IL',
-    'IN',
-    'IA',
-    'KS',
-    'KY',
-    'LA',
-    'ME',
-    'MH',
-    'MD',
-    'MA',
-    'MI',
-    'MN',
-    'MS',
-    'MO',
-    'MT',
-    'NE',
-    'NV',
-    'NH',
-    'NJ',
-    'NM',
-    'NY',
-    'NC',
-    'ND',
-    'MP',
-    'OH',
-    'OK',
-    'OR',
-    'PW',
-    'PA',
-    'PR',
-    'RI',
-    'SC',
-    'SD',
-    'TN',
-    'TX',
-    'UT',
-    'VT',
-    'VI',
-    'VA',
-    'WA',
-    'WV',
-    'WI',
-    'WY'
-  ];
-
   const handleChanges = e => {
     setInput({
       ...input,
@@ -102,10 +48,18 @@ const SchoolDetailsForm = ({ history }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await queries.addSchoolDetails(input);
+      const details = await queries.addSchoolDetails(input);
       await queries.addRole({
         id: user.id,
-        roleId: 2 // Role of a school is set to always be 2
+        roleId: '2' // Role of a school is set to always be 2
+      });
+      dispatchGlobal({
+        type: ON_BOARD_DETAILS,
+        payload: { ...user, roleId: 2 }
+      });
+      schoolDispatch({
+        type: SET_SCHOOL_DATA,
+        payload: { ...details }
       });
       toast.success(`School Details added succesfully`, {
         className: 'status-ok',
@@ -173,7 +127,7 @@ const SchoolDetailsForm = ({ history }) => {
           label="State"
           name="state"
           component={Select}
-          options={states}
+          options={c.states}
           onChange={({ option }) => setInput({ ...input, state: option })}
           value={input.state}
           placeholder="State"
