@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Box, Button, Layer, Text } from 'grommet';
 
 function ConfirmationLayer({ onClose, yesFunc, noFunc, id }) {
-  console.log('inside confirm', id);
   const handleYes = e => {
     if (typeof yesFunc === 'function') {
       yesFunc();

@@ -62,7 +62,6 @@ const EmailSettings = () => {
 
   const confirmRemoveEmail = async id => {
     try {
-      console.log(id);
       await queries.deleteUserEmail({ id });
       toast.success(`Email is deleted`, {
         className: 'status-ok',
@@ -116,7 +115,6 @@ const EmailSettings = () => {
           <ConfirmationLayer
             onClose={() => setHasActiveConfirmationDialog(false)} // Needed to make the layer disappear
             yesFunc={() => {
-              console.log('emailContainer', userEmailIdToDelete);
               return confirmRemoveEmail(userEmailIdToDelete);
             }}
           />
