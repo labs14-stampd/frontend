@@ -65,6 +65,32 @@ exports[`<StudentDashboard /> should match the previous snapshot of the componen
           Nathan Thomas
         </h3>
       </div>
+      <div
+        className="sc-iwsKbI eNHtrI"
+      >
+        <button
+          className="sc-bdVaJa sc-gqjmRU hnZXkc StyledButton-sc-323bzc-0 jfbKsv"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          <svg
+            aria-label="Trash"
+            className="sc-gZMcBi Qfbta StyledIcon-ofa7kd-0 iOkQrb"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M4,5 L20,5 L20,23 L4,23 L4,5 Z M1,5 L23,5 M9,1 L15,1 L15,5 L9,5 L9,1 Z M9,1 L15,1 L15,5 L9,5 L9,1 Z M15,9 L15,19 M9,9 L9,19"
+              fill="none"
+              stroke="#000"
+              strokeWidth="2"
+            />
+          </svg>
+        </button>
+      </div>
     </section>
     <section
       className="sc-VigVT kwgGCs"
@@ -107,6 +133,32 @@ exports[`<StudentDashboard /> should match the previous snapshot of the componen
           Nathan Thomas
         </h3>
       </div>
+      <div
+        className="sc-iwsKbI eNHtrI"
+      >
+        <button
+          className="sc-bdVaJa sc-gqjmRU hnZXkc StyledButton-sc-323bzc-0 jfbKsv"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          <svg
+            aria-label="Trash"
+            className="sc-gZMcBi Qfbta StyledIcon-ofa7kd-0 iOkQrb"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M4,5 L20,5 L20,23 L4,23 L4,5 Z M1,5 L23,5 M9,1 L15,1 L15,5 L9,5 L9,1 Z M9,1 L15,1 L15,5 L9,5 L9,1 Z M15,9 L15,19 M9,9 L9,19"
+              fill="none"
+              stroke="#000"
+              strokeWidth="2"
+            />
+          </svg>
+        </button>
+      </div>
     </section>
     <section
       className="sc-VigVT kwgGCs"
@@ -148,6 +200,32 @@ exports[`<StudentDashboard /> should match the previous snapshot of the componen
         <h3>
           Nathan Thomas
         </h3>
+      </div>
+      <div
+        className="sc-iwsKbI eNHtrI"
+      >
+        <button
+          className="sc-bdVaJa sc-gqjmRU hnZXkc StyledButton-sc-323bzc-0 jfbKsv"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          <svg
+            aria-label="Trash"
+            className="sc-gZMcBi Qfbta StyledIcon-ofa7kd-0 iOkQrb"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M4,5 L20,5 L20,23 L4,23 L4,5 Z M1,5 L23,5 M9,1 L15,1 L15,5 L9,5 L9,1 Z M9,1 L15,1 L15,5 L9,5 L9,1 Z M15,9 L15,19 M9,9 L9,19"
+              fill="none"
+              stroke="#000"
+              strokeWidth="2"
+            />
+          </svg>
+        </button>
       </div>
     </section>
   </div>

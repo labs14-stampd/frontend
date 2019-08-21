@@ -64,4 +64,14 @@ describe('<SchoolDetailsForm />', () => {
       expect(mock).toHaveBeenCalledTimes(2);
     });
   });
+
+  describe('should render the search bar to the screen successfully', () => {
+    it('tests that the search bar is rendered successfully', () => {
+      const { getByPlaceholderText } = renderWithRouterAndProviders(
+        <SchoolDashboard history={{ location: { pathname: '/' } }} />
+      );
+      const searchBar = getByPlaceholderText(/Search/i);
+      expect(searchBar).toBeDefined();
+    });
+  });
 });

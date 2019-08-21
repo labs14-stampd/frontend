@@ -49,4 +49,14 @@ describe('<StudentDashboard />', () => {
       expect(viewBtns).toHaveLength(3);
     });
   });
+
+  describe('should render the search bar to the screen successfully', () => {
+    it('tests that the search bar is rendered successfully', () => {
+      const { getByPlaceholderText } = renderWithRouterAndProviders(
+        <StudentDashboard history={{ location: { pathname: '/' } }} />
+      );
+      const searchBar = getByPlaceholderText(/Search/i);
+      expect(searchBar).toBeDefined();
+    });
+  });
 });

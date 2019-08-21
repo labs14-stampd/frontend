@@ -11,7 +11,7 @@ const initialState = {
   user: {
     email: 'teamstampd@gmail.com',
     id: '1',
-    roleId: '1',
+    roleId: '2',
     username: 'admin'
   },
   ownerName: '',
