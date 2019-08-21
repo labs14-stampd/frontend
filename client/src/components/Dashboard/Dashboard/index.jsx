@@ -26,7 +26,7 @@ const Dashboard = ({ history }) => {
   const [schoolState, schoolDispatch] = useStateValue(schoolContext);
   const [studentState, studentDispatch] = useStateValue(studentContext);
   useEffect(() => {
-    if (!schoolState.schoolData && !studentState.schoolData) {
+    if (!schoolState.schoolData && !studentState.studentData) {
       user.roleId === '2'
         ? schoolDispatch({ type: SCHOOL_DATA_START })
         : studentDispatch({ type: STUDENT_DATA_START });
@@ -47,7 +47,13 @@ const Dashboard = ({ history }) => {
       }
       getUserData();
     }
-  }, []);
+  }, [
+    schoolDispatch,
+    schoolState.schoolData,
+    studentDispatch,
+    studentState.studentData,
+    user
+  ]);
   return (
     <Container>
       {!schoolState.schoolData && !studentState.studentData ? (
