@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Trash } from 'grommet-icons';
 
-import ConfirmationLayer from '../../ConfirmationLayer';
-
 const EmailContainer = ({
   id,
   email,
@@ -15,7 +13,6 @@ const EmailContainer = ({
     <>
       <EmailCtn>
         <p>{email}</p>
-        <p>{id}</p>
         <TrashButton
           onClick={() => {
             setUserEmailIdToDelete(id);

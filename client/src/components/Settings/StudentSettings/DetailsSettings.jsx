@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
-import { MaskedInput, Select, Box, Heading } from 'grommet';
+import { MaskedInput, Select, Box } from 'grommet';
 
 import queries from '../queries';
 import {
