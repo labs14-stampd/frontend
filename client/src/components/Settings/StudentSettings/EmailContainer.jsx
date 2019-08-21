@@ -8,7 +8,6 @@ const EmailContainer = ({
   setUserEmailIdToDelete,
   setHasActiveConfirmationDialog
 }) => {
-  const [emailId, setEmailId] = React.useState(id);
   return (
     <>
       <EmailCtn>
