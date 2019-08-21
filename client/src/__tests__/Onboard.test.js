@@ -9,44 +9,52 @@ import {
 import Onboard from '../components/Dashboard/Onboard';
 
 describe('<Onboard />', () => {
-  it('should render the component without crashing', () => {
-    const helpers = renderWithRouterAndProviders(
-      <Onboard history={{ location: { pathname: '/' } }} />
-    );
+  describe('should render the CredCard component successfully without crashing', () => {
+    it('tests that the component does not crash when it is rendered', () => {
+      const helpers = renderWithRouterAndProviders(
+        <Onboard history={{ location: { pathname: '/' } }} />
+      );
+    });
   });
 
-  it('should match the previous snapshot of the component', () => {
-    const tree = rendererWithRouterAndProviders(
-      <Onboard history={{ location: { pathname: '/' } }} />
-    );
-    expect(tree.toJSON()).toMatchSnapshot();
+  describe('should match the previous snapshot of the component', () => {
+    it('tests that the component has not changed and matched the previous snapshot', () => {
+      const tree = rendererWithRouterAndProviders(
+        <Onboard history={{ location: { pathname: '/' } }} />
+      );
+      expect(tree.toJSON()).toMatchSnapshot();
+    });
   });
 
-  it('should display the form title to the screen successfully', () => {
-    const { getByText } = renderWithRouterAndProviders(
-      <Onboard history={{ location: { pathname: '/' } }} />
-    );
-    expect(getByText(/Choose Account Type/i)).toBeDefined();
+  describe('should render the required string to the screen successfully', () => {
+    it('tests that form title is rendered successfully', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <Onboard history={{ location: { pathname: '/' } }} />
+      );
+      expect(getByText(/Choose Account Type/i)).toBeDefined();
+    });
   });
 
-  it('should work when the school button is clicked', () => {
-    const mock = jest.fn();
-    const { getByText } = renderWithRouterAndProviders(
-      <Onboard history={{ location: { pathname: '/' }, push: mock }} />
-    );
-    const schoolBtn = getByText(/School/i);
-    schoolBtn.click();
-    expect(mock).toHaveBeenCalledTimes(1);
-  });
+  describe('should fire mock functions when the student and school buttons are clicked', () => {
+    it('tests that the school button fires a function when it is clicked', () => {
+      const mock = jest.fn();
+      const { getByText } = renderWithRouterAndProviders(
+        <Onboard history={{ location: { pathname: '/' }, push: mock }} />
+      );
+      const schoolBtn = getByText(/School/i);
+      schoolBtn.click();
+      expect(mock).toHaveBeenCalledTimes(1);
+    });
 
-  it('should work when the student button is clicked', () => {
-    const mock = jest.fn();
-    const { getByText } = renderWithRouterAndProviders(
-      <Onboard history={{ location: { pathname: '/' }, push: mock }} />
-    );
-    const studentBtn = getByText(/Student/i);
-    studentBtn.click();
-    studentBtn.click();
-    expect(mock).toHaveBeenCalledTimes(2);
+    it('tests that the student butotn fires a function when it is clicked', () => {
+      const mock = jest.fn();
+      const { getByText } = renderWithRouterAndProviders(
+        <Onboard history={{ location: { pathname: '/' }, push: mock }} />
+      );
+      const studentBtn = getByText(/Student/i);
+      studentBtn.click();
+      studentBtn.click();
+      expect(mock).toHaveBeenCalledTimes(2);
+    });
   });
 });
