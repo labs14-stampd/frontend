@@ -8,6 +8,7 @@ export const REMOVE_CREDENTIAL_START = 'REMOVE_CREDENTIAL_START';
 export const REMOVE_CREDENTIAL_SUCCESS = 'REMOVE_CREDENTIAL_SUCCESS';
 export const REMOVE_CREDENTIAL_ERROR = 'REMOVE_CREDENTIAL_ERROR';
 export const UPDATE_CRED_DATA = 'UPDATE_CRED_DATA';
+export const SET_SCHOOL_DATA = 'SET_SCHOOL_DATA';
 
 export const schoolContext = createContext();
 
@@ -94,6 +95,15 @@ export const schoolReducer = (state = initialState, action) => {
             credentials: action.payload
           }
         }
+      };
+    case SET_SCHOOL_DATA:
+      return {
+        ...state,
+        schoolData: {
+          ...state.schoolData,
+          schoolDetails: action.payload.data.addSchoolDetail
+        },
+        schoolDataSuccess: true
       };
     default:
       return state;

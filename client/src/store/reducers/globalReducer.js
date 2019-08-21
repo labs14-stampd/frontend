@@ -30,7 +30,10 @@ export const globalReducer = (state = initialState, action) => {
         schoolId: action.payload.id
       };
     case ON_BOARD_DETAILS:
-      return state;
+      return {
+        ...state,
+        user: action.payload
+      };
     case HANDLE_CRED_CHANGES:
       return {
         ...state,

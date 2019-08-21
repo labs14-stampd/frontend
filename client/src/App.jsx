@@ -15,6 +15,7 @@ import StudentDetailsForm from './components/Dashboard/Onboard/StudentDetailsFor
 import Landing from './components/Landing';
 import CredentialForm from './components/Dashboard/CredentialsForm';
 import ErrorPage from './components/ErrorPage';
+import Settings from './components/Settings';
 import GlobalStyle from './styles';
 
 import Layout from './components/Layout';
@@ -40,15 +41,12 @@ function App(props) {
                 path="/onboarding/student"
                 component={StudentDetailsForm}
               />
-              <PrivateRoute
-                exact
-                path="/dashboard"
-                component={Dashboard}
-              />
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute
                 path="/dashboard/credForm"
                 component={CredentialForm}
               />
+              <PrivateRoute exact path="/settings" component={Settings} />
               {/* Error route */}
               <Route component={ErrorPage} />
             </Switch>
