@@ -63,7 +63,6 @@ const constants = {
   schoolRoutes: [
     { name: 'Dashboard', route: '/dashboard' },
     { name: 'Issue Credential', route: '/dashboard/credForm' },
-    { name: 'Settings', route: '/settings' },
     { name: 'About', route: '/about' },
     { name: 'Contact', route: '/contact' }
   ],
