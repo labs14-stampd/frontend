@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
-import { Box } from 'grommet';
+import { InfiniteScroll, Box } from 'grommet';
 import { Trash } from 'grommet-icons';
 
 import queries from '../queries';
@@ -119,15 +119,21 @@ const EmailSettings = () => {
             }}
           />
         )}
-        {emailList.map(emailObj => (
-          <EmailContainer
-            key={emailObj.id}
-            id={emailObj.id}
-            email={emailObj.email}
-            setUserEmailIdToDelete={setUserEmailIdToDelete}
-            setHasActiveConfirmationDialog={setHasActiveConfirmationDialog}
-          />
-        ))}
+        <Box height="55vh" overflow="auto">
+          <InfiniteScroll items={emailList} step={10}>
+            {item => {
+              return (
+                <EmailContainer
+                  key={item.id}
+                  id={item.id}
+                  email={item.email}
+                  setUserEmailIdToDelete={setUserEmailIdToDelete}
+                  setHasActiveConfirmationDialog={setHasActiveConfirmationDialog}
+                />
+              );
+            }}
+          </InfiniteScroll>
+        </Box>
       </EmailBox>
     </>
   );
