@@ -119,20 +119,21 @@ const EmailSettings = () => {
             }}
           />
         )}
-
-        <InfiniteScroll items={emailList} step={10}>
-          {item => {
-            return (
-              <EmailContainer
-                key={item.id}
-                id={item.id}
-                email={item.email}
-                setUserEmailIdToDelete={setUserEmailIdToDelete}
-                setHasActiveConfirmationDialog={setHasActiveConfirmationDialog}
-              />
-            )
-          }}
-        </InfiniteScroll>
+        <Box height="55vh" overflow="auto">
+          <InfiniteScroll items={emailList} step={10}>
+            {item => {
+              return (
+                <EmailContainer
+                  key={item.id}
+                  id={item.id}
+                  email={item.email}
+                  setUserEmailIdToDelete={setUserEmailIdToDelete}
+                  setHasActiveConfirmationDialog={setHasActiveConfirmationDialog}
+                />
+              );
+            }}
+          </InfiniteScroll>
+        </Box>
       </EmailBox>
     </>
   );
