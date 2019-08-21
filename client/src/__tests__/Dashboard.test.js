@@ -25,4 +25,25 @@ describe('<Dashboard />', () => {
       expect(tree.toJSON()).toMatchSnapshot();
     });
   });
+
+  describe('should render the <SchooDashboard /> component successfully with roleId of 2', () => {
+    it('tests that the correct dashboard is displayed with reducer test data', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <Dashboard history={{ location: { pathname: '/' } }} />
+      );
+      const schoolName = getByText(/testName/i);
+      expect(schoolName).toBeDefined();
+    });
+  });
+
+  describe('should pass down history to a child component successfully when the dashboard is rendered', () => {
+    const mock = jest.fn();
+    const { getByText } = renderWithRouterAndProviders(
+      <Dashboard history={{ location: { pathname: '/' }, push: mock }} />
+    );
+    const newCredBtn = getByText(/Issue Credential/i);
+    newCredBtn.click();
+    newCredBtn.click();
+    expect(mock).toHaveBeenCalledTimes(2);
+  });
 });
