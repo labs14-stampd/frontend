@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
-import { Box, Heading } from 'grommet';
+import { Box } from 'grommet';
 import { Trash } from 'grommet-icons';
 
 import queries from '../queries';
@@ -19,6 +19,7 @@ import {
   REMOVE_STUDENT_EMAIL
 } from '../../../store/reducers/studentReducer';
 import ConfirmationLayer from '../../ConfirmationLayer';
+import EmailContainer from './EmailContainer';
 
 const EmailSettings = () => {
   const [{ user }] = useStateValue(globalContext);
@@ -34,6 +35,7 @@ const EmailSettings = () => {
     hasActiveConfirmationDialog,
     setHasActiveConfirmationDialog
   ] = useState(false);
+  const [userEmailIdToDelete, setUserEmailIdToDelete] = useState(null);
 
   const submitEmail = async e => {
     e.preventDefault();
@@ -104,22 +106,27 @@ const EmailSettings = () => {
       </StudentForm>
       <EmailBox direction="column">
         <h2>Emails</h2>
-        <EmailContainer>
+        <EmailSectionContainer>
           <p>{user.email}</p>
           <TrashButton disabled={true} color="searchBarBorder" />{' '}
-        </EmailContainer>
+        </EmailSectionContainer>
+        {hasActiveConfirmationDialog && (
+          // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
+          <ConfirmationLayer
+            onClose={() => setHasActiveConfirmationDialog(false)} // Needed to make the layer disappear
+            yesFunc={() => {
+              return confirmRemoveEmail(userEmailIdToDelete);
+            }}
+          />
+        )}
         {emailList.map(emailObj => (
-          <EmailContainer key={emailObj.id}>
-            <p>{emailObj.email}</p>
-            {hasActiveConfirmationDialog && (
-              // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
-              <ConfirmationLayer
-                onClose={() => setHasActiveConfirmationDialog(false)} // Needed to make the layer disappear
-                yesFunc={() => confirmRemoveEmail(emailObj.id)}
-              />
-            )}
-            <TrashButton onClick={() => setHasActiveConfirmationDialog(true)} />{' '}
-          </EmailContainer>
+          <EmailContainer
+            key={emailObj.id}
+            id={emailObj.id}
+            email={emailObj.email}
+            setUserEmailIdToDelete={setUserEmailIdToDelete}
+            setHasActiveConfirmationDialog={setHasActiveConfirmationDialog}
+          />
         ))}
       </EmailBox>
     </>
@@ -162,7 +169,7 @@ const EmailBox = styled(Box)`
   max-width: 800px;
 `;
 
-const EmailContainer = styled.section`
+const EmailSectionContainer = styled.section`
   margin: 10px auto 0;
   max-width: 800px;
   width: 100%;
