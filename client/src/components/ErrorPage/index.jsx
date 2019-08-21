@@ -22,7 +22,7 @@ const ErrorCodeMsg = styled.h1`
   font-size: 4.5rem;
   animation: errorPageHeadingExpand 1s;
 
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     font-size: 3.5rem;
   }
 `;
@@ -38,10 +38,10 @@ const ErrorMsgHeading = styled.h3`
   }
 
   font-size: 2.25rem;
-  margin: 25px 0  50px;
+  margin: 25px 0 50px;
   animation: errorCodeFadeIn 1.5s 2s backwards;
 
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     font-size: 2rem;
   }
 `;

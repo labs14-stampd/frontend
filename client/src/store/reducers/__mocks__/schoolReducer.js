@@ -8,17 +8,36 @@ export const REMOVE_CREDENTIAL_START = 'REMOVE_CREDENTIAL_START';
 export const REMOVE_CREDENTIAL_SUCCESS = 'REMOVE_CREDENTIAL_SUCCESS';
 export const REMOVE_CREDENTIAL_ERROR = 'REMOVE_CREDENTIAL_ERROR';
 export const UPDATE_CRED_DATA = 'UPDATE_CRED_DATA';
-export const SET_SCHOOL_DATA = 'SET_SCHOOL_DATA';
 
 export const schoolContext = createContext();
 
 const initialState = {
   schoolData: {
     schoolDetails: {
-      name: ''
+      name: 'testName',
+      credentials: [
+        {
+          id: 1,
+          credName: 'test1',
+          criteria: 'test',
+          ownerName: 'Nathan Thomas'
+        },
+        {
+          id: 2,
+          credName: 'test2',
+          criteria: 'test',
+          ownerName: 'Nathan Thomas'
+        },
+        {
+          id: 3,
+          credName: 'test3',
+          criteria: 'test',
+          ownerName: 'Nathan Thomas'
+        }
+      ]
     }
   },
-  schoolDataSuccess: false,
+  schoolDataSuccess: true,
   schoolDataStart: false,
   schoolDataError: false,
   schoolSearchInput: '',
@@ -95,15 +114,6 @@ export const schoolReducer = (state = initialState, action) => {
             credentials: action.payload
           }
         }
-      };
-    case SET_SCHOOL_DATA:
-      return {
-        ...state,
-        schoolData: {
-          ...state.schoolData,
-          schoolDetails: action.payload.data.addSchoolDetail
-        },
-        schoolDataSuccess: true
       };
     default:
       return state;

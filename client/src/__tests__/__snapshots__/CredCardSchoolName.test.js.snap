@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CredCardSchoolName /> should match the previous snapshot of the component tests that the component has not changed and matched the previous snapshot 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
+>
+  <div
+    className="sc-EHOje gwsCUe"
+  >
+    <h2>
+      testName
+    </h2>
+    <p>
+      testing
+    </p>
+  </div>
+</div>
+`;

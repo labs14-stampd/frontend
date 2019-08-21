@@ -17,7 +17,7 @@ import { Auth0Provider } from './auth/authWrapper';
 import config from './auth/authConfig';
 import App from './App';
 
-import globalReducer, { globalContext } from './store/reducers/globalReducer';
+import { globalReducer, globalContext } from './store/reducers/globalReducer';
 
 Sentry.init({ dsn: `https://${process.env.REACT_APP_SENTRY}` });
 

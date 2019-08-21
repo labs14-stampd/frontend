@@ -15,6 +15,11 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
   },
+  overrides: [
+    {
+      files: ['__test__/*.test.js']
+    }
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true

@@ -22,6 +22,7 @@ import Layout from './components/Layout';
 
 function App(props) {
   const { loading } = useAuth0();
+  console.log(loading);
   return (
     <>
       {loading ? (

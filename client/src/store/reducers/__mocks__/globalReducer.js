@@ -4,10 +4,16 @@ export const REGISTER = 'REGISTER';
 export const HANDLE_CRED_CHANGES = 'HANDLE_CRED_CHANGES';
 export const ON_BOARD_DETAILS = 'ON_BOARD_DETAILS';
 export const RESET_CREDENTIAL_FORM = 'RESET_CREDENTIAL_FORM';
+
 export const globalContext = createContext();
 
 const initialState = {
-  user: null,
+  user: {
+    email: 'teamstampd@gmail.com',
+    id: '1',
+    roleId: '1',
+    username: 'admin'
+  },
   ownerName: '',
   credName: '',
   description: '',
@@ -17,8 +23,8 @@ const initialState = {
   criteria: '',
   issuedOn: '',
   expirationDate: '',
-  schoolId: null,
-  studentId: null
+  schoolId: '1',
+  studentId: '1'
 };
 
 export const globalReducer = (state = initialState, action) => {
@@ -30,10 +36,7 @@ export const globalReducer = (state = initialState, action) => {
         schoolId: action.payload.id
       };
     case ON_BOARD_DETAILS:
-      return {
-        ...state,
-        user: action.payload
-      };
+      return state;
     case HANDLE_CRED_CHANGES:
       return {
         ...state,

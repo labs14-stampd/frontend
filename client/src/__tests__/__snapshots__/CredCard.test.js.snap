@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CredCard /> should match the previous snapshot of the component tests that the component has not changed and matched the previous snapshot 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
+>
+  <section
+    className="sc-VigVT kwgGCs"
+  >
+    <div
+      className="sc-EHOje hWneJQ"
+    >
+      <button
+        aria-label="view credentials button"
+        className="sc-bdVaJa sc-bZQynM csIfUH StyledButton-sc-323bzc-0 kHrfdt"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        type="button"
+      >
+        View
+      </button>
+    </div>
+    <div
+      className="sc-gzVnrw bKsZFP"
+    >
+      <h2>
+        test
+      </h2>
+      <p>
+        testing
+      </p>
+    </div>
+    <div
+      className="sc-htoDjs erhmUl"
+    >
+      <p />
+    </div>
+    <div
+      className="sc-dnqmqq jubHKb"
+    >
+      <h3>
+        Stampd
+      </h3>
+    </div>
+  </section>
+</div>
+`;

@@ -27,7 +27,7 @@ const CredCardDeleteBtn = ({ credId, credHash }) => {
   ] = useState(false);
 
   //  Handling of loading states can be done here as well
-  const confirmRemoveCredential = async e => {
+  const confirmRemoveCredential = async () => {
     setIsDeleting(true);
     try {
       dispatch({ type: REMOVE_CREDENTIAL_START });
