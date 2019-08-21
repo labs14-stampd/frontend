@@ -2,20 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { Trash } from 'grommet-icons';
 
-import ConfirmationLayer from '../../ConfirmationLayer';
-
 const EmailContainer = ({
   id,
   email,
   setUserEmailIdToDelete,
   setHasActiveConfirmationDialog
 }) => {
-  const [emailId, setEmailId] = React.useState(id);
   return (
     <>
       <EmailCtn>
         <p>{email}</p>
-        <p>{id}</p>
         <TrashButton
           onClick={() => {
             setUserEmailIdToDelete(id);

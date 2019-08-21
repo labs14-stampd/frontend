@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import { Tab, Tabs } from 'grommet';
 
 import EmailSettings from './EmailSettings';
