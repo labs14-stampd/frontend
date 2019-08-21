@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Box, Button, Layer, Text } from 'grommet';
 
-function ConfirmationLayer({ onClose, yesFunc, noFunc }) {
+function ConfirmationLayer({ onClose, yesFunc, noFunc, id }) {
   const handleYes = e => {
     if (typeof yesFunc === 'function') {
       yesFunc();
