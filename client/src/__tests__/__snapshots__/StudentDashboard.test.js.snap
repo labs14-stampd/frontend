@@ -4,6 +4,152 @@ exports[`<StudentDashboard /> should match the previous snapshot of the componen
 <div
   className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
 >
-  <div />
+  <section
+    className="sc-cSHVUG chVKOk"
+  >
+    <h2>
+      Welcome, 
+      !
+    </h2>
+    <div>
+      <input
+        name="searchText"
+        onChange={[Function]}
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+    </div>
+  </section>
+  <div
+    className="StyledBox-sc-13pk1d4-0 izmUvx"
+  >
+    <section
+      className="sc-VigVT kwgGCs"
+    >
+      <div
+        className="sc-EHOje hWneJQ"
+      >
+        <button
+          aria-label="view credentials button"
+          className="sc-bdVaJa sc-bZQynM csIfUH StyledButton-sc-323bzc-0 kHrfdt"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          View
+        </button>
+      </div>
+      <div
+        className="sc-gzVnrw bKsZFP"
+      >
+        <h2>
+          test1
+        </h2>
+        <p>
+          test
+        </p>
+      </div>
+      <div
+        className="sc-htoDjs erhmUl"
+      >
+        <p />
+      </div>
+      <div
+        className="sc-dnqmqq jubHKb"
+      >
+        <h3>
+          Nathan Thomas
+        </h3>
+      </div>
+    </section>
+    <section
+      className="sc-VigVT kwgGCs"
+    >
+      <div
+        className="sc-EHOje hWneJQ"
+      >
+        <button
+          aria-label="view credentials button"
+          className="sc-bdVaJa sc-bZQynM csIfUH StyledButton-sc-323bzc-0 kHrfdt"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          View
+        </button>
+      </div>
+      <div
+        className="sc-gzVnrw bKsZFP"
+      >
+        <h2>
+          test2
+        </h2>
+        <p>
+          test
+        </p>
+      </div>
+      <div
+        className="sc-htoDjs erhmUl"
+      >
+        <p />
+      </div>
+      <div
+        className="sc-dnqmqq jubHKb"
+      >
+        <h3>
+          Nathan Thomas
+        </h3>
+      </div>
+    </section>
+    <section
+      className="sc-VigVT kwgGCs"
+    >
+      <div
+        className="sc-EHOje hWneJQ"
+      >
+        <button
+          aria-label="view credentials button"
+          className="sc-bdVaJa sc-bZQynM csIfUH StyledButton-sc-323bzc-0 kHrfdt"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          View
+        </button>
+      </div>
+      <div
+        className="sc-gzVnrw bKsZFP"
+      >
+        <h2>
+          test3
+        </h2>
+        <p>
+          test
+        </p>
+      </div>
+      <div
+        className="sc-htoDjs erhmUl"
+      >
+        <p />
+      </div>
+      <div
+        className="sc-dnqmqq jubHKb"
+      >
+        <h3>
+          Nathan Thomas
+        </h3>
+      </div>
+    </section>
+  </div>
 </div>
 `;

@@ -11,8 +11,32 @@ export const REMOVE_STUDENT_EMAIL = 'REMOVE_STUDENT_EMAIL';
 export const studentContext = createContext();
 
 const initialState = {
-  studentData: null,
-  studentDataSuccess: false,
+  studentData: {
+    fullName: 'test',
+    studentDetails: {
+      credentials: [
+        {
+          id: 1,
+          credName: 'test1',
+          criteria: 'test',
+          ownerName: 'Nathan Thomas'
+        },
+        {
+          id: 2,
+          credName: 'test2',
+          criteria: 'test',
+          ownerName: 'Nathan Thomas'
+        },
+        {
+          id: 3,
+          credName: 'test3',
+          criteria: 'test',
+          ownerName: 'Nathan Thomas'
+        }
+      ]
+    }
+  },
+  studentDataSuccess: true,
   studentDataStart: false,
   studentDataError: false,
   studentSearchInput: ''
