@@ -37,4 +37,43 @@ describe('<CredCard />', () => {
       expect(tree.toJSON()).toMatchSnapshot();
     });
   });
+
+  describe('should render titles and descriptions successfully', () => {
+    const cred = {
+      credName: 'header',
+      credHash: 'string',
+      criteria: 'testing',
+      ownerName: 'Stampd',
+      id: '5',
+      issuedOn: 'date'
+    };
+
+    it('tests that the credName header tag is defined', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <CredCard cred={cred} />
+      );
+      expect(getByText(/header/i)).toBeDefined();
+    });
+
+    it('tests that the criteria is defined', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <CredCard cred={cred} />
+      );
+      expect(getByText(/testing/i)).toBeDefined();
+    });
+
+    it('tests that the ownerName is defined', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <CredCard cred={cred} />
+      );
+      expect(getByText(/Stampd/i)).toBeDefined();
+    });
+
+    it('tests that the issuedOn date is defined', () => {
+      const { getByText } = renderWithRouterAndProviders(
+        <CredCard cred={cred} />
+      );
+      expect(getByText(/date/i)).toBeDefined();
+    });
+  });
 });
