@@ -13,11 +13,7 @@ export const SET_SCHOOL_DATA = 'SET_SCHOOL_DATA';
 export const schoolContext = createContext();
 
 const initialState = {
-  schoolData: {
-    schoolDetails: {
-      name: ''
-    }
-  },
+  schoolData: null,
   schoolDataSuccess: false,
   schoolDataStart: false,
   schoolDataError: false,
