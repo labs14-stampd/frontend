@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
-import { Box } from 'grommet';
+import { InfiniteScroll, Box } from 'grommet';
 import { Trash } from 'grommet-icons';
 
 import queries from '../queries';
@@ -16,7 +16,8 @@ import { globalContext } from '../../../store/reducers/globalReducer';
 import {
   studentContext,
   STUDENT_EMAIL_UPDATE,
-  REMOVE_STUDENT_EMAIL
+  REMOVE_STUDENT_EMAIL,
+  STUDENT_DATA_SUCCESS
 } from '../../../store/reducers/studentReducer';
 import ConfirmationLayer from '../../ConfirmationLayer';
 import EmailContainer from './EmailContainer';
@@ -53,6 +54,13 @@ const EmailSettings = () => {
         position: toast.POSITION.BOTTOM_CENTER,
         hideProgressBar: true,
         autoClose: true
+      });
+      const userData = await queries.getUserById({
+        id: user.id
+      });
+      studentDispatch({
+        type: STUDENT_DATA_SUCCESS,
+        payload: userData
       });
       setEmail('');
     } catch (err) {
@@ -119,15 +127,20 @@ const EmailSettings = () => {
             }}
           />
         )}
-        {emailList.map(emailObj => (
-          <EmailContainer
-            key={emailObj.id}
-            id={emailObj.id}
-            email={emailObj.email}
-            setUserEmailIdToDelete={setUserEmailIdToDelete}
-            setHasActiveConfirmationDialog={setHasActiveConfirmationDialog}
-          />
-        ))}
+
+        <InfiniteScroll items={emailList} step={10}>
+          {item => {
+            return (
+              <EmailContainer
+                key={item.id}
+                id={item.id}
+                email={item.email}
+                setUserEmailIdToDelete={setUserEmailIdToDelete}
+                setHasActiveConfirmationDialog={setHasActiveConfirmationDialog}
+              />
+            )
+          }}
+        </InfiniteScroll>
       </EmailBox>
     </>
   );
