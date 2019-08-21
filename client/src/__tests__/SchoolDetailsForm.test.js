@@ -27,7 +27,7 @@ describe('<SchoolDetailsForm />', () => {
   });
 
   describe('should render headers and labels to the screen successfully', () => {
-    it('tests that the header test renders correctly', () => {
+    it('tests that the header text renders correctly', () => {
       const { getByText } = renderWithRouterAndProviders(
         <SchoolDetailsForm history={{ location: { pathname: '/' } }} />
       );
