@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SchoolDetailsForm /> should match the previous snapshot of the component tests that the component has not changed and matched the previous snapshot 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
+>
+  <section
+    className="sc-cSHVUG chVKOk"
+  >
+    <h2>
+      testName
+    </h2>
+    <div>
+      <input
+        name="searchText"
+        onChange={[Function]}
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+      <button
+        className="sc-bdVaJa sc-kAzzGY hWLJXC StyledButton-sc-323bzc-0 aNlbA"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        type="button"
+      >
+        + Issue Credential
+      </button>
+    </div>
+  </section>
+  <div
+    className="sc-kgoBCf fzXlUD StyledBox-sc-13pk1d4-0 IRSNj"
+  >
+    <section
+      className="sc-VigVT kwgGCs"
+    >
+      <div
+        className="sc-EHOje hWneJQ"
+      >
+        <button
+          aria-label="view credentials button"
+          className="sc-bdVaJa sc-bZQynM csIfUH StyledButton-sc-323bzc-0 kHrfdt"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          View
+        </button>
+      </div>
+      <div
+        className="sc-gzVnrw bKsZFP"
+      >
+        <h2>
+          test1
+        </h2>
+        <p>
+          test
+        </p>
+      </div>
+      <div
+        className="sc-htoDjs erhmUl"
+      >
+        <p />
+      </div>
+      <div
+        className="sc-dnqmqq jubHKb"
+      >
+        <h3>
+          Nathan Thomas
+        </h3>
+      </div>
+    </section>
+    <section
+      className="sc-VigVT kwgGCs"
+    >
+      <div
+        className="sc-EHOje hWneJQ"
+      >
+        <button
+          aria-label="view credentials button"
+          className="sc-bdVaJa sc-bZQynM csIfUH StyledButton-sc-323bzc-0 kHrfdt"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          View
+        </button>
+      </div>
+      <div
+        className="sc-gzVnrw bKsZFP"
+      >
+        <h2>
+          test2
+        </h2>
+        <p>
+          test
+        </p>
+      </div>
+      <div
+        className="sc-htoDjs erhmUl"
+      >
+        <p />
+      </div>
+      <div
+        className="sc-dnqmqq jubHKb"
+      >
+        <h3>
+          Nathan Thomas
+        </h3>
+      </div>
+    </section>
+    <section
+      className="sc-VigVT kwgGCs"
+    >
+      <div
+        className="sc-EHOje hWneJQ"
+      >
+        <button
+          aria-label="view credentials button"
+          className="sc-bdVaJa sc-bZQynM csIfUH StyledButton-sc-323bzc-0 kHrfdt"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          View
+        </button>
+      </div>
+      <div
+        className="sc-gzVnrw bKsZFP"
+      >
+        <h2>
+          test3
+        </h2>
+        <p>
+          test
+        </p>
+      </div>
+      <div
+        className="sc-htoDjs erhmUl"
+      >
+        <p />
+      </div>
+      <div
+        className="sc-dnqmqq jubHKb"
+      >
+        <h3>
+          Nathan Thomas
+        </h3>
+      </div>
+    </section>
+  </div>
+</div>
+`;
