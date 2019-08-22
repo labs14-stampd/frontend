@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Layout /> should match the previous snapshot of the component tests that the component has not changed and matched the previous snapshot 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
+>
+  <div
+    className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
+  >
+    <main
+      className="sc-dnqmqq cwhyFX"
+    >
+      <div
+        className="sc-bZQynM CZNzZ"
+      >
+        <nav>
+          <div>
+            <svg
+              aria-label="Menu"
+              className="hamburger StyledIcon-ofa7kd-0 bBBqGu"
+              data-testid="hamburger"
+              onClick={[Function]}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                fill="none"
+                stroke="#000"
+                strokeWidth="2"
+              />
+            </svg>
+            <div>
+              <a
+                href="/dashboard"
+                onClick={[Function]}
+              >
+                <img
+                  alt="Stampd logo"
+                  draggable="false"
+                  src="stampd_full_white.svg"
+                />
+              </a>
+            </div>
+          </div>
+          <div
+            className="button__container"
+          >
+            <button
+              aria-label="Logout"
+              className="sc-bwzfXH sc-gzVnrw dhncQw StyledButton-sc-323bzc-0 kHrfdt"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              type="button"
+            >
+              Logout
+            </button>
+          </div>
+        </nav>
+      </div>
+      <p>
+        Test
+      </p>
+      <div
+        className="sc-htoDjs eBjQTr"
+      >
+        <p>
+          © Stampd 2019
+        </p>
+      </div>
+    </main>
+  </div>
+</div>
+`;

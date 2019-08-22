@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorPage /> should match the previous snapshot of the component tests that the component has not changed and matched the previous snapshot 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
+>
+  <main
+    className="sc-EHOje hExNRU"
+  >
+    <h1
+      className="sc-bZQynM fMmKOo"
+    >
+      Code 404
+    </h1>
+    <h3
+      className="sc-gzVnrw heKplq"
+    >
+      Oops, this is not the page you are looking for....
+    </h3>
+  </main>
+</div>
+`;

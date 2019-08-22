@@ -17,20 +17,23 @@ const initialState = {
       name: 'testName',
       credentials: [
         {
-          id: 1,
+          id: '1',
           credName: 'test1',
+          credHash: 'testHash',
           criteria: 'test',
           ownerName: 'Nathan Thomas'
         },
         {
-          id: 2,
+          id: '2',
           credName: 'test2',
+          credHash: 'testHash',
           criteria: 'test',
           ownerName: 'Nathan Thomas'
         },
         {
-          id: 3,
+          id: '3',
           credName: 'test3',
+          credHash: 'testHash',
           criteria: 'test',
           ownerName: 'Nathan Thomas'
         }
