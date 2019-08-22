@@ -32,6 +32,7 @@ function NavBar({ history }) {
               className="hamburger"
               size="large"
               color="white"
+              data-testid="hamburger"
             />
           )}
           <div>

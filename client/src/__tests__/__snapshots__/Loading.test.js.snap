@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loading /> should match the previous snapshot of the component tests that the component has not changed and matched the previous snapshot 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
+>
+  <div
+    className="sc-EHOje egqVQK"
+    data-testid="loader"
+  >
+    <div
+      aria-busy="true"
+      className=""
+      style={Object {}}
+    >
+      <svg
+        aria-label="audio-loading"
+        height={100}
+        version="1.1"
+        width={100}
+        x="0px"
+        xmlns="http://www.w3.org/2000/svg"
+        y="0px"
+      >
+        <circle
+          cx="50"
+          cy="50"
+          fill="none"
+          r="44"
+          stroke="#7D4CDB"
+          strokeWidth="4"
+          style={
+            Object {
+              "opacity": 0.5,
+            }
+          }
+        />
+        <circle
+          cx="8"
+          cy="54"
+          fill="#7D4CDB"
+          r="6"
+          stroke="#7D4CDB"
+          strokeWidth="3"
+        >
+          <animateTransform
+            attributeName="transform"
+            dur="2s"
+            from="0 50 48"
+            repeatCount="indefinite"
+            to="360 50 52"
+            type="rotate"
+          />
+        </circle>
+      </svg>
+    </div>
+  </div>
+</div>
+`;

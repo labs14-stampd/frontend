@@ -3,6 +3,8 @@ export const mock = jest.fn();
 
 export const useAuth0 = () => {
   return {
-    loginWithRedirect: mock
+    isAuthenticated: () => {
+      return true;
+    }
   };
 };

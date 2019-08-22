@@ -15,9 +15,23 @@ exports[`<Layout /> should match the previous snapshot of the component tests th
       >
         <nav>
           <div>
+            <svg
+              aria-label="Menu"
+              className="hamburger StyledIcon-ofa7kd-0 bBBqGu"
+              data-testid="hamburger"
+              onClick={[Function]}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                fill="none"
+                stroke="#000"
+                strokeWidth="2"
+              />
+            </svg>
             <div>
               <a
-                href="/"
+                href="/dashboard"
                 onClick={[Function]}
               >
                 <img
@@ -32,7 +46,7 @@ exports[`<Layout /> should match the previous snapshot of the component tests th
             className="button__container"
           >
             <button
-              aria-label="Login"
+              aria-label="Logout"
               className="sc-bwzfXH sc-gzVnrw dhncQw StyledButton-sc-323bzc-0 kHrfdt"
               onBlur={[Function]}
               onClick={[Function]}
@@ -41,7 +55,7 @@ exports[`<Layout /> should match the previous snapshot of the component tests th
               onMouseOver={[Function]}
               type="button"
             >
-              Login
+              Logout
             </button>
           </div>
         </nav>

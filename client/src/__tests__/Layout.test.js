@@ -37,8 +37,8 @@ describe('<Layout />', () => {
           <p>Test</p>
         </Layout>
       );
-      const loginBtn = getByLabelText(/login/i);
-      expect(loginBtn).toBeDefined();
+      const logoutBtn = getByLabelText(/logout/i);
+      expect(logoutBtn).toBeDefined();
     });
   });
 
