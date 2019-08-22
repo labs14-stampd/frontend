@@ -63,7 +63,8 @@ const CredentialsForm = ({ history }) => {
         position: toast.POSITION.BOTTOM_CENTER,
         containerId: 1,
         hideProgressBar: true,
-        autoClose: false
+        autoClose: false,
+        toastId: 5
       });
       const credData = await queries.addNewCredentials({
         ownerName,
@@ -85,14 +86,14 @@ const CredentialsForm = ({ history }) => {
           }
         )
       });
-      toast.dismiss(1);
+      toast.dismiss(5);
       toast.success(
         `Success!! Blockchain verification available in 5 minutes!`,
         {
           className: 'status-ok',
           position: toast.POSITION.BOTTOM_CENTER,
           hideProgressBar: true,
-          autoClose: false
+          autoClose: 5000
         }
       );
       setIsSubmitting(false);
@@ -103,7 +104,7 @@ const CredentialsForm = ({ history }) => {
       toast.error('Error submitting credential', {
         hideProgressBar: true,
         position: toast.POSITION.BOTTOM_CENTER,
-        autoClose: false
+        autoClose: 5000
       });
       setIsSubmitting(false);
     }
