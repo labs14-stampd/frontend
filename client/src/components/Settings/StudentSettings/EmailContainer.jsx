@@ -14,10 +14,10 @@ const EmailContainer = ({
         <p>{email}</p>
         <TrashButton
           onClick={() => {
-            setUserEmailIdToDelete(id);
+            setUserEmailIdToDelete(id, email);
             setHasActiveConfirmationDialog(true);
           }}
-        />{' '}
+        />
       </EmailCtn>
     </>
   );

@@ -48,7 +48,6 @@ const EmailSettings = () => {
         type: STUDENT_EMAIL_UPDATE,
         payload: data.addUserEmail
       });
-      console.log('data', data);
       toast.success(`Email added succesfully`, {
         className: 'status-ok',
         position: toast.POSITION.BOTTOM_CENTER,
@@ -61,7 +60,7 @@ const EmailSettings = () => {
     }
   };
 
-  const confirmRemoveEmail = async id => {
+  const confirmRemoveEmail = async (id, removedEmail) => {
     try {
       await queries.deleteUserEmail({ id });
       toast.success(`Email is deleted`, {
@@ -71,11 +70,20 @@ const EmailSettings = () => {
         autoClose: true
       });
       const updateEmailList = studentState.studentData.studentDetails.emailList.filter(
-        email => {
-          return email.id !== id;
+        emailItem => {
+          return emailItem.id !== id;
         }
       );
-      studentDispatch({ type: REMOVE_STUDENT_EMAIL, payload: updateEmailList });
+      const updatedCredentialList = studentState.studentData.studentDetails.credentials.filter(
+        cred => {
+          return cred.studentEmail !== removedEmail;
+        }
+      );
+      console.log(updatedCredentialList, removedEmail);
+      studentDispatch({
+        type: REMOVE_STUDENT_EMAIL,
+        payload: { emailList: updateEmailList, credList: updatedCredentialList }
+      });
     } catch (err) {
       console.error(err);
     }
@@ -109,7 +117,7 @@ const EmailSettings = () => {
         <h2>Emails</h2>
         <EmailSectionContainer>
           <p>{user.email}</p>
-          <TrashButton disabled={true} color="searchBarBorder" />{' '}
+          <TrashButton disabled color="searchBarBorder" />
         </EmailSectionContainer>
         {hasActiveConfirmationDialog && (
           // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)

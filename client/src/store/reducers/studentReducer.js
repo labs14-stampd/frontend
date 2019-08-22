@@ -19,6 +19,7 @@ const initialState = {
 };
 
 export const studentReducer = (state = initialState, action) => {
+  console.log(action);
   switch (action.type) {
     case STUDENT_DATA_START:
       return {
@@ -81,7 +82,8 @@ export const studentReducer = (state = initialState, action) => {
           ...state.studentData,
           studentDetails: {
             ...state.studentData.studentDetails,
-            emailList: action.payload
+            emailList: action.payload.emailList,
+            credentials: action.payload.credList
           }
         }
       };
