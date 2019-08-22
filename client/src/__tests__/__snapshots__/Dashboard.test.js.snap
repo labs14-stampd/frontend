@@ -5,7 +5,7 @@ exports[`<Dashboard /> should match the previous snapshot of the component tests
   className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
 >
   <div
-    className="sc-dxgOiQ fwByTs"
+    className="sc-kpOJdX eEgwKo"
   >
     <section
       className="sc-cSHVUG chVKOk"
@@ -35,7 +35,7 @@ exports[`<Dashboard /> should match the previous snapshot of the component tests
       </div>
     </section>
     <div
-      className="sc-kgoBCf fzXlUD StyledBox-sc-13pk1d4-0 IRSNj"
+      className="StyledBox-sc-13pk1d4-0 izmUvx"
     >
       <section
         className="sc-VigVT kwgGCs"

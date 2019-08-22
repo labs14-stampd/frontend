@@ -29,4 +29,12 @@ describe('<ErrorPage />', () => {
       expect(title).toBeDefined();
     });
   });
+
+  describe('should render the error message to the screen successfully', () => {
+    const { getByText } = renderWithRouterAndProviders(<ErrorPage />);
+    const msg = getByText(
+      /Oops, this is not the page you are looking for..../i
+    );
+    expect(msg).toBeDefined();
+  });
 });

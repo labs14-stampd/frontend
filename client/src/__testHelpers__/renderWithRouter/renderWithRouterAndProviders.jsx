@@ -25,6 +25,7 @@ import { theme } from '../../styles/themes';
 jest.mock('../../store/reducers/globalReducer');
 jest.mock('../../store/reducers/schoolReducer');
 jest.mock('../../store/reducers/studentReducer');
+jest.mock('../../auth/authWrapper');
 
 const renderWithRouterAndProviders = (
   ui,
