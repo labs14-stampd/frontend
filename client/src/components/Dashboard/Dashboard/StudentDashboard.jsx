@@ -14,7 +14,7 @@ import {
   SEARCH_HANDLE_CHANGE
 } from '../../../store/reducers/studentReducer';
 
-const StudentDashboard = ({ history }) => {
+const StudentDashboard = () => {
   const [studentState, studentDispatch] = useStateValue(studentContext);
   let searchResult = [];
   if (studentState.studentData) {

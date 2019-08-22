@@ -60,13 +60,13 @@ const SchoolDashboard = ({ history }) => {
       ) : (
         <>
           {schoolState.schoolDataSuccess && searchResult.length ? (
-            <CredCardContainer>
+            <Box height="75vh" overflow="auto">
               <InfiniteScroll items={searchResult} step={10}>
                 {item => {
                   return <CredCard key={item.id} cred={item} />;
                 }}
               </InfiniteScroll>
-            </CredCardContainer>
+            </Box>
           ) : (
             schoolState.schoolDataSuccess && (
               <NothingFound>
@@ -145,11 +145,6 @@ const NothingFound = styled.p`
   font-size: 2.4rem;
   margin-top: 20vh;
   color: ${({ theme }) => theme.global.colors['status-disabled']};
-`;
-
-const CredCardContainer = styled(Box)`
-  height: 75vh;
-  overflow: 'auto';
 `;
 
 export default SchoolDashboard;
