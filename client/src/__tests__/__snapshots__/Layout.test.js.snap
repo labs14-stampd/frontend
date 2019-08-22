@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Layout /> should match the previous snapshot of the component tests that the component has not changed and matched the previous snapshot 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
+>
+  <div
+    className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
+  >
+    <main
+      className="sc-dnqmqq cwhyFX"
+    >
+      <div
+        className="sc-bZQynM CZNzZ"
+      >
+        <nav>
+          <div>
+            <div>
+              <a
+                href="/"
+                onClick={[Function]}
+              >
+                <img
+                  alt="Stampd logo"
+                  draggable="false"
+                  src="stampd_full_white.svg"
+                />
+              </a>
+            </div>
+          </div>
+          <div
+            className="button__container"
+          >
+            <button
+              aria-label="Login"
+              className="sc-bwzfXH sc-gzVnrw dhncQw StyledButton-sc-323bzc-0 kHrfdt"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              type="button"
+            >
+              Login
+            </button>
+          </div>
+        </nav>
+      </div>
+      <p>
+        Test
+      </p>
+      <div
+        className="sc-htoDjs eBjQTr"
+      >
+        <p>
+          © Stampd 2019
+        </p>
+      </div>
+    </main>
+  </div>
+</div>
+`;
