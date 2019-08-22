@@ -13,6 +13,7 @@ const queries = {
             username
             email
             roleId
+            token
           }
         }
       `
