@@ -13,6 +13,20 @@ const queries = {
             email
             id
             userId
+            credentials {
+              id
+              credHash
+              credName
+              description
+              ownerName
+              type
+              studentEmail
+              imageUrl
+              criteria
+              valid
+              issuedOn
+              expirationDate
+            }
           }
         }
       `
@@ -182,6 +196,31 @@ const queries = {
         mutation DeleteUserEmail($id: ID!) {
           deleteUserEmail(id: $id) {
             id
+          }
+        }
+      `
+    });
+  },
+  getCredentialsByEmail(body) {
+    return client.mutate({
+      variables: {
+        email: body.email
+      },
+      mutation: gql`
+        mutation GetCredentialsByEmail($email: String!) {
+          getCredentialsByEmail(studentEmail: $email) {
+            id
+            credHash
+            credName
+            description
+            ownerName
+            type
+            studentEmail
+            imageUrl
+            criteria
+            valid
+            issuedOn
+            expirationDate
           }
         }
       `
