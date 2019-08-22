@@ -60,7 +60,7 @@ const EmailSettings = () => {
     }
   };
 
-  const confirmRemoveEmail = async (id, removedEmail) => {
+  const confirmRemoveEmail = async ({ id, email: removedEmail }) => {
     try {
       await queries.deleteUserEmail({ id });
       toast.success(`Email is deleted`, {
@@ -79,7 +79,6 @@ const EmailSettings = () => {
           return cred.studentEmail !== removedEmail;
         }
       );
-      console.log(updatedCredentialList, removedEmail);
       studentDispatch({
         type: REMOVE_STUDENT_EMAIL,
         payload: { emailList: updateEmailList, credList: updatedCredentialList }

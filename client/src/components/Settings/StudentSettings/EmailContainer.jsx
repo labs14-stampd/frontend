@@ -8,13 +8,14 @@ const EmailContainer = ({
   setUserEmailIdToDelete,
   setHasActiveConfirmationDialog
 }) => {
+  console.log(email);
   return (
     <>
       <EmailCtn>
         <p>{email}</p>
         <TrashButton
           onClick={() => {
-            setUserEmailIdToDelete(id, email);
+            setUserEmailIdToDelete({ id, email });
             setHasActiveConfirmationDialog(true);
           }}
         />

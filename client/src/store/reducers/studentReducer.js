@@ -19,7 +19,6 @@ const initialState = {
 };
 
 export const studentReducer = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case STUDENT_DATA_START:
       return {
