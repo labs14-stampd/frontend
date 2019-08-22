@@ -56,6 +56,7 @@ export const studentReducer = (state = initialState, action) => {
         studentDataSuccess: true
       };
     case STUDENT_EMAIL_UPDATE:
+      const { email, id, userId } = action.payload;
       return {
         ...state,
         studentData: {
@@ -64,7 +65,11 @@ export const studentReducer = (state = initialState, action) => {
             ...state.studentData.studentDetails,
             emailList: [
               ...state.studentData.studentDetails.emailList,
-              action.payload
+              { email, id, userId }
+            ],
+            credentials: [
+              ...state.studentData.studentDetails.credentials,
+              ...action.payload.credentials
             ]
           }
         }

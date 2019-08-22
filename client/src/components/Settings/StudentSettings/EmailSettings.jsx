@@ -48,6 +48,7 @@ const EmailSettings = () => {
         type: STUDENT_EMAIL_UPDATE,
         payload: data.addUserEmail
       });
+      console.log('data', data);
       toast.success(`Email added succesfully`, {
         className: 'status-ok',
         position: toast.POSITION.BOTTOM_CENTER,
@@ -128,7 +129,9 @@ const EmailSettings = () => {
                   id={item.id}
                   email={item.email}
                   setUserEmailIdToDelete={setUserEmailIdToDelete}
-                  setHasActiveConfirmationDialog={setHasActiveConfirmationDialog}
+                  setHasActiveConfirmationDialog={
+                    setHasActiveConfirmationDialog
+                  }
                 />
               );
             }}
