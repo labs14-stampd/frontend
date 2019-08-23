@@ -26,7 +26,7 @@ const authLink = new ApolloLink((operation, forward) => {
   // set HTTP headers
   operation.setContext({
     headers: {
-      authorization: token ? `Bearer ${token}` : ''
+      authorization: token ? `${token}` : ''
     }
   });
   // Call next link to middleware chain
