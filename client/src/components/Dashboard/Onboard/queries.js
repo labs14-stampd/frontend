@@ -71,6 +71,7 @@ const queries = {
             phone
             url
             userId
+            token
             credentials {
               id
               credHash
@@ -144,6 +145,7 @@ const queries = {
             zip
             phone
             userId
+            token
             emailList {
               email
               id

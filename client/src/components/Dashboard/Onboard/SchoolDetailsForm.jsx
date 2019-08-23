@@ -48,11 +48,11 @@ const SchoolDetailsForm = ({ history }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const details = await queries.addSchoolDetails(input);
       await queries.addRole({
         id: user.id,
         roleId: '2' // Role of a school is set to always be 2
       });
+      const details = await queries.addSchoolDetails(input);
       dispatchGlobal({
         type: ON_BOARD_DETAILS,
         payload: { ...user, roleId: 2 }
@@ -61,6 +61,8 @@ const SchoolDetailsForm = ({ history }) => {
         type: SET_SCHOOL_DATA,
         payload: { ...details }
       });
+      localStorage.removeItem('token');
+      localStorage.token = details.data.addSchoolDetail.token;
       toast.success(`School Details added succesfully`, {
         className: 'status-ok',
         position: toast.POSITION.BOTTOM_CENTER,
