@@ -65,6 +65,7 @@ const SchoolDetailsForm = ({ history }) => {
         payload: { ...details }
       });
       localStorage.removeItem('token');
+      console.log(details)
       localStorage.token = details.data.addStudentDetail.token;
       toast.success(`Student Details added succesfully`, {
         className: 'status-ok',
