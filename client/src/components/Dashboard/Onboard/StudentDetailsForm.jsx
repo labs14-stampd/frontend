@@ -48,13 +48,13 @@ const SchoolDetailsForm = ({ history }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const details = await queries.addStudentDetail({
-        fullName: `${input.firstName} ${input.lastName}`,
-        ...input
-      });
       await queries.addRole({
         id: user.id,
         roleId: 3 // Role of a student is set to always be 3
+      });
+      const details = await queries.addStudentDetail({
+        fullName: `${input.firstName} ${input.lastName}`,
+        ...input
       });
       dispatchGlobal({
         type: ON_BOARD_DETAILS,

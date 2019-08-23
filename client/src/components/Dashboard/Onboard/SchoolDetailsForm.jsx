@@ -48,11 +48,11 @@ const SchoolDetailsForm = ({ history }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const details = await queries.addSchoolDetails(input);
       await queries.addRole({
         id: user.id,
         roleId: '2' // Role of a school is set to always be 2
       });
+      const details = await queries.addSchoolDetails(input);
       dispatchGlobal({
         type: ON_BOARD_DETAILS,
         payload: { ...user, roleId: 2 }
