@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useStateValue } from 'react-conflux';
-import Loader from 'react-loader-spinner';
 
 import SchoolDashboard from './SchoolDashboard';
 import StudentDashboard from './StudentDashboard';
@@ -50,14 +49,10 @@ const Dashboard = ({ history }) => {
   }, []);
   return (
     <Container>
-      {!schoolState.schoolData && !studentState.studentData ? (
-        <Loader type="RevolvingDot" color="#7D4CDB" height={100} width={100} />
-      ) : (
-        <>
-          {Number(user.roleId) === 2 && <SchoolDashboard history={history} />}
-          {Number(user.roleId) === 3 && <StudentDashboard history={history} />}
-        </>
-      )}
+      <>
+        {Number(user.roleId) === 2 && <SchoolDashboard history={history} />}
+        {Number(user.roleId) === 3 && <StudentDashboard history={history} />}
+      </>
     </Container>
   );
 };
@@ -71,6 +66,7 @@ const Container = styled.div`
   margin: 0 auto;
   min-height: calc(100vh - 70px);
   width: 100%;
+  position: relative;
 `;
 
 export default Dashboard;

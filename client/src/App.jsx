@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { Grommet } from 'grommet';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useStateValue } from 'react-conflux';
 
 import PrivateRoute from './auth/PrivateRoute';
 import { useAuth0 } from './auth/authWrapper';
@@ -17,15 +18,23 @@ import CredentialForm from './components/Dashboard/CredentialsForm';
 import ErrorPage from './components/ErrorPage';
 import Settings from './components/Settings';
 import GlobalStyle from './styles';
+import { schoolContext } from './store/reducers/schoolReducer';
+import { studentContext } from './store/reducers/studentReducer';
 
 import Layout from './components/Layout';
 
 function App(props) {
   const { loading } = useAuth0();
+  const [{ studentDataSuccess }] = useStateValue(studentContext);
+  const [{ schoolDataSuccess }] = useStateValue(schoolContext);
+  console.log(schoolDataSuccess, studentDataSuccess);
   return (
     <>
       {loading ? (
-        <Loading />
+        <>
+          <Loading />
+          <GlobalStyle />
+        </>
       ) : (
         <Grommet theme={theme}>
           <Layout {...props}>
