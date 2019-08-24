@@ -102,14 +102,27 @@ const NavContainter = styled.div`
       width: 40%;
 
       div {
-        width: 102px;
+        width: 113px;
         height: auto;
+
+        a {
+          display: flex;
+          align-content: center;
+
+          :hover {
+            opacity: 0.8;
+          }
+        }
       }
     }
 
     svg {
       cursor: pointer;
       margin-right: 4%;
+
+      :hover {
+        opacity: 0.8;
+      }
     }
 
     .button__container {

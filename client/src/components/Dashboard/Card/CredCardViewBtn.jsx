@@ -28,7 +28,7 @@ const CardCredBtnContainer = styled.div`
 
 const CardCredViewButton = styled(BaseButton)`
   border-radius: 50px;
-  border-color: #e3e3e3;
+  border-color: #adadad;
 
   :hover {
     border-color: #7d4cdb;

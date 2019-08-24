@@ -25,9 +25,8 @@ import Layout from './components/Layout';
 
 function App(props) {
   const { loading } = useAuth0();
-  const [{ studentDataSuccess }] = useStateValue(studentContext);
-  const [{ schoolDataSuccess }] = useStateValue(schoolContext);
-  console.log(schoolDataSuccess, studentDataSuccess);
+  const [{ studentDataStart }] = useStateValue(studentContext);
+  const [{ schoolDataStart }] = useStateValue(schoolContext);
   return (
     <>
       {loading ? (
