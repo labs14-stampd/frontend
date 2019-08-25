@@ -28,8 +28,8 @@ const MenuButton = ({ setShown, isShown }) => {
 };
 
 MenuButton.propTypes = {
-  setShown: PropTypes.bool.isRequired,
-  isShown: PropTypes.func.isRequired
+  setShown: PropTypes.func.isRequired,
+  isShown: PropTypes.bool.isRequired
 };
 
 const Styles = styled.div`

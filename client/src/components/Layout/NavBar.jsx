@@ -61,7 +61,9 @@ function NavBar({ history }) {
           </div>
         )}
       </nav>
-      {isShown && <MenuLayer onClose={onClose} history={history} />}
+      {isShown && (
+        <MenuLayer onClose={onClose} isShown={isShown} history={history} />
+      )}
     </NavContainter>
   );
 }

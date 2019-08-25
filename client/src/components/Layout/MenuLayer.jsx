@@ -1,12 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { Box, Button, Layer, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import { useStateValue } from 'react-conflux';
 import { globalContext } from '../../store/reducers/globalReducer';
 import c from '../../store/constants';
 
-const MenuLayer = ({ onClose, history }) => {
+const MenuLayer = ({ isShown, onClose, history }) => {
   const [{ user }] = useStateValue(globalContext);
   const navRoute = (e, route) => {
     e.preventDefault();
@@ -16,10 +16,12 @@ const MenuLayer = ({ onClose, history }) => {
   const menuArray = user.roleId === '2' ? c.schoolRoutes : c.studentRoutes;
   return (
     <MenuBar
+      className={isShown && 'menu-bar__shown'}
       position="left"
       full="vertical"
       plain
       onClickOutside={() => onClose()}
+      isShown={isShown}
     >
       <Box pad="medium" background="brand" fill="vertical">
         {menuArray.map(navItem => (
@@ -41,16 +43,30 @@ const MenuLayer = ({ onClose, history }) => {
 };
 
 MenuLayer.propTypes = {
+  isShown: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
+const menuSlide = keyframes`
+  0% {
+    margin: 70px 0 0 -275px;
+  }
+  100% {
+    margin: 70px 0 0;
+  }
+`;
+
 const MenuBar = styled(Layer)`
-  margin: 70px 0 0 -275px;
+  padding: 0;
   width: 275px;
   height: calc(100vh - 70px);
   animation: none;
-  transition: 0.3s;
+  ${props =>
+    props.isShown &&
+    css`
+      animation: 0.3s ${menuSlide} forwards;
+    `}
 
   .navbar__link {
     transition: opacity 0.3s;
