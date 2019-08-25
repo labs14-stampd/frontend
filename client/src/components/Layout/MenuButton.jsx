@@ -3,17 +3,15 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const MenuButton = ({ setShown, isShown }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const setMenu = e => {
     e.preventDefault();
-    setIsOpen(!isOpen);
     setShown(!isShown);
   };
   return (
     <Styles data-testid="hamburger">
       <div
         className={
-          isOpen
+          isShown
             ? 'hamburger-menu menu-open clickHamburgerMenu'
             : 'hamburger-menu'
         }
