@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Menu } from 'grommet-icons';
 import { Link } from 'react-router-dom';
 import { SecondaryButton } from '../../styles/themes';
 
 import { useAuth0 } from '../../auth/authWrapper';
 import MenuLayer from './MenuLayer';
 import stampdLogoWhite from '../../images/stampd_full_white.svg';
+import MenuButton from './MenuButton';
 
 function NavBar({ history }) {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [isShown, setShown] = useState(false);
+
+  const openNav = e => {
+    e.preventDefault();
+    setShown(!isShown);
+    console.log(isShown);
+  };
 
   const onClose = () => {
     setShown(false);
@@ -27,15 +33,9 @@ function NavBar({ history }) {
       <nav>
         <div>
           {isAuthenticated && (
-            <Menu
-              onClick={() => setShown(!isShown)}
-              className="hamburger"
-              size="large"
-              color="white"
-              data-testid="hamburger"
-            />
+            <MenuButton openNav={openNav} data-testid="hamburger" />
           )}
-          <div>
+          <div className="logo">
             <Link to={isAuthenticated ? '/dashboard' : '/'}>
               <img src={stampdLogoWhite} alt="Stampd logo" draggable="false" />
             </Link>
@@ -88,7 +88,6 @@ const NavContainter = styled.div`
 
   nav {
     margin: 0 auto;
-    max-width: 1600px;
     width: 100%;
     height: 70px;
     display: flex;
@@ -99,19 +98,14 @@ const NavContainter = styled.div`
     div:first-of-type {
       display: flex;
       align-items: center;
-      width: 40%;
 
-      div {
+      .logo {
         width: 113px;
         height: auto;
 
         a {
           display: flex;
           align-content: center;
-
-          :hover {
-            opacity: 0.8;
-          }
         }
       }
     }
@@ -119,10 +113,6 @@ const NavContainter = styled.div`
     svg {
       cursor: pointer;
       margin-right: 4%;
-
-      :hover {
-        opacity: 0.8;
-      }
     }
 
     .button__container {

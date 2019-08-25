@@ -46,7 +46,13 @@ const Dashboard = ({ history }) => {
       }
       getUserData();
     }
-  }, []);
+  }, [
+    schoolDispatch,
+    schoolState.schoolData,
+    studentDispatch,
+    studentState.studentData,
+    user
+  ]);
   return (
     <Container>
       <>
