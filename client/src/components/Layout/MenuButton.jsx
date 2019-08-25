@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const MenuButton = () => {
+const MenuButton = ({ setShown, isShown }) => {
   const [isOpen, setIsOpen] = useState(false);
   const setMenu = e => {
     e.preventDefault();
     setIsOpen(!isOpen);
+    setShown(!isShown);
   };
   return (
     <Styles>
@@ -15,7 +17,7 @@ const MenuButton = () => {
             ? 'hamburger-menu menu-open clickHamburgerMenu'
             : 'hamburger-menu'
         }
-        onClick={setMenu}
+        onClick={e => setMenu(e)}
       >
         <span />
         <span />
@@ -23,6 +25,11 @@ const MenuButton = () => {
       </div>
     </Styles>
   );
+};
+
+MenuButton.propTypes = {
+  setShown: PropTypes.bool.isRequired,
+  isShown: PropTypes.func.isRequired
 };
 
 const Styles = styled.div`

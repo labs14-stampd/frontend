@@ -46,7 +46,7 @@ MenuLayer.propTypes = {
 };
 
 const MenuBar = styled(Layer)`
-  margin-top: 70px;
+  margin: 70px 0 0 -275px;
   width: 275px;
   height: calc(100vh - 70px);
   animation: none;

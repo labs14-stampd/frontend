@@ -13,12 +13,6 @@ function NavBar({ history }) {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [isShown, setShown] = useState(false);
 
-  const openNav = e => {
-    e.preventDefault();
-    setShown(!isShown);
-    console.log(isShown);
-  };
-
   const onClose = () => {
     setShown(false);
   };
@@ -33,7 +27,12 @@ function NavBar({ history }) {
       <nav>
         <div>
           {isAuthenticated && (
-            <MenuButton openNav={openNav} data-testid="hamburger" />
+            <MenuButton
+              setShown={setShown}
+              isShown={isShown}
+              onClose={onClose}
+              data-testid="hamburger"
+            />
           )}
           <div className="logo">
             <Link to={isAuthenticated ? '/dashboard' : '/'}>
