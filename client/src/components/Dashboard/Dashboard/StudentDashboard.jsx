@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import { InfiniteScroll, Box } from 'grommet';
 import FuzzySearch from 'fuzzy-search';
 
@@ -78,12 +77,9 @@ const StudentDashboard = () => {
   );
 };
 
-StudentDashboard.propTypes = {
-  history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
-};
-
 const StudentDetails = styled.section`
   margin: 50px auto 30px;
+  padding: 0 2%;
   max-width: 1600px;
   width: 100%;
   display: flex;
@@ -138,6 +134,7 @@ const NothingFound = styled.p`
 const CredCardContainer = styled(Box)`
   height: 75vh;
   overflow: auto;
+  padding: 0 2%;
 `;
 
 

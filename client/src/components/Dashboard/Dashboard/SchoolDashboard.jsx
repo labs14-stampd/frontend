@@ -88,7 +88,8 @@ SchoolDashboard.propTypes = {
 
 const SchoolDetails = styled.section`
   margin: 50px auto 30px;
-  max-width: 1600px;
+  padding: 0 2%;
+  max-width: 1675px;
   width: 100%;
   display: flex;
   justify-content: space-between;
