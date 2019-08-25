@@ -56,13 +56,13 @@ const StudentDashboard = () => {
       ) : (
         <>
           {studentState.studentDataSuccess && searchResult.length ? (
-            <Box height="75vh" overflow="auto">
+            <CredCardContainer>
               <InfiniteScroll items={searchResult} step={10}>
                 {item => {
                   return <CredCard key={item.id} cred={item} />;
                 }}
               </InfiniteScroll>
-            </Box>
+            </CredCardContainer>
           ) : (
             studentState.studentDataSuccess && (
               <NothingFound>
@@ -134,5 +134,11 @@ const NothingFound = styled.p`
   margin-top: 20vh;
   color: ${({ theme }) => theme.global.colors['status-disabled']};
 `;
+
+const CredCardContainer = styled(Box)`
+  height: 75vh;
+  overflow: auto;
+`;
+
 
 export default StudentDashboard;

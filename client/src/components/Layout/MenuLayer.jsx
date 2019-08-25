@@ -58,7 +58,6 @@ const menuSlide = keyframes`
 `;
 
 const MenuBar = styled(Layer)`
-  padding: 0;
   width: 275px;
   height: calc(100vh - 70px);
   animation: none;
@@ -68,11 +67,13 @@ const MenuBar = styled(Layer)`
       animation: 0.3s ${menuSlide} forwards;
     `}
 
-  .navbar__link {
-    transition: opacity 0.3s;
+  div {
+    .navbar__link {
+      transition: opacity 0.3s;
 
-    :hover {
-      opacity: 0.6;
+      :hover {
+        opacity: 0.6;
+      }
     }
   }
 `;

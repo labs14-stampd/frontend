@@ -68,7 +68,7 @@ SchoolDashboard.propTypes = {
 };
 
 const Container = styled.div`
-  padding: 70px 2% 0;
+  padding: 70px 1% 0;
   margin: 0 auto;
   min-height: calc(100vh - 70px);
   width: 100%;
