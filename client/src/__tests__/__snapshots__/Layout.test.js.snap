@@ -17,6 +17,7 @@ exports[`<Layout /> should match the previous snapshot of the component tests th
           <div>
             <div
               className="sc-bZQynM kfMrJj"
+              data-testid="hamburger"
             >
               <div
                 className="hamburger-menu"

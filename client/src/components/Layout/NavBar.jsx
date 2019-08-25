@@ -31,7 +31,6 @@ function NavBar({ history }) {
               setShown={setShown}
               isShown={isShown}
               onClose={onClose}
-              data-testid="hamburger"
             />
           )}
           <div className="logo">

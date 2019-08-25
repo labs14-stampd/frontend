@@ -10,7 +10,7 @@ const MenuButton = ({ setShown, isShown }) => {
     setShown(!isShown);
   };
   return (
-    <Styles>
+    <Styles data-testid="hamburger">
       <div
         className={
           isOpen

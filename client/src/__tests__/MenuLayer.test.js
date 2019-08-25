@@ -15,6 +15,7 @@ describe('<MenuLayer />', () => {
         <MenuLayer
           history={{ location: { pathname: '/' }, push: () => null }}
           onClose={() => null}
+          isShown={true}
         />
       );
     });

@@ -80,7 +80,7 @@ const StudentDashboard = () => {
 const StudentDetails = styled.section`
   margin: 50px auto 30px;
   padding: 0 2%;
-  max-width: 1600px;
+  max-width: 1675px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -100,7 +100,7 @@ const StudentDetails = styled.section`
       color: ${({ theme }) => theme.global.colors.searchBarColor};
       height: 40px;
       margin-right: 1.5%;
-      padding: 25px 5% 25px 2.5%;
+      padding: 25px;
       transition: 0.25s ease-in-out;
       width: 220px;
       caret-color: grey;
