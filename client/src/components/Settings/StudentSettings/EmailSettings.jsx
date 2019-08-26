@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
 import { InfiniteScroll, Box } from 'grommet';
 import { Trash } from 'grommet-icons';
-import { Formik } from 'formik';
+import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
 import queries from '../queries';
-import { BaseForm, BaseFormField, BaseButton } from '../../../styles/themes';
-import BaseTextInput from '../../FormInputs/BaseTextInput';
+import { BaseButton } from '../../../styles/themes';
 import { globalContext } from '../../../store/reducers/globalReducer';
 import {
   studentContext,
