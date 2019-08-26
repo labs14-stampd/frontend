@@ -8,7 +8,6 @@ const EmailContainer = ({
   setUserEmailIdToDelete,
   setHasActiveConfirmationDialog
 }) => {
-  console.log(email);
   return (
     <>
       <EmailCtn>
