@@ -18,7 +18,7 @@ import {
 import ConfirmationLayer from '../../ConfirmationLayer';
 import EmailContainer from './EmailContainer';
 
-const EmailSettings = () => {
+const EmailSettings = ({ errors, touched, status }) => {
   const [{ user }] = useStateValue(globalContext);
   const [studentState, studentDispatch] = useStateValue(studentContext);
   const emailList = studentState.studentData.studentDetails.emailList.sort(
@@ -34,27 +34,34 @@ const EmailSettings = () => {
   ] = useState(false);
   const [userEmailIdToDelete, setUserEmailIdToDelete] = useState(null);
 
-  const submitEmail = async () => {
-    try {
-      const { data } = await queries.addUserEmail({
-        userId: user.id,
-        email
-      });
-      studentDispatch({
-        type: STUDENT_EMAIL_UPDATE,
-        payload: data.addUserEmail
-      });
-      toast.success(`Email added succesfully`, {
-        className: 'status-ok',
-        position: toast.POSITION.BOTTOM_CENTER,
-        hideProgressBar: true,
-        autoClose: true
-      });
-      setEmail('');
-    } catch (err) {
-      console.error(err);
+  useEffect(() => {
+    // status will only be true when handleSubmit from formik is activated
+    if (status) {
+      const submitEmail = async () => {
+        try {
+          const { data } = await queries.addUserEmail({
+            userId: user.id,
+            email: status.email
+          });
+          studentDispatch({
+            type: STUDENT_EMAIL_UPDATE,
+            payload: data.addUserEmail
+          });
+          toast.success(`Email added succesfully`, {
+            className: 'status-ok',
+            position: toast.POSITION.BOTTOM_CENTER,
+            hideProgressBar: true,
+            autoClose: true
+          });
+          setEmail('');
+        } catch (err) {
+          console.error(err);
+        }
+      };
+
+      submitEmail();
     }
-  };
+  }, [status]);
 
   const confirmRemoveEmail = async ({ id, email: removedEmail }) => {
     try {
@@ -155,11 +162,31 @@ const EmailSettings = () => {
   );
 };
 
+const EmailSettingsWithFormik = withFormik({
+  mapPropsToValues({ email }) {
+    return {
+      email: email || ''
+    };
+  },
+
+  validationSchema: Yup.object().shape({
+    email: Yup.string()
+      .email()
+      .required()
+  }),
+
+  async handleSubmit(values, { setStatus, resetForm }) {
+    // pass values from input to props.status
+    setStatus(values);
+    resetForm();
+  }
+})(EmailSettings);
+
 const EmailSection = styled(Box)`
   justify-content: space-between;
 `;
 
-const StudentForm = styled(BaseForm)`
+const StudentForm = styled(Form)`
   margin: 50px auto 10px;
   border-radius: 2px;
   max-width: 800px;
