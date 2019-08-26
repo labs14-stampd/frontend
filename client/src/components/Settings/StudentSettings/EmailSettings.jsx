@@ -4,15 +4,12 @@ import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
 import { InfiniteScroll, Box } from 'grommet';
 import { Trash } from 'grommet-icons';
-import { useField, Formik } from 'formik';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 
 import queries from '../queries';
-import {
-  BaseForm,
-  BaseTextInput,
-  BaseFormField,
-  BaseButton
-} from '../../../styles/themes';
+import { BaseForm, BaseFormField, BaseButton } from '../../../styles/themes';
+import BaseTextInput from '../../FormInputs/BaseTextInput';
 import { globalContext } from '../../../store/reducers/globalReducer';
 import {
   studentContext,
@@ -38,8 +35,7 @@ const EmailSettings = () => {
   ] = useState(false);
   const [userEmailIdToDelete, setUserEmailIdToDelete] = useState(null);
 
-  const submitEmail = async e => {
-    e.preventDefault();
+  const submitEmail = async () => {
     try {
       const { data } = await queries.addUserEmail({
         userId: user.id,
@@ -89,30 +85,40 @@ const EmailSettings = () => {
     }
   };
 
+  const addEmailValidationSchema = Yup.object().shape({
+    email: Yup.string()
+      .email('Please enter a valid email')
+      .required('Please enter an email')
+  });
   return (
     <>
-      <StudentForm onSubmit={submitEmail}>
-        <EmailSection direction="column">
-          <Box direction="column">
-            <h2>Add an Email</h2>
-            <StudentFormField>
-              <StudentBaseTextInput
-                name="email"
-                placeholder="fakeemail@email.com"
-                onChange={e => setEmail(e.target.value)}
-                value={email}
-                plain={false}
+      <Formik
+        onSubmit={submitEmail}
+        initialValues={{ email }}
+        validationSchema={addEmailValidationSchema}
+        render={({ handleSubmit }) => (
+          <StudentForm onSubmit={handleSubmit}>
+            <EmailSection direction="column">
+              <Box direction="column">
+                <h2>Add an Email</h2>
+                <StudentFormField>
+                  <StudentBaseTextInput
+                    name="email"
+                    placeholder="fakeemail@email.com"
+                    plain={false}
+                  />
+                </StudentFormField>
+              </Box>
+              <StudentButton
+                type="submit"
+                primary
+                label="Add Email"
+                alignSelf="center"
               />
-            </StudentFormField>
-          </Box>
-          <StudentButton
-            type="submit"
-            primary
-            label="Add Email"
-            alignSelf="center"
-          />
-        </EmailSection>
-      </StudentForm>
+            </EmailSection>
+          </StudentForm>
+        )}
+      />
       <EmailBox direction="column">
         <h2>Emails</h2>
         <EmailSectionContainer>
