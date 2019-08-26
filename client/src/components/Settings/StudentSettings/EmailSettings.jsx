@@ -119,6 +119,7 @@ const EmailSettings = ({ errors, touched, status }) => {
         <h2>Emails</h2>
         <EmailSectionContainer>
           <p>{user.email}</p>
+          <p>Primary email</p>
           <TrashButton disabled color="searchBarBorder" />
         </EmailSectionContainer>
         {hasActiveConfirmationDialog && (
