@@ -35,7 +35,7 @@ MenuButton.propTypes = {
 
 const Styles = styled.div`
   cursor: pointer;
-  margin-right: 13px;
+  margin-right: 25px;
 
   .hamburger-menu {
     width: 33px;

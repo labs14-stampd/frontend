@@ -32,6 +32,7 @@ function NavBar({ history }) {
         <div>
           {isAuthenticated && (
             <MenuButton
+              className="hamburger"
               setShown={setShown}
               isShown={isShown}
               onClose={toggleOpen}
@@ -121,11 +122,10 @@ const NavContainter = styled.div`
           align-content: center;
         }
       }
-    }
 
-    div:last-of-type {
-      cursor: pointer;
-      margin-right: 20px;
+      .hamburger {
+        cursor: pointer;
+      }
     }
 
     .button__container {
