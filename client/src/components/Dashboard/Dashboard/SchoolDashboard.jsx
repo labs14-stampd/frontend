@@ -136,7 +136,7 @@ const SchoolDetails = styled.section`
 
       &:focus {
         color: ${({ theme }) => theme.global.colors.brand};
-        border-color: ${({ theme }) => theme.global.colors['accent-4']};
+        border-color: ${({ theme }) => theme.global.colors['accent-2']};
         outline: none;
         padding-left: 15px;
         width: 50%;
