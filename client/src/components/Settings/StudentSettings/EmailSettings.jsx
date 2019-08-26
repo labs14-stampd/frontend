@@ -26,7 +26,6 @@ const EmailSettings = ({ errors, touched, status }) => {
       return a.email > b.email ? 1 : -1;
     }
   );
-  const [email, setEmail] = useState('');
 
   const [
     hasActiveConfirmationDialog,
@@ -53,7 +52,6 @@ const EmailSettings = ({ errors, touched, status }) => {
             hideProgressBar: true,
             autoClose: true
           });
-          setEmail('');
         } catch (err) {
           console.error(err);
         }
