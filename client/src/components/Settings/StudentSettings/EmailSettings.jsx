@@ -102,7 +102,7 @@ const EmailSettings = ({ errors, touched, status }) => {
               placeholder="fakeemail@email.com"
             />
             {touched.email && errors.email && (
-              <p className="error">{errors.email}</p>
+              <ErrorMessage>{errors.email}</ErrorMessage>
             )}
           </Box>
           <StudentButton
@@ -151,6 +151,8 @@ const EmailSettings = ({ errors, touched, status }) => {
   );
 };
 
+// Formik HOC
+
 const EmailSettingsWithFormik = withFormik({
   mapPropsToValues({ email }) {
     return {
@@ -170,6 +172,12 @@ const EmailSettingsWithFormik = withFormik({
     resetForm();
   }
 })(EmailSettings);
+
+// styled components
+
+const ErrorMessage = styled.p`
+  color: red;
+`;
 
 const EmailSection = styled(Box)`
   justify-content: space-between;
