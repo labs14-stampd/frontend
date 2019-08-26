@@ -16,6 +16,9 @@ describe('<MenuLayer />', () => {
           history={{ location: { pathname: '/' }, push: () => null }}
           onClose={() => null}
           isShown={true}
+          setLoading={() => null}
+          loading={true}
+          toggleOpen={() => null}
         />
       );
     });

@@ -6,7 +6,7 @@ import { useStateValue } from 'react-conflux';
 import { globalContext } from '../../store/reducers/globalReducer';
 import c from '../../store/constants';
 
-const MenuLayer = ({ isShown, toggleOpen, history, loading, setLoading }) => {
+const MenuLayer = ({ isShown, toggleOpen, history, setLoading }) => {
   const [{ user }] = useStateValue(globalContext);
   const navRoute = (e, route) => {
     e.preventDefault();
@@ -43,7 +43,6 @@ const MenuLayer = ({ isShown, toggleOpen, history, loading, setLoading }) => {
 };
 
 MenuLayer.propTypes = {
-  loading: PropTypes.bool.isRequired,
   isShown: PropTypes.bool.isRequired,
   setLoading: PropTypes.func.isRequired,
   toggleOpen: PropTypes.func.isRequired,

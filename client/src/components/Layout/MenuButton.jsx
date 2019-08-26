@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const MenuButton = ({ setShown, isShown, setLoading, loading }) => {
+const MenuButton = ({ setShown, isShown, setLoading }) => {
   const setMenu = e => {
     e.preventDefault();
     setShown(!isShown);

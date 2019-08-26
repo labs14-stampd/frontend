@@ -11,12 +11,12 @@ exports[`<Layout /> should match the previous snapshot of the component tests th
       className="sc-iwsKbI kokDzR"
     >
       <div
-        className="sc-gzVnrw fUxDQo"
+        className="sc-gzVnrw hBhGzu"
       >
         <nav>
           <div>
             <div
-              className="sc-bZQynM kfMrJj"
+              className="sc-bZQynM kdDOgS"
               data-testid="hamburger"
             >
               <div
@@ -38,7 +38,7 @@ exports[`<Layout /> should match the previous snapshot of the component tests th
                 <img
                   alt="Stampd logo"
                   draggable="false"
-                  src="stampd_full_white.svg"
+                  src="stampd_full_white.png"
                 />
               </a>
             </div>
