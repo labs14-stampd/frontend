@@ -11,15 +11,12 @@ const privateKey = process.env.REACT_APP_PRIVATE_KEY;
 const CredentialView = ({ match }) => {
   const [credential, setCredential] = useState(null);
 
-  console.log(privateKey);
-
   useEffect(() => {
     const credFn = async () => {
       try {
-        // const decoded = await jwt.verify(match.params.jwt, privateKey);
-        // console.log(decoded);
+        const { credId } = await jwt.verify(match.params.jwt, privateKey);
         const { data } = await queries.getCredentialById({
-          id: 1
+          id: credId
         });
         setCredential(data.getCredentialById);
       } catch (error) {
@@ -29,7 +26,6 @@ const CredentialView = ({ match }) => {
     credFn();
   }, [match.params.jwt]);
 
-  console.log(credential);
   return (
     <div style={{ marginTop: '100px' }}>
       {credential ? (
