@@ -91,40 +91,30 @@ const EmailSettings = ({ errors, touched, status }) => {
     }
   };
 
-  const addEmailValidationSchema = Yup.object().shape({
-    email: Yup.string()
-      .email('Please enter a valid email')
-      .required('Please enter an email')
-  });
   return (
     <>
-      <Formik
-        onSubmit={submitEmail}
-        initialValues={{ email }}
-        validationSchema={addEmailValidationSchema}
-        render={({ handleSubmit }) => (
-          <StudentForm onSubmit={handleSubmit}>
-            <EmailSection direction="column">
-              <Box direction="column">
-                <h2>Add an Email</h2>
-                <StudentFormField>
-                  <StudentBaseTextInput
-                    name="email"
-                    placeholder="fakeemail@email.com"
-                    plain={false}
-                  />
-                </StudentFormField>
-              </Box>
-              <StudentButton
-                type="submit"
-                primary
-                label="Add Email"
-                alignSelf="center"
-              />
-            </EmailSection>
-          </StudentForm>
-        )}
-      />
+      <StudentForm>
+        <EmailSection direction="column">
+          <Box direction="column">
+            <h2>Add an Email</h2>
+            <StudentField
+              component="input"
+              type="text"
+              name="email"
+              placeholder="fakeemail@email.com"
+            />
+            {touched.email && errors.email && (
+              <p className="error">{errors.email}</p>
+            )}
+          </Box>
+          <StudentButton
+            type="submit"
+            primary
+            label="Add Email"
+            alignSelf="center"
+          />
+        </EmailSection>
+      </StudentForm>
       <EmailBox direction="column">
         <h2>Emails</h2>
         <EmailSectionContainer>
@@ -240,4 +230,4 @@ const EmailSectionContainer = styled.section`
   }
 `;
 
-export default EmailSettings;
+export default EmailSettingsWithFormik;
