@@ -19,10 +19,11 @@ const CredCardShareBtn = ({ credId }) => {
   const confirmSendEmail = async email => {
     console.log(email);
     try {
-      await queries.shareCredential({
+      const em = await queries.shareCredential({
         id: credId,
         email
       });
+      console.log('em', em);
       toast.success(`Success! Email sent`, {
         className: 'status-ok',
         position: toast.POSITION.BOTTOM_CENTER,
