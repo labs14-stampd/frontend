@@ -18,6 +18,16 @@ const StudentNameContainer = styled.div`
   display: flex;
   align-items: center;
   width: 20%;
+
+  @media (max-width: 500px) {
+    width: 88%;
+
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+  }
 `;
 
 export default CredCardStudentName;

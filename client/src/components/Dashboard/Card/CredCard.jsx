@@ -91,6 +91,11 @@ const CredContainer = styled.section`
   padding: 20px 0;
   transition: box-shadow 0.5s;
 
+  @media (max-width: 500px) {
+    flex-direction: column;
+    padding: 30px 6%;
+  }
+
   :hover {
     -webkit-box-shadow: 0px 0px 15px -2px rgba(173, 145, 237, 1);
     -moz-box-shadow: 0px 0px 15px -2px rgba(173, 145, 237, 1);

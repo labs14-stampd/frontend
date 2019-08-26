@@ -21,6 +21,20 @@ const SchoolNameContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 45%;
+
+  @media (max-width: 500px) {
+    width: 88%;
+
+    h2 {
+      font-size: 2.1rem;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+  }
 `;
 
 export default CredCardSchoolName;
