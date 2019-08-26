@@ -44,7 +44,7 @@ const queries = {
           id: $id,
           email: $email
         ) {
-
+          email
         }
       }
     `
