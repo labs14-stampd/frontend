@@ -188,15 +188,18 @@ const StudentButton = styled(BaseButton)`
   margin: 10px 20px 15px;
 `;
 
-const StudentBaseTextInput = styled(BaseTextInput)`
+const StudentField = styled(Field)`
   border: none;
+  background: transparent;
+  border-bottom: 1px solid black;
   width: 100%;
   max-width: 800px;
-  padding-left: 0;
-`;
-
-const StudentFormField = styled(BaseFormField)`
-  border-bottom: none;
+  padding: 10px 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  ::placeholder {
+    font-size: 1.6rem;
+  }
 `;
 
 const TrashButton = styled(Trash)`
