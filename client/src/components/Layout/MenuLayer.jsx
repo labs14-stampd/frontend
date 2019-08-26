@@ -1,27 +1,27 @@
 import React from 'react';
-import styled, { keyframes, css } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Box, Button, Layer, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import { useStateValue } from 'react-conflux';
 import { globalContext } from '../../store/reducers/globalReducer';
 import c from '../../store/constants';
 
-const MenuLayer = ({ isShown, onClose, history }) => {
+const MenuLayer = ({ isShown, toggleOpen, history, loading, setLoading }) => {
   const [{ user }] = useStateValue(globalContext);
   const navRoute = (e, route) => {
     e.preventDefault();
     history.push(route);
-    onClose();
+    setLoading(false);
+    toggleOpen();
   };
   const menuArray = user.roleId === '2' ? c.schoolRoutes : c.studentRoutes;
   return (
     <MenuBar
-      className={isShown && 'menu-bar__shown'}
+      className={isShown && 'menu--shown'}
       position="left"
       full="vertical"
-      plain
-      onClickOutside={() => onClose()}
-      isShown={isShown}
+      plain={false}
+      onClickOutside={() => toggleOpen()}
     >
       <Box pad="medium" background="brand" fill="vertical">
         {menuArray.map(navItem => (
@@ -43,13 +43,18 @@ const MenuLayer = ({ isShown, onClose, history }) => {
 };
 
 MenuLayer.propTypes = {
+  loading: PropTypes.bool.isRequired,
   isShown: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
+  setLoading: PropTypes.func.isRequired,
+  toggleOpen: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
-const menuSlide = keyframes`
+const menuOpen = keyframes`
   0% {
+    display: block;
+  }
+  1% {
     margin: 70px 0 0 -275px;
   }
   100% {
@@ -58,14 +63,13 @@ const menuSlide = keyframes`
 `;
 
 const MenuBar = styled(Layer)`
+  margin: 70px 0 0 -275px;
   width: 275px;
   height: calc(100vh - 70px);
-  animation: none;
-  ${props =>
-    props.isShown &&
-    css`
-      animation: 0.3s ${menuSlide} forwards;
-    `}
+
+  &.menu--shown {
+    animation: 0.3s ${menuOpen} forwards;
+  }
 
   div {
     .navbar__link {

@@ -65,7 +65,7 @@ const CredCardDeleteBtn = ({ credId, credHash }) => {
           } // This state value setting will cause the layer to appear
         >
           {isDeleting ? (
-            <Loader type="Oval" color="#d8d8d8" height={30} width={30} />
+            <Loader type="Oval" color="#adadad" height={30} width={30} />
           ) : (
             <TrashButton />
           )}

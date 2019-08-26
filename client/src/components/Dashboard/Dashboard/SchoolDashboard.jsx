@@ -38,7 +38,11 @@ const SchoolDashboard = ({ history }) => {
   return (
     <>
       <SchoolDetails>
-        {true ? <h2>{schoolState.schoolData.schoolDetails.name}</h2> : <div />}
+        {schoolState.schoolDataSuccess ? (
+          <h2>{schoolState.schoolData.schoolDetails.name}</h2>
+        ) : (
+          <div />
+        )}
         <div>
           <input
             type="text"
@@ -123,7 +127,7 @@ const SchoolDetails = styled.section`
 
       &:focus {
         color: ${({ theme }) => theme.global.colors.brand};
-        border-color: ${({ theme }) => theme.global.colors.brand};
+        border-color: ${({ theme }) => theme.global.colors['accent-4']};
         outline: none;
         padding-left: 15px;
         width: 50%;
@@ -145,13 +149,13 @@ const NothingFound = styled.p`
   text-align: center;
   font-size: 2.4rem;
   margin-top: 20vh;
-  color: ${({ theme }) => theme.global.colors['status-disabled']};
+  color: ${({ theme }) => theme.global.colors.dashboardNotFoundColor};
 `;
 
 const CredCardContainer = styled(Box)`
   height: 75vh;
   overflow: auto;
-  padding: 0 2%;
+  padding: 10px 2%;
 `;
 
 export default SchoolDashboard;
