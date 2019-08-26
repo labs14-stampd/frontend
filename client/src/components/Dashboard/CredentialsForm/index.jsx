@@ -313,6 +313,12 @@ const Container = styled.main`
   height: calc(100vh - 70px);
   padding-top: 120px;
   position: relative;
+
+  @media (max-width: 500px) {
+    padding: 0 3% 0;
+    margin-bottom: 50px;
+    height: auto;
+  }
 `;
 
 const CredentialSideForm = styled.section`
@@ -327,6 +333,16 @@ const CredentialSideForm = styled.section`
   border-left: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
   overflow-x: hidden;
   overflow-y: auto;
+
+  @media (max-width: 500px) {
+    position: relative;
+    width: 100%;
+    padding: 120px 3% 0;
+    border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
+    overflow-x: visible;
+    overflow-y: visible;
+    height: auto;
+  }
 
   h2 {
     width: 100%;
@@ -344,6 +360,10 @@ const CertificateArea = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 
   section {
     width: calc(100% - 500px);

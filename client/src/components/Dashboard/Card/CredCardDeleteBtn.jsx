@@ -58,12 +58,10 @@ const CredCardDeleteBtn = ({ credId, credHash }) => {
         />
       )}
 
-      <CredCardDelBtnContainer>
-        <CredCardDeleteButton
-          onClick={
-            isDeleting ? null : () => setHasActiveConfirmationDialog(true)
-          } // This state value setting will cause the layer to appear
-        >
+      <CredCardDelBtnContainer
+        onClick={isDeleting ? null : () => setHasActiveConfirmationDialog(true)} // This state value setting will cause the layer to appear
+      >
+        <CredCardDeleteButton>
           {isDeleting ? (
             <Loader type="Oval" color="#adadad" height={30} width={30} />
           ) : (
