@@ -20,12 +20,14 @@ const StudentNameContainer = styled.div`
   width: 20%;
 
   @media (max-width: 500px) {
-    width: 88%;
+    width: 100%;
 
     h3 {
       font-size: 1.6rem;
       font-weight: 500;
       margin-bottom: 15px;
+      width: 100%;
+      text-align: center;
     }
   }
 `;

@@ -15,9 +15,11 @@ const DateIssuedContainer = styled.div`
   width: 12%;
 
   @media (max-width: 500px) {
-    width: 88%;
+    width: 100%;
 
     p {
+      width: 100%;
+      text-align: center;
       font-size: 1.6rem;
       margin-bottom: 15px;
     }
