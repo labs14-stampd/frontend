@@ -177,6 +177,7 @@ const EmailSettingsWithFormik = withFormik({
 
 const ErrorMessage = styled.p`
   color: red;
+  font-size: 1.4rem;
 `;
 
 const EmailSection = styled(Box)`
