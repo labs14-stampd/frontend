@@ -22,6 +22,7 @@ const CredentialView = ({ match }) => {
         const { data } = await queries.getCredentialById({
           id: credId
         });
+        console.log(data);
         setCredential(data.getCredentialById);
       } catch (error) {
         console.log(error);
@@ -96,12 +97,12 @@ const CredentialView = ({ match }) => {
             <h1>{credential.credName || '[Credential Name]'}</h1>
             <h3>{credential.description || '[Description]'}</h3>
             <h3>
-              Issued on:
+              Issued on{" "}
               {credential.issuedOn || ' [August 10, 2019]'}
             </h3>
             <h3>
-              Issued by:
-              {credential.name}
+              Issued by{" "}
+              {credential.schoolsUserInfo.schoolDetails.name}
             </h3>
             <h2>{credential.ownerName || 'John Doe'}</h2>
           </BottomSection>
@@ -116,7 +117,7 @@ const CredentialView = ({ match }) => {
 };
 
 CredentialView.propTypes = {
-  match: PropTypes.string.isRequired
+  match: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 const TxHash = styled.p`

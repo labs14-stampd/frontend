@@ -26,6 +26,9 @@ const queries = {
             schoolsUserInfo {
               username
               email
+              schoolDetails {
+                name
+              }
             }
           }
         }
@@ -39,15 +42,12 @@ const queries = {
         email: body.email
       },
       query: gql`
-      query ShareCredential($id: ID!, $email: String!) {
-        shareCredential(
-          id: $id,
-          email: $email
-        ) {
-          email
+        query ShareCredential($id: ID!, $email: String!) {
+          shareCredential(id: $id, email: $email) {
+            email
+          }
         }
-      }
-    `
+      `
     });
   }
 };
