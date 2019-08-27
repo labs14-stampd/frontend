@@ -85,6 +85,40 @@ const CredCardDelBtnContainer = styled.div`
   margin-right: 3%;
   transition: opacity 0.3s;
 
+  @media (max-width: 800px) {
+    width: 100%;
+    border: 2px solid ${({ theme }) => theme.global.colors.mobileTrashBtnBorder};
+    border-radius: 50px;
+    order: 6;
+    margin: 0 0 15px;
+    cursor: pointer;
+    transition: none;
+
+    :hover {
+      border-color: ${({ theme }) => theme.global.colors['accent-2']};
+      opacity: 1;
+    }
+  }
+
+  :hover {
+    opacity: 0.75;
+  }
+
+  @media (max-width: 800px) {
+    width: 100%;
+    border: 2px solid ${({ theme }) => theme.global.colors.mobileTrashBtnBorder};
+    border-radius: 50px;
+    order: 6;
+    margin: 0 0 15px;
+    cursor: pointer;
+    transition: none;
+
+    :hover {
+      border-color: ${({ theme }) => theme.global.colors['accent-2']};
+      opacity: 1;
+    }
+  }
+
   @media (max-width: 500px) {
     width: 100%;
     border: 2px solid ${({ theme }) => theme.global.colors.mobileTrashBtnBorder};

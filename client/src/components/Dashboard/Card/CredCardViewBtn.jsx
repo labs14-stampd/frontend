@@ -25,6 +25,12 @@ const CardCredBtnContainer = styled.div`
   margin-left: 3%;
   width: 15%;
 
+  @media (max-width: 800px) {
+    width: 100%;
+    order: 3;
+    margin: 0;
+  }
+
   @media (max-width: 500px) {
     width: 100%;
     order: 3;
@@ -35,6 +41,12 @@ const CardCredBtnContainer = styled.div`
 const CardCredViewButton = styled(BaseButton)`
   border-radius: 50px;
   border-color: #adadad;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 15px;
+  }
 
   @media (max-width: 500px) {
     width: 100%;

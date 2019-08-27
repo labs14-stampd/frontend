@@ -22,6 +22,24 @@ const SchoolNameContainer = styled.div`
   flex-direction: column;
   width: 45%;
 
+  @media (max-width: 800px) {
+    width: 100%;
+
+    h2 {
+      width: 100%;
+      text-align: center;
+      font-size: 2.1rem;
+      margin-bottom: 15px;
+    }
+
+    p {
+      width: 100%;
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+  }
+
   @media (max-width: 500px) {
     width: 100%;
 

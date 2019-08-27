@@ -91,6 +91,11 @@ const CredContainer = styled.section`
   padding: 20px 0;
   transition: box-shadow 0.5s;
 
+  @media (max-width: 800px) {
+    flex-direction: column;
+    padding: 30px 6%;
+  }
+
   @media (max-width: 500px) {
     flex-direction: column;
     padding: 30px 6%;
