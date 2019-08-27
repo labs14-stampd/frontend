@@ -72,10 +72,11 @@ const MenuBar = styled(Layer)`
 
   div {
     .navbar__link {
-      transition: opacity 0.3s;
+      transition: opacity 0.3s, color 0.3s;
 
       :hover {
-        opacity: 0.6;
+        opacity: 0.8;
+        color: ${props => props.theme.global.colors['accent-2']};
       }
     }
   }

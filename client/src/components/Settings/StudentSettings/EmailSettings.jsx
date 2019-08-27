@@ -99,7 +99,7 @@ const EmailSettings = ({ errors, touched, status }) => {
               component="input"
               type="text"
               name="email"
-              placeholder="fakeemail@email.com"
+              placeholder="jane@doe.com"
             />
             {touched.email && errors.email && (
               <ErrorMessage>{errors.email}</ErrorMessage>
@@ -185,6 +185,10 @@ const StudentForm = styled(Form)`
 const StudentButton = styled(BaseButton)`
   text-align: center;
   margin: 10px 20px 15px;
+
+  :hover {
+    color: ${props => props.theme.global.colors['accent-2']};
+  }
 `;
 const StudentField = styled(Field)`
   border: none;
