@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import jwt from 'jsonwebtoken';
-import { Anchor, Stack } from 'grommet';
+import { Anchor } from 'grommet';
+import { Clipboard } from 'grommet-icons';
 
 import queries from './queries';
 import emblem from '../../images/certEmblem.png';
@@ -11,6 +13,7 @@ const privateKey = process.env.REACT_APP_PRIVATE_KEY;
 
 const CredentialView = ({ match }) => {
   const [credential, setCredential] = useState(null);
+  const [toggleHash, setToggleHash] = useState(false);
 
   useEffect(() => {
     const credFn = async () => {
@@ -27,19 +30,57 @@ const CredentialView = ({ match }) => {
     credFn();
   }, [match.params.jwt]);
 
+  const copyToClipBoard = () => {
+    navigator.clipboard.writeText(credential.txHash);
+    toast.success(
+      `Copied to clipbooard`,
+      {
+        className: 'brand-background',
+        position: toast.POSITION.BOTTOM_CENTER,
+        hideProgressBar: true,
+        autoClose: 5000
+      }
+    );
+  }
+
   return (
     <div style={{ marginTop: '100px' }}>
       {credential ? (
         <CertificateArea>
           <TopSection>
             <h3>
-              Verified credential for 
+              Verified credential for
               {credential.ownerName}
             </h3>
-              <TxHash>
-                verify transaction hash <span className="short"> {credential.txHash.slice(0, 6)}... </span> <span className="long"> {credential.txHash} </span> to the Ethereum network using <Anchor a11yTitle="Etherscan verification" target="_blank" color="brand" label="Etherscan" href={`https://rinkeby.etherscan.io/tx/${credential.txHash}`}>Etherscan</Anchor>
-              </TxHash> 
-              
+            <TxHash>
+              verify transaction hash
+              <span
+                onClick={copyToClipBoard}
+                className="short"
+                onMouseEnter={() => setToggleHash(true)}
+                onMouseLeave={() => setToggleHash(false)}
+              >
+               {credential.txHash.slice(0, 6)}...
+              </span>
+              {toggleHash && (
+                <span
+                onClick={copyToClipBoard}
+                className="long"
+                onMouseEnter={() => setToggleHash(true)}
+                onMouseLeave={() => setToggleHash(false)}
+                >
+                  {credential.txHash}  <Clipboard color="white" size="small" /> 
+                </span>
+              )} to the Ethereum network using 
+              <Anchor a11yTitle="Etherscan verification"
+                target="_blank"
+                color="brand"
+                label="Etherscan"
+                href={`${process.env.REACT_APP_ETHERSCAN}${credential.txHash}`}
+              >
+                Etherscan
+              </Anchor>
+            </TxHash>
             <p>Status: {credential.valid ? (<Valid>Valid</Valid>) : (<NotValid>Not Valid</NotValid>)}</p>
             <p>Expiration date: {credential.expirationDate || "none"}</p>
           </TopSection>
@@ -86,10 +127,16 @@ const CredentialView = ({ match }) => {
 // };
 
 const TxHash = styled.p`
+  position: relative;
+  cursor: pointer;
   .long {
-    display: none;
     color: white;
-    background-color: black;
+    padding: 10px;
+    background-color: #333;
+    position: fixed;
+    border-radius: 5px;
+    cursor: pointer;
+
   }
   .short {
     z-index: 99;
