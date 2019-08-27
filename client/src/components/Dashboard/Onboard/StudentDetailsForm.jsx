@@ -234,7 +234,10 @@ const StudentDetailsFormWithFormik = withFormik({
     state: Yup.string(),
     zip: Yup.string(),
     phone: Yup.string()
-  })
+  }),
+  handleSubmit(values, { setStatus }) {
+    setStatus(values);
+  }
 })(SchoolDetailsForm);
 
 const StudentForm = styled(BaseForm)`
