@@ -90,6 +90,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             component="input"
             type="text"
           />
+          {touched.firstName && errors.firstName && (
+            <ErrorMessage>{errors.firstName}</ErrorMessage>
+          )}
         </StudentFormField>
         <StudentFormField label="Middle Name">
           <StudentBaseTextInput
@@ -98,6 +101,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             component="input"
             type="text"
           />
+          {touched.middleName && errors.middleName && (
+            <ErrorMessage>{errors.middleName}</ErrorMessage>
+          )}
         </StudentFormField>
         <StudentFormField label="Last Name">
           <StudentBaseTextInput
@@ -106,6 +112,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             component="input"
             type="text"
           />
+          {touched.lastName && errors.lastName && (
+            <ErrorMessage>{errors.lastName}</ErrorMessage>
+          )}
         </StudentFormField>
         <StudentFormField label="Address 1">
           <StudentBaseTextInput
@@ -114,6 +123,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             component="input"
             type="text"
           />
+          {touched.street1 && errors.street1 && (
+            <ErrorMessage>{errors.street1}</ErrorMessage>
+          )}
         </StudentFormField>
         <StudentFormField label="Address 2">
           <StudentBaseTextInput
@@ -122,6 +134,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             component="input"
             type="text"
           />
+          {touched.street2 && errors.street2 && (
+            <ErrorMessage>{errors.street2}</ErrorMessage>
+          )}
         </StudentFormField>
         <StudentFormField label="City">
           <StudentBaseTextInput
@@ -130,6 +145,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             component="input"
             type="text"
           />
+          {touched.city && errors.city && (
+            <ErrorMessage>{errors.city}</ErrorMessage>
+          )}
         </StudentFormField>
         <StudentFormField
           label="State"
@@ -142,6 +160,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
               {state}
             </option>
           ))}
+          {touched.state && errors.state && (
+            <ErrorMessage>{errors.state}</ErrorMessage>
+          )}
         </StudentFormField>
         <StudentFormField label="Zip Code">
           <StudentBaseTextInput
@@ -150,6 +171,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             component="input"
             type="text"
           />
+          {touched.zip && errors.zip && (
+            <ErrorMessage>{errors.zip}</ErrorMessage>
+          )}
         </StudentFormField>
         <SchoolFormField label="Phone Number">
           <SchoolBaseTextInput
