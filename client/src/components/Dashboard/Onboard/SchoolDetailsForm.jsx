@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
@@ -25,7 +25,7 @@ import {
   ON_BOARD_DETAILS
 } from '../../../store/reducers/globalReducer';
 
-const SchoolDetailsForm = ({ history }) => {
+const SchoolDetailsForm = ({ history, errors, touched, status }) => {
   const [{ user }, dispatchGlobal] = useStateValue(globalContext);
   const [, schoolDispatch] = useStateValue(schoolContext);
   const [input, setInput] = useState({
@@ -48,35 +48,41 @@ const SchoolDetailsForm = ({ history }) => {
     });
   };
 
-  const handleSubmit = async e => {
-    e.preventDefault();
-    try {
-      await queries.addRole({
-        id: user.id,
-        roleId: '2' // Role of a school is set to always be 2
-      });
-      const details = await queries.addSchoolDetails(input);
-      dispatchGlobal({
-        type: ON_BOARD_DETAILS,
-        payload: { ...user, roleId: 2 }
-      });
-      schoolDispatch({
-        type: SET_SCHOOL_DATA,
-        payload: { ...details }
-      });
-      localStorage.removeItem('token');
-      localStorage.token = details.data.addSchoolDetail.token;
-      toast.success(`School Details added succesfully`, {
-        className: 'status-ok',
-        position: toast.POSITION.BOTTOM_CENTER,
-        hideProgressBar: true,
-        autoClose: true
-      });
-      history.push('/dashboard');
-    } catch (err) {
-      console.error(err);
+  useEffect(() => {
+    if (status) {
+      const handleSubmit = async e => {
+        e.preventDefault();
+        try {
+          await queries.addRole({
+            id: user.id,
+            roleId: '2' // Role of a school is set to always be 2
+          });
+          const details = await queries.addSchoolDetails(input);
+          dispatchGlobal({
+            type: ON_BOARD_DETAILS,
+            payload: { ...user, roleId: 2 }
+          });
+          schoolDispatch({
+            type: SET_SCHOOL_DATA,
+            payload: { ...details }
+          });
+          localStorage.removeItem('token');
+          localStorage.token = details.data.addSchoolDetail.token;
+          toast.success(`School Details added succesfully`, {
+            className: 'status-ok',
+            position: toast.POSITION.BOTTOM_CENTER,
+            hideProgressBar: true,
+            autoClose: true
+          });
+          history.push('/dashboard');
+        } catch (err) {
+          console.error(err);
+        }
+      };
+
+      handleSubmit();
     }
-  };
+  }, [status]);
 
   return (
     <Form>
