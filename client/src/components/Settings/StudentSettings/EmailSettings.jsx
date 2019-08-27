@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import * as Yup from 'yup';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
+import { Trash } from 'grommet-icons';
 import { useStateValue } from 'react-conflux';
 import { InfiniteScroll, Box } from 'grommet';
-import { Trash } from 'grommet-icons';
 import { Form, Field, withFormik } from 'formik';
-import * as Yup from 'yup';
 
 import queries from '../queries';
 import { BaseButton } from '../../../styles/themes';
@@ -59,6 +60,7 @@ const EmailSettings = ({ errors, touched, status }) => {
 
       submitEmail();
     }
+    // eslint-disable-next-line
   }, [status]);
 
   const confirmRemoveEmail = async ({ id, email: removedEmail }) => {
@@ -149,6 +151,24 @@ const EmailSettings = ({ errors, touched, status }) => {
       </EmailBox>
     </>
   );
+};
+
+EmailSettings.defaultProps = {
+  errors: {
+    email: ''
+  },
+  touched: {
+    email: false
+  },
+  status: {
+    email: ''
+  }
+};
+
+EmailSettings.propTypes = {
+  errors: PropTypes.shape({ email: PropTypes.string }),
+  touched: PropTypes.shape({ email: PropTypes.bool }),
+  status: PropTypes.shape({ email: PropTypes.string })
 };
 
 // Formik HOC
