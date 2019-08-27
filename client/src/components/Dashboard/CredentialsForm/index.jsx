@@ -334,6 +334,28 @@ const CredentialSideForm = styled.section`
   overflow-x: hidden;
   overflow-y: auto;
 
+  @media (max-width: 800px) {
+    position: relative;
+    width: 98%;
+    padding: 120px 3% 0;
+    margin: 0 4% 0 1%;
+    border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
+    overflow-x: visible;
+    overflow-y: visible;
+    height: auto;
+  }
+
+  h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 37px;
+  }
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
   @media (max-width: 500px) {
     position: relative;
     width: 100%;
@@ -360,6 +382,10 @@ const CertificateArea = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 
   @media (max-width: 500px) {
     display: none;
