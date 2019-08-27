@@ -97,6 +97,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             name="name"
             placeholder="Lambda School"
           />
+          {touched.name && errors.name && (
+            <ErrorMessage>{errors.name}</ErrorMessage>
+          )}
         </SchoolFormField>
         <SchoolFormField label="Tax Id">
           <Field
@@ -105,6 +108,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             name="taxId"
             placeholder="TaxId"
           />
+          {touched.taxId && errors.taxId && (
+            <ErrorMessage>{errors.taxId}</ErrorMessage>
+          )}
         </SchoolFormField>
         <SchoolFormField label="Address 1">
           <Field
@@ -113,6 +119,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             name="street1"
             placeholder="123 Fake street"
           />
+          {touched.street1 && errors.street1 && (
+            <ErrorMessage>{errors.street1}</ErrorMessage>
+          )}
         </SchoolFormField>
         <SchoolFormField label="Address 2">
           <Field
@@ -121,6 +130,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             name="street2"
             placeholder="Apt B"
           />
+          {touched.street2 && errors.street2 && (
+            <ErrorMessage>{errors.street2}</ErrorMessage>
+          )}
         </SchoolFormField>
         <SchoolFormField label="City">
           <Field
@@ -129,6 +141,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             name="city"
             placeholder="San Francisco"
           />
+          {touched.city && errors.city && (
+            <ErrorMessage>{errors.city}</ErrorMessage>
+          )}
         </SchoolFormField>
         <SchoolFormField
           label="State"
@@ -179,6 +194,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             name="type"
             placeholder="University"
           />
+          {touched.type && errors.type && (
+            <ErrorMessage>{errors.type}</ErrorMessage>
+          )}
         </SchoolFormField>
         <SchoolFormField label="Institution Website">
           <Field
@@ -187,6 +205,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             name="url"
             placeholder="ls.dev"
           />
+          {touched.url && errors.url && (
+            <ErrorMessage>{errors.url}</ErrorMessage>
+          )}
         </SchoolFormField>
         <SchoolButton type="submit" primary label="Submit" alignSelf="center" />
       </Box>
@@ -244,6 +265,11 @@ const SchoolDetailsFormWithFormik = withFormik({
 SchoolDetailsForm.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
+
+const ErrorMessage = styled.p`
+  color: red;
+  font-size: 1.4rem;
+`;
 
 const SchoolForm = styled(BaseForm)`
   margin: 120px auto 100px;
