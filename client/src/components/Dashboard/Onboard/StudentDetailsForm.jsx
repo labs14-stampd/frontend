@@ -22,7 +22,7 @@ import {
   studentContext,
   SET_STUDENT_DATA
 } from '../../../store/reducers/studentReducer';
-import c from '../../../store/constants';
+import CONSTANTS from '../../../store/constants';
 
 const SchoolDetailsForm = ({ history, errors, touched, status }) => {
   const [{ user }, dispatchGlobal] = useStateValue(globalContext);
@@ -87,101 +87,81 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
           <StudentBaseTextInput
             name="firstName"
             placeholder="Jane"
-            onChange={handleChanges}
-            value={input.firstName}
-            plain={false}
-            required
+            component="input"
+            type="text"
           />
         </StudentFormField>
         <StudentFormField label="Middle Name">
           <StudentBaseTextInput
             name="middleName"
             placeholder="Emily"
-            onChange={handleChanges}
-            value={input.middleName}
-            plain={false}
+            component="input"
+            type="text"
           />
         </StudentFormField>
         <StudentFormField label="Last Name">
           <StudentBaseTextInput
             name="lastName"
             placeholder="Doe"
-            onChange={handleChanges}
-            value={input.lastName}
-            plain={false}
-            required
+            component="input"
+            type="text"
           />
         </StudentFormField>
         <StudentFormField label="Address 1">
           <StudentBaseTextInput
             name="street1"
             placeholder="123 Fake street"
-            onChange={handleChanges}
-            value={input.street1}
+            component="input"
+            type="text"
           />
         </StudentFormField>
         <StudentFormField label="Address 2">
           <StudentBaseTextInput
             name="street2"
             placeholder="Apt B"
-            onChange={handleChanges}
-            value={input.street2}
+            component="input"
+            type="text"
           />
         </StudentFormField>
         <StudentFormField label="City">
           <StudentBaseTextInput
             name="city"
             placeholder="San Francisco"
-            onChange={handleChanges}
-            value={input.city}
+            component="input"
+            type="text"
           />
         </StudentFormField>
         <StudentFormField
           label="State"
           name="state"
-          component={Select}
-          options={c.states}
-          onChange={({ option }) => setInput({ ...input, state: option })}
-          value={input.state}
+          component="select"
           placeholder="State"
-        />
+        >
+          {CONSTANTS.states.map(state => (
+            <option value={`${state}`} key={state}>
+              {state}
+            </option>
+          ))}
+        </StudentFormField>
         <StudentFormField label="Zip Code">
           <StudentBaseTextInput
             name="zip"
             placeholder="90210"
-            onChange={handleChanges}
-            value={input.zip}
+            component="input"
+            type="text"
           />
         </StudentFormField>
-        <StudentFormField label="Phone Number">
-          <StudentMaskedInput
-            mask={[
-              { fixed: '(' },
-              {
-                length: 3,
-                regexp: /^[0-9]{1,3}$/,
-                placeholder: 'xxx'
-              },
-              { fixed: ')' },
-              { fixed: ' ' },
-              {
-                length: 3,
-                regexp: /^[0-9]{1,3}$/,
-                placeholder: 'xxx'
-              },
-              { fixed: '-' },
-              {
-                length: 4,
-                regexp: /^[0-9]{1,4}$/,
-                placeholder: 'xxxx'
-              }
-            ]}
-            value={input.phone}
+        <SchoolFormField label="Phone Number">
+          <SchoolBaseTextInput
+            type="text"
+            placeholder="4151234567"
+            component="input"
             name="phone"
-            onChange={handleChanges}
-            required
           />
-        </StudentFormField>
+          {touched.phone && errors.phone && (
+            <ErrorMessage>{errors.phone}</ErrorMessage>
+          )}
+        </SchoolFormField>
         <StudentButton
           type="submit"
           primary
