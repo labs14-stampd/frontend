@@ -86,11 +86,21 @@ const StudentDetails = styled.section`
   justify-content: space-between;
   align-items: center;
 
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+
   div {
     display: flex;
     width: 68%;
     justify-content: flex-end;
     align-items: center;
+
+    @media (max-width: 800px) {
+      justify-content: center;
+      width: 100%;
+      margin: 3% 0;
+    }
 
     input {
       background: white url(${searchIcon}) no-repeat scroll 5px 5px;
@@ -114,10 +124,36 @@ const StudentDetails = styled.section`
 
       &:focus {
         color: ${({ theme }) => theme.global.colors.brand};
-        border-color: ${({ theme }) => theme.global.colors.brand};
+        border-color: ${({ theme }) => theme.global.colors['accent-2']};
         outline: none;
         padding-left: 15px;
         width: 50%;
+      }
+
+      @media (max-width: 800px) {
+        width: 80%;
+        transition: none;
+
+        &:focus {
+          color: ${({ theme }) => theme.global.colors.brand};
+          border-color: ${({ theme }) => theme.global.colors['accent-2']};
+          outline: none;
+          padding: 25px;
+          width: 80%;
+        }
+      }
+
+      @media (max-width: 500px) {
+        width: 100%;
+        transition: none;
+
+        &:focus {
+          color: ${({ theme }) => theme.global.colors.brand};
+          border-color: ${({ theme }) => theme.global.colors['accent-2']};
+          outline: none;
+          padding: 25px;
+          width: 80%;
+        }
       }
     }
   }
@@ -136,6 +172,5 @@ const CredCardContainer = styled(Box)`
   overflow: auto;
   padding: 10px 2%;
 `;
-
 
 export default StudentDashboard;
