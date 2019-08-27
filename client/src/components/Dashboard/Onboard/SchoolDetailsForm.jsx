@@ -238,9 +238,11 @@ const SchoolDetailsFormWithFormik = withFormik({
     phone: Yup.string().required(),
     type: Yup.string(),
     url: Yup.string().required()
-  })
+  }),
 
-  
+  handleSubmit(values, { setStatus }) {
+    setStatus(values);
+  }
 })(SchoolDetailsForm);
 
 SchoolDetailsForm.propTypes = {
