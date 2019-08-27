@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
 import { InfiniteScroll, Box } from 'grommet';
 import { Trash } from 'grommet-icons';
+import { Form, Field, withFormik } from 'formik';
+import * as Yup from 'yup';
 
 import queries from '../queries';
-import {
-  BaseForm,
-  BaseTextInput,
-  BaseFormField,
-  BaseButton
-} from '../../../styles/themes';
+import { BaseButton } from '../../../styles/themes';
 import { globalContext } from '../../../store/reducers/globalReducer';
 import {
   studentContext,
@@ -21,7 +18,7 @@ import {
 import ConfirmationLayer from '../../ConfirmationLayer';
 import EmailContainer from './EmailContainer';
 
-const EmailSettings = () => {
+const EmailSettings = ({ errors, touched, status }) => {
   const [{ user }] = useStateValue(globalContext);
   const [studentState, studentDispatch] = useStateValue(studentContext);
   const emailList = studentState.studentData.studentDetails.emailList.sort(
@@ -29,7 +26,6 @@ const EmailSettings = () => {
       return a.email > b.email ? 1 : -1;
     }
   );
-  const [email, setEmail] = useState('');
 
   const [
     hasActiveConfirmationDialog,
@@ -37,28 +33,33 @@ const EmailSettings = () => {
   ] = useState(false);
   const [userEmailIdToDelete, setUserEmailIdToDelete] = useState(null);
 
-  const submitEmail = async e => {
-    e.preventDefault();
-    try {
-      const { data } = await queries.addUserEmail({
-        userId: user.id,
-        email
-      });
-      studentDispatch({
-        type: STUDENT_EMAIL_UPDATE,
-        payload: data.addUserEmail
-      });
-      toast.success(`Email added succesfully`, {
-        className: 'status-ok',
-        position: toast.POSITION.BOTTOM_CENTER,
-        hideProgressBar: true,
-        autoClose: true
-      });
-      setEmail('');
-    } catch (err) {
-      console.error(err);
+  useEffect(() => {
+    // status will only be true when handleSubmit from formik is activated
+    if (status) {
+      const submitEmail = async () => {
+        try {
+          const { data } = await queries.addUserEmail({
+            userId: user.id,
+            email: status.email
+          });
+          studentDispatch({
+            type: STUDENT_EMAIL_UPDATE,
+            payload: data.addUserEmail
+          });
+          toast.success(`Email added succesfully`, {
+            className: 'status-ok',
+            position: toast.POSITION.BOTTOM_CENTER,
+            hideProgressBar: true,
+            autoClose: true
+          });
+        } catch (err) {
+          console.error(err);
+        }
+      };
+
+      submitEmail();
     }
-  };
+  }, [status]);
 
   const confirmRemoveEmail = async ({ id, email: removedEmail }) => {
     try {
@@ -90,105 +91,121 @@ const EmailSettings = () => {
 
   return (
     <>
-      <Container>
-        <StudentForm onSubmit={submitEmail}>
-          <EmailSection direction="column">
-            <Box direction="column">
-              <h2>Add an Email</h2>
-              <StudentFormField>
-                <StudentBaseTextInput
-                  name="email"
-                  placeholder="fakeemail@email.com"
-                  onChange={e => setEmail(e.target.value)}
-                  value={email}
-                  plain={false}
-                />
-              </StudentFormField>
-            </Box>
-            <StudentButton
-              type="submit"
-              primary
-              label="Add Email"
-              alignSelf="end"
+      <StudentForm>
+        <EmailSection direction="column">
+          <Box direction="column">
+            <h2>Add an Email</h2>
+            <StudentField
+              component="input"
+              type="text"
+              name="email"
+              placeholder="fakeemail@email.com"
             />
-          </EmailSection>
-        </StudentForm>
-        <EmailBox direction="column">
-          <h2>Emails</h2>
-          <EmailSectionContainer>
-            <p>{user.email}</p>
-            <TrashButton disabled color="searchBarBorder" />
-          </EmailSectionContainer>
-          {hasActiveConfirmationDialog && (
-            // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
-            <ConfirmationLayer
-              onClose={() => setHasActiveConfirmationDialog(false)} // Needed to make the layer disappear
-              yesFunc={() => {
-                return confirmRemoveEmail(userEmailIdToDelete);
-              }}
-            />
-          )}
-          <Box height="55vh" overflow="auto">
-            <InfiniteScroll items={emailList} step={10}>
-              {item => {
-                return (
-                  <EmailContainer
-                    key={item.id}
-                    id={item.id}
-                    email={item.email}
-                    setUserEmailIdToDelete={setUserEmailIdToDelete}
-                    setHasActiveConfirmationDialog={
-                      setHasActiveConfirmationDialog
-                    }
-                  />
-                );
-              }}
-            </InfiniteScroll>
+            {touched.email && errors.email && (
+              <ErrorMessage>{errors.email}</ErrorMessage>
+            )}
           </Box>
-        </EmailBox>
-      </Container>
+          <StudentButton
+            type="submit"
+            primary
+            label="Add Email"
+            alignSelf="end"
+          />
+        </EmailSection>
+      </StudentForm>
+      <EmailBox direction="column">
+        <h2>Emails</h2>
+        <EmailSectionContainer>
+          <p>{user.email}</p>
+          <p>Primary email</p>
+          <TrashButton disabled color="searchBarBorder" />
+        </EmailSectionContainer>
+        {hasActiveConfirmationDialog && (
+          // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
+          <ConfirmationLayer
+            onClose={() => setHasActiveConfirmationDialog(false)} // Needed to make the layer disappear
+            yesFunc={() => {
+              return confirmRemoveEmail(userEmailIdToDelete);
+            }}
+          />
+        )}
+        <Box height="55vh" overflow="auto">
+          <InfiniteScroll items={emailList} step={10}>
+            {item => {
+              return (
+                <EmailContainer
+                  key={item.id}
+                  id={item.id}
+                  email={item.email}
+                  setUserEmailIdToDelete={setUserEmailIdToDelete}
+                  setHasActiveConfirmationDialog={
+                    setHasActiveConfirmationDialog
+                  }
+                />
+              );
+            }}
+          </InfiniteScroll>
+        </Box>
+      </EmailBox>
     </>
   );
 };
-
-const Container = styled.section``;
-
+// Formik HOC
+const EmailSettingsWithFormik = withFormik({
+  mapPropsToValues({ email }) {
+    return {
+      email: email || ''
+    };
+  },
+  validationSchema: Yup.object().shape({
+    email: Yup.string()
+      .email()
+      .required()
+  }),
+  async handleSubmit(values, { setStatus, resetForm }) {
+    // pass values from input to props.status
+    setStatus(values);
+    resetForm();
+  }
+})(EmailSettings);
+// styled components
+const ErrorMessage = styled.p`
+  color: red;
+  font-size: 1.4rem;
+`;
 const EmailSection = styled(Box)`
   justify-content: space-between;
 `;
-
-const StudentForm = styled(BaseForm)`
+const StudentForm = styled(Form)`
   margin: 50px auto 10px;
   border-radius: 2px;
   max-width: 800px;
   width: 100%;
 `;
-
 const StudentButton = styled(BaseButton)`
   text-align: center;
   margin: 10px 20px 15px;
 `;
-
-const StudentBaseTextInput = styled(BaseTextInput)`
+const StudentField = styled(Field)`
   border: none;
+  background: transparent;
+  border-bottom: 1px solid black;
   width: 100%;
   max-width: 800px;
-  padding-left: 0;
+  padding: 10px 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  ::placeholder {
+    font-size: 1.6rem;
+  }
 `;
-
-const StudentFormField = styled(BaseFormField)`
-  border-bottom: none;
-`;
-
 const TrashButton = styled(Trash)`
   cursor: pointer;
 `;
-
 const EmailBox = styled(Box)`
   margin: 5px auto 0px;
   max-width: 800px;
 `;
-
 const EmailSectionContainer = styled.section`
   margin: 10px auto 0;
   max-width: 800px;
@@ -211,4 +228,4 @@ const EmailSectionContainer = styled.section`
   }
 `;
 
-export default EmailSettings;
+export default EmailSettingsWithFormik;

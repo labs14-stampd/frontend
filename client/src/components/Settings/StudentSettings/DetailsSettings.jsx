@@ -52,107 +52,103 @@ const DetailSettings = () => {
   return (
     <>
       <StudentForm onSubmit={handleSubmit}>
-        <Box direction="row">
-          <Box direction="column" width="50%">
-            <StudentFormField label="First Name">
-              <StudentBaseTextInput
-                name="firstName"
-                placeholder="Jane"
-                onChange={handleChanges}
-                value={input.firstName}
-                plain={false}
-              />
-            </StudentFormField>
-            <StudentFormField label="Middle Name">
-              <StudentBaseTextInput
-                name="middleName"
-                placeholder="Emily"
-                onChange={handleChanges}
-                value={input.middleName}
-                plain={false}
-              />
-            </StudentFormField>
-            <StudentFormField label="Last Name">
-              <StudentBaseTextInput
-                name="lastName"
-                placeholder="Doe"
-                onChange={handleChanges}
-                value={input.lastName}
-                plain={false}
-              />
-            </StudentFormField>
-            <StudentFormField label="Phone Number">
-              <StudentMaskedInput
-                mask={[
-                  { fixed: '(' },
-                  {
-                    length: 3,
-                    regexp: /^[0-9]{1,3}$/,
-                    placeholder: 'xxx'
-                  },
-                  { fixed: ')' },
-                  { fixed: ' ' },
-                  {
-                    length: 3,
-                    regexp: /^[0-9]{1,3}$/,
-                    placeholder: 'xxx'
-                  },
-                  { fixed: '-' },
-                  {
-                    length: 4,
-                    regexp: /^[0-9]{1,4}$/,
-                    placeholder: 'xxxx'
-                  }
-                ]}
-                value={input.phone}
-                name="phone"
-                onChange={handleChanges}
-              />
-            </StudentFormField>
-          </Box>
-          <Box direction="column" width="50%">
-            <StudentFormField label="Address 1">
-              <StudentBaseTextInput
-                name="street1"
-                placeholder="123 Fake street"
-                onChange={handleChanges}
-                value={input.street1}
-              />
-            </StudentFormField>
-            <StudentFormField label="Address 2">
-              <StudentBaseTextInput
-                name="street2"
-                placeholder="Apt B"
-                onChange={handleChanges}
-                value={input.street2}
-              />
-            </StudentFormField>
-            <StudentFormField label="City">
-              <StudentBaseTextInput
-                name="city"
-                placeholder="San Francisco"
-                onChange={handleChanges}
-                value={input.city}
-              />
-            </StudentFormField>
-            <StudentFormField
-              label="State"
-              name="state"
-              component={Select}
-              options={c.states}
-              onChange={({ option }) => setInput({ ...input, state: option })}
-              value={input.state}
-              placeholder="State"
+        <Box direction="column">
+          <StudentFormField label="First Name">
+            <StudentBaseTextInput
+              name="firstName"
+              placeholder="Jane"
+              onChange={handleChanges}
+              value={input.firstName}
+              plain={false}
             />
-            <StudentFormField label="Zip Code">
-              <StudentBaseTextInput
-                name="zip"
-                placeholder="90210"
-                onChange={handleChanges}
-                value={input.zip}
-              />
-            </StudentFormField>
-          </Box>
+          </StudentFormField>
+          <StudentFormField label="Middle Name">
+            <StudentBaseTextInput
+              name="middleName"
+              placeholder="Emily"
+              onChange={handleChanges}
+              value={input.middleName}
+              plain={false}
+            />
+          </StudentFormField>
+          <StudentFormField label="Last Name">
+            <StudentBaseTextInput
+              name="lastName"
+              placeholder="Doe"
+              onChange={handleChanges}
+              value={input.lastName}
+              plain={false}
+            />
+          </StudentFormField>
+          <StudentFormField label="Phone Number">
+            <StudentMaskedInput
+              mask={[
+                { fixed: '(' },
+                {
+                  length: 3,
+                  regexp: /^[0-9]{1,3}$/,
+                  placeholder: 'xxx'
+                },
+                { fixed: ')' },
+                { fixed: ' ' },
+                {
+                  length: 3,
+                  regexp: /^[0-9]{1,3}$/,
+                  placeholder: 'xxx'
+                },
+                { fixed: '-' },
+                {
+                  length: 4,
+                  regexp: /^[0-9]{1,4}$/,
+                  placeholder: 'xxxx'
+                }
+              ]}
+              value={input.phone}
+              name="phone"
+              onChange={handleChanges}
+            />
+          </StudentFormField>
+          <StudentFormField label="Address 1">
+            <StudentBaseTextInput
+              name="street1"
+              placeholder="123 Fake street"
+              onChange={handleChanges}
+              value={input.street1}
+            />
+          </StudentFormField>
+          <StudentFormField label="Address 2">
+            <StudentBaseTextInput
+              name="street2"
+              placeholder="Apt B"
+              onChange={handleChanges}
+              value={input.street2}
+            />
+          </StudentFormField>
+          <StudentFormField label="City">
+            <StudentBaseTextInput
+              name="city"
+              placeholder="San Francisco"
+              onChange={handleChanges}
+              value={input.city}
+            />
+          </StudentFormField>
+          <StudentFormField
+            label="State"
+            name="state"
+            component={Select}
+            options={c.states}
+            onChange={({ option }) => setInput({ ...input, state: option })}
+            value={input.state}
+            placeholder="State"
+          />
+          <StudentFormField label="Zip Code">
+            <StudentBaseTextInput
+              name="zip"
+              placeholder="90210"
+              onChange={handleChanges}
+              value={input.zip}
+            />
+          </StudentFormField>
         </Box>
         <Box width="100%">
           <StudentButton
