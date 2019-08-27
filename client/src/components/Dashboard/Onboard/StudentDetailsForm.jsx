@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
@@ -24,7 +24,7 @@ import {
 } from '../../../store/reducers/studentReducer';
 import c from '../../../store/constants';
 
-const SchoolDetailsForm = ({ history }) => {
+const SchoolDetailsForm = ({ history, errors, touched, status }) => {
   const [{ user }, dispatchGlobal] = useStateValue(globalContext);
   const [, dispatchStudent] = useStateValue(studentContext);
   const [input, setInput] = useState({
@@ -40,45 +40,42 @@ const SchoolDetailsForm = ({ history }) => {
     userId: user.id
   });
 
-  const handleChanges = e => {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    try {
-      await queries.addRole({
-        id: user.id,
-        roleId: 3 // Role of a student is set to always be 3
-      });
-      const details = await queries.addStudentDetail({
-        fullName: `${input.firstName} ${input.lastName}`,
-        ...input
-      });
-      dispatchGlobal({
-        type: ON_BOARD_DETAILS,
-        payload: { ...user, roleId: 3 }
-      });
-      dispatchStudent({
-        type: SET_STUDENT_DATA,
-        payload: { ...details }
-      });
-      localStorage.removeItem('token');
-      localStorage.token = details.data.addStudentDetail.token;
-      toast.success(`Student Details added succesfully`, {
-        className: 'status-ok',
-        position: toast.POSITION.BOTTOM_CENTER,
-        hideProgressBar: true,
-        autoClose: true
-      });
-      history.push('/dashboard');
-    } catch (err) {
-      console.error(err);
+  useEffect(() => {
+    if (status) {
+      const handleSubmit = async () => {
+        try {
+          await queries.addRole({
+            id: user.id,
+            roleId: 3 // Role of a student is set to always be 3
+          });
+          const details = await queries.addStudentDetail({
+            fullName: `${input.firstName} ${input.lastName}`,
+            ...input
+          });
+          dispatchGlobal({
+            type: ON_BOARD_DETAILS,
+            payload: { ...user, roleId: 3 }
+          });
+          dispatchStudent({
+            type: SET_STUDENT_DATA,
+            payload: { ...details }
+          });
+          localStorage.removeItem('token');
+          localStorage.token = details.data.addStudentDetail.token;
+          toast.success(`Student Details added succesfully`, {
+            className: 'status-ok',
+            position: toast.POSITION.BOTTOM_CENTER,
+            hideProgressBar: true,
+            autoClose: true
+          });
+          history.push('/dashboard');
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      handleSubmit();
     }
-  };
+  }, [status]);
 
   return (
     <StudentForm onSubmit={handleSubmit}>
@@ -240,7 +237,7 @@ const StudentDetailsFormWithFormik = withFormik({
   }
 })(SchoolDetailsForm);
 
-const StudentForm = styled(BaseForm)`
+const StudentForm = styled(Form)`
   margin: 120px auto 100px;
   background-color: white;
   border: 1px solid #d8d8d8;
@@ -254,15 +251,28 @@ const StudentButton = styled(BaseButton)`
   margin: 15px 20px 50px;
 `;
 
-const StudentBaseTextInput = styled(BaseTextInput)`
+const StudentBaseTextInput = styled(Field)`
   border: none;
+  background: transparent;
+  border-bottom: 1px solid black;
+  width: 100%;
+  max-width: 800px;
+  padding: 10px 2.5px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  ::placeholder {
+    font-size: 1.6rem;
+  }
 `;
 
 const StudentFormField = styled(BaseFormField)`
   margin: 20px;
   border-bottom: none;
-  input {
-    /* margin-bottom: 10px; */
+  div {
+    border-bottom: none;
+  }
+  label {
+    margin-left: 2.5px;
   }
 `;
 
