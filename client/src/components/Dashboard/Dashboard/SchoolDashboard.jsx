@@ -98,6 +98,11 @@ const SchoolDetails = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+
   @media (max-width: 500px) {
     flex-direction: column;
   }
@@ -107,6 +112,14 @@ const SchoolDetails = styled.section`
     width: 68%;
     justify-content: flex-end;
     align-items: center;
+
+    @media (max-width: 800px) {
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+      margin: 3% 0;
+    }
+
     @media (max-width: 500px) {
       flex-direction: column;
       justify-content: space-between;
@@ -141,6 +154,20 @@ const SchoolDetails = styled.section`
         padding-left: 15px;
         width: 50%;
       }
+
+      @media (max-width: 800px) {
+        width: 48%;
+        transition: none;
+
+        &:focus {
+          color: ${({ theme }) => theme.global.colors.brand};
+          border-color: ${({ theme }) => theme.global.colors['accent-2']};
+          outline: none;
+          padding: 25px;
+          width: 48%;
+        }
+      }
+
       @media (max-width: 500px) {
         width: 90%;
         margin-bottom: 4.5%;
@@ -165,6 +192,11 @@ const IssueCredButton = styled(BaseButton)`
   border-radius: 50px;
   margin-left: 2%;
 
+  @media (max-width: 800px) {
+    width: 48%;
+    text-align: center;
+    margin-left: 0;
+  }
   @media (max-width: 500px) {
     width: 90%;
     text-align: center;
