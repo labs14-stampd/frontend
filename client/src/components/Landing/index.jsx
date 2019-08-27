@@ -36,7 +36,7 @@ function Landing() {
 
 const LandingPage = styled.main`
   width: 100%;
-  padding: 0 3%;
+  padding: 0 3% 30px;
 
   div {
     height: calc(100vh - 70px);

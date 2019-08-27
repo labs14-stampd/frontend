@@ -25,7 +25,10 @@ function App(props) {
   return (
     <>
       {loading ? (
-        <Loading />
+        <>
+          <Loading />
+          <GlobalStyle />
+        </>
       ) : (
         <Grommet theme={theme}>
           <Layout {...props}>

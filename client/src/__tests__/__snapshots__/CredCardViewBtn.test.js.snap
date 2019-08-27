@@ -9,7 +9,7 @@ exports[`<CredCardViewBtn /> should match the previous snapshot of the component
   >
     <button
       aria-label="view credentials button"
-      className="sc-bdVaJa sc-bZQynM csIfUH StyledButton-sc-323bzc-0 kHrfdt"
+      className="sc-bdVaJa sc-bZQynM loBWCV StyledButton-sc-323bzc-0 kHrfdt"
       onBlur={[Function]}
       onClick={[MockFunction]}
       onFocus={[Function]}

@@ -8,28 +8,29 @@ exports[`<Layout /> should match the previous snapshot of the component tests th
     className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
   >
     <main
-      className="sc-dnqmqq cwhyFX"
+      className="sc-iwsKbI kokDzR"
     >
       <div
-        className="sc-bZQynM CZNzZ"
+        className="sc-gzVnrw hBhGzu"
       >
         <nav>
           <div>
-            <svg
-              aria-label="Menu"
-              className="hamburger StyledIcon-ofa7kd-0 bBBqGu"
+            <div
+              className="sc-bZQynM kdDOgS"
               data-testid="hamburger"
-              onClick={[Function]}
-              viewBox="0 0 24 24"
             >
-              <path
-                d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                fill="none"
-                stroke="#000"
-                strokeWidth="2"
-              />
-            </svg>
-            <div>
+              <div
+                className="hamburger-menu"
+                onClick={[Function]}
+              >
+                <span />
+                <span />
+                <span />
+              </div>
+            </div>
+            <div
+              className="logo"
+            >
               <a
                 href="/dashboard"
                 onClick={[Function]}
@@ -37,7 +38,7 @@ exports[`<Layout /> should match the previous snapshot of the component tests th
                 <img
                   alt="Stampd logo"
                   draggable="false"
-                  src="stampd_full_white.svg"
+                  src="stampd_full_white.png"
                 />
               </a>
             </div>
@@ -47,7 +48,7 @@ exports[`<Layout /> should match the previous snapshot of the component tests th
           >
             <button
               aria-label="Logout"
-              className="sc-bwzfXH sc-gzVnrw dhncQw StyledButton-sc-323bzc-0 kHrfdt"
+              className="sc-bwzfXH sc-htoDjs hsGllO StyledButton-sc-323bzc-0 kHrfdt"
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
@@ -64,7 +65,7 @@ exports[`<Layout /> should match the previous snapshot of the component tests th
         Test
       </p>
       <div
-        className="sc-htoDjs eBjQTr"
+        className="sc-dnqmqq dhhbGw"
       >
         <p>
           © Stampd 2019

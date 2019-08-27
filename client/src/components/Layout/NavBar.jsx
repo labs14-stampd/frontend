@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Menu } from 'grommet-icons';
 import { Link } from 'react-router-dom';
 import { SecondaryButton } from '../../styles/themes';
 
 import { useAuth0 } from '../../auth/authWrapper';
 import MenuLayer from './MenuLayer';
-import stampdLogoWhite from '../../images/stampd_full_white.svg';
+import stampdLogoWhite from '../../images/stampd_full_white.png';
+import MenuButton from './MenuButton';
 
 function NavBar({ history }) {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [isShown, setShown] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const onClose = () => {
-    setShown(false);
+  const toggleOpen = () => {
+    setShown(!isShown);
+    setLoading(false);
   };
 
   const handleLogout = () => {
     localStorage.clear();
+    setShown(false);
+    setLoading(false);
     logout();
   };
 
@@ -27,15 +31,16 @@ function NavBar({ history }) {
       <nav>
         <div>
           {isAuthenticated && (
-            <Menu
-              onClick={() => setShown(!isShown)}
+            <MenuButton
               className="hamburger"
-              size="large"
-              color="white"
-              data-testid="hamburger"
+              setShown={setShown}
+              isShown={isShown}
+              onClose={toggleOpen}
+              setLoading={setLoading}
+              loading={loading}
             />
           )}
-          <div>
+          <div className="logo">
             <Link to={isAuthenticated ? '/dashboard' : '/'}>
               <img src={stampdLogoWhite} alt="Stampd logo" draggable="false" />
             </Link>
@@ -62,7 +67,16 @@ function NavBar({ history }) {
           </div>
         )}
       </nav>
-      {isShown && <MenuLayer onClose={onClose} history={history} />}
+      {isShown && (
+        <MenuLayer
+          loading={loading}
+          setLoading={setLoading}
+          toggleOpen={toggleOpen}
+          isShown={isShown}
+          setShown={setShown}
+          history={history}
+        />
+      )}
     </NavContainter>
   );
 }
@@ -88,7 +102,6 @@ const NavContainter = styled.div`
 
   nav {
     margin: 0 auto;
-    max-width: 1600px;
     width: 100%;
     height: 70px;
     display: flex;
@@ -99,17 +112,20 @@ const NavContainter = styled.div`
     div:first-of-type {
       display: flex;
       align-items: center;
-      width: 40%;
 
-      div {
-        width: 102px;
+      .logo {
+        width: 113px;
         height: auto;
-      }
-    }
 
-    svg {
-      cursor: pointer;
-      margin-right: 4%;
+        a {
+          display: flex;
+          align-content: center;
+        }
+      }
+
+      .hamburger {
+        cursor: pointer;
+      }
     }
 
     .button__container {

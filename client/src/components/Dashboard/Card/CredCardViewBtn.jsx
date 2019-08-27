@@ -24,15 +24,39 @@ const CardCredBtnContainer = styled.div`
   align-items: center;
   margin-left: 3%;
   width: 15%;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    order: 3;
+    margin: 0;
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
+    order: 3;
+    margin: 0;
+  }
 `;
 
 const CardCredViewButton = styled(BaseButton)`
   border-radius: 50px;
-  border-color: #e3e3e3;
+  border-color: #adadad;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 15px;
+  }
 
   :hover {
-    border-color: #7d4cdb;
-    background-color: #7d4cdb;
+    border-color: #ad91ed;
+    background-color: #ad91ed;
     color: white;
   }
 `;
