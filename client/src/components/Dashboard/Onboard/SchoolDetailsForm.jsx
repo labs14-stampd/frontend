@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
-import { MaskedInput, Select, Box, Heading } from 'grommet';
+import { MaskedInput, Box, Heading } from 'grommet';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
-import c from '../../../store/constants';
+import CONSTANTS from '../../../store/constants';
 
 import {
   BaseForm,
@@ -145,47 +145,36 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             <ErrorMessage>{errors.city}</ErrorMessage>
           )}
         </SchoolFormField>
-        <SchoolFormField
-          label="State"
-          type="text"
-          name="state"
-          component={Select}
-          options={c.states}
-          onChange={({ option }) => setInput({ ...input, state: option })}
-          value={input.state}
-          placeholder="State"
-        />
+        <SchoolFormField label="State">
+          <Field
+            type="text"
+            name="state"
+            component="select"
+            placeholder="State"
+          >
+            {CONSTANTS.states.map(state => (
+              <option value={`${state}`} key={state}>
+                {state}
+              </option>
+            ))}
+            {touched.state && errors.state && (
+              <ErrorMessage>{errors.state}</ErrorMessage>
+            )}
+          </Field>
+        </SchoolFormField>
         <SchoolFormField label="Zip Code">
           <Field component="input" type="text" name="zip" placeholder="90210" />
         </SchoolFormField>
         <SchoolFormField label="Phone Number">
-          <SchoolMaskedInput
-            mask={[
-              { fixed: '(' },
-              {
-                length: 3,
-                regexp: /^[0-9]{1,3}$/,
-                placeholder: 'xxx'
-              },
-              { fixed: ')' },
-              { fixed: ' ' },
-              {
-                length: 3,
-                regexp: /^[0-9]{1,3}$/,
-                placeholder: 'xxx'
-              },
-              { fixed: '-' },
-              {
-                length: 4,
-                regexp: /^[0-9]{1,4}$/,
-                placeholder: 'xxxx'
-              }
-            ]}
-            value={input.phone}
+          <Field
+            type="text"
+            placeholder="4151234567"
+            component="input"
             name="phone"
-            onChange={handleChanges}
-            required
           />
+          {touched.phone && errors.phone && (
+            <ErrorMessage>{errors.phone}</ErrorMessage>
+          )}
         </SchoolFormField>
         <SchoolFormField label="Type of Institution">
           <Field
@@ -252,9 +241,15 @@ const SchoolDetailsFormWithFormik = withFormik({
     city: Yup.string(),
     state: Yup.string(),
     zip: Yup.string(),
-    phone: Yup.string().required(),
+    phone: Yup.string()
+      .min(10)
+      .max(16)
+      .matches(CONSTANTS.phoneRegExp, 'Invalid phone number')
+      .required(),
     type: Yup.string(),
-    url: Yup.string().required()
+    url: Yup.string()
+      .url()
+      .required()
   }),
 
   handleSubmit(values, { setStatus }) {

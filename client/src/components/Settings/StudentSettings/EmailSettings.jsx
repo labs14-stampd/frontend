@@ -166,9 +166,9 @@ EmailSettings.defaultProps = {
 };
 
 EmailSettings.propTypes = {
-  errors: PropTypes.shapeOf({ email: PropTypes.string }),
-  touched: PropTypes.shapeOf({ email: PropTypes.bool }),
-  status: PropTypes.shapeOf({ email: PropTypes.string })
+  errors: PropTypes.shape({ email: PropTypes.string }),
+  touched: PropTypes.shape({ email: PropTypes.bool }),
+  status: PropTypes.shape({ email: PropTypes.string })
 };
 
 // Formik HOC
