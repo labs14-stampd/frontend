@@ -211,6 +211,9 @@ const StudentDetailsFormWithFormik = withFormik({
     state: Yup.string(),
     zip: Yup.string(),
     phone: Yup.string()
+      .min(10)
+      .max(16)
+      .matches(CONSTANTS.phoneRegExp, 'Invalid Phone Number')
   }),
   handleSubmit(values, { setStatus }) {
     setStatus(values);
