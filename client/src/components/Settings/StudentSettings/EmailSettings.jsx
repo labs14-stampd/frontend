@@ -205,6 +205,8 @@ const StudentField = styled(Field)`
   padding: 10px 0;
   font-size: 1.8rem;
   font-weight: 700;
+  padding: 5px 2.5px;
+
   ::placeholder {
     font-size: 1.6rem;
   }
