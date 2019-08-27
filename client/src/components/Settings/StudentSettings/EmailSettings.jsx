@@ -129,7 +129,7 @@ const EmailSettings = ({ errors, touched, status }) => {
             }}
           />
         )}
-        <Box height="55vh" overflow="auto">
+        <Box height="42vh" overflow="auto">
           <InfiniteScroll items={emailList} step={10}>
             {item => {
               return (
@@ -217,7 +217,6 @@ const EmailSectionContainer = styled.section`
   max-width: 800px;
   width: 100%;
   background: white;
-  /* min-height: calc(100vh - 170px); */
   -webkit-box-shadow: -2px 5px 25px -17px rgba(0, 0, 0, 0.61);
   -moz-box-shadow: -2px 5px 25px -17px rgba(0, 0, 0, 0.61);
   box-shadow: -2px 5px 25px -17px rgba(0, 0, 0, 0.61);

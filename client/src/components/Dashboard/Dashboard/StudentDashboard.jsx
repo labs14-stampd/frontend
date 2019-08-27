@@ -178,7 +178,7 @@ const NothingFound = styled.p`
 `;
 
 const CredCardContainer = styled(Box)`
-  height: 75vh;
+  height: 71vh;
   overflow: auto;
   padding: 10px 2%;
 `;

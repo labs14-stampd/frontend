@@ -26,6 +26,11 @@ export const theme = {
     radius: '6px',
     font: {
       family: 'Roboto'
+    },
+    focus: {
+      border: {
+        color: 'accent-2'
+      }
     }
   },
   tab: {
