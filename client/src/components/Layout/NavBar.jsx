@@ -6,19 +6,23 @@ import { SecondaryButton } from '../../styles/themes';
 
 import { useAuth0 } from '../../auth/authWrapper';
 import MenuLayer from './MenuLayer';
-import stampdLogoWhite from '../../images/stampd_full_white.svg';
+import stampdLogoWhite from '../../images/stampd_full_white.png';
 import MenuButton from './MenuButton';
 
 function NavBar({ history }) {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [isShown, setShown] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const onClose = () => {
-    setShown(false);
+  const toggleOpen = () => {
+    setShown(!isShown);
+    setLoading(false);
   };
 
   const handleLogout = () => {
     localStorage.clear();
+    setShown(false);
+    setLoading(false);
     logout();
   };
 
@@ -28,9 +32,12 @@ function NavBar({ history }) {
         <div>
           {isAuthenticated && (
             <MenuButton
+              className="hamburger"
               setShown={setShown}
               isShown={isShown}
-              onClose={onClose}
+              onClose={toggleOpen}
+              setLoading={setLoading}
+              loading={loading}
             />
           )}
           <div className="logo">
@@ -61,7 +68,14 @@ function NavBar({ history }) {
         )}
       </nav>
       {isShown && (
-        <MenuLayer onClose={onClose} isShown={isShown} history={history} />
+        <MenuLayer
+          loading={loading}
+          setLoading={setLoading}
+          toggleOpen={toggleOpen}
+          isShown={isShown}
+          setShown={setShown}
+          history={history}
+        />
       )}
     </NavContainter>
   );
@@ -108,11 +122,10 @@ const NavContainter = styled.div`
           align-content: center;
         }
       }
-    }
 
-    svg {
-      cursor: pointer;
-      margin-right: 4%;
+      .hamburger {
+        cursor: pointer;
+      }
     }
 
     .button__container {

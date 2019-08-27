@@ -16,7 +16,8 @@ export const theme = {
       navbarHoverBg: '#ffffff',
       searchBarBorder: '#adadad',
       searchBarColor: '#adadad',
-      dashboardNotFoundColor: '#adadad'
+      dashboardNotFoundColor: '#adadad',
+      mobileTrashBtnBorder: '#adadad'
     },
     border: '1px solid rgba(0,0,0,0.33)',
     // fontFamily

@@ -5,7 +5,7 @@ exports[`<SchoolDetailsForm /> should match the previous snapshot of the compone
   className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
 >
   <section
-    className="sc-cSHVUG cFhsnP"
+    className="sc-cSHVUG JfRbP"
   >
     <h2>
       testName
@@ -32,7 +32,7 @@ exports[`<SchoolDetailsForm /> should match the previous snapshot of the compone
     </div>
   </section>
   <div
-    className="sc-kgoBCf kNFAgw StyledBox-sc-13pk1d4-0 IRSNj"
+    className="sc-kgoBCf exlGzM StyledBox-sc-13pk1d4-0 IRSNj"
   >
     <section
       className="sc-VigVT kwgGCs"
@@ -42,7 +42,7 @@ exports[`<SchoolDetailsForm /> should match the previous snapshot of the compone
       >
         <button
           aria-label="view credentials button"
-          className="sc-bdVaJa sc-bZQynM jAapWz StyledButton-sc-323bzc-0 kHrfdt"
+          className="sc-bdVaJa sc-bZQynM loBWCV StyledButton-sc-323bzc-0 kHrfdt"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -110,7 +110,7 @@ exports[`<SchoolDetailsForm /> should match the previous snapshot of the compone
       >
         <button
           aria-label="view credentials button"
-          className="sc-bdVaJa sc-bZQynM jAapWz StyledButton-sc-323bzc-0 kHrfdt"
+          className="sc-bdVaJa sc-bZQynM loBWCV StyledButton-sc-323bzc-0 kHrfdt"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -178,7 +178,7 @@ exports[`<SchoolDetailsForm /> should match the previous snapshot of the compone
       >
         <button
           aria-label="view credentials button"
-          className="sc-bdVaJa sc-bZQynM jAapWz StyledButton-sc-323bzc-0 kHrfdt"
+          className="sc-bdVaJa sc-bZQynM loBWCV StyledButton-sc-323bzc-0 kHrfdt"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}

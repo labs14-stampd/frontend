@@ -38,7 +38,11 @@ const SchoolDashboard = ({ history }) => {
   return (
     <>
       <SchoolDetails>
-        {true ? <h2>{schoolState.schoolData.schoolDetails.name}</h2> : <div />}
+        {schoolState.schoolDataSuccess ? (
+          <h2>{schoolState.schoolData.schoolDetails.name}</h2>
+        ) : (
+          <div />
+        )}
         <div>
           <input
             type="text"
@@ -95,11 +99,33 @@ const SchoolDetails = styled.section`
   justify-content: space-between;
   align-items: center;
 
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+
   div {
     display: flex;
     width: 68%;
     justify-content: flex-end;
     align-items: center;
+
+    @media (max-width: 800px) {
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+      margin: 3% 0;
+    }
+
+    @media (max-width: 500px) {
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      margin: 3% 0;
+    }
 
     input {
       background: white url(${searchIcon}) no-repeat scroll 5px 5px;
@@ -123,10 +149,37 @@ const SchoolDetails = styled.section`
 
       &:focus {
         color: ${({ theme }) => theme.global.colors.brand};
-        border-color: ${({ theme }) => theme.global.colors.brand};
+        border-color: ${({ theme }) => theme.global.colors['accent-2']};
         outline: none;
         padding-left: 15px;
         width: 50%;
+      }
+
+      @media (max-width: 800px) {
+        width: 48%;
+        transition: none;
+
+        &:focus {
+          color: ${({ theme }) => theme.global.colors.brand};
+          border-color: ${({ theme }) => theme.global.colors['accent-2']};
+          outline: none;
+          padding: 25px;
+          width: 48%;
+        }
+      }
+
+      @media (max-width: 500px) {
+        width: 90%;
+        margin-bottom: 4.5%;
+        transition: none;
+
+        &:focus {
+          color: ${({ theme }) => theme.global.colors.brand};
+          border-color: ${({ theme }) => theme.global.colors['accent-2']};
+          outline: none;
+          padding: 25px;
+          width: 90%;
+        }
       }
     }
   }
@@ -138,6 +191,17 @@ const IssueCredButton = styled(BaseButton)`
   text-align: right;
   border-radius: 50px;
   margin-left: 2%;
+
+  @media (max-width: 800px) {
+    width: 48%;
+    text-align: center;
+    margin-left: 0;
+  }
+  @media (max-width: 500px) {
+    width: 90%;
+    text-align: center;
+    margin-left: 0;
+  }
 `;
 
 const NothingFound = styled.p`
@@ -145,13 +209,13 @@ const NothingFound = styled.p`
   text-align: center;
   font-size: 2.4rem;
   margin-top: 20vh;
-  color: ${({ theme }) => theme.global.colors['status-disabled']};
+  color: ${({ theme }) => theme.global.colors.dashboardNotFoundColor};
 `;
 
 const CredCardContainer = styled(Box)`
   height: 75vh;
   overflow: auto;
-  padding: 0 2%;
+  padding: 10px 2%;
 `;
 
 export default SchoolDashboard;

@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const MenuButton = ({ setShown, isShown }) => {
+const MenuButton = ({ setShown, isShown, setLoading }) => {
   const setMenu = e => {
     e.preventDefault();
     setShown(!isShown);
+    setLoading(false);
   };
   return (
     <Styles data-testid="hamburger">
@@ -27,12 +28,14 @@ const MenuButton = ({ setShown, isShown }) => {
 
 MenuButton.propTypes = {
   setShown: PropTypes.func.isRequired,
-  isShown: PropTypes.bool.isRequired
+  isShown: PropTypes.bool.isRequired,
+  loading: PropTypes.bool.isRequired,
+  setLoading: PropTypes.func.isRequired
 };
 
 const Styles = styled.div`
   cursor: pointer;
-  margin-right: 13px;
+  margin-right: 25px;
 
   .hamburger-menu {
     width: 33px;
