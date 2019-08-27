@@ -85,13 +85,13 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
   }, [status]);
 
   return (
-    <Form>
+    <SchoolForm>
       <Box direction="column">
         <Heading margin="20px 0 0 0" alignSelf="center">
           School Register
         </Heading>
         <SchoolFormField label="Institution">
-          <Field
+          <SchoolBaseTextInput
             component="input"
             type="text"
             name="name"
@@ -102,7 +102,7 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
           )}
         </SchoolFormField>
         <SchoolFormField label="Tax Id">
-          <Field
+          <SchoolBaseTextInput
             component="input"
             type="text"
             name="taxId"
@@ -113,7 +113,7 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
           )}
         </SchoolFormField>
         <SchoolFormField label="Address 1">
-          <Field
+          <SchoolBaseTextInput
             component="input"
             type="text"
             name="street1"
@@ -124,7 +124,7 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
           )}
         </SchoolFormField>
         <SchoolFormField label="Address 2">
-          <Field
+          <SchoolBaseTextInput
             component="input"
             type="text"
             name="street2"
@@ -135,7 +135,7 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
           )}
         </SchoolFormField>
         <SchoolFormField label="City">
-          <Field
+          <SchoolBaseTextInput
             component="input"
             type="text"
             name="city"
@@ -146,7 +146,7 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
           )}
         </SchoolFormField>
         <SchoolFormField label="State">
-          <Field
+          <SchoolBaseTextInput
             type="text"
             name="state"
             component="select"
@@ -160,13 +160,13 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             {touched.state && errors.state && (
               <ErrorMessage>{errors.state}</ErrorMessage>
             )}
-          </Field>
+          </SchoolBaseTextInput>
         </SchoolFormField>
         <SchoolFormField label="Zip Code">
-          <Field component="input" type="text" name="zip" placeholder="90210" />
+          <SchoolBaseTextInput component="input" type="text" name="zip" placeholder="90210" />
         </SchoolFormField>
         <SchoolFormField label="Phone Number">
-          <Field
+          <SchoolBaseTextInput
             type="text"
             placeholder="4151234567"
             component="input"
@@ -177,7 +177,7 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
           )}
         </SchoolFormField>
         <SchoolFormField label="Type of Institution">
-          <Field
+          <SchoolBaseTextInput
             component="input"
             type="text"
             name="type"
@@ -188,7 +188,7 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
           )}
         </SchoolFormField>
         <SchoolFormField label="Institution Website">
-          <Field
+          <SchoolBaseTextInput
             component="input"
             type="text"
             name="url"
@@ -200,7 +200,7 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
         </SchoolFormField>
         <SchoolButton type="submit" primary label="Submit" alignSelf="center" />
       </Box>
-    </Form>
+    </SchoolForm>
   );
 };
 
@@ -266,7 +266,7 @@ const ErrorMessage = styled.p`
   font-size: 1.4rem;
 `;
 
-const SchoolForm = styled(BaseForm)`
+const SchoolForm = styled(Form)`
   margin: 120px auto 100px;
   background-color: white;
   border: 1px solid #d8d8d8;
@@ -280,20 +280,29 @@ const SchoolButton = styled(BaseButton)`
   margin: 15px 20px 50px;
 `;
 
-const SchoolBaseTextInput = styled(BaseTextInput)`
+const SchoolBaseTextInput = styled(Field)`
   border: none;
+  background: transparent;
+  border-bottom: 1px solid black;
+  width: 100%;
+  max-width: 800px;
+  padding: 10px 2.5px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  ::placeholder {
+    font-size: 1.6rem;
+  }
 `;
 
 const SchoolFormField = styled(BaseFormField)`
   margin: 20px;
   border-bottom: none;
-  input {
-    /* margin-bottom: 10px; */
+  div {
+    border-bottom: none;
   }
-`;
-
-const SchoolMaskedInput = styled(MaskedInput)`
-  /* border: ${({ theme }) => theme.global.border}; */
+  label {
+    margin-left: 2.5px;
+  }
 `;
 
 export default SchoolDetailsFormWithFormik;
