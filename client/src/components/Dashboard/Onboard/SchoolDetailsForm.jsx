@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
 import { MaskedInput, Select, Box, Heading } from 'grommet';
 import { Form, Field, withFormik } from 'formik';
+import * as Yup from 'yup';
 
 import c from '../../../store/constants';
 
@@ -211,7 +212,7 @@ const SchoolDetailsFormWithFormik = withFormik({
     phone,
     type,
     url
-   }) {
+  }) {
     return {
       name: name || '',
       taxId: taxId || '',
@@ -224,9 +225,22 @@ const SchoolDetailsFormWithFormik = withFormik({
       type: type || '',
       url: url || ''
     };
-   },
+  },
 
-   
+  validationSchema: Yup.object().shape({
+    name: Yup.string().required(),
+    taxId: Yup.string().required(),
+    street1: Yup.string(),
+    street2: Yup.string(),
+    city: Yup.string(),
+    state: Yup.string(),
+    zip: Yup.string(),
+    phone: Yup.string().required(),
+    type: Yup.string(),
+    url: Yup.string().required()
+  })
+
+  
 })(SchoolDetailsForm);
 
 SchoolDetailsForm.propTypes = {
