@@ -17,7 +17,8 @@ export const theme = {
       searchBarBorder: '#adadad',
       searchBarColor: '#adadad',
       dashboardNotFoundColor: '#adadad',
-      mobileTrashBtnBorder: '#adadad'
+      mobileTrashBtnBorder: '#adadad',
+      confirmationInputBorder: '#adadad'
     },
     border: '1px solid rgba(0,0,0,0.33)',
     // fontFamily
