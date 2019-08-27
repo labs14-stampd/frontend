@@ -19,7 +19,7 @@ function ConfirmationLayerCredView({
       confirmSendEmail(status.email);
       onClose();
     }
-  }, [status]);
+  }, [status, onClose, confirmSendEmail]);
 
   const handleNo = e => {
     if (typeof noFunc === 'function') {
@@ -67,8 +67,8 @@ const ConfirmationLayerCredViewWithFormik = withFormik({
 
 ConfirmationLayerCredView.propTypes = {
   onClose: PropTypes.func.isRequired,
-  yesFunc: PropTypes.func,
-  noFunc: PropTypes.func
+  noFunc: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired
 };
 
 const ErrorMessage = styled.p`

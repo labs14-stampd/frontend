@@ -32,57 +32,62 @@ const CredentialView = ({ match }) => {
 
   const copyToClipBoard = () => {
     navigator.clipboard.writeText(credential.txHash);
-    toast.success(
-      `Copied to clipbooard`,
-      {
-        className: 'brand-background',
-        position: toast.POSITION.BOTTOM_CENTER,
-        hideProgressBar: true,
-        autoClose: 5000
-      }
-    );
-  }
+    toast.success(`Copied to clipbooard`, {
+      className: 'brand-background',
+      position: toast.POSITION.BOTTOM_CENTER,
+      hideProgressBar: true,
+      autoClose: 5000
+    });
+  };
 
   return (
-    <div style={{ marginTop: '100px' }}>
+    <Container>
       {credential ? (
         <CertificateArea>
           <TopSection>
-            <h3>
-              Verified credential for
-              {credential.ownerName}
-            </h3>
+            <h3>Verified credential for {credential.ownerName}</h3>
+            <p>
+              Status:{' '}
+              {credential.valid ? (
+                <Valid>Valid</Valid>
+              ) : (
+                <NotValid>Not Valid</NotValid>
+              )}
+            </p>
+            <p>Expiration date: {credential.expirationDate || 'None'}</p>
             <TxHash>
-              verify transaction hash
+              <p>
+                See the transaction on{' '}
+                <Anchor
+                  a11yTitle="Etherscan verification"
+                  target="_blank"
+                  color="brand"
+                  label="Etherscan"
+                  href={`${process.env.REACT_APP_ETHERSCAN}${credential.txHash}`}
+                >
+                  Etherscan
+                </Anchor>
+              </p>
+              Copy the transaction hash of{' '}
               <span
                 onClick={copyToClipBoard}
                 className="short"
                 onMouseEnter={() => setToggleHash(true)}
                 onMouseLeave={() => setToggleHash(false)}
               >
-               {credential.txHash.slice(0, 6)}...
+                {credential.txHash.slice(0, 6)}...
               </span>
               {toggleHash && (
                 <span
-                onClick={copyToClipBoard}
-                className="long"
-                onMouseEnter={() => setToggleHash(true)}
-                onMouseLeave={() => setToggleHash(false)}
+                  onClick={copyToClipBoard}
+                  className="long"
+                  onMouseEnter={() => setToggleHash(true)}
+                  onMouseLeave={() => setToggleHash(false)}
                 >
-                  {credential.txHash}  <Clipboard color="white" size="small" /> 
+                  {credential.txHash} <Clipboard color="white" size="small" />
                 </span>
-              )} to the Ethereum network using 
-              <Anchor a11yTitle="Etherscan verification"
-                target="_blank"
-                color="brand"
-                label="Etherscan"
-                href={`${process.env.REACT_APP_ETHERSCAN}${credential.txHash}`}
-              >
-                Etherscan
-              </Anchor>
+              )}
             </TxHash>
-            <p>Status: {credential.valid ? (<Valid>Valid</Valid>) : (<NotValid>Not Valid</NotValid>)}</p>
-            <p>Expiration date: {credential.expirationDate || "none"}</p>
           </TopSection>
           <BottomSection>
             <div>
@@ -106,29 +111,17 @@ const CredentialView = ({ match }) => {
       ) : (
         <h1>Credential does not exist</h1>
       )}
-    </div>
+    </Container>
   );
 };
 
-// CredentialView.defaultProps = {
-//   match: {
-//     params: {
-//       jwt: ''
-//     }
-//   }
-// };
-
-// CredentialView.propTypes = {
-//   match: PropTypes.shapeOf({
-//     params: PropTypes.shapeOf({
-//       jwt: PropTypes.string
-//     })
-//   })
-// };
+CredentialView.propTypes = {
+  match: PropTypes.string.isRequired
+};
 
 const TxHash = styled.p`
   position: relative;
-  cursor: pointer;
+
   .long {
     color: white;
     padding: 10px;
@@ -136,13 +129,14 @@ const TxHash = styled.p`
     position: fixed;
     border-radius: 5px;
     cursor: pointer;
-
   }
   .short {
     z-index: 99;
-    color: red;
+    color: green;
+    cursor: pointer;
+
     &:hover {
-     color: green;
+      opacity: 0.8;
     }
   }
 `;
@@ -166,7 +160,7 @@ const CertificateArea = styled.div`
 `;
 
 const BottomSection = styled.section`
-  width: calc(100% - 500px);
+  width: 100%;
   max-width: 1000px;
   background: ${props => props.theme.global.colors.dashBoardBg};
   border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
@@ -174,7 +168,7 @@ const BottomSection = styled.section`
   flex-direction: column;
   align-items: center;
   padding: 37.5px 50px 32.5px;
-  margin: 0 auto;
+  margin: 0 auto 50px;
 
   & > * {
     text-align: center;
@@ -196,7 +190,7 @@ const BottomSection = styled.section`
 `;
 
 const TopSection = styled.section`
-  width: calc(100% - 500px);
+  width: 100%;
   max-width: 1000px;
   background: ${props => props.theme.global.colors.dashBoardBg};
   border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
@@ -204,7 +198,25 @@ const TopSection = styled.section`
   flex-direction: column;
   align-items: center;
   padding: 37.5px 50px 32.5px;
-  margin: 0 auto;
+  margin: 0 auto 50px;
+
+  h3 {
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+
+  p {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+`;
+
+const Container = styled.div`
+  margin: 120px auto 0;
+  padding: 0 3%;
+  max-width: 1600px;
+  width: 100%;
+  min-height: calc(100vh - 150px);
 `;
 
 export default CredentialView;

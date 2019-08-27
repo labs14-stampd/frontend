@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Trash } from 'grommet-icons';
 import { toast } from 'react-toastify';
 import { BaseButton } from '../../../styles/themes';
 
@@ -17,13 +16,11 @@ const CredCardShareBtn = ({ credId }) => {
 
   //  Handling of loading states can be done here as well
   const confirmSendEmail = async email => {
-    console.log(email);
     try {
       const em = await queries.shareCredential({
         id: credId,
         email
       });
-      console.log('em', em);
       toast.success(`Success! Email sent`, {
         className: 'status-ok',
         position: toast.POSITION.BOTTOM_CENTER,
@@ -31,7 +28,7 @@ const CredCardShareBtn = ({ credId }) => {
         autoClose: true
       });
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
@@ -72,8 +69,6 @@ const CredCardShareBtnContainer = styled.div`
     opacity: 0.6;
   }
 `;
-
-const ShareButton = styled(BaseButton)``;
 
 const CredCardShareButton = styled(BaseButton)``;
 
