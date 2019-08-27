@@ -90,64 +90,68 @@ const EmailSettings = () => {
 
   return (
     <>
-      <StudentForm onSubmit={submitEmail}>
-        <EmailSection direction="column">
-          <Box direction="column">
-            <h2>Add an Email</h2>
-            <StudentFormField>
-              <StudentBaseTextInput
-                name="email"
-                placeholder="fakeemail@email.com"
-                onChange={e => setEmail(e.target.value)}
-                value={email}
-                plain={false}
-              />
-            </StudentFormField>
-          </Box>
-          <StudentButton
-            type="submit"
-            primary
-            label="Add Email"
-            alignSelf="center"
-          />
-        </EmailSection>
-      </StudentForm>
-      <EmailBox direction="column">
-        <h2>Emails</h2>
-        <EmailSectionContainer>
-          <p>{user.email}</p>
-          <TrashButton disabled color="searchBarBorder" />
-        </EmailSectionContainer>
-        {hasActiveConfirmationDialog && (
-          // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
-          <ConfirmationLayer
-            onClose={() => setHasActiveConfirmationDialog(false)} // Needed to make the layer disappear
-            yesFunc={() => {
-              return confirmRemoveEmail(userEmailIdToDelete);
-            }}
-          />
-        )}
-        <Box height="55vh" overflow="auto">
-          <InfiniteScroll items={emailList} step={10}>
-            {item => {
-              return (
-                <EmailContainer
-                  key={item.id}
-                  id={item.id}
-                  email={item.email}
-                  setUserEmailIdToDelete={setUserEmailIdToDelete}
-                  setHasActiveConfirmationDialog={
-                    setHasActiveConfirmationDialog
-                  }
+      <Container>
+        <StudentForm onSubmit={submitEmail}>
+          <EmailSection direction="column">
+            <Box direction="column">
+              <h2>Add an Email</h2>
+              <StudentFormField>
+                <StudentBaseTextInput
+                  name="email"
+                  placeholder="fakeemail@email.com"
+                  onChange={e => setEmail(e.target.value)}
+                  value={email}
+                  plain={false}
                 />
-              );
-            }}
-          </InfiniteScroll>
-        </Box>
-      </EmailBox>
+              </StudentFormField>
+            </Box>
+            <StudentButton
+              type="submit"
+              primary
+              label="Add Email"
+              alignSelf="end"
+            />
+          </EmailSection>
+        </StudentForm>
+        <EmailBox direction="column">
+          <h2>Emails</h2>
+          <EmailSectionContainer>
+            <p>{user.email}</p>
+            <TrashButton disabled color="searchBarBorder" />
+          </EmailSectionContainer>
+          {hasActiveConfirmationDialog && (
+            // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
+            <ConfirmationLayer
+              onClose={() => setHasActiveConfirmationDialog(false)} // Needed to make the layer disappear
+              yesFunc={() => {
+                return confirmRemoveEmail(userEmailIdToDelete);
+              }}
+            />
+          )}
+          <Box height="55vh" overflow="auto">
+            <InfiniteScroll items={emailList} step={10}>
+              {item => {
+                return (
+                  <EmailContainer
+                    key={item.id}
+                    id={item.id}
+                    email={item.email}
+                    setUserEmailIdToDelete={setUserEmailIdToDelete}
+                    setHasActiveConfirmationDialog={
+                      setHasActiveConfirmationDialog
+                    }
+                  />
+                );
+              }}
+            </InfiniteScroll>
+          </Box>
+        </EmailBox>
+      </Container>
     </>
   );
 };
+
+const Container = styled.section``;
 
 const EmailSection = styled(Box)`
   justify-content: space-between;
