@@ -78,7 +78,7 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
   }, [status]);
 
   return (
-    <StudentForm onSubmit={handleSubmit}>
+    <StudentForm>
       <Box direction="column">
         <Heading margin="20px 0 0 0" alignSelf="center">
           Student Register
@@ -149,21 +149,24 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             <ErrorMessage>{errors.city}</ErrorMessage>
           )}
         </StudentFormField>
-        <StudentFormField
-          label="State"
-          name="state"
-          component="select"
-          placeholder="State"
-        >
-          {CONSTANTS.states.map(state => (
-            <option value={`${state}`} key={state}>
-              {state}
-            </option>
-          ))}
-          {touched.state && errors.state && (
-            <ErrorMessage>{errors.state}</ErrorMessage>
-          )}
+        <StudentFormField label="State">
+          <StudentBaseTextInput
+            name="state"
+            component="select"
+            placeholder="State"
+            type="text"
+          >
+            {CONSTANTS.states.map(state => (
+              <option value={`${state}`} key={state}>
+                {state}
+              </option>
+            ))}
+            {touched.state && errors.state && (
+              <ErrorMessage>{errors.state}</ErrorMessage>
+            )}
+          </StudentBaseTextInput>
         </StudentFormField>
+
         <StudentFormField label="Zip Code">
           <StudentBaseTextInput
             name="zip"
@@ -175,8 +178,8 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             <ErrorMessage>{errors.zip}</ErrorMessage>
           )}
         </StudentFormField>
-        <SchoolFormField label="Phone Number">
-          <SchoolBaseTextInput
+        <StudentFormField label="Phone Number">
+          <StudentBaseTextInput
             type="text"
             placeholder="4151234567"
             component="input"
@@ -185,7 +188,7 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
           {touched.phone && errors.phone && (
             <ErrorMessage>{errors.phone}</ErrorMessage>
           )}
-        </SchoolFormField>
+        </StudentFormField>
         <StudentButton
           type="submit"
           primary
@@ -226,8 +229,8 @@ const StudentDetailsFormWithFormik = withFormik({
     };
   },
   validationSchema: Yup.object().shape({
-    firstName: Yup.string(),
-    lastName: Yup.string(),
+    firstName: Yup.string().required('First Name is Required'),
+    lastName: Yup.string().required('Last Name is Required'),
     middleName: Yup.string(),
     street1: Yup.string(),
     street2: Yup.string(),
@@ -282,9 +285,9 @@ const StudentFormField = styled(BaseFormField)`
     margin-left: 2.5px;
   }
 `;
-
-const StudentMaskedInput = styled(MaskedInput)`
-  /* border: ${({ theme }) => theme.global.border}; */
+const ErrorMessage = styled.p`
+  color: red;
+  font-size: 1.4rem;
 `;
 
 export default StudentDetailsFormWithFormik;
