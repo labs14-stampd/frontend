@@ -79,57 +79,54 @@ const SchoolDetailsForm = ({ history }) => {
   };
 
   return (
-    <SchoolForm onSubmit={handleSubmit}>
+    <Form>
       <Box direction="column">
         <Heading margin="20px 0 0 0" alignSelf="center">
           School Register
         </Heading>
         <SchoolFormField label="Institution">
-          <SchoolBaseTextInput
+          <Field
+            component="input"
+            type="text"
             name="name"
             placeholder="Lambda School"
-            onChange={handleChanges}
-            value={input.name}
-            plain={false}
-            required
           />
         </SchoolFormField>
         <SchoolFormField label="Tax Id">
-          <SchoolBaseTextInput
-            labelText="TaxId"
+          <Field
+            component="input"
+            type="text"
             name="taxId"
             placeholder="TaxId"
-            onChange={handleChanges}
-            value={input.taxId}
-            required
           />
         </SchoolFormField>
         <SchoolFormField label="Address 1">
-          <SchoolBaseTextInput
+          <Field
+            component="input"
+            type="text"
             name="street1"
             placeholder="123 Fake street"
-            onChange={handleChanges}
-            value={input.street1}
           />
         </SchoolFormField>
         <SchoolFormField label="Address 2">
-          <SchoolBaseTextInput
+          <Field
+            component="input"
+            type="text"
             name="street2"
             placeholder="Apt B"
-            onChange={handleChanges}
-            value={input.street2}
           />
         </SchoolFormField>
         <SchoolFormField label="City">
-          <SchoolBaseTextInput
+          <Field
+            component="input"
+            type="text"
             name="city"
             placeholder="San Francisco"
-            onChange={handleChanges}
-            value={input.city}
           />
         </SchoolFormField>
         <SchoolFormField
           label="State"
+          type="text"
           name="state"
           component={Select}
           options={c.states}
@@ -138,12 +135,7 @@ const SchoolDetailsForm = ({ history }) => {
           placeholder="State"
         />
         <SchoolFormField label="Zip Code">
-          <SchoolBaseTextInput
-            name="zip"
-            placeholder="90210"
-            onChange={handleChanges}
-            value={input.zip}
-          />
+          <Field component="input" type="text" name="zip" placeholder="90210" />
         </SchoolFormField>
         <SchoolFormField label="Phone Number">
           <SchoolMaskedInput
@@ -175,26 +167,24 @@ const SchoolDetailsForm = ({ history }) => {
           />
         </SchoolFormField>
         <SchoolFormField label="Type of Institution">
-          <SchoolBaseTextInput
+          <Field
+            component="input"
+            type="text"
             name="type"
             placeholder="University"
-            onChange={handleChanges}
-            value={input.type}
           />
         </SchoolFormField>
         <SchoolFormField label="Institution Website">
-          <SchoolBaseTextInput
-            labelText="Institution Website"
+          <Field
+            component="input"
+            type="text"
             name="url"
             placeholder="ls.dev"
-            onChange={handleChanges}
-            value={input.url}
-            required
           />
         </SchoolFormField>
         <SchoolButton type="submit" primary label="Submit" alignSelf="center" />
       </Box>
-    </SchoolForm>
+    </Form>
   );
 };
 
