@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
 import { MaskedInput, Select, Box, Heading } from 'grommet';
+import { Form, Field, withFormik } from 'formik';
+import * as Yup from 'yup';
 
 import {
   BaseForm,
@@ -198,6 +200,43 @@ SchoolDetailsForm.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
+const StudentDetailsFormWithFormik = withFormik({
+  mapPropsToValues({
+    firstName,
+    lastName,
+    middleName,
+    street1,
+    street2,
+    city,
+    state,
+    zip,
+    phone
+  }) {
+    return {
+      firstName: firstName || '',
+      lastName: lastName || '',
+      middleName: middleName || '',
+      street1: street1 || '',
+      street2: street2 || '',
+      city: city || '',
+      state: state || '',
+      zip: zip || '',
+      phone: phone || ''
+    };
+  },
+  validationSchema: Yup.object().shape({
+    firstName: Yup.string(),
+    lastName: Yup.string(),
+    middleName: Yup.string(),
+    street1: Yup.string(),
+    street2: Yup.string(),
+    city: Yup.string(),
+    state: Yup.string(),
+    zip: Yup.string(),
+    phone: Yup.string()
+  })
+})(SchoolDetailsForm);
+
 const StudentForm = styled(BaseForm)`
   margin: 120px auto 100px;
   background-color: white;
@@ -228,4 +267,4 @@ const StudentMaskedInput = styled(MaskedInput)`
   /* border: ${({ theme }) => theme.global.border}; */
 `;
 
-export default SchoolDetailsForm;
+export default StudentDetailsFormWithFormik;
