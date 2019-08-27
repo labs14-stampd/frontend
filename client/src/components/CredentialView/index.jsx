@@ -22,10 +22,9 @@ const CredentialView = ({ match }) => {
         const { data } = await queries.getCredentialById({
           id: credId
         });
-        console.log(data);
         setCredential(data.getCredentialById);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
     credFn();

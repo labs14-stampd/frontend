@@ -32,13 +32,13 @@ function ConfirmationLayerCredView({
     <Layer position="center" onClickOutside={onClose}>
       <Box pad="large" gap="medium">
         <Form>
-          <Field name="email" type="text" placeholder="faker@fake.com" />
+          <Input name="email" type="text" placeholder="faker@fake.com" />
           {touched.email && errors.email && (
             <ErrorMessage>{errors.email}</ErrorMessage>
           )}
           <Box direction="row" gap="medium" align="center">
-            <Button type="submit" label="Yes" />
-            <Button label="No" primary onClick={handleNo} />
+            <Button type="submit" label="Submit" />
+            <Button label="Cancel" primary onClick={handleNo} />
           </Box>
         </Form>
       </Box>
@@ -70,6 +70,16 @@ ConfirmationLayerCredView.propTypes = {
   noFunc: PropTypes.func.isRequired,
   email: PropTypes.string.isRequired
 };
+
+const Input = styled(Field)`
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 10px 3%;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  border: 2px solid
+    ${({ theme }) => theme.global.colors.confirmationInputBorder};
+`;
 
 const ErrorMessage = styled.p`
   color: red;
