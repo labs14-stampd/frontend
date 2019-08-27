@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
 import { MaskedInput, Select, Box, Heading } from 'grommet';
+import { Form, Field, withFormik } from 'formik';
+
 import c from '../../../store/constants';
 
 import {
@@ -195,6 +197,38 @@ const SchoolDetailsForm = ({ history }) => {
   );
 };
 
+// formik HOC
+
+const SchoolDetailsFormWithFormik = withFormik({
+  mapPropsToValues({
+    name,
+    taxId,
+    street1,
+    street2,
+    city,
+    state,
+    zip,
+    phone,
+    type,
+    url
+   }) {
+    return {
+      name: name || '',
+      taxId: taxId || '',
+      street1: street1 || '',
+      street2: street2 || '',
+      city: city || '',
+      state: state || '',
+      zip: zip || '',
+      phone: phone || '',
+      type: type || '',
+      url: url || ''
+    };
+   },
+
+   
+})(SchoolDetailsForm);
+
 SchoolDetailsForm.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
@@ -229,4 +263,4 @@ const SchoolMaskedInput = styled(MaskedInput)`
   /* border: ${({ theme }) => theme.global.border}; */
 `;
 
-export default SchoolDetailsForm;
+export default SchoolDetailsFormWithFormik;
