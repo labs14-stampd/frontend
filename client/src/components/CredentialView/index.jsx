@@ -36,7 +36,10 @@ const CredentialView = ({ match }) => {
               Verified credential for 
               {credential.ownerName}
             </h3>
-              <p>verify transaction hash <span className="short"> {credential.txHash.slice(0, 6)}... </span> to the Ethereum network using <Anchor a11yTitle="Etherscan verification" target="_blank" color="brand" label="Etherscan" href={`https://rinkeby.etherscan.io/tx/${credential.txHash}`}>Etherscan</Anchor></p>    
+              <TxHash>
+                verify transaction hash <span className="short"> {credential.txHash.slice(0, 6)}... </span> <span className="long"> {credential.txHash} </span> to the Ethereum network using <Anchor a11yTitle="Etherscan verification" target="_blank" color="brand" label="Etherscan" href={`https://rinkeby.etherscan.io/tx/${credential.txHash}`}>Etherscan</Anchor>
+              </TxHash> 
+              
             <p>Status: {credential.valid ? (<Valid>Valid</Valid>) : (<NotValid>Not Valid</NotValid>)}</p>
             <p>Expiration date: {credential.expirationDate || "none"}</p>
           </TopSection>
@@ -82,7 +85,7 @@ const CredentialView = ({ match }) => {
 //   })
 // };
 
-const OurHouse = styled(Stack)`
+const TxHash = styled.p`
   .long {
     display: none;
     color: white;
