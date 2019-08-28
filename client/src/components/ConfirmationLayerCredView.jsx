@@ -32,7 +32,7 @@ function ConfirmationLayerCredView({
     <Layer position="center" onClickOutside={onClose}>
       <Box pad="large" gap="medium">
         <Form>
-          <Input name="email" type="text" placeholder="faker@fake.com" />
+          <Input name="email" type="text" placeholder="john@doe.com" />
           {touched.email && errors.email && (
             <ErrorMessage>{errors.email}</ErrorMessage>
           )}
@@ -73,7 +73,7 @@ ConfirmationLayerCredView.propTypes = {
 
 const Input = styled(Field)`
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   padding: 10px 3%;
   border-radius: 5px;
   font-size: 1.6rem;
@@ -84,6 +84,7 @@ const Input = styled(Field)`
 const ErrorMessage = styled.p`
   color: red;
   font-size: 1.4rem;
+  margin-bottom: 10px;
 `;
 
 export default ConfirmationLayerCredViewWithFormik;

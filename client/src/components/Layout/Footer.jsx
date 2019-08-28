@@ -12,12 +12,12 @@ const Footer = () => {
 const FooterContainer = styled.div`
   bottom: 0;
   width: 100%;
-  color: #333333;
   background: #f8f8f8;
   text-align: center;
   z-index: 0;
 
   p {
+    color: ${({ theme }) => theme.global.colors.footerColor};
     margin: 0 auto;
     text-align: center;
     width: 200px;
