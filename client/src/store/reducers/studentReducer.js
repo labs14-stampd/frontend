@@ -47,11 +47,14 @@ export const studentReducer = (state = initialState, action) => {
         studentSearchInput: action.payload
       };
     case SET_STUDENT_DATA:
+      const details =
+        action.payload.data.addStudentDetail ||
+        action.payload.data.updateStudentDetail;
       return {
         ...state,
         studentData: {
           ...state.studentData,
-          studentDetails: action.payload.data.addStudentDetail
+          studentDetails: details
         },
         studentDataSuccess: true
       };
