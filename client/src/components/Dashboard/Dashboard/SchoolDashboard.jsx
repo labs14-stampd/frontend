@@ -47,7 +47,7 @@ const SchoolDashboard = ({ history }) => {
           <input
             type="text"
             name="searchText"
-            placeholder="Search"
+            placeholder="Search Credentials"
             onChange={handleChange}
             value={schoolState.schoolSearchInput}
           />
