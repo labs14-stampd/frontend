@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { Box, Button, Layer, Text } from 'grommet';
 
-function ConfirmationLayer({ onClose, yesFunc, noFunc, id }) {
+function ConfirmationLayer({ onClose, yesFunc, noFunc }) {
   const handleYes = e => {
     if (typeof yesFunc === 'function') {
       yesFunc();
@@ -32,11 +32,14 @@ function ConfirmationLayer({ onClose, yesFunc, noFunc, id }) {
   );
 }
 
+ConfirmationLayer.defaultProps = {
+  noFunc: null
+}
+
 ConfirmationLayer.propTypes = {
   onClose: PropTypes.func.isRequired,
   yesFunc: PropTypes.func.isRequired,
-  noFunc: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired
+  noFunc: PropTypes.func
 };
 
 const ConfirmationContainer = styled(Layer)`
