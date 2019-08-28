@@ -44,7 +44,7 @@ const StudentDashboard = () => {
           <input
             type="text"
             name="searchText"
-            placeholder="Search"
+            placeholder="Search Credentials"
             onChange={handleChange}
             value={studentState.studentSearchInput}
           />

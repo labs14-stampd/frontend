@@ -142,7 +142,7 @@ const CredentialsForm = ({ history }) => {
             <CredField label="Credential Name">
               <BaseTextInput
                 name="credName"
-                placeholder="Masters in Philosophy"
+                placeholder="Title of Credential, e.g., 'M.A., Philosophy'"
                 onChange={handleChanges}
                 value={credName}
                 required
@@ -151,7 +151,7 @@ const CredentialsForm = ({ history }) => {
             <CredField label="Type">
               <BaseTextInput
                 name="type"
-                placeholder="Masters, PhD, Cert, etc."
+                placeholder="Type of Credential, e.g. 'Graduate Degree'"
                 onChange={handleChanges}
                 value={type}
                 required
