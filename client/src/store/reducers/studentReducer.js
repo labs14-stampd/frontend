@@ -7,6 +7,7 @@ export const SEARCH_HANDLE_CHANGE = 'SEARCH_HANDLE_CHANGE';
 export const SET_STUDENT_DATA = 'SET_STUDENT_DATA';
 export const STUDENT_EMAIL_UPDATE = 'STUDENT_EMAIL_UPDATE';
 export const REMOVE_STUDENT_EMAIL = 'REMOVE_STUDENT_EMAIL';
+export const CLEAR_SEARCH_INPUT = 'CLEAR_SEARCH_INPUT';
 
 export const studentContext = createContext();
 
@@ -88,6 +89,11 @@ export const studentReducer = (state = initialState, action) => {
             credentials: action.payload.credList
           }
         }
+      };
+    case CLEAR_SEARCH_INPUT:
+      return {
+        ...state,
+        studentSearchInput: ''
       };
     default:
       return state;

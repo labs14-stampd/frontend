@@ -9,6 +9,7 @@ export const REMOVE_CREDENTIAL_SUCCESS = 'REMOVE_CREDENTIAL_SUCCESS';
 export const REMOVE_CREDENTIAL_ERROR = 'REMOVE_CREDENTIAL_ERROR';
 export const UPDATE_CRED_DATA = 'UPDATE_CRED_DATA';
 export const SET_SCHOOL_DATA = 'SET_SCHOOL_DATA';
+export const CLEAR_SEARCH_INPUT = 'CLEAR_SEARCH_INPUT';
 
 export const schoolContext = createContext();
 
@@ -100,6 +101,11 @@ export const schoolReducer = (state = initialState, action) => {
           schoolDetails: action.payload.data.addSchoolDetail
         },
         schoolDataSuccess: true
+      };
+    case CLEAR_SEARCH_INPUT:
+      return {
+        ...state,
+        schoolSearchInput: ''
       };
     default:
       return state;

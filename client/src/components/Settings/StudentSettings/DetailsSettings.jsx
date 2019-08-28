@@ -158,6 +158,7 @@ const DetailSettings = ({ errors, touched, status }) => {
               <ErrorMessage>{errors.phone}</ErrorMessage>
             )}
           </StudentFormField>
+
           <StudentButton
             type="submit"
             primary

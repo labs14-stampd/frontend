@@ -18,13 +18,19 @@ export const theme = {
       searchBarColor: '#adadad',
       dashboardNotFoundColor: '#adadad',
       mobileTrashBtnBorder: '#adadad',
-      confirmationInputBorder: '#adadad'
+      confirmationInputBorder: '#adadad',
+      footerColor: '#adadad'
     },
     border: '1px solid rgba(0,0,0,0.33)',
     // fontFamily
     radius: '6px',
     font: {
       family: 'Roboto'
+    },
+    focus: {
+      border: {
+        color: 'accent-2'
+      }
     }
   },
   tab: {
