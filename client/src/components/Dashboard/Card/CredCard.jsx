@@ -45,7 +45,7 @@ const CredCard = ({ cred }) => {
                 Issued on:
                 {issuedOn}
               </h3>
-              <h3>Issued by: [School of the Sequoias]</h3>
+              <h3>Issued by: {cred.schoolsUserInfo.schoolDetails.name}</h3>
               <h2>{ownerName}</h2>
             </section>
           </CertificateArea>
