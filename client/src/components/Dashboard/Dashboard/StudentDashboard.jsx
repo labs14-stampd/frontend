@@ -44,7 +44,7 @@ const StudentDashboard = () => {
           <input
             type="text"
             name="searchText"
-            placeholder="Search"
+            placeholder="Search Credentials"
             onChange={handleChange}
             value={studentState.studentSearchInput}
           />
@@ -97,7 +97,15 @@ const StudentDetails = styled.section`
     align-items: center;
 
     @media (max-width: 800px) {
+      flex-direction: row;
       justify-content: center;
+      width: 100%;
+      margin: 3% 0;
+    }
+
+    @media (max-width: 500px) {
+      flex-direction: column;
+      justify-content: space-between;
       width: 100%;
       margin: 3% 0;
     }
@@ -152,11 +160,13 @@ const StudentDetails = styled.section`
           border-color: ${({ theme }) => theme.global.colors['accent-2']};
           outline: none;
           padding: 25px;
-          width: 80%;
+          width: 100%;
         }
       }
     }
   }
+
+  div
 `;
 
 const NothingFound = styled.p`
@@ -168,7 +178,7 @@ const NothingFound = styled.p`
 `;
 
 const CredCardContainer = styled(Box)`
-  height: 75vh;
+  height: 71vh;
   overflow: auto;
   padding: 10px 2%;
 `;

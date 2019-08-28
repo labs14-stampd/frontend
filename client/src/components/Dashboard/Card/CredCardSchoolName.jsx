@@ -36,7 +36,7 @@ const SchoolNameContainer = styled.div`
       width: 100%;
       text-align: center;
       font-size: 1.6rem;
-      margin-bottom: 15px;
+      margin-bottom: 5px;
     }
   }
 
@@ -54,7 +54,7 @@ const SchoolNameContainer = styled.div`
       width: 100%;
       text-align: center;
       font-size: 1.6rem;
-      margin-bottom: 15px;
+      margin-bottom: 5px;
     }
   }
 `;

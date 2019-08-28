@@ -17,7 +17,7 @@ const CredCardShareBtn = ({ credId }) => {
   //  Handling of loading states can be done here as well
   const confirmSendEmail = async email => {
     try {
-      const em = await queries.shareCredential({
+      await queries.shareCredential({
         id: credId,
         email
       });
@@ -65,11 +65,40 @@ const CredCardShareBtnContainer = styled.div`
   margin-right: 3%;
   transition: opacity 0.3s;
 
-  :hover {
-    opacity: 0.6;
+  @media (max-width: 800px) {
+    width: 100%;
+    order: 3;
+    margin: 0;
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
+    order: 3;
+    margin: 0;
   }
 `;
 
-const CredCardShareButton = styled(BaseButton)``;
+const CredCardShareButton = styled(BaseButton)`
+  border-radius: 50px;
+  border-color: #adadad;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 15px;
+  }
+
+  :hover {
+    border-color: ${({ theme }) => theme.global.colors.brand};
+    background: ${({ theme }) => theme.global.colors.brand};
+    color: ${props => props.theme.global.colors['accent-2']};
+  }
+`;
 
 export default CredCardShareBtn;
