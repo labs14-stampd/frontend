@@ -168,6 +168,11 @@ const queries = {
             zip
             phone
             userId
+            emailList {
+              email
+              id
+              userId
+            }
             credentials {
               id
               credHash
