@@ -171,6 +171,7 @@ const queries = {
             emailList {
               email
               id
+              userId
             }
             credentials {
               id

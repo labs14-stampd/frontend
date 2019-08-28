@@ -29,7 +29,6 @@ const DetailSettings = ({ errors, touched, status }) => {
             userId: user.id,
             id: studentState.studentData.studentDetails.id
           });
-          console.log(details);
           dispatchStudent({
             type: SET_STUDENT_DATA,
             payload: { ...details }
