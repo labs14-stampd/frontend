@@ -27,18 +27,6 @@ import CONSTANTS from '../../../store/constants';
 const SchoolDetailsForm = ({ history, errors, touched, status }) => {
   const [{ user }, dispatchGlobal] = useStateValue(globalContext);
   const [, dispatchStudent] = useStateValue(studentContext);
-  const [input, setInput] = useState({
-    firstName: '',
-    lastName: '',
-    middleName: '',
-    street1: '',
-    street2: '',
-    city: '',
-    state: '',
-    zip: '',
-    phone: '',
-    userId: user.id
-  });
 
   useEffect(() => {
     if (status) {
@@ -49,8 +37,9 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             roleId: 3 // Role of a student is set to always be 3
           });
           const details = await queries.addStudentDetail({
-            fullName: `${input.firstName} ${input.lastName}`,
-            ...input
+            fullName: `${status.firstName} ${status.lastName}`,
+            userId: user.id,
+            ...status
           });
           dispatchGlobal({
             type: ON_BOARD_DETAILS,

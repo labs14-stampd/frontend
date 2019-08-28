@@ -53,7 +53,7 @@ const DetailSettings = () => {
     <>
       <StudentForm onSubmit={handleSubmit}>
         <Box direction="row">
-          <Box direction="column" width="50%">
+          <Box direction="column">
             <StudentFormField label="First Name">
               <StudentBaseTextInput
                 name="firstName"
@@ -110,7 +110,7 @@ const DetailSettings = () => {
               />
             </StudentFormField>
           </Box>
-          <Box direction="column" width="50%">
+          <Box direction="column">
             <StudentFormField label="Address 1">
               <StudentBaseTextInput
                 name="street1"
