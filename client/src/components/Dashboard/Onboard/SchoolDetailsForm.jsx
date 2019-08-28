@@ -50,8 +50,7 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
 
   useEffect(() => {
     if (status) {
-      const handleSubmit = async e => {
-        e.preventDefault();
+      const handleSubmit = async () => {
         try {
           await queries.addRole({
             id: user.id,
@@ -247,9 +246,7 @@ const SchoolDetailsFormWithFormik = withFormik({
       .matches(CONSTANTS.phoneRegExp, 'Invalid phone number')
       .required(),
     type: Yup.string(),
-    url: Yup.string()
-      .url()
-      .required()
+    url: Yup.string().required()
   }),
 
   handleSubmit(values, { setStatus }) {
