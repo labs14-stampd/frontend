@@ -16,6 +16,7 @@ import Landing from './components/Landing';
 import CredentialForm from './components/Dashboard/CredentialsForm';
 import ErrorPage from './components/ErrorPage';
 import Settings from './components/Settings';
+import CredentialView from './components/CredentialView';
 import GlobalStyle from './styles';
 
 import Layout from './components/Layout';
@@ -25,12 +26,16 @@ function App(props) {
   return (
     <>
       {loading ? (
-        <Loading />
+        <>
+          <Loading />
+          <GlobalStyle />
+        </>
       ) : (
         <Grommet theme={theme}>
           <Layout {...props}>
             <Switch>
               <Route exact path="/" component={Landing} />
+              <Route path="/view/:jwt" component={CredentialView} />
               <PrivateRoute exact path="/onboarding" component={Onboard} />
               <PrivateRoute
                 path="/onboarding/school"

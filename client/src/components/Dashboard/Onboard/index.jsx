@@ -59,7 +59,7 @@ const Container = styled.main`
       border-radius: 50px;
       :hover {
         background: ${props => props.theme.global.colors.brand};
-        color: ${props => props.theme.global.colors['accent-4']};
+        color: ${props => props.theme.global.colors['accent-2']};
       }
     }
   }

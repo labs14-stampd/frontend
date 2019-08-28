@@ -13,6 +13,28 @@ const DateIssuedContainer = styled.div`
   display: flex;
   align-items: center;
   width: 12%;
+
+  @media (max-width: 800px) {
+    width: 100%;
+
+    p {
+      width: 100%;
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
+
+    p {
+      width: 100%;
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+  }
 `;
 
 export default CredCardDateIssued;

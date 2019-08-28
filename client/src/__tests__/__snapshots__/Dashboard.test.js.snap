@@ -5,10 +5,10 @@ exports[`<Dashboard /> should match the previous snapshot of the component tests
   className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
 >
   <div
-    className="sc-kpOJdX eEgwKo"
+    className="sc-ckVGcZ jEoWAE"
   >
     <section
-      className="sc-cSHVUG chVKOk"
+      className="sc-cSHVUG JfRbP"
     >
       <h2>
         testName
@@ -35,7 +35,7 @@ exports[`<Dashboard /> should match the previous snapshot of the component tests
       </div>
     </section>
     <div
-      className="StyledBox-sc-13pk1d4-0 izmUvx"
+      className="sc-kgoBCf exlGzM StyledBox-sc-13pk1d4-0 IRSNj"
     >
       <section
         className="sc-VigVT kwgGCs"
@@ -45,7 +45,7 @@ exports[`<Dashboard /> should match the previous snapshot of the component tests
         >
           <button
             aria-label="view credentials button"
-            className="sc-bdVaJa sc-bZQynM csIfUH StyledButton-sc-323bzc-0 kHrfdt"
+            className="sc-bdVaJa sc-bZQynM loBWCV StyledButton-sc-323bzc-0 kHrfdt"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -79,7 +79,7 @@ exports[`<Dashboard /> should match the previous snapshot of the component tests
           </h3>
         </div>
         <div
-          className="sc-iwsKbI eNHtrI"
+          className="sc-iwsKbI kycWAz"
         >
           <button
             className="sc-bdVaJa sc-gqjmRU hnZXkc StyledButton-sc-323bzc-0 jfbKsv"
@@ -113,7 +113,7 @@ exports[`<Dashboard /> should match the previous snapshot of the component tests
         >
           <button
             aria-label="view credentials button"
-            className="sc-bdVaJa sc-bZQynM csIfUH StyledButton-sc-323bzc-0 kHrfdt"
+            className="sc-bdVaJa sc-bZQynM loBWCV StyledButton-sc-323bzc-0 kHrfdt"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -147,7 +147,7 @@ exports[`<Dashboard /> should match the previous snapshot of the component tests
           </h3>
         </div>
         <div
-          className="sc-iwsKbI eNHtrI"
+          className="sc-iwsKbI kycWAz"
         >
           <button
             className="sc-bdVaJa sc-gqjmRU hnZXkc StyledButton-sc-323bzc-0 jfbKsv"
@@ -181,7 +181,7 @@ exports[`<Dashboard /> should match the previous snapshot of the component tests
         >
           <button
             aria-label="view credentials button"
-            className="sc-bdVaJa sc-bZQynM csIfUH StyledButton-sc-323bzc-0 kHrfdt"
+            className="sc-bdVaJa sc-bZQynM loBWCV StyledButton-sc-323bzc-0 kHrfdt"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -215,7 +215,7 @@ exports[`<Dashboard /> should match the previous snapshot of the component tests
           </h3>
         </div>
         <div
-          className="sc-iwsKbI eNHtrI"
+          className="sc-iwsKbI kycWAz"
         >
           <button
             className="sc-bdVaJa sc-gqjmRU hnZXkc StyledButton-sc-323bzc-0 jfbKsv"

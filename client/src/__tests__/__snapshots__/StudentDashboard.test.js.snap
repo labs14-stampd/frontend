@@ -5,7 +5,7 @@ exports[`<StudentDashboard /> should match the previous snapshot of the componen
   className="StyledGrommet-sc-19lkkz7-0 iDwiuh"
 >
   <section
-    className="sc-cSHVUG chVKOk"
+    className="sc-cSHVUG cFhsnP"
   >
     <h2>
       Welcome, 
@@ -22,7 +22,7 @@ exports[`<StudentDashboard /> should match the previous snapshot of the componen
     </div>
   </section>
   <div
-    className="StyledBox-sc-13pk1d4-0 izmUvx"
+    className="sc-chPdSV fCmPvq StyledBox-sc-13pk1d4-0 IRSNj"
   >
     <section
       className="sc-VigVT kwgGCs"
@@ -32,7 +32,7 @@ exports[`<StudentDashboard /> should match the previous snapshot of the componen
       >
         <button
           aria-label="view credentials button"
-          className="sc-bdVaJa sc-bZQynM csIfUH StyledButton-sc-323bzc-0 kHrfdt"
+          className="sc-bdVaJa sc-bZQynM loBWCV StyledButton-sc-323bzc-0 kHrfdt"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -66,7 +66,7 @@ exports[`<StudentDashboard /> should match the previous snapshot of the componen
         </h3>
       </div>
       <div
-        className="sc-iwsKbI eNHtrI"
+        className="sc-iwsKbI kycWAz"
       >
         <button
           className="sc-bdVaJa sc-gqjmRU hnZXkc StyledButton-sc-323bzc-0 jfbKsv"
@@ -100,7 +100,7 @@ exports[`<StudentDashboard /> should match the previous snapshot of the componen
       >
         <button
           aria-label="view credentials button"
-          className="sc-bdVaJa sc-bZQynM csIfUH StyledButton-sc-323bzc-0 kHrfdt"
+          className="sc-bdVaJa sc-bZQynM loBWCV StyledButton-sc-323bzc-0 kHrfdt"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -134,7 +134,7 @@ exports[`<StudentDashboard /> should match the previous snapshot of the componen
         </h3>
       </div>
       <div
-        className="sc-iwsKbI eNHtrI"
+        className="sc-iwsKbI kycWAz"
       >
         <button
           className="sc-bdVaJa sc-gqjmRU hnZXkc StyledButton-sc-323bzc-0 jfbKsv"
@@ -168,7 +168,7 @@ exports[`<StudentDashboard /> should match the previous snapshot of the componen
       >
         <button
           aria-label="view credentials button"
-          className="sc-bdVaJa sc-bZQynM csIfUH StyledButton-sc-323bzc-0 kHrfdt"
+          className="sc-bdVaJa sc-bZQynM loBWCV StyledButton-sc-323bzc-0 kHrfdt"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -202,7 +202,7 @@ exports[`<StudentDashboard /> should match the previous snapshot of the componen
         </h3>
       </div>
       <div
-        className="sc-iwsKbI eNHtrI"
+        className="sc-iwsKbI kycWAz"
       >
         <button
           className="sc-bdVaJa sc-gqjmRU hnZXkc StyledButton-sc-323bzc-0 jfbKsv"
