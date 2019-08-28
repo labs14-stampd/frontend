@@ -59,7 +59,7 @@ const EmailSettings = ({ errors, touched, status }) => {
 
       submitEmail();
     }
-  }, [status]);
+  }, [status, studentDispatch, user.id]);
 
   const confirmRemoveEmail = async ({ id, email: removedEmail }) => {
     try {

@@ -4,12 +4,21 @@ import { Box, Button, Layer, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import { useStateValue } from 'react-conflux';
 import { globalContext } from '../../store/reducers/globalReducer';
+import {
+  schoolContext,
+  CLEAR_SEARCH_INPUT
+} from '../../store/reducers/schoolReducer';
+import { studentContext } from '../../store/reducers/studentReducer';
 import c from '../../store/constants';
 
 const MenuLayer = ({ isShown, toggleOpen, history, setLoading }) => {
   const [{ user }] = useStateValue(globalContext);
+  const [, schoolDispatch] = useStateValue(schoolContext);
+  const [, studentDispatch] = useStateValue(studentContext);
   const navRoute = (e, route) => {
     e.preventDefault();
+    schoolDispatch({ type: CLEAR_SEARCH_INPUT });
+    studentDispatch({ type: CLEAR_SEARCH_INPUT });
     history.push(route);
     setLoading(false);
     toggleOpen();

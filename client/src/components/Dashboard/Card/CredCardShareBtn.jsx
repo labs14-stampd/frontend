@@ -17,7 +17,7 @@ const CredCardShareBtn = ({ credId }) => {
   //  Handling of loading states can be done here as well
   const confirmSendEmail = async email => {
     try {
-      const em = await queries.shareCredential({
+      await queries.shareCredential({
         id: credId,
         email
       });

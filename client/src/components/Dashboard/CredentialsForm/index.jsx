@@ -120,11 +120,11 @@ const CredentialsForm = ({ history }) => {
           <h1>{credName || '[Credential Name]'}</h1>
           <h3>{description || '[Description]'}</h3>
           <h3>
-            Issued on:
+            Issued on{" "}
             {issuedOn || ' [August 10, 2019]'}
           </h3>
           <h3>
-            Issued by:
+            Issued by{" "}
             {stateSchool.schoolDataSuccess && name}
           </h3>
           <h2>{ownerName || 'John Doe'}</h2>
