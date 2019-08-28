@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from './auth/PrivateRoute';
 import { useAuth0 } from './auth/authWrapper';
 import { theme } from './styles/themes';
+import About from './components/About';
 import Loading from './components/Layout/Loading';
 import Dashboard from './components/Dashboard/Dashboard';
 import Onboard from './components/Dashboard/Onboard';
@@ -36,6 +37,7 @@ function App(props) {
             <Switch>
               <Route exact path="/" component={Landing} />
               <Route path="/view/:jwt" component={CredentialView} />
+              <Route path="/about" component={About} />
               <PrivateRoute exact path="/onboarding" component={Onboard} />
               <PrivateRoute
                 path="/onboarding/school"
