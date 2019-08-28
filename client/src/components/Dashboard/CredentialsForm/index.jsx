@@ -115,7 +115,7 @@ const CredentialsForm = ({ history }) => {
       <CertificateArea>
         <section>
           <div>
-            <img src={imageUrl || emblem} alt="school seal" />
+            <img src={imageUrl || emblem} draggable={false} alt="school seal" />
           </div>
           <h1>{credName || '[Credential Name]'}</h1>
           <h3>{description || '[Description]'}</h3>

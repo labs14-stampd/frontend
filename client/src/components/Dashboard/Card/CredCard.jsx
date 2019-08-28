@@ -30,7 +30,7 @@ const CredCard = ({ cred }) => {
     <CredContainer>
       <CredCardViewBtn getModal={() => setShow(true)} />
       {show && (
-        <Layer
+        <CredView
           onEsc={() => setShow(false)}
           onClickOutside={() => setShow(false)}
         >
@@ -49,7 +49,7 @@ const CredCard = ({ cred }) => {
               <h2>{ownerName}</h2>
             </section>
           </CertificateArea>
-        </Layer>
+        </CredView>
       )}
       <CredCardSchoolName credName={credName} criteria={criteria} />
       <CredCardDateIssued date={issuedOn} />
@@ -58,7 +58,6 @@ const CredCard = ({ cred }) => {
         <CredCardDeleteBtn credId={id} credHash={credHash} />
       ) : (
         <CredCardShareBtn credId={id} />
-
       )}
     </CredContainer>
   );
@@ -92,7 +91,7 @@ const CredContainer = styled.section`
   border-radius: 2px;
   display: flex;
   /* justify-content: space-between; */
-  padding: 20px 0;
+  padding: 20px;
   transition: box-shadow 0.5s;
 
   @media (max-width: 800px) {
@@ -144,6 +143,11 @@ const CertificateArea = styled.div`
   div {
     width: 375px;
   }
+`;
+
+const CredView = styled(Layer)`
+  max-width: 800px;
+  width: 100%;
 `;
 
 export default CredCard;
