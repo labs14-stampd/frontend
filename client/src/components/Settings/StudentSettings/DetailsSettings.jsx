@@ -50,124 +50,120 @@ const DetailSettings = ({ errors, touched, status }) => {
   return (
     <>
       <StudentForm>
-        <Box direction="row">
-          <Box direction="column" width="50%">
-            <StudentFormField label="First Name">
-              <StudentBaseTextInput
-                name="firstName"
-                placeholder="Jane"
-                component="input"
-                type="text"
-              />
-              {touched.firstName && errors.firstName && (
-                <ErrorMessage>{errors.firstName}</ErrorMessage>
-              )}
-            </StudentFormField>
-            <StudentFormField label="Middle Name">
-              <StudentBaseTextInput
-                name="middleName"
-                placeholder="Emily"
-                component="input"
-                type="text"
-              />
-              {touched.middleName && errors.middleName && (
-                <ErrorMessage>{errors.middleName}</ErrorMessage>
-              )}
-            </StudentFormField>
-            <StudentFormField label="Last Name">
-              <StudentBaseTextInput
-                name="lastName"
-                placeholder="Doe"
-                component="input"
-                type="text"
-              />
-              {touched.lastName && errors.lastName && (
-                <ErrorMessage>{errors.lastName}</ErrorMessage>
-              )}
-            </StudentFormField>
-            ​
-            <StudentFormField label="Address 1">
-              <StudentBaseTextInput
-                name="street1"
-                placeholder="123 Fake street"
-                component="input"
-                type="text"
-              />
-              {touched.street1 && errors.street1 && (
-                <ErrorMessage>{errors.street1}</ErrorMessage>
-              )}
-            </StudentFormField>
-            <StudentFormField label="Address 2">
-              <StudentBaseTextInput
-                name="street2"
-                placeholder="Apt B"
-                component="input"
-                type="text"
-              />
-              {touched.street2 && errors.street2 && (
-                <ErrorMessage>{errors.street2}</ErrorMessage>
-              )}
-            </StudentFormField>
-          </Box>
-          <Box direction="column" width="50%">
-            <StudentFormField label="City">
-              <StudentBaseTextInput
-                name="city"
-                placeholder="San Francisco"
-                component="input"
-                type="text"
-              />
-              {touched.city && errors.city && (
-                <ErrorMessage>{errors.city}</ErrorMessage>
-              )}
-            </StudentFormField>
-            <StudentFormField label="State">
-              <StudentBaseTextInput
-                name="state"
-                component="select"
-                placeholder="State"
-                type="text"
-              >
-                {CONSTANTS.states.map(state => (
-                  <option value={`${state}`} key={state}>
-                    {state}
-                  </option>
-                ))}
-                {touched.state && errors.state && (
-                  <ErrorMessage>{errors.state}</ErrorMessage>
-                )}
-              </StudentBaseTextInput>
-            </StudentFormField>
-            ​
-            <StudentFormField label="Zip Code">
-              <StudentBaseTextInput
-                name="zip"
-                placeholder="90210"
-                component="input"
-                type="text"
-              />
-              {touched.zip && errors.zip && (
-                <ErrorMessage>{errors.zip}</ErrorMessage>
-              )}
-            </StudentFormField>
-            <StudentFormField label="Phone Number">
-              <StudentBaseTextInput
-                type="text"
-                placeholder="4151234567"
-                component="input"
-                name="phone"
-              />
-              {touched.phone && errors.phone && (
-                <ErrorMessage>{errors.phone}</ErrorMessage>
-              )}
-            </StudentFormField>
-            <StudentButton
-              type="submit"
-              primary
-              label="Submit"
-              alignSelf="center"
+        <Box direction="column">
+          <StudentFormField label="First Name">
+            <StudentBaseTextInput
+              name="firstName"
+              placeholder="Jane"
+              component="input"
+              type="text"
             />
-          </Box>
+            {touched.firstName && errors.firstName && (
+              <ErrorMessage>{errors.firstName}</ErrorMessage>
+            )}
+          </StudentFormField>
+          <StudentFormField label="Middle Name">
+            <StudentBaseTextInput
+              name="middleName"
+              placeholder="Emily"
+              component="input"
+              type="text"
+            />
+            {touched.middleName && errors.middleName && (
+              <ErrorMessage>{errors.middleName}</ErrorMessage>
+            )}
+          </StudentFormField>
+          <StudentFormField label="Last Name">
+            <StudentBaseTextInput
+              name="lastName"
+              placeholder="Doe"
+              component="input"
+              type="text"
+            />
+            {touched.lastName && errors.lastName && (
+              <ErrorMessage>{errors.lastName}</ErrorMessage>
+            )}
+          </StudentFormField>
+          ​
+          <StudentFormField label="Address 1">
+            <StudentBaseTextInput
+              name="street1"
+              placeholder="123 Fake street"
+              component="input"
+              type="text"
+            />
+            {touched.street1 && errors.street1 && (
+              <ErrorMessage>{errors.street1}</ErrorMessage>
+            )}
+          </StudentFormField>
+          <StudentFormField label="Address 2">
+            <StudentBaseTextInput
+              name="street2"
+              placeholder="Apt B"
+              component="input"
+              type="text"
+            />
+            {touched.street2 && errors.street2 && (
+              <ErrorMessage>{errors.street2}</ErrorMessage>
+            )}
+          </StudentFormField>
+          <StudentFormField label="City">
+            <StudentBaseTextInput
+              name="city"
+              placeholder="San Francisco"
+              component="input"
+              type="text"
+            />
+            {touched.city && errors.city && (
+              <ErrorMessage>{errors.city}</ErrorMessage>
+            )}
+          </StudentFormField>
+          <StudentFormField label="State">
+            <StudentBaseTextInput
+              name="state"
+              component="select"
+              placeholder="State"
+              type="text"
+            >
+              {CONSTANTS.states.map(state => (
+                <option value={`${state}`} key={state}>
+                  {state}
+                </option>
+              ))}
+              {touched.state && errors.state && (
+                <ErrorMessage>{errors.state}</ErrorMessage>
+              )}
+            </StudentBaseTextInput>
+          </StudentFormField>
+          ​
+          <StudentFormField label="Zip Code">
+            <StudentBaseTextInput
+              name="zip"
+              placeholder="90210"
+              component="input"
+              type="text"
+            />
+            {touched.zip && errors.zip && (
+              <ErrorMessage>{errors.zip}</ErrorMessage>
+            )}
+          </StudentFormField>
+          <StudentFormField label="Phone Number">
+            <StudentBaseTextInput
+              type="text"
+              placeholder="4151234567"
+              component="input"
+              name="phone"
+            />
+            {touched.phone && errors.phone && (
+              <ErrorMessage>{errors.phone}</ErrorMessage>
+            )}
+          </StudentFormField>
+          <StudentButton
+            type="submit"
+            primary
+            label="Submit"
+            alignSelf="center"
+          />
         </Box>
       </StudentForm>
     </>
@@ -218,7 +214,7 @@ const DetailSettingsWithFormik = withFormik({
 })(DetailSettings);
 
 const StudentForm = styled(Form)`
-  margin: 50px auto 10px;
+  margin: 120px auto 100px;
   max-width: 800px;
   width: 100%;
 `;
@@ -230,16 +226,28 @@ const StudentButton = styled(BaseButton)`
 
 const StudentBaseTextInput = styled(Field)`
   border: none;
+  background: transparent;
+  border-bottom: 1px solid black;
+  width: 100%;
+  max-width: 800px;
+  padding: 10px 2.5px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  ::placeholder {
+    font-size: 1.6rem;
+  }
 `;
 
 const StudentFormField = styled(BaseFormField)`
   margin: 20px;
   border-bottom: none;
-  input {
-    /* margin-bottom: 10px; */
+  div {
+    border-bottom: none;
+  }
+  label {
+    margin-left: 2.5px;
   }
 `;
-
 const ErrorMessage = styled.p`
   color: red;
   font-size: 1.4rem;
