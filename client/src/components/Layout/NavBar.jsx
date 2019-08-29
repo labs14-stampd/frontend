@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useStateValue } from 'react-conflux';
 import { SecondaryButton } from '../../styles/themes';
 
 import { useAuth0 } from '../../auth/authWrapper';
+import { globalContext, LOGOUT } from '../../store/reducers/globalReducer';
 import MenuLayer from './MenuLayer';
 import stampdLogoWhite from '../../images/stampd_full_white.png';
 import MenuButton from './MenuButton';
 
 function NavBar({ history }) {
+  const [{ onboarded }, globalDispatch] = useStateValue(globalContext);
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [isShown, setShown] = useState(false);
   const [loading, setLoading] = useState(true);
