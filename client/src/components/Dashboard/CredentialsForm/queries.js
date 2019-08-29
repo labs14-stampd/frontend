@@ -64,6 +64,13 @@ const queries = {
                   valid
                   issuedOn
                   expirationDate
+                  schoolsUserInfo {
+                    username
+                    email
+                    schoolDetails {
+                      name
+                    }
+                  }
                 }
               }
             }

@@ -36,7 +36,7 @@ const EmailSettings = ({ errors, touched, status }) => {
 
   useEffect(() => {
     // status will only be true when handleSubmit from formik is activated
-    if (status) {
+    if (status.email) {
       const submitEmail = async () => {
         try {
           const { data } = await queries.addUserEmail({

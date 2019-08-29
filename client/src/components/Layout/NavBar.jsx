@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useStateValue } from 'react-conflux';
 import { SecondaryButton } from '../../styles/themes';
 
 import { useAuth0 } from '../../auth/authWrapper';
+import { globalContext, LOGOUT } from '../../store/reducers/globalReducer';
 import MenuLayer from './MenuLayer';
 import stampdLogoWhite from '../../images/stampd_full_white.png';
 import MenuButton from './MenuButton';
 
 function NavBar({ history }) {
+  const [{ onboarded }, globalDispatch] = useStateValue(globalContext);
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [isShown, setShown] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -26,11 +29,19 @@ function NavBar({ history }) {
     logout();
   };
 
+  const logoutWithAuth0 = () => {
+    globalDispatch({
+      type: LOGOUT,
+      payload: false
+    });
+    loginWithRedirect({});
+  };
+
   return (
     <NavContainter>
       <nav>
         <div>
-          {isAuthenticated && (
+          {onboarded && (
             <MenuButton
               className="hamburger"
               setShown={setShown}
@@ -41,7 +52,7 @@ function NavBar({ history }) {
             />
           )}
           <div className="logo">
-            <Link to={isAuthenticated ? '/dashboard' : '/'}>
+            <Link to={onboarded ? '/dashboard' : `${window.location.pathname}`}>
               <img src={stampdLogoWhite} alt="Stampd logo" draggable="false" />
             </Link>
           </div>
@@ -51,7 +62,7 @@ function NavBar({ history }) {
             <NavBtn
               a11yTitle="Login"
               type="button"
-              onClick={() => loginWithRedirect({})}
+              onClick={logoutWithAuth0}
               label="Login"
             />
           </div>

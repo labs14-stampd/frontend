@@ -26,6 +26,13 @@ const queries = {
               valid
               issuedOn
               expirationDate
+              schoolsUserInfo {
+                username
+                email
+                schoolDetails {
+                  name
+                }
+              }
             }
           }
         }
@@ -72,6 +79,13 @@ const queries = {
                 valid
                 issuedOn
                 expirationDate
+                schoolsUserInfo {
+                  username
+                  email
+                  schoolDetails {
+                    name
+                  }
+                }
               }
             }
             studentDetails {
@@ -104,6 +118,13 @@ const queries = {
                 valid
                 issuedOn
                 expirationDate
+                schoolsUserInfo {
+                  username
+                  email
+                  schoolDetails {
+                    name
+                  }
+                }
               }
             }
           }
@@ -168,6 +189,10 @@ const queries = {
             zip
             phone
             userId
+            emailList {
+              email
+              id
+            }
             credentials {
               id
               credHash
@@ -181,6 +206,13 @@ const queries = {
               valid
               issuedOn
               expirationDate
+              schoolsUserInfo {
+                username
+                email
+                schoolDetails {
+                  name
+                }
+              }
             }
           }
         }
@@ -221,6 +253,13 @@ const queries = {
             valid
             issuedOn
             expirationDate
+            schoolsUserInfo {
+              username
+              email
+              schoolDetails {
+                name
+              }
+            }
           }
         }
       `
