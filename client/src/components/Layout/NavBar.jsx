@@ -36,7 +36,7 @@ function NavBar({ history }) {
   return (
     <NavContainter>
       <nav>
-        <div>
+        <div className="left-section">
           {onboarded && (
             <MenuButton
               className="hamburger"
