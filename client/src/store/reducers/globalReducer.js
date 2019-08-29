@@ -4,6 +4,7 @@ export const REGISTER = 'REGISTER';
 export const LOGOUT = 'LOGOUT';
 export const HANDLE_CRED_CHANGES = 'HANDLE_CRED_CHANGES';
 export const ON_BOARD_DETAILS = 'ON_BOARD_DETAILS';
+export const SET_ONBOARDED_TRUE = 'SET_ONBOARDED_TRUE';
 export const RESET_CREDENTIAL_FORM = 'RESET_CREDENTIAL_FORM';
 export const globalContext = createContext();
 
@@ -59,6 +60,11 @@ export const globalReducer = (state = initialState, action) => {
     case LOGOUT:
       return {
         onboarded: action.payload
+      };
+    case SET_ONBOARDED_TRUE:
+      return {
+        ...state,
+        onboarded: true
       };
     default:
       return state;

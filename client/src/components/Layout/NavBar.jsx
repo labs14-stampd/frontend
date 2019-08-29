@@ -23,18 +23,14 @@ function NavBar({ history }) {
   };
 
   const handleLogout = () => {
-    localStorage.clear();
-    setShown(false);
-    setLoading(false);
-    logout();
-  };
-
-  const logoutWithAuth0 = () => {
     globalDispatch({
       type: LOGOUT,
       payload: false
     });
-    loginWithRedirect({});
+    localStorage.clear();
+    setShown(false);
+    setLoading(false);
+    logout();
   };
 
   return (
@@ -57,26 +53,29 @@ function NavBar({ history }) {
             </Link>
           </div>
         </div>
-        {!isAuthenticated ? (
-          <div className="button__container">
-            <NavBtn
-              a11yTitle="Login"
-              type="button"
-              onClick={logoutWithAuth0}
-              label="Login"
-            />
-          </div>
-        ) : (
-          <div className="button__container">
-            {/* <img src="" alt="avatar" /> */}
-            <NavBtn
-              a11yTitle="Logout"
-              type="button"
-              onClick={handleLogout}
-              label="Logout"
-            />
-          </div>
-        )}
+        <RightSection>
+          <div>{!isAuthenticated && <p>About Us</p>}</div>
+          {!isAuthenticated ? (
+            <div className="button__container">
+              <NavBtn
+                a11yTitle="Login"
+                type="button"
+                onClick={() => loginWithRedirect({})}
+                label="Login"
+              />
+            </div>
+          ) : (
+            <div className="button__container">
+              {/* <img src="" alt="avatar" /> */}
+              <NavBtn
+                a11yTitle="Logout"
+                type="button"
+                onClick={handleLogout}
+                label="Logout"
+              />
+            </div>
+          )}
+        </RightSection>
       </nav>
       {isShown && (
         <MenuLayer
@@ -138,14 +137,25 @@ const NavContainter = styled.div`
         cursor: pointer;
       }
     }
+  }
+`;
 
-    .button__container {
-      position: absolute;
-      right: 0;
-      display: flex;
-      justify-content: flex-end;
-      width: 20%;
-    }
+const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 200px;
+
+  p {
+    color: white;
+  }
+
+  .button__container {
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    width: 20%;
   }
 `;
 
