@@ -40,7 +40,7 @@ export const globalReducer = (state = initialState, action) => {
     case HANDLE_CRED_CHANGES:
       return {
         ...state,
-        [action.payload.name]: action.payload.value
+        ...action.payload
       };
     case RESET_CREDENTIAL_FORM:
       return {
