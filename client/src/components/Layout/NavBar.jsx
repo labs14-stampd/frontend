@@ -138,6 +138,10 @@ const NavContainter = styled.div`
         width: 113px;
         height: auto;
 
+        @media (max-width: 500) {
+          height: 200px;
+        }
+
         a {
           display: flex;
           align-content: center;
