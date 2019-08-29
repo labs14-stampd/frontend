@@ -39,6 +39,7 @@ const SchoolDashboard = ({ history }) => {
     schoolDispatch({ type: CLEAR_SEARCH_INPUT });
     history.push('/dashboard/credForm');
   };
+  console.log(schoolState.schoolData);
   if (!schoolState.schoolData) return <div />;
   return (
     <>
