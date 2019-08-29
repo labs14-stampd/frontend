@@ -22,6 +22,17 @@ const SchoolNameContainer = styled.div`
   flex-direction: column;
   width: 45%;
 
+  h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+  }
+
   @media (max-width: 800px) {
     width: 100%;
 

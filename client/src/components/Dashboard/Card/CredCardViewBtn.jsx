@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { BaseButton } from '../../../styles/themes';
+import { Button } from 'grommet';
 
 const CredCardViewBtn = ({ getModal }) => {
   return (
@@ -38,9 +38,10 @@ const CardCredBtnContainer = styled.div`
   }
 `;
 
-const CardCredViewButton = styled(BaseButton)`
+const CardCredViewButton = styled(Button)`
   border-radius: 50px;
   border-color: #adadad;
+  font-family: 'Roboto', sans-serif;
 
   @media (max-width: 800px) {
     width: 100%;
