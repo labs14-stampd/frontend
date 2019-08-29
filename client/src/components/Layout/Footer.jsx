@@ -17,7 +17,7 @@ const FooterContainer = styled.div`
   z-index: 0;
 
   p {
-    color: ${({ theme }) => theme.global.colors.footerColor};
+    color: #adadad;
     margin: 0 auto;
     text-align: center;
     width: 200px;

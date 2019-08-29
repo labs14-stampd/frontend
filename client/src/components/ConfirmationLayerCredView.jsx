@@ -77,8 +77,7 @@ const Input = styled(Field)`
   padding: 10px 3%;
   border-radius: 5px;
   font-size: 1.6rem;
-  border: 2px solid
-    ${({ theme }) => theme.global.colors.confirmationInputBorder};
+  border: 2px solid #adadad;
 `;
 
 const ErrorMessage = styled.p`

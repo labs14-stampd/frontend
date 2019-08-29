@@ -158,7 +158,6 @@ const DetailSettings = ({ errors, touched, status }) => {
               <ErrorMessage>{errors.phone}</ErrorMessage>
             )}
           </StudentFormField>
-
           <StudentButton
             type="submit"
             primary
@@ -249,6 +248,7 @@ const StudentFormField = styled(BaseFormField)`
     margin-left: 2.5px;
   }
 `;
+
 const ErrorMessage = styled.p`
   color: red;
   font-size: 1.4rem;

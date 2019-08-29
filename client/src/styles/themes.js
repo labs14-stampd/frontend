@@ -11,15 +11,12 @@ export const theme = {
       teal: 'accent-1',
       dashBoardBorder: '#adadad',
       dashBoardBg: '#ffffff',
-      btnHoverColor: '#81FCED',
       focus: 'accent-4',
-      navbarHoverBg: '#ffffff',
       searchBarBorder: '#adadad',
       searchBarColor: '#adadad',
       dashboardNotFoundColor: '#adadad',
       mobileTrashBtnBorder: '#adadad',
-      confirmationInputBorder: '#adadad',
-      footerColor: '#adadad'
+      confirmationInputBorder: '#adadad'
     },
     border: '1px solid rgba(0,0,0,0.33)',
     // fontFamily
