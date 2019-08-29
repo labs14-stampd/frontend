@@ -395,7 +395,7 @@ const CredInput = styled(FormikField)`
   }
 `;
 
-const CredField = styled(BaseFormField)`
+const CredField = styled.label`
   label {
     margin-left: 0;
   }

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
-import { Box, Heading } from 'grommet';
+import { Box, Heading, Button } from 'grommet';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
-import { BaseFormField, BaseButton } from '../../../styles/themes';
+import { BaseFormField } from '../../../styles/themes';
 import queries from './queries';
 import {
   globalContext,
@@ -240,7 +240,7 @@ const StudentForm = styled(Form)`
   width: 100%;
 `;
 
-const StudentButton = styled.button`
+const StudentButton = styled(Button)`
   text-align: center;
   margin: 15px 20px 50px;
 `;
@@ -259,7 +259,7 @@ const StudentBaseTextInput = styled(Field)`
   }
 `;
 
-const StudentFormField = styled(BaseFormField)`
+const StudentFormField = styled.label`
   margin: 20px;
   border-bottom: none;
   div {

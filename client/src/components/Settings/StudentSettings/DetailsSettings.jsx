@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
-import { Box, Button } from 'grommet';
+import { Box } from 'grommet';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
 import queries from '../queries';
-import { BaseFormField } from '../../../styles/themes';
+import { BaseFormField, BaseButton } from '../../../styles/themes';
 import { globalContext } from '../../../store/reducers/globalReducer';
 import CONSTANTS from '../../../store/constants';
 import {
@@ -48,11 +48,11 @@ const DetailSettings = ({ errors, touched, status }) => {
   }, [status]);
 
   return (
-    <Container>
-      <Form>
+    <>
+      <StudentForm>
         <Box direction="column">
-          <Field label="First Name">
-            <input
+          <StudentFormField label="First Name">
+            <StudentBaseTextInput
               name="firstName"
               placeholder="Jane"
               component="input"
@@ -61,9 +61,9 @@ const DetailSettings = ({ errors, touched, status }) => {
             {touched.firstName && errors.firstName && (
               <ErrorMessage>{errors.firstName}</ErrorMessage>
             )}
-          </Field>
-          <Field label="Middle Name">
-            <input
+          </StudentFormField>
+          <StudentFormField label="Middle Name">
+            <StudentBaseTextInput
               name="middleName"
               placeholder="Emily"
               component="input"
@@ -72,9 +72,9 @@ const DetailSettings = ({ errors, touched, status }) => {
             {touched.middleName && errors.middleName && (
               <ErrorMessage>{errors.middleName}</ErrorMessage>
             )}
-          </Field>
-          <Field label="Last Name">
-            <input
+          </StudentFormField>
+          <StudentFormField label="Last Name">
+            <StudentBaseTextInput
               name="lastName"
               placeholder="Doe"
               component="input"
@@ -83,10 +83,10 @@ const DetailSettings = ({ errors, touched, status }) => {
             {touched.lastName && errors.lastName && (
               <ErrorMessage>{errors.lastName}</ErrorMessage>
             )}
-          </Field>
+          </StudentFormField>
           ​
-          <Field label="Address 1">
-            <input
+          <StudentFormField label="Address 1">
+            <StudentBaseTextInput
               name="street1"
               placeholder="123 Fake street"
               component="input"
@@ -95,9 +95,9 @@ const DetailSettings = ({ errors, touched, status }) => {
             {touched.street1 && errors.street1 && (
               <ErrorMessage>{errors.street1}</ErrorMessage>
             )}
-          </Field>
-          <Field label="Address 2">
-            <input
+          </StudentFormField>
+          <StudentFormField label="Address 2">
+            <StudentBaseTextInput
               name="street2"
               placeholder="Apt B"
               component="input"
@@ -106,9 +106,9 @@ const DetailSettings = ({ errors, touched, status }) => {
             {touched.street2 && errors.street2 && (
               <ErrorMessage>{errors.street2}</ErrorMessage>
             )}
-          </Field>
-          <Field label="City">
-            <input
+          </StudentFormField>
+          <StudentFormField label="City">
+            <StudentBaseTextInput
               name="city"
               placeholder="San Francisco"
               component="input"
@@ -117,9 +117,9 @@ const DetailSettings = ({ errors, touched, status }) => {
             {touched.city && errors.city && (
               <ErrorMessage>{errors.city}</ErrorMessage>
             )}
-          </Field>
-          <Field label="State">
-            <input
+          </StudentFormField>
+          <StudentFormField label="State">
+            <StudentBaseTextInput
               name="state"
               component="select"
               placeholder="State"
@@ -133,10 +133,11 @@ const DetailSettings = ({ errors, touched, status }) => {
               {touched.state && errors.state && (
                 <ErrorMessage>{errors.state}</ErrorMessage>
               )}
-            </input>
-          </Field>
-          <Field label="Zip Code">
-            <input
+            </StudentBaseTextInput>
+          </StudentFormField>
+          ​
+          <StudentFormField label="Zip Code">
+            <StudentBaseTextInput
               name="zip"
               placeholder="90210"
               component="input"
@@ -145,9 +146,9 @@ const DetailSettings = ({ errors, touched, status }) => {
             {touched.zip && errors.zip && (
               <ErrorMessage>{errors.zip}</ErrorMessage>
             )}
-          </Field>
-          <Field label="Phone Number">
-            <input
+          </StudentFormField>
+          <StudentFormField label="Phone Number">
+            <StudentBaseTextInput
               type="text"
               placeholder="4151234567"
               component="input"
@@ -156,11 +157,16 @@ const DetailSettings = ({ errors, touched, status }) => {
             {touched.phone && errors.phone && (
               <ErrorMessage>{errors.phone}</ErrorMessage>
             )}
-          </Field>
-          <Button type="submit" primary label="Submit" alignSelf="center" />
+          </StudentFormField>
+          <StudentButton
+            type="submit"
+            primary
+            label="Submit"
+            alignSelf="center"
+          />
         </Box>
-      </Form>
-    </Container>
+      </StudentForm>
+    </>
   );
 };
 
@@ -207,43 +213,41 @@ const DetailSettingsWithFormik = withFormik({
   }
 })(DetailSettings);
 
-const Container = styled.div`
-  form {
-    margin: 120px auto 100px;
-    max-width: 800px;
-    width: 100%;
+const StudentForm = styled(Form)`
+  margin: 120px auto 100px;
+  max-width: 800px;
+  width: 100%;
+`;
 
-    input {
-      border: none;
-      background: transparent;
-      border-bottom: 1px solid black;
-      width: 100%;
-      max-width: 800px;
-      padding: 10px 2.5px;
-      font-size: 1.8rem;
-      font-weight: 700;
-      ::placeholder {
-        font-size: 1.6rem;
-      }
-    }
+const StudentButton = styled(BaseButton)`
+  text-align: center;
+  margin: 15px 20px 50px;
+`;
 
-    button {
-      text-align: center;
-      margin: 15px 20px 50px;
-    }
+const StudentBaseTextInput = styled(Field)`
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid black;
+  width: 100%;
+  max-width: 800px;
+  padding: 10px 2.5px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  ::placeholder {
+    font-size: 1.6rem;
   }
 `;
 
-// const StudentFormField = styled(BaseFormField)`
-//   margin: 20px;
-//   border-bottom: none;
-//   div {
-//     border-bottom: none;
-//   }
-//   label {
-//     margin-left: 2.5px;
-//   }
-// `;
+const StudentFormField = styled.label`
+  margin: 20px;
+  border-bottom: none;
+  div {
+    border-bottom: none;
+  }
+  label {
+    margin-left: 2.5px;
+  }
+`;
 
 const ErrorMessage = styled.p`
   color: red;
