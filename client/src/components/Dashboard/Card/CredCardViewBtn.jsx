@@ -55,9 +55,9 @@ const CardCredViewButton = styled(BaseButton)`
   }
 
   :hover {
-    border-color: ${({ theme }) => theme.global.colors.brand};
-    background: ${({ theme }) => theme.global.colors.brand};
-    color: ${props => props.theme.global.colors['accent-2']};
+    border-color: #7d4cdb;
+    background: #7d4cdb;
+    color: #fd6fff;
   }
 `;
 

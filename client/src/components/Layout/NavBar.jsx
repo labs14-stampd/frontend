@@ -139,8 +139,8 @@ const NavContainter = styled.div`
 `;
 
 const NavBtn = styled(SecondaryButton)`
-  border: 2px solid white /*${props => props.theme.global.colors['neutral-2']}*/;
-  color: white /*${props => props.theme.global.colors['neutral-2']}*/;
+  border: 2px solid white;
+  color: white;
   transition: background 0.3s, color 0.3s;
 
   :hover {

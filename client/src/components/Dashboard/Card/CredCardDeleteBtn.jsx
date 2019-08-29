@@ -87,7 +87,7 @@ const CredCardDelBtnContainer = styled.div`
 
   @media (max-width: 800px) {
     width: 100%;
-    border: 2px solid ${({ theme }) => theme.global.colors.mobileTrashBtnBorder};
+    border: 2px solid #adadad;
     border-radius: 50px;
     order: 6;
     margin: 0 0 15px;
@@ -95,7 +95,7 @@ const CredCardDelBtnContainer = styled.div`
     transition: none;
 
     :hover {
-      border-color: ${({ theme }) => theme.global.colors['accent-2']};
+      border-color: #fd6fff;
       opacity: 1;
     }
   }
@@ -106,7 +106,7 @@ const CredCardDelBtnContainer = styled.div`
 
   @media (max-width: 800px) {
     width: 100%;
-    border: 2px solid ${({ theme }) => theme.global.colors.mobileTrashBtnBorder};
+    border: 2px solid #adadad;
     border-radius: 50px;
     order: 6;
     margin: 0 0 15px;
@@ -114,14 +114,14 @@ const CredCardDelBtnContainer = styled.div`
     transition: none;
 
     :hover {
-      border-color: ${({ theme }) => theme.global.colors['accent-2']};
+      border-color: #fd6fff;
       opacity: 1;
     }
   }
 
   @media (max-width: 500px) {
     width: 100%;
-    border: 2px solid ${({ theme }) => theme.global.colors.mobileTrashBtnBorder};
+    border: 2px solid #adadad;
     border-radius: 50px;
     order: 6;
     margin: 0 0 15px;
@@ -129,7 +129,7 @@ const CredCardDelBtnContainer = styled.div`
     transition: none;
 
     :hover {
-      border-color: ${({ theme }) => theme.global.colors['accent-2']};
+      border-color: #fd6fff;
       opacity: 1;
     }
   }

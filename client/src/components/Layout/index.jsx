@@ -4,20 +4,17 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import NavBar from './NavBar';
 import Footer from './Footer';
-import { theme } from '../../styles/themes';
 
 // GlobalStyles will go here
 
 const Layout = ({ children, history }) => {
   return (
     <>
-      <Grommet theme={theme}>
-        <Container>
-          <NavBar history={history} />
-          {children}
-          <Footer />
-        </Container>
-      </Grommet>
+      <Container>
+        <NavBar history={history} />
+        {children}
+        <Footer />
+      </Container>
     </>
   );
 };

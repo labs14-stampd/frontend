@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import PrivateRoute from './auth/PrivateRoute';
 import { useAuth0 } from './auth/authWrapper';
-import { theme } from './styles/themes';
 import About from './components/About';
 import Loading from './components/Layout/Loading';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -32,7 +31,7 @@ function App(props) {
           <GlobalStyle />
         </>
       ) : (
-        <Grommet theme={theme}>
+        <>
           <Layout {...props}>
             <Switch>
               <Route exact path="/" component={Landing} />
@@ -59,7 +58,7 @@ function App(props) {
             <ToastContainer />
           </Layout>
           <GlobalStyle />
-        </Grommet>
+          </>
       )}
     </>
   );

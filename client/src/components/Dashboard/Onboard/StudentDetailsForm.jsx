@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
-import { MaskedInput, Select, Box, Heading } from 'grommet';
+import { Box, Heading } from 'grommet';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
-import {
-  BaseForm,
-  BaseTextInput,
-  BaseFormField,
-  BaseButton
-} from '../../../styles/themes';
+import { BaseFormField, BaseButton } from '../../../styles/themes';
 import queries from './queries';
 import {
   globalContext,
