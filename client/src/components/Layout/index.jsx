@@ -1,5 +1,4 @@
 import React from 'react';
-import { Grommet } from 'grommet';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import NavBar from './NavBar';

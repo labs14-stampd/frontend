@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Grommet } from 'grommet';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -58,7 +57,7 @@ function App(props) {
             <ToastContainer />
           </Layout>
           <GlobalStyle />
-          </>
+        </>
       )}
     </>
   );
