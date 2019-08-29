@@ -240,7 +240,7 @@ const StudentForm = styled(Form)`
   width: 100%;
 `;
 
-const StudentButton = styled(BaseButton)`
+const StudentButton = styled.button`
   text-align: center;
   margin: 15px 20px 50px;
 `;

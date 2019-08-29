@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tab, Tabs } from 'grommet';
+import styled from 'styled-components';
 import { useStateValue } from 'react-conflux';
 
 import EmailSettings from './EmailSettings';
@@ -11,10 +12,10 @@ const StudentSettings = () => {
 
   return (
     <Tabs margin={{ vertical: '30px' }} justify="center">
-      <Tab title="Emails">
+      <SettingsTab title="Emails">
         <EmailSettings />
-      </Tab>
-      <Tab title="Update Info">
+      </SettingsTab>
+      <SettingsTab title="Update Info">
         <DetailSettings
           firstName={studentState.studentData.studentDetails.firstName}
           lastName={studentState.studentData.studentDetails.lastName}
@@ -26,9 +27,13 @@ const StudentSettings = () => {
           zip={studentState.studentData.studentDetails.zip}
           phone={studentState.studentData.studentDetails.phone}
         />
-      </Tab>
+      </SettingsTab>
     </Tabs>
   );
 };
+
+const SettingsTab = styled(Tab)`
+  font-family: 'Roboto', sans-serif;
+`;
 
 export default StudentSettings;

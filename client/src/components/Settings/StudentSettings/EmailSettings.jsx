@@ -120,7 +120,7 @@ const EmailSettings = ({ errors, touched, status }) => {
         <EmailSectionContainer>
           <p>{user.email}</p>
           <p>Primary email</p>
-          <TrashButton disabled color="searchBarBorder" />
+          <TrashButton disabled color="#adadad" />
         </EmailSectionContainer>
         {hasActiveConfirmationDialog && (
           // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
@@ -206,6 +206,7 @@ const StudentForm = styled(Form)`
 const StudentButton = styled(BaseButton)`
   text-align: center;
   margin: 10px 20px 15px;
+  font-family: 'Roboto', sans-serif;
 
   :hover {
     color: #fd6fff;
@@ -246,6 +247,10 @@ const EmailSectionContainer = styled.section`
   justify-content: space-between;
   padding: 20px 3%;
   transition: box-shadow 0.5s;
+
+  p {
+    margin: 4px 0 0;
+  }
 
   :hover {
     -webkit-box-shadow: 0px 0px 15px -2px rgba(173, 145, 237, 1);
