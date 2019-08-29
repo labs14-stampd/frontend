@@ -175,8 +175,8 @@ function AboutPage({ background }) {
           <AboutParagraph>
             Unfortunately, credential fraud is a rampant problem. As a result, a
             lot of time, money and effort is spent on trying to verify
-            credentials. Worse still is that these costs and difficulties often
-            force businesses to make less-than-ideal decisions, such as cutting
+            credentials. Worse still, these costs and difficulties often force
+            businesses to make less-than-ideal decisions, such as cutting
             corners when vetting candidates, or even passing on good candidates
             because the verification couldn't be finished in time.
           </AboutParagraph>
@@ -189,11 +189,12 @@ function AboutPage({ background }) {
             In recent years, there's been a lot of buzz surrounding blockchain,
             and a lot of that has centered around cryptocurrencies and
             decentralization. While those are very interesting subjects, for us
-            at Stampd, what makes blockchain an attractive technology is it's
-            immutability. Once something is put on the blockchain, it's all but
-            impossible to take it off. Good, bad, it's all there for the world
-            to see. By storing credentials on the blockchain, users of Stampd
-            are provided with credentials that are better than written-in-stone.
+            at Stampd, what makes blockchain an especially attractive technology
+            is it's immutability. Once something is put on the blockchain, it's
+            all but impossible to take it off. Good, bad, it's all there for the
+            world to see. By storing credentials on the blockchain, users of
+            Stampd are provided with credentials that are better than
+            written-in-stone.
           </AboutParagraph>
         </ParagraphCont>
         <ParagraphCont>
