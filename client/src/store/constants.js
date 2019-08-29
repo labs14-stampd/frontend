@@ -1,4 +1,6 @@
 const constants = {
+  dateRegExp: /^(1[0-2]|0[1-9])\/([1-2][0-9]|3[0-1]|0[1-9])\/(19[0-9][0-9]|20[0-9][0-9])$/,
+  phoneRegExp: /^\d+$/,
   states: [
     'AL',
     'AK',
@@ -72,7 +74,12 @@ const constants = {
     { name: 'About', route: '/about' },
     { name: 'Contact', route: '/contact' }
   ],
-  phoneRegExp: /^[0-9]*$/
+  VALIDATION_MSG: {
+    DATE: 'Please provide a valid date.',
+    EMAIL: 'Please enter a valid email.',
+    REQUIRED: 'This is a required field.',
+    URL: 'Please enter a valid URL.'
+  }
 };
 
 export default constants;
