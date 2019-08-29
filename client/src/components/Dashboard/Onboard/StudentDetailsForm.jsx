@@ -7,7 +7,6 @@ import { Box, Heading, Button } from 'grommet';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
-import { BaseFormField } from '../../../styles/themes';
 import queries from './queries';
 import {
   globalContext,
