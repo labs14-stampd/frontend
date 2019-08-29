@@ -29,11 +29,19 @@ function NavBar({ history }) {
     logout();
   };
 
+  const logoutWithAuth0 = () => {
+    globalDispatch({
+      type: LOGOUT,
+      payload: false
+    });
+    loginWithRedirect({});
+  };
+
   return (
     <NavContainter>
       <nav>
         <div>
-          {isAuthenticated && (
+          {onboarded && (
             <MenuButton
               className="hamburger"
               setShown={setShown}
@@ -44,7 +52,7 @@ function NavBar({ history }) {
             />
           )}
           <div className="logo">
-            <Link to={isAuthenticated ? '/dashboard' : '/'}>
+            <Link to={onboarded ? '/dashboard' : `${window.location.pathname}`}>
               <img src={stampdLogoWhite} alt="Stampd logo" draggable="false" />
             </Link>
           </div>
@@ -54,7 +62,7 @@ function NavBar({ history }) {
             <NavBtn
               a11yTitle="Login"
               type="button"
-              onClick={() => loginWithRedirect({})}
+              onClick={logoutWithAuth0}
               label="Login"
             />
           </div>
