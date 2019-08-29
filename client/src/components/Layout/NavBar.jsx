@@ -138,8 +138,8 @@ const NavContainter = styled.div`
         width: 113px;
         height: auto;
 
-        @media (max-width: 500) {
-          height: 200px;
+        @media (max-width: 500px) {
+          height: 50px;
         }
 
         a {
