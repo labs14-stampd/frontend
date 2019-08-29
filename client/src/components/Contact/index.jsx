@@ -13,19 +13,117 @@ const Container = styled.main`
   margin: 125px 7.5% 0;
 `;
 
-const StudentForm = styled(BaseForm)`
+const ContactHeading = styled.h1`
+  font-size: 4rem;
+  line-height: 1.25em;
+  text-align: center;
+  margin: 175px 0 15px 0;
+
+  @media (max-width: 500px) {
+    font-size: 3.5rem;
+  }
+`;
+
+const ContactCaption = styled.p`
+  font-weight: light;
+  font-size: 2rem;
+  text-align: center;
+  max-width: 75%;
+  margin: 0 auto;
+`;
+
+const ContactForm = styled(BaseForm)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin: 120px auto 100px;
-  background-color: white;
-  border: 1px solid #d8d8d8;
   border-radius: 2px;
-  max-width: 800px;
   width: 100%;
+`;
+
+const ContactTopContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+`;
+
+const ContactBottomContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+`;
+
+const ContactFormLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  padding-left: 10%;
+`;
+
+const ContactFormRight = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  padding-right: 10%;
+`;
+const ContactButton = styled(BaseButton)`
+  text-align: center;
+  margin: 15px 20px 50px;
+`;
+
+const ContactInputLabel = styled.span`
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+`;
+
+const StyledSuper = styled.sup`
+  margin-left: 2px;
+  font-size: 1.75rem;
+  font-weight: heavy;
+  color: #7d4cdb;
+`;
+
+const ContactBaseTextInput = styled(Field)`
+  background: transparent;
+  width: 100%;
+  max-width: 800px;
+  padding: 7px 2.5px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  ::placeholder {
+    font-size: 1.6rem;
+  }
+  margin-bottom: 20px;
+`;
+
+const ContactBaseWideInput = styled.textarea`
+  background: transparent;
+  width: 100%;
+  margin: 0 auto;
+  rows = "4";
+  padding: 7px 2.5px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  ::placeholder {
+    font-size: 1.6rem;
+  }
+  margin-bottom: 20px;
 `;
 
 function ContactPage({ background }) {
   return (
     <div>
-      <h1>Any place in your app!</h1>
+      <ContactHeading>We Want to Hear from You!</ContactHeading>
+      <ContactCaption>
+        Comments? Questions? Got ideas to make Stampd better? We love hearing
+        from our customers! Please take a moment to fill out the form below, and
+        a member of the Stampd team will get back ASAP. We respect your privacy,
+        and we will NOT share your data with anyone.
+      </ContactCaption>
       <Formik
         initialValues={{ email: '', password: '' }}
         validate={values => {
@@ -40,22 +138,62 @@ function ContactPage({ background }) {
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+          console.log('test');
         }}
       >
         {({ isSubmitting }) => (
-          <StudentForm>
-            <Field type="email" name="email" />
-            <ErrorMessage name="email" component="div" />
-            <Field type="password" name="password" />
-            <ErrorMessage name="password" component="div" />
-            <button type="submit" disabled={isSubmitting}>
-              Submit
-            </button>
-          </StudentForm>
+          <>
+            <ContactForm>
+              <ContactTopContainer>
+                {' '}
+                <ContactFormLeft>
+                  {' '}
+                  <ContactInputLabel>
+                    First Name<StyledSuper>*</StyledSuper>
+                  </ContactInputLabel>
+                  <ContactBaseTextInput type="email" name="email" />
+                  <ErrorMessage name="email" component="div" />
+                  <ContactInputLabel>
+                    Email<StyledSuper>*</StyledSuper>
+                  </ContactInputLabel>
+                  <ContactBaseTextInput type="email" name="email" />
+                  <ErrorMessage name="email" component="div" />
+                  <ContactInputLabel>Position</ContactInputLabel>
+                  <ContactBaseTextInput type="email" name="email" />
+                  <ErrorMessage name="email" component="div" />
+                </ContactFormLeft>
+                <ContactFormRight>
+                  <ContactInputLabel>
+                    Last Name<StyledSuper>*</StyledSuper>
+                  </ContactInputLabel>
+                  <ContactBaseTextInput type="email" name="email" />
+                  <ErrorMessage name="email" component="div" />
+                  <ContactInputLabel>
+                    Phone<StyledSuper>*</StyledSuper>
+                  </ContactInputLabel>
+                  <ContactBaseTextInput type="email" name="email" />
+                  <ErrorMessage name="email" component="div" />
+                  <ContactInputLabel>Company</ContactInputLabel>
+                  <ContactBaseTextInput type="email" name="email" />
+                  <ErrorMessage name="email" component="div" />
+                </ContactFormRight>
+              </ContactTopContainer>
+              <ContactBottomContainer>
+                {' '}
+                <ContactInputLabel>
+                  What Can We Do For You?<StyledSuper>*</StyledSuper>
+                </ContactInputLabel>
+                <ContactBaseWideInput type="email" name="email" />
+              </ContactBottomContainer>
+            </ContactForm>
+            <ContactButton
+              type="submit"
+              primary
+              label="Submit"
+              alignSelf="center"
+              disabled={isSubmitting}
+            />
+          </>
         )}
       </Formik>
     </div>
