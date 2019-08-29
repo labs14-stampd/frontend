@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useStateValue } from 'react-conflux';
-import { SecondaryButton } from '../../styles/themes';
+import { Button } from 'grommet';
 
 import { useAuth0 } from '../../auth/authWrapper';
 import { globalContext, LOGOUT } from '../../store/reducers/globalReducer';
@@ -159,10 +159,11 @@ const RightSection = styled.div`
   }
 `;
 
-const NavBtn = styled(SecondaryButton)`
+const NavBtn = styled(Button)`
   border: 2px solid white;
   color: white;
   transition: background 0.3s, color 0.3s;
+  font-family: 'Roboto', sans-serif;
 
   :hover {
     color: #7d4cdb;

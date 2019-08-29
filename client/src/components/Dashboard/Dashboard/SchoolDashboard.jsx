@@ -2,10 +2,9 @@ import React from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { InfiniteScroll, Box } from 'grommet';
+import { InfiniteScroll, Box, Button } from 'grommet';
 import FuzzySearch from 'fuzzy-search';
 
-import { BaseButton } from '../../../styles/themes';
 import searchIcon from '../../../images/search-icon.svg';
 
 import CredCard from '../Card/CredCard';
@@ -191,12 +190,13 @@ const SchoolDetails = styled.section`
   }
 `;
 
-const IssueCredButton = styled(BaseButton)`
+const IssueCredButton = styled(Button)`
   padding: 12px 15px;
   color: white;
   text-align: right;
   border-radius: 50px;
   margin-left: 2%;
+  font-family: 'Roboto', sans-serif;
 
   :hover {
     color: #fd6fff;
