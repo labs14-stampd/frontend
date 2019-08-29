@@ -25,6 +25,3 @@ const FooterContainer = styled.div`
 `;
 
 export default Footer;
-
-// ${props => props.theme.global.colors['neutral-3']}
-// ${props => props.theme.global.colors['accent-3']}
