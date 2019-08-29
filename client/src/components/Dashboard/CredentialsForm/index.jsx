@@ -351,9 +351,7 @@ const validationSchema = Yup.object().shape({
   studentEmail: Yup.string()
     .email(CONSTANTS.VALIDATION_MSG.EMAIL)
     .required(CONSTANTS.VALIDATION_MSG.REQUIRED),
-  imageUrl: Yup.string(CONSTANTS.VALIDATION_MSG.REQUIRED)
-    .url(CONSTANTS.VALIDATION_MSG.URL)
-    .required(CONSTANTS.VALIDATION_MSG.REQUIRED),
+  imageUrl: Yup.string(CONSTANTS.VALIDATION_MSG.REQUIRED),
   criteria: Yup.string().required(CONSTANTS.VALIDATION_MSG.REQUIRED),
   issuedOn: Yup.string()
     .matches(CONSTANTS.dateRegExp, CONSTANTS.VALIDATION_MSG.DATE)
