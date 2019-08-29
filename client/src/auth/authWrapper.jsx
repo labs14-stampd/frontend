@@ -3,11 +3,7 @@ import createAuth0Client from '@auth0/auth0-spa-js';
 import { useStateValue } from 'react-conflux';
 import jwt from 'jsonwebtoken';
 import PropTypes from 'prop-types';
-import {
-  globalContext,
-  REGISTER,
-  SET_ONBOARDED_TRUE
-} from '../store/reducers/globalReducer';
+import { globalContext, REGISTER } from '../store/reducers/globalReducer';
 import queries from './authQueries';
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
@@ -64,10 +60,7 @@ export const Auth0Provider = ({
           if (result.data.addUser.roleId === null) {
             history.push('/onboarding');
           } else {
-            dispatchGlobal({ type: SET_ONBOARDED_TRUE });
-            if (!window.location.href.includes('/view/')) {
-              history.push('/dashboard');
-            } 
+            history.push('/dashboard');
           }
         } catch (error) {
           console.error(error);
