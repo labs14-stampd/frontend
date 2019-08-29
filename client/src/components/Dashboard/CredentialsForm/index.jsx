@@ -16,7 +16,7 @@ import {
 
 import queries from './queries';
 
-import { Box, TextArea, MaskedInput } from 'grommet';
+import { Box, MaskedInput } from 'grommet';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styled from 'styled-components';
@@ -230,7 +230,7 @@ const CredentialsForm = ({ history, errors, touched, status, values }) => {
               <DateMaskedInput
                 mask={[
                   {
-                    length: [1, 2],
+                    length: 2,
                     options: [...Array(12).keys()].map(val =>
                       `${val + 1}`.padStart(2, '0')
                     ),
@@ -239,7 +239,7 @@ const CredentialsForm = ({ history, errors, touched, status, values }) => {
                   },
                   { fixed: '/' },
                   {
-                    length: [1, 2],
+                    length: 2,
                     options: [
                       ...Array(
                         daysInMonth(+values.issuedOn.split('/')[0])
@@ -269,7 +269,7 @@ const CredentialsForm = ({ history, errors, touched, status, values }) => {
               <DateMaskedInput
                 mask={[
                   {
-                    length: [1, 2],
+                    length: 2,
                     options: [...Array(12).keys()].map(val =>
                       `${val + 1}`.padStart(2, '0')
                     ),
@@ -278,7 +278,7 @@ const CredentialsForm = ({ history, errors, touched, status, values }) => {
                   },
                   { fixed: '/' },
                   {
-                    length: [1, 2],
+                    length: 2,
                     options: [
                       ...Array(
                         daysInMonth(+values.issuedOn.split('/')[0])
@@ -366,7 +366,7 @@ const validationSchema = Yup.object().shape({
 const CredentialsFormWithFormik = withFormik({
   mapPropsToValues,
   validationSchema,
-  handleSubmit(values, { setStatus }) {
+  handleSubmit: (values, { setStatus }) => {
     setStatus(values);
   }
 })(CredentialsForm);
@@ -398,15 +398,15 @@ const CredInput = styled(FormikField)`
 `;
 
 const CredField = styled(BaseFormField)`
-  textarea {
-    min-width: 350px;
-    max-width: 800px;
-  }
   label {
     margin-left: 0;
   }
   input {
     width: 350px;
+  }
+  textarea {
+    min-width: 350px;
+    max-width: 800px;
   }
 `;
 
@@ -445,17 +445,6 @@ const CredentialSideFormArea = styled.section`
     overflow-x: visible;
     overflow-y: visible;
     height: auto;
-  }
-
-  h2 {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 37px;
-  }
-  form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
   }
 
   @media (max-width: 500px) {
