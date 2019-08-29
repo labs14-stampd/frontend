@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useStateValue } from 'react-conflux';
 import { SecondaryButton } from '../../styles/themes';
 
 import { useAuth0 } from '../../auth/authWrapper';
+import { globalContext, LOGOUT } from '../../store/reducers/globalReducer';
 import MenuLayer from './MenuLayer';
 import stampdLogoWhite from '../../images/stampd_full_white.png';
 import MenuButton from './MenuButton';
 
 function NavBar({ history }) {
+  const [{ onboarded }, globalDispatch] = useStateValue(globalContext);
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [isShown, setShown] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -20,6 +23,10 @@ function NavBar({ history }) {
   };
 
   const handleLogout = () => {
+    globalDispatch({
+      type: LOGOUT,
+      payload: false
+    });
     localStorage.clear();
     setShown(false);
     setLoading(false);
@@ -29,8 +36,8 @@ function NavBar({ history }) {
   return (
     <NavContainter>
       <nav>
-        <div>
-          {isAuthenticated && (
+        <div className="left-section">
+          {onboarded && (
             <MenuButton
               className="hamburger"
               setShown={setShown}
@@ -41,31 +48,45 @@ function NavBar({ history }) {
             />
           )}
           <div className="logo">
-            <Link to={isAuthenticated ? '/dashboard' : '/'}>
+            <Link to={onboarded ? '/dashboard' : '/'}>
               <img src={stampdLogoWhite} alt="Stampd logo" draggable="false" />
             </Link>
           </div>
         </div>
-        {!isAuthenticated ? (
-          <div className="button__container">
-            <NavBtn
-              a11yTitle="Login"
-              type="button"
-              onClick={() => loginWithRedirect({})}
-              label="Login"
-            />
-          </div>
-        ) : (
-          <div className="button__container">
-            {/* <img src="" alt="avatar" /> */}
-            <NavBtn
-              a11yTitle="Logout"
-              type="button"
-              onClick={handleLogout}
-              label="Logout"
-            />
-          </div>
-        )}
+        <RightSection>
+          <LinksSection>
+            {!isAuthenticated && (
+              <p>
+                <Link to="/about">About Us</Link>
+              </p>
+            )}
+            {!isAuthenticated && (
+              <p>
+                <Link to="/contact">Contact</Link>
+              </p>
+            )}
+          </LinksSection>
+          {!isAuthenticated ? (
+            <div className="button__container">
+              <NavBtn
+                a11yTitle="Login"
+                type="button"
+                onClick={() => loginWithRedirect({})}
+                label="Login"
+              />
+            </div>
+          ) : (
+            <div className="button__container">
+              {/* <img src="" alt="avatar" /> */}
+              <NavBtn
+                a11yTitle="Logout"
+                type="button"
+                onClick={handleLogout}
+                label="Logout"
+              />
+            </div>
+          )}
+        </RightSection>
       </nav>
       {isShown && (
         <MenuLayer
@@ -109,7 +130,7 @@ const NavContainter = styled.div`
     align-items: center;
     position: relative;
 
-    div:first-of-type {
+    .left-section {
       display: flex;
       align-items: center;
 
@@ -127,14 +148,24 @@ const NavContainter = styled.div`
         cursor: pointer;
       }
     }
+  }
+`;
 
-    .button__container {
-      position: absolute;
-      right: 0;
-      display: flex;
-      justify-content: flex-end;
-      width: 20%;
-    }
+const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 300px;
+
+  p {
+    color: white;
+  }
+
+  .button__container {
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
   }
 `;
 
@@ -146,6 +177,22 @@ const NavBtn = styled(SecondaryButton)`
   :hover {
     color: ${({ theme }) => theme.global.colors.brand};
     background: ${({ theme }) => theme.global.colors.navbarHoverBg};
+  }
+`;
+
+const LinksSection = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-right: 3%;
+  p {
+    margin-right: 7px;
+    a {
+      color: white;
+      :hover {
+        text-decoration: underline;
+      }
+    }
   }
 `;
 

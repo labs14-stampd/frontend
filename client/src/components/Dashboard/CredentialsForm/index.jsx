@@ -1,35 +1,36 @@
-import React, { useState } from 'react';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import CONSTANTS from '../../../store/constants';
+
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Box, TextArea, MaskedInput } from 'grommet';
-import styled from 'styled-components';
+
 import { useStateValue } from 'react-conflux';
 import {
   globalContext,
   HANDLE_CRED_CHANGES,
   RESET_CREDENTIAL_FORM
 } from '../../../store/reducers/globalReducer';
-import emblem from '../../../images/certEmblem.png';
 import {
   schoolContext,
   UPDATE_CRED_DATA
 } from '../../../store/reducers/schoolReducer';
 
-import {
-  BaseForm,
-  BaseTextInput,
-  BaseFormField,
-  BaseButton
-} from '../../../styles/themes';
-
 import queries from './queries';
+
+import { Box, MaskedInput } from 'grommet';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import styled from 'styled-components';
+import { BaseFormField, BaseButton } from '../../../styles/themes';
+
+import { Form as FormikForm, Field as FormikField, withFormik } from 'formik';
+import * as Yup from 'yup';
+
+import emblem from '../../../images/certEmblem.png';
 
 const daysInMonth = month => new Date(2019, month, 0).getDate();
 
-const CredentialsForm = ({ history }) => {
+const CredentialsForm = ({ history, errors, touched, status, values }) => {
   const [stateSchool, dispatchSchool] = useStateValue(schoolContext);
-  const { name } = stateSchool.schoolData.schoolDetails;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [
     {
@@ -47,67 +48,86 @@ const CredentialsForm = ({ history }) => {
     dispatchGlobal
   ] = useStateValue(globalContext);
 
-  const handleChanges = e => {
+  // Takes over the handling of form submission since Formik has its own method that should NOT be overriden
+  useEffect(() => {
+    if (status) {
+      (async () => {
+        setIsSubmitting(true);
+        try {
+          toast.info(`Submitting for ${ownerName}`, {
+            className: 'brand-background',
+            position: toast.POSITION.BOTTOM_CENTER,
+            containerId: 1,
+            hideProgressBar: true,
+            autoClose: false,
+            toastId: 5
+          });
+
+          const credData = await queries.addNewCredentials({
+            ownerName,
+            credName,
+            description,
+            studentEmail,
+            imageUrl,
+            criteria,
+            issuedOn,
+            expirationDate,
+            type,
+            schoolId: user.id
+          });
+          dispatchSchool({
+            type: UPDATE_CRED_DATA,
+            payload: credData.data.addNewCredential.schoolsUserInfo.schoolDetails.credentials.sort(
+              (a, b) => {
+                return a.id - b.id;
+              }
+            )
+          });
+          toast.dismiss(5);
+
+          toast.success(
+            `Success!! Blockchain verification available in 5 minutes!`,
+            {
+              className: 'status-ok',
+              position: toast.POSITION.BOTTOM_CENTER,
+              hideProgressBar: true,
+              autoClose: 5000
+            }
+          );
+          dispatchGlobal({
+            type: RESET_CREDENTIAL_FORM
+          });
+          Object.keys(values).forEach(field => (values[field] = '')); // Reset form
+
+          setIsSubmitting(false);
+        } catch (error) {
+          toast.error('Error submitting credential', {
+            hideProgressBar: true,
+            position: toast.POSITION.BOTTOM_CENTER,
+            autoClose: 5000
+          });
+          setIsSubmitting(false);
+        }
+      })();
+    }
+  }, [status]);
+
+  // Takes over the handling of form changes since Formik has its own method that should NOT be overriden
+  useEffect(() => {
     dispatchGlobal({
       type: HANDLE_CRED_CHANGES,
-      payload: e.target
+      payload: values
     });
-  };
+  }, [values]);
 
-  const handleSubmit = async e => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    try {
-      toast.info(`Submitting for ${ownerName}`, {
-        className: 'brand-background',
-        position: toast.POSITION.BOTTOM_CENTER,
-        containerId: 1,
-        hideProgressBar: true,
-        autoClose: false,
-        toastId: 5
-      });
-      const credData = await queries.addNewCredentials({
-        ownerName,
-        credName,
-        description,
-        studentEmail,
-        imageUrl,
-        criteria,
-        issuedOn,
-        expirationDate,
-        type,
-        schoolId: user.id
-      });
-      dispatchSchool({
-        type: UPDATE_CRED_DATA,
-        payload: credData.data.addNewCredential.schoolsUserInfo.schoolDetails.credentials.sort(
-          (a, b) => {
-            return a.id - b.id;
-          }
-        )
-      });
-      toast.dismiss(5);
-      toast.success(
-        `Success!! Blockchain verification available in 5 minutes!`,
-        {
-          className: 'status-ok',
-          position: toast.POSITION.BOTTOM_CENTER,
-          hideProgressBar: true,
-          autoClose: 5000
-        }
-      );
-      setIsSubmitting(false);
-      dispatchGlobal({
-        type: RESET_CREDENTIAL_FORM
-      });
-    } catch (error) {
-      toast.error('Error submitting credential', {
-        hideProgressBar: true,
-        position: toast.POSITION.BOTTOM_CENTER,
-        autoClose: 5000
-      });
-      setIsSubmitting(false);
-    }
+  const { name } = stateSchool.schoolData.schoolDetails;
+
+  const handleDateChange = e => {
+    values[e.target.name] = e.target.value;
+    dispatchGlobal({
+      type: HANDLE_CRED_CHANGES,
+      payload: values
+    });
   };
 
   return (
@@ -126,149 +146,164 @@ const CredentialsForm = ({ history }) => {
         {/* DO NOT DELETE - ghost div for alignment */}
         <div />
       </CertificateArea>
-      <CredentialSideForm>
+      <CredentialSideFormArea>
         <h2>Issue Credential</h2>
-        <BaseForm onSubmit={handleSubmit}>
+        <CredForm>
           <Box>
             <CredField label="Name of Student">
-              <BaseTextInput
+              <CredInput
+                component="input"
+                type="text"
                 name="ownerName"
                 placeholder="Jane Doe"
-                onChange={handleChanges}
-                value={ownerName}
-                required
               />
             </CredField>
+            {touched.ownerName && errors.ownerName && (
+              <ErrorMessage>{errors.ownerName}</ErrorMessage>
+            )}
             <CredField label="Credential Name">
-              <BaseTextInput
+              <CredInput
+                component="input"
+                type="text"
                 name="credName"
                 placeholder="Title of Credential, e.g., 'M.A., Philosophy'"
-                onChange={handleChanges}
-                value={credName}
-                required
               />
             </CredField>
+            {touched.credName && errors.credName && (
+              <ErrorMessage>{errors.credName}</ErrorMessage>
+            )}
             <CredField label="Type">
-              <BaseTextInput
+              <CredInput
+                component="input"
+                type="text"
                 name="type"
                 placeholder="Type of Credential, e.g. 'Graduate Degree'"
-                onChange={handleChanges}
-                value={type}
-                required
               />
             </CredField>
+            {touched.type && errors.type && (
+              <ErrorMessage>{errors.type}</ErrorMessage>
+            )}
             <CredField label="Description">
-              <TextArea
+              <CredInput
+                component="textarea"
                 name="description"
                 placeholder="Student demostrated ability..."
-                onChange={handleChanges}
-                value={description}
-                required
               />
             </CredField>
-
+            {touched.description && errors.description && (
+              <ErrorMessage>{errors.description}</ErrorMessage>
+            )}
             <CredField label="Student Email">
-              <BaseTextInput
+              <CredInput
+                component="input"
+                type="text"
                 name="studentEmail"
                 placeholder="Jane.Doe@gmail.com"
-                onChange={handleChanges}
-                value={studentEmail}
-                required
               />
             </CredField>
+            {touched.studentEmail && errors.studentEmail && (
+              <ErrorMessage>{errors.studentEmail}</ErrorMessage>
+            )}
             <CredField label="School Seal Image URL">
-              <BaseTextInput
+              <CredInput
+                component="input"
+                type="text"
                 name="imageUrl"
                 placeholder="www.image.com/schoolSeal"
-                onChange={handleChanges}
-                value={imageUrl}
-                required
               />
             </CredField>
+            {touched.imageUrl && errors.imageUrl && (
+              <ErrorMessage>{errors.imageUrl}</ErrorMessage>
+            )}
             <CredField label="Criteria">
-              <BaseTextInput
+              <CredInput
+                component="input"
+                type="text"
                 name="criteria"
                 placeholder="Completed studies in..."
-                onChange={handleChanges}
-                value={criteria}
-                required
               />
             </CredField>
+            {touched.criteria && errors.criteria && (
+              <ErrorMessage>{errors.criteria}</ErrorMessage>
+            )}
             <CredField label="Issued Date">
               <DateMaskedInput
                 mask={[
                   {
-                    length: [1, 2],
-                    options: Array.from({ length: 12 }, (v, k) => k + 1),
-                    regexp: /^1[0,1-2]$|^0?[1-9]$|^0$/,
+                    length: 2,
+                    options: [...Array(12).keys()].map(val =>
+                      `${val + 1}`.padStart(2, '0')
+                    ),
+                    regexp: /^1[0,1-2]$|^0[1-9]$/,
                     placeholder: 'mm'
                   },
                   { fixed: '/' },
                   {
-                    length: [1, 2],
-                    options: Array.from(
-                      {
-                        length: daysInMonth(
-                          parseInt(issuedOn.split('/')[0], 10)
-                        )
-                      },
-                      (v, k) => k + 1
-                    ),
-                    regexp: /^[1-2][0-9]$|^3[0-1]$|^0?[1-9]$|^0$/,
+                    length: 2,
+                    options: [
+                      ...Array(
+                        daysInMonth(+values.issuedOn.split('/')[0])
+                      ).keys()
+                    ].map(val => `${val + 1}`.padStart(2, '0')),
+                    regexp: /^[1-2][0-9]$|^3[0-1]$|^0[1-9]$/,
                     placeholder: 'dd'
                   },
                   { fixed: '/' },
                   {
                     length: 4,
                     options: Array.from({ length: 100 }, (v, k) => 2019 - k),
-                    regexp: /^[1-2]$|^19$|^20$|^19[0-9]$|^20[0-9]$|^19[0-9][0-9]$|^20[0-9][0-9]$/,
+                    regexp: /^19[0-9][0-9]$|^20[0-9][0-9]$/,
                     placeholder: 'yyyy'
                   }
                 ]}
                 name="issuedOn"
-                placeholder="M/D/YYYY"
-                onChange={handleChanges}
-                value={issuedOn}
-                required
+                placeholder="MM/DD/YYYY"
+                onChange={handleDateChange}
+                value={values.issuedOn}
               />
             </CredField>
+            {touched.issuedOn && errors.issuedOn && (
+              <ErrorMessage>{errors.issuedOn}</ErrorMessage>
+            )}
             <CredField label="Expiration Date">
               <DateMaskedInput
                 mask={[
                   {
-                    length: [1, 2],
-                    options: Array.from({ length: 12 }, (v, k) => k + 1),
-                    regexp: /^1[0,1-2]$|^0?[1-9]$|^0$/,
+                    length: 2,
+                    options: [...Array(12).keys()].map(val =>
+                      `${val + 1}`.padStart(2, '0')
+                    ),
+                    regexp: /^1[0,1-2]$|^0[1-9]$$/,
                     placeholder: 'mm'
                   },
                   { fixed: '/' },
                   {
-                    length: [1, 2],
-                    options: Array.from(
-                      {
-                        length: daysInMonth(
-                          parseInt(issuedOn.split('/')[0], 10)
-                        )
-                      },
-                      (v, k) => k + 1
-                    ),
-                    regexp: /^[1-2][0-9]$|^3[0-1]$|^0?[1-9]$|^0$/,
+                    length: 2,
+                    options: [
+                      ...Array(
+                        daysInMonth(+values.issuedOn.split('/')[0])
+                      ).keys()
+                    ].map(val => `${val + 1}`.padStart(2, '0')),
+                    regexp: /^[1-2][0-9]$|^3[0-1]$|^0[1-9]$/,
                     placeholder: 'dd'
                   },
                   { fixed: '/' },
                   {
                     length: 4,
                     options: Array.from({ length: 100 }, (v, k) => 2019 - k),
-                    regexp: /^[1-2]$|^19$|^20$|^19[0-9]$|^20[0-9]$|^19[0-9][0-9]$|^20[0-9][0-9]$/,
+                    regexp: /^19[0-9][0-9]$|^20[0-9][0-9]$/,
                     placeholder: 'yyyy'
                   }
                 ]}
                 name="expirationDate"
-                placeholder="M/D/YYYY"
-                onChange={handleChanges}
-                value={expirationDate}
+                placeholder="MM/DD/YYYY"
+                onChange={handleDateChange}
+                value={values.expirationDate}
               />
             </CredField>
+            {touched.expirationDate && errors.expirationDate && (
+              <ErrorMessage>{errors.expirationDate}</ErrorMessage>
+            )}
             <BaseButton
               margin="medium"
               type="submit"
@@ -278,27 +313,98 @@ const CredentialsForm = ({ history }) => {
               disabled={isSubmitting}
             />
           </Box>
-        </BaseForm>
-      </CredentialSideForm>
+        </CredForm>
+      </CredentialSideFormArea>
     </Container>
   );
 };
+
+// For Formik HOC
+const mapPropsToValues = ({
+  ownerName,
+  credName,
+  type,
+  description,
+  studentEmail,
+  imageUrl,
+  criteria,
+  issuedOn,
+  expirationDate
+}) => {
+  return {
+    ownerName: ownerName || '',
+    credName: credName || '',
+    type: type || '',
+    description: description || '',
+    studentEmail: studentEmail || '',
+    imageUrl: imageUrl || '',
+    criteria: criteria || '',
+    issuedOn: issuedOn || '',
+    expirationDate: expirationDate || ''
+  };
+};
+const validationSchema = Yup.object().shape({
+  ownerName: Yup.string().required(CONSTANTS.VALIDATION_MSG.REQUIRED),
+  credName: Yup.string().required(CONSTANTS.VALIDATION_MSG.REQUIRED),
+  type: Yup.string().required(CONSTANTS.VALIDATION_MSG.REQUIRED),
+  description: Yup.string().required(CONSTANTS.VALIDATION_MSG.REQUIRED),
+  studentEmail: Yup.string()
+    .email(CONSTANTS.VALIDATION_MSG.EMAIL)
+    .required(CONSTANTS.VALIDATION_MSG.REQUIRED),
+  imageUrl: Yup.string(CONSTANTS.VALIDATION_MSG.REQUIRED),
+  criteria: Yup.string().required(CONSTANTS.VALIDATION_MSG.REQUIRED),
+  issuedOn: Yup.string()
+    .matches(CONSTANTS.dateRegExp, CONSTANTS.VALIDATION_MSG.DATE)
+    .required(CONSTANTS.VALIDATION_MSG.REQUIRED),
+  expirationDate: Yup.string().matches(
+    CONSTANTS.dateRegExp,
+    CONSTANTS.VALIDATION_MSG.DATE
+  )
+});
+const CredentialsFormWithFormik = withFormik({
+  mapPropsToValues,
+  validationSchema,
+  handleSubmit: (values, { setStatus }) => {
+    setStatus(values);
+  }
+})(CredentialsForm);
 
 CredentialsForm.propTypes = {
   history: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
-const CredField = styled(BaseFormField)`
-  textarea {
-    margin-left: 0;
-    padding-left: 0;
+const ErrorMessage = styled.p`
+  font-size: 1.4rem;
+  color: red;
+  margin-bottom: 20px;
+`;
+
+const CredForm = styled(FormikForm)``;
+
+const CredInput = styled(FormikField)`
+  max-width: 800px;
+  background: transparent;
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 10px 2.5px;
+  border: none;
+
+  ::placeholder {
+    font-size: 1.6rem;
+    opacity: 0.25;
   }
+`;
+
+const CredField = styled(BaseFormField)`
   label {
     margin-left: 0;
   }
   input {
-    padding-left: 0;
     width: 350px;
+  }
+  textarea {
+    min-width: 350px;
+    max-width: 800px;
   }
 `;
 
@@ -315,7 +421,7 @@ const Container = styled.main`
   }
 `;
 
-const CredentialSideForm = styled.section`
+const CredentialSideFormArea = styled.section`
   position: absolute;
   top: 0;
   right: 0;
@@ -337,17 +443,6 @@ const CredentialSideForm = styled.section`
     overflow-x: visible;
     overflow-y: visible;
     height: auto;
-  }
-
-  h2 {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 37px;
-  }
-  form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
   }
 
   @media (max-width: 500px) {
@@ -419,4 +514,4 @@ const CertificateArea = styled.div`
 
 const DateMaskedInput = styled(MaskedInput)``;
 
-export default CredentialsForm;
+export default CredentialsFormWithFormik;
