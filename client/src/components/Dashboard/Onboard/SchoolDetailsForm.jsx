@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
-import { Box, Heading, Button, FormField } from 'grommet';
+import { Box, Heading, Button } from 'grommet';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
 import CONSTANTS from '../../../store/constants';
-
-import { BaseFormField, BaseButton } from '../../../styles/themes';
 import {
   schoolContext,
   SET_SCHOOL_DATA
