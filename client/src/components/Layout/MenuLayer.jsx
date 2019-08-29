@@ -74,6 +74,7 @@ const MenuBar = styled(Layer)`
   margin: 70px 0 0 -275px;
   width: 275px;
   height: calc(100vh - 70px);
+  background: #7d4cdb;
 
   &.menu--shown {
     animation: 0.3s ${menuOpen} forwards;
@@ -85,7 +86,7 @@ const MenuBar = styled(Layer)`
 
       :hover {
         opacity: 0.8;
-        color: ${props => props.theme.global.colors['accent-2']};
+        color: #fd6fff;
       }
     }
   }
