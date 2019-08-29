@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
-import { MaskedInput, Box, Heading } from 'grommet';
+import { Box, Heading } from 'grommet';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
 import CONSTANTS from '../../../store/constants';
 
-import {
-  BaseForm,
-  BaseTextInput,
-  BaseFormField,
-  BaseButton
-} from '../../../styles/themes';
+import { BaseFormField, BaseButton } from '../../../styles/themes';
 import {
   schoolContext,
   SET_SCHOOL_DATA
@@ -28,25 +23,6 @@ import {
 const SchoolDetailsForm = ({ history, errors, touched, status }) => {
   const [{ user }, dispatchGlobal] = useStateValue(globalContext);
   const [, schoolDispatch] = useStateValue(schoolContext);
-  const [input, setInput] = useState({
-    name: '',
-    taxId: '',
-    street1: '',
-    street2: '',
-    city: '',
-    state: '',
-    zip: '',
-    phone: '',
-    type: '',
-    url: '',
-    userId: user.id
-  });
-  const handleChanges = e => {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value
-    });
-  };
 
   useEffect(() => {
     if (status) {
@@ -56,10 +32,13 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
             id: user.id,
             roleId: '2' // Role of a school is set to always be 2
           });
-          const details = await queries.addSchoolDetails(input);
+          const details = await queries.addSchoolDetails({
+            ...status,
+            userId: user.id
+          });
           dispatchGlobal({
             type: ON_BOARD_DETAILS,
-            payload: { ...user, roleId: 2 }
+            payload: { ...user, roleId: '2' }
           });
           schoolDispatch({
             type: SET_SCHOOL_DATA,
@@ -162,7 +141,12 @@ const SchoolDetailsForm = ({ history, errors, touched, status }) => {
           </SchoolBaseTextInput>
         </SchoolFormField>
         <SchoolFormField label="Zip Code">
-          <SchoolBaseTextInput component="input" type="text" name="zip" placeholder="90210" />
+          <SchoolBaseTextInput
+            component="input"
+            type="text"
+            name="zip"
+            placeholder="90210"
+          />
         </SchoolFormField>
         <SchoolFormField label="Phone Number">
           <SchoolBaseTextInput
