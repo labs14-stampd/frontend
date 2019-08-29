@@ -31,6 +31,7 @@ const SchoolNameContainer = styled.div`
   p {
     font-family: 'Roboto', sans-serif;
     font-size: 1.8rem;
+    margin-bottom: 8px;
   }
 
   @media (max-width: 800px) {
