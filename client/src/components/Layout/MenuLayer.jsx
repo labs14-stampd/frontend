@@ -75,6 +75,7 @@ const MenuBar = styled(Layer)`
   width: 275px;
   height: calc(100vh - 70px);
   background: #7d4cdb;
+  font-family: 'Roboto', sans-serif;
 
   &.menu--shown {
     animation: 0.3s ${menuOpen} forwards;
