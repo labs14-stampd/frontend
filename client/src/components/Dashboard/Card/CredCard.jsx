@@ -26,7 +26,6 @@ const CredCard = ({ cred }) => {
     description,
     imageUrl
   } = cred;
-  console.log('cred', cred);
   return (
     <CredContainer>
       <CredCardViewBtn getModal={() => setShow(true)} />
