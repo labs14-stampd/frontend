@@ -175,13 +175,13 @@ function ContactPage({ background }) {
                   <ContactInputLabel>
                     Name<StyledSuper>*</StyledSuper>
                   </ContactInputLabel>
-                  <ContactBaseTextInput type="email" name="email" />
-                  <ErrorMessage name="email" component="div" />
+                  <ContactBaseTextInput type="text" name="name" />
+                  <ErrorMessage name="name" component="div" />
                   <ContactInputLabel>
                     Title<StyledSuper>*</StyledSuper>
                   </ContactInputLabel>
-                  <ContactBaseTextInput type="email" name="email" />
-                  <ErrorMessage name="email" component="div" />
+                  <ContactBaseTextInput type="string" name="title" />
+                  <ErrorMessage name="title" component="div" />
                   <ContactInputLabel>
                     Email<StyledSuper>*</StyledSuper>
                   </ContactInputLabel>
@@ -192,14 +192,14 @@ function ContactPage({ background }) {
                   <ContactInputLabel>
                     Phone<StyledSuper>*</StyledSuper>
                   </ContactInputLabel>
-                  <ContactBaseTextInput type="email" name="email" />
-                  <ErrorMessage name="email" component="div" />
+                  <ContactBaseTextInput type="string" name="phone" />
+                  <ErrorMessage name="phone" component="div" />
                   <ContactInputLabel>Position</ContactInputLabel>
-                  <ContactBaseTextInput type="email" name="email" />
-                  <ErrorMessage name="email" component="div" />
+                  <ContactBaseTextInput type="string" name="position" />
+                  <ErrorMessage name="position" component="div" />
                   <ContactInputLabel>Company</ContactInputLabel>
-                  <ContactBaseTextInput type="email" name="email" />
-                  <ErrorMessage name="email" component="div" />
+                  <ContactBaseTextInput type="string" name="company" />
+                  <ErrorMessage name="company" component="div" />
                 </ContactFormRight>
               </ContactTopContainer>
               <ContactBottomContainer>
