@@ -5,11 +5,10 @@ import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { Trash } from 'grommet-icons';
 import { useStateValue } from 'react-conflux';
-import { InfiniteScroll, Box } from 'grommet';
+import { InfiniteScroll, Box, Button } from 'grommet';
 import { Form, Field, withFormik } from 'formik';
 
 import queries from '../queries';
-import { BaseButton } from '../../../styles/themes';
 import { globalContext } from '../../../store/reducers/globalReducer';
 import {
   studentContext,
@@ -203,7 +202,7 @@ const StudentForm = styled(Form)`
   max-width: 800px;
   width: 100%;
 `;
-const StudentButton = styled(BaseButton)`
+const StudentButton = styled(Button)`
   text-align: center;
   margin: 10px 20px 15px;
   font-family: 'Roboto', sans-serif;
