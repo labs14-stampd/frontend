@@ -21,7 +21,7 @@ import {
 import { globalContext } from '../../../store/reducers/globalReducer';
 
 const Dashboard = ({ history }) => {
-  const [{ user }] = useStateValue(globalContext);
+  const [{ user }, globalDispatch] = useStateValue(globalContext);
   const [schoolState, schoolDispatch] = useStateValue(schoolContext);
   const [studentState, studentDispatch] = useStateValue(studentContext);
   useEffect(() => {
@@ -35,9 +35,11 @@ const Dashboard = ({ history }) => {
           const data = await queries.getUserById({
             id
           });
-          user.roleId === '2'
-            ? schoolDispatch({ type: SCHOOL_DATA_SUCCESS, payload: data })
-            : studentDispatch({ type: STUDENT_DATA_SUCCESS, payload: data });
+          if (user.roleId === '2') {
+            schoolDispatch({ type: SCHOOL_DATA_SUCCESS, payload: data });
+          } else {
+            studentDispatch({ type: STUDENT_DATA_SUCCESS, payload: data });
+          }
         } catch (err) {
           user.roleId === '2'
             ? schoolDispatch({ type: SCHOOL_DATA_ERROR })
@@ -47,6 +49,7 @@ const Dashboard = ({ history }) => {
       getUserData();
     }
   }, [
+    globalDispatch,
     schoolDispatch,
     schoolState.schoolData,
     studentDispatch,
