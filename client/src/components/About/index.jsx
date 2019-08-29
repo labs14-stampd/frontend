@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Paragraph } from 'grommet';
 
+import placeHolderMale from '../../images/manph.jpg';
+import placeHolderFemale from '../../images/ladyph.png';
 // Subtract pixels to prevent unnecessary vertical scrollbar (accounts for fixed nav bar at the top and other elements)
 const Container = styled.main`
   min-height: calc(100vh - 200px);
@@ -42,6 +44,7 @@ const AboutCaption = styled.p`
   font-size: 2rem;
   text-align: center;
 `;
+
 const ParagraphRow = styled.div`
   display: flex;
   justify-content: space-between;
@@ -49,6 +52,7 @@ const ParagraphRow = styled.div`
   margin: 0 auto;
   margin-top: 50px;
 `;
+
 const ParagraphCont = styled.div`
   display: flex;
   flex-direction: column;
@@ -61,11 +65,49 @@ const ParagraphHeading = styled.h4`
   color: #7d4cdb;
 `;
 
+const ProfileContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const ProfileRow = styled.div`
+  width: 48%;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 50px;
+`;
+const ProfileCont = styled.div`
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+`;
+
+const ProfilePic = styled.div`
+  margin-top: 20px;
+  width: 30%;
+  background: ${props => `url(${props.background}) no-repeat  center`};
+  background-size: cover;
+  height: 175px;
+`;
+
+const ProfileHeading = styled.h4`
+  font-size: 2rem;
+  font-weight: bold;
+  color: #7d4cdb;
+`;
+const ProfileText = styled.p`
+  width: 100%;
+  font-size: 2rem;
+  margin-bottom: 5px;
+  line-height: 1.5em;
+`;
+
 const StampdMail = styled.a`
   color: #7d4cdb;
 `;
 
-function AboutPage() {
+function AboutPage({ background }) {
   return (
     <Container>
       <AboutHeading>Helping People Secure What They've Earned.</AboutHeading>
@@ -78,7 +120,6 @@ function AboutPage() {
         <ParagraphCont>
           <ParagraphHeading>What Stampd Does</ParagraphHeading>
           <AboutParagraph>
-            {' '}
             Stampd has three groups in mind, institutions, students and external
             stakeholders. Institutions can register and then easily begin to
             issue secure, immutable credentials on the blockchain. Students can
@@ -104,7 +145,6 @@ function AboutPage() {
         <ParagraphCont>
           <ParagraphHeading>Why Blockchain?</ParagraphHeading>
           <AboutParagraph>
-            {' '}
             In recent years, there's been a lot of buzz surrounding blockchain,
             and a lot of that has centered around cryptocurrencies and
             decentralization. While those are very interesting subjects, for us
@@ -128,6 +168,99 @@ function AboutPage() {
           </AboutParagraph>
         </ParagraphCont>
       </ParagraphRow>
+      <AboutSubHeading>The Team</AboutSubHeading>
+      <ProfileContainer>
+        <ProfileRow>
+          <ProfilePic background={placeHolderMale} />
+          <ProfileCont>
+            <ProfileHeading>Brannan Conrad</ProfileHeading>
+            <ProfileText>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum."
+            </ProfileText>
+          </ProfileCont>
+        </ProfileRow>
+        <ProfileRow>
+          <ProfilePic background={placeHolderFemale} />
+          <ProfileCont>
+            <ProfileHeading>Megan Jeffcoat</ProfileHeading>
+            <ProfileText>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum."
+            </ProfileText>
+          </ProfileCont>
+        </ProfileRow>
+        <ProfileRow>
+          <ProfilePic background={placeHolderMale} />
+          <ProfileCont>
+            <ProfileHeading>Joe Mandado</ProfileHeading>
+            <ProfileText>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum."
+            </ProfileText>
+          </ProfileCont>
+        </ProfileRow>
+        <ProfileRow>
+          <ProfilePic background={placeHolderMale} />
+          <ProfileCont>
+            <ProfileHeading>CJ Tantay</ProfileHeading>
+            <ProfileText>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum."
+            </ProfileText>
+          </ProfileCont>
+        </ProfileRow>
+        <ProfileRow>
+          <ProfilePic background={placeHolderMale} />
+          <ProfileCont>
+            <ProfileHeading>Nathan Thomas</ProfileHeading>
+            <ProfileText>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum."
+            </ProfileText>
+          </ProfileCont>
+        </ProfileRow>
+        <ProfileRow>
+          <ProfilePic background={placeHolderMale} />
+          <ProfileCont>
+            <ProfileHeading>Byron Holmes</ProfileHeading>
+            <ProfileText>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum."
+            </ProfileText>
+          </ProfileCont>
+        </ProfileRow>
+      </ProfileContainer>
     </Container>
   );
 }
