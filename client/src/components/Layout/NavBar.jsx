@@ -48,13 +48,24 @@ function NavBar({ history }) {
             />
           )}
           <div className="logo">
-            <Link to={onboarded ? '/dashboard' : `${window.location.pathname}`}>
+            <Link to={onboarded ? '/dashboard' : '/'}>
               <img src={stampdLogoWhite} alt="Stampd logo" draggable="false" />
             </Link>
           </div>
         </div>
         <RightSection>
-          <div>{!isAuthenticated && <p>About Us</p>}</div>
+          <LinksSection>
+            {!isAuthenticated && (
+              <p>
+                <Link to="/about">About Us</Link>
+              </p>
+            )}
+            {!isAuthenticated && (
+              <p>
+                <Link to="/contact">Contact</Link>
+              </p>
+            )}
+          </LinksSection>
           {!isAuthenticated ? (
             <div className="button__container">
               <NavBtn
@@ -119,7 +130,7 @@ const NavContainter = styled.div`
     align-items: center;
     position: relative;
 
-    div:first-of-type {
+    .left-section {
       display: flex;
       align-items: center;
 
@@ -145,7 +156,7 @@ const RightSection = styled.div`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  width: 200px;
+  width: 300px;
 
   p {
     color: white;
@@ -155,7 +166,6 @@ const RightSection = styled.div`
     right: 0;
     display: flex;
     justify-content: flex-end;
-    width: 20%;
   }
 `;
 
@@ -167,6 +177,22 @@ const NavBtn = styled(SecondaryButton)`
   :hover {
     color: ${({ theme }) => theme.global.colors.brand};
     background: ${({ theme }) => theme.global.colors.navbarHoverBg};
+  }
+`;
+
+const LinksSection = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-right: 3%;
+  p {
+    margin-right: 7px;
+    a {
+      color: white;
+      :hover {
+        text-decoration: underline;
+      }
+    }
   }
 `;
 
