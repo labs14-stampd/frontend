@@ -36,7 +36,7 @@ const EmailSettings = ({ errors, touched, status }) => {
 
   useEffect(() => {
     // status will only be true when handleSubmit from formik is activated
-    if (status) {
+    if (status.email) {
       const submitEmail = async () => {
         try {
           const { data } = await queries.addUserEmail({
@@ -170,7 +170,6 @@ EmailSettings.propTypes = {
   touched: PropTypes.shape({ email: PropTypes.bool }),
   status: PropTypes.shape({ email: PropTypes.string })
 };
-
 
 // Formik HOC
 const EmailSettingsWithFormik = withFormik({
