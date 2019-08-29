@@ -26,7 +26,7 @@ const SchoolNameContainer = styled.div`
     font-family: 'Roboto', sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin: 3px 0 10px;
   }
   p {
     font-family: 'Roboto', sans-serif;
