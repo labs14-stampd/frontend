@@ -114,8 +114,8 @@ const StudentDetails = styled.section`
       background: white url(${searchIcon}) no-repeat scroll 5px 5px;
       background-size: 20px;
       background-position: right 13px center;
-      border: 2px solid ${({ theme }) => theme.global.colors.searchBarBorder};
-      color: ${({ theme }) => theme.global.colors.searchBarColor};
+      border: 2px solid #adadad;
+      color: #adadad;
       height: 40px;
       margin-right: 1.5%;
       padding: 25px;
@@ -126,13 +126,13 @@ const StudentDetails = styled.section`
       font-size: 1.8rem;
 
       ::placeholder {
-        color: ${({ theme }) => theme.global.colors.searchBarColor};
+        color: #adadad;
         font-weight: 700;
       }
 
       &:focus {
-        color: ${({ theme }) => theme.global.colors.brand};
-        border-color: ${({ theme }) => theme.global.colors['accent-2']};
+        color: #7d4cdb;
+        border-color: #fd6fff;
         outline: none;
         padding-left: 15px;
         width: 50%;
@@ -143,8 +143,8 @@ const StudentDetails = styled.section`
         transition: none;
 
         &:focus {
-          color: ${({ theme }) => theme.global.colors.brand};
-          border-color: ${({ theme }) => theme.global.colors['accent-2']};
+          color: #7d4cdb;
+          border-color: #fd6fff;
           outline: none;
           padding: 25px;
           width: 80%;
@@ -156,8 +156,8 @@ const StudentDetails = styled.section`
         transition: none;
 
         &:focus {
-          color: ${({ theme }) => theme.global.colors.brand};
-          border-color: ${({ theme }) => theme.global.colors['accent-2']};
+          color: #7d4cdb;
+          border-color: #fd6fff;
           outline: none;
           padding: 25px;
           width: 100%;
@@ -165,8 +165,6 @@ const StudentDetails = styled.section`
       }
     }
   }
-
-  div
 `;
 
 const NothingFound = styled.p`
@@ -174,7 +172,7 @@ const NothingFound = styled.p`
   text-align: center;
   font-size: 2.4rem;
   margin-top: 20vh;
-  color: ${({ theme }) => theme.global.colors.dashboardNotFoundColor};
+  color: #adadad;
 `;
 
 const CredCardContainer = styled(Box)`
