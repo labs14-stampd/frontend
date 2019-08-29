@@ -51,23 +51,44 @@ const ParagraphRow = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   margin-top: 50px;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    margin-bottom: -50px;
+  }
 `;
 
 const ParagraphCont = styled.div`
   display: flex;
   flex-direction: column;
   width: 48%;
+
+  @media (max-width: 800px) {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
 `;
 
 const ParagraphHeading = styled.h4`
   font-size: 2rem;
   font-weight: bold;
   color: #7d4cdb;
+
+  @media (max-width: 800px) {
+    text-align: center;
+    margin-bottom: 20px;
+  }
 `;
 
 const ProfileContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 100px;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 const ProfileRow = styled.div`
@@ -75,12 +96,24 @@ const ProfileRow = styled.div`
   display: flex;
   margin: 0 auto;
   margin-top: 50px;
+
+  @media (max-width: 800px) {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 50px;
+    flex-direction: column;
+  }
 `;
 const ProfileCont = styled.div`
   width: 70%;
   display: flex;
   flex-direction: column;
   padding: 20px;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    flex-direction: column;
+  }
 `;
 
 const ProfilePic = styled.div`
@@ -89,12 +122,20 @@ const ProfilePic = styled.div`
   background: ${props => `url(${props.background}) no-repeat  center`};
   background-size: cover;
   height: 175px;
+
+  @media (max-width: 800px) {
+    margin: 0 auto;
+  }
 `;
 
 const ProfileHeading = styled.h4`
   font-size: 2rem;
   font-weight: bold;
   color: #7d4cdb;
+
+  @media (max-width: 800px) {
+    text-align: center;
+  }
 `;
 const ProfileText = styled.p`
   width: 100%;
