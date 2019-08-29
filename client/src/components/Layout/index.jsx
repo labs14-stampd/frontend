@@ -33,11 +33,12 @@ Layout.propTypes = {
 const Container = styled.main`
   width: 100%;
   position: relative;
+
   .brand-background {
-    background: ${props => props.theme.global.colors.brand};
+    background: #7d4cdb;
   }
   .status-ok {
-    background: ${props => props.theme.global.colors['status-ok']};
+    background: #00c781;
   }
 `;
 
