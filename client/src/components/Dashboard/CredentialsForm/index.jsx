@@ -115,18 +115,12 @@ const CredentialsForm = ({ history }) => {
       <CertificateArea>
         <section>
           <div>
-            <img src={imageUrl || emblem} alt="school seal" />
+            <img src={imageUrl || emblem} draggable={false} alt="school seal" />
           </div>
           <h1>{credName || '[Credential Name]'}</h1>
           <h3>{description || '[Description]'}</h3>
-          <h3>
-            Issued on:
-            {issuedOn || ' [August 10, 2019]'}
-          </h3>
-          <h3>
-            Issued by:
-            {stateSchool.schoolDataSuccess && name}
-          </h3>
+          <h3>Issued on {issuedOn || ' [August 10, 2019]'}</h3>
+          <h3>Issued by {stateSchool.schoolDataSuccess && name}</h3>
           <h2>{ownerName || 'John Doe'}</h2>
         </section>
         {/* DO NOT DELETE - ghost div for alignment */}
@@ -382,6 +376,7 @@ const CertificateArea = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin: 80px 0;
 
   @media (max-width: 800px) {
     display: none;

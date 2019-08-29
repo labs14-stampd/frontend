@@ -71,7 +71,8 @@ const constants = {
     { name: 'Settings', route: '/settings' },
     { name: 'About', route: '/about' },
     { name: 'Contact', route: '/contact' }
-  ]
+  ],
+  phoneRegExp: /^[0-9]*$/
 };
 
 export default constants;

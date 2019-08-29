@@ -13,7 +13,8 @@ import DashboardLoading from '../DashboardLoading';
 
 import {
   schoolContext,
-  SEARCH_HANDLE_CHANGE
+  SEARCH_HANDLE_CHANGE,
+  CLEAR_SEARCH_INPUT
 } from '../../../store/reducers/schoolReducer';
 
 const SchoolDashboard = ({ history }) => {
@@ -34,6 +35,11 @@ const SchoolDashboard = ({ history }) => {
   const handleChange = e => {
     schoolDispatch({ type: SEARCH_HANDLE_CHANGE, payload: e.target.value });
   };
+  const issueCredential = e => {
+    e.preventDefault();
+    schoolDispatch({ type: CLEAR_SEARCH_INPUT });
+    history.push('/dashboard/credForm');
+  };
   if (!schoolState.schoolData) return <div />;
   return (
     <>
@@ -53,7 +59,7 @@ const SchoolDashboard = ({ history }) => {
           />
           <IssueCredButton
             type="button"
-            onClick={() => history.push('/dashboard/credForm')}
+            onClick={issueCredential}
             label="+ Issue Credential"
             primary
           />
@@ -191,6 +197,10 @@ const IssueCredButton = styled(BaseButton)`
   text-align: right;
   border-radius: 50px;
   margin-left: 2%;
+
+  :hover {
+    color: ${({ theme }) => theme.global.colors['accent-2']};
+  }
 
   @media (max-width: 800px) {
     width: 48%;

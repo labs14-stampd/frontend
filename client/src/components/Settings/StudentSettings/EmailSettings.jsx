@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import * as Yup from 'yup';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
+import { Trash } from 'grommet-icons';
 import { useStateValue } from 'react-conflux';
 import { InfiniteScroll, Box } from 'grommet';
-import { Trash } from 'grommet-icons';
 import { Form, Field, withFormik } from 'formik';
-import * as Yup from 'yup';
 
 import queries from '../queries';
 import { BaseButton } from '../../../styles/themes';
@@ -59,6 +60,7 @@ const EmailSettings = ({ errors, touched, status }) => {
 
       submitEmail();
     }
+    // eslint-disable-next-line
   }, [status]);
 
   const confirmRemoveEmail = async ({ id, email: removedEmail }) => {
@@ -99,7 +101,7 @@ const EmailSettings = ({ errors, touched, status }) => {
               component="input"
               type="text"
               name="email"
-              placeholder="fakeemail@email.com"
+              placeholder="jane@doe.com"
             />
             {touched.email && errors.email && (
               <ErrorMessage>{errors.email}</ErrorMessage>
@@ -109,7 +111,7 @@ const EmailSettings = ({ errors, touched, status }) => {
             type="submit"
             primary
             label="Add Email"
-            alignSelf="center"
+            alignSelf="end"
           />
         </EmailSection>
       </StudentForm>
@@ -129,7 +131,7 @@ const EmailSettings = ({ errors, touched, status }) => {
             }}
           />
         )}
-        <Box height="55vh" overflow="auto">
+        <Box height="42vh" overflow="auto">
           <InfiniteScroll items={emailList} step={10}>
             {item => {
               return (
@@ -151,51 +153,65 @@ const EmailSettings = ({ errors, touched, status }) => {
   );
 };
 
-// Formik HOC
+EmailSettings.defaultProps = {
+  errors: {
+    email: ''
+  },
+  touched: {
+    email: false
+  },
+  status: {
+    email: ''
+  }
+};
 
+EmailSettings.propTypes = {
+  errors: PropTypes.shape({ email: PropTypes.string }),
+  touched: PropTypes.shape({ email: PropTypes.bool }),
+  status: PropTypes.shape({ email: PropTypes.string })
+};
+
+
+// Formik HOC
 const EmailSettingsWithFormik = withFormik({
   mapPropsToValues({ email }) {
     return {
       email: email || ''
     };
   },
-
   validationSchema: Yup.object().shape({
     email: Yup.string()
       .email()
       .required()
   }),
-
   async handleSubmit(values, { setStatus, resetForm }) {
     // pass values from input to props.status
     setStatus(values);
     resetForm();
   }
 })(EmailSettings);
-
 // styled components
-
 const ErrorMessage = styled.p`
   color: red;
   font-size: 1.4rem;
 `;
-
 const EmailSection = styled(Box)`
   justify-content: space-between;
 `;
-
 const StudentForm = styled(Form)`
   margin: 50px auto 10px;
   border-radius: 2px;
   max-width: 800px;
   width: 100%;
 `;
-
 const StudentButton = styled(BaseButton)`
   text-align: center;
   margin: 10px 20px 15px;
-`;
 
+  :hover {
+    color: ${props => props.theme.global.colors['accent-2']};
+  }
+`;
 const StudentField = styled(Field)`
   border: none;
   background: transparent;
@@ -205,26 +221,24 @@ const StudentField = styled(Field)`
   padding: 10px 0;
   font-size: 1.8rem;
   font-weight: 700;
+  padding: 5px 2.5px;
+
   ::placeholder {
     font-size: 1.6rem;
   }
 `;
-
 const TrashButton = styled(Trash)`
   cursor: pointer;
 `;
-
 const EmailBox = styled(Box)`
   margin: 5px auto 0px;
   max-width: 800px;
 `;
-
 const EmailSectionContainer = styled.section`
   margin: 10px auto 0;
   max-width: 800px;
   width: 100%;
   background: white;
-  /* min-height: calc(100vh - 170px); */
   -webkit-box-shadow: -2px 5px 25px -17px rgba(0, 0, 0, 0.61);
   -moz-box-shadow: -2px 5px 25px -17px rgba(0, 0, 0, 0.61);
   box-shadow: -2px 5px 25px -17px rgba(0, 0, 0, 0.61);

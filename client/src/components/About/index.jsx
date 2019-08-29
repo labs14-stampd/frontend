@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Paragraph } from 'grommet';
 
 import placeHolderMale from '../../images/manph.jpg';
 import placeHolderFemale from '../../images/ladyph.png';

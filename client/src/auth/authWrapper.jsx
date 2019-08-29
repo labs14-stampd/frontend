@@ -60,7 +60,7 @@ export const Auth0Provider = ({
           if (result.data.addUser.roleId === null) {
             history.push('/onboarding');
           } else {
-            history.push('/dashboard');
+            history.push('/contact');
           }
         } catch (error) {
           console.error(error);
