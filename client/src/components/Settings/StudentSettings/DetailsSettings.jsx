@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
-import { Box } from 'grommet';
+import { Box, Button } from 'grommet';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
 import queries from '../queries';
-import { BaseFormField, BaseButton } from '../../../styles/themes';
 import { globalContext } from '../../../store/reducers/globalReducer';
 import CONSTANTS from '../../../store/constants';
 import {
@@ -219,7 +218,7 @@ const StudentForm = styled(Form)`
   width: 100%;
 `;
 
-const StudentButton = styled(BaseButton)`
+const StudentButton = styled(Button)`
   text-align: center;
   margin: 15px 20px 50px;
 `;
