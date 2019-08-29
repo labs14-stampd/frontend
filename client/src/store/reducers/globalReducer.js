@@ -1,6 +1,7 @@
 import { createContext } from 'react';
 
 export const REGISTER = 'REGISTER';
+export const LOGOUT = 'LOGOUT';
 export const HANDLE_CRED_CHANGES = 'HANDLE_CRED_CHANGES';
 export const ON_BOARD_DETAILS = 'ON_BOARD_DETAILS';
 export const RESET_CREDENTIAL_FORM = 'RESET_CREDENTIAL_FORM';
@@ -8,6 +9,7 @@ export const globalContext = createContext();
 
 const initialState = {
   user: null,
+  onboarded: false,
   ownerName: '',
   credName: '',
   description: '',
@@ -32,7 +34,8 @@ export const globalReducer = (state = initialState, action) => {
     case ON_BOARD_DETAILS:
       return {
         ...state,
-        user: action.payload
+        user: action.payload,
+        onboarded: true
       };
     case HANDLE_CRED_CHANGES:
       return {
@@ -52,6 +55,10 @@ export const globalReducer = (state = initialState, action) => {
         issuedOn: '',
         expirationDate: '',
         schoolId: state.user.id
+      };
+    case LOGOUT:
+      return {
+        onboarded: action.payload
       };
     default:
       return state;
