@@ -17,6 +17,7 @@ export const Auth0Context = React.createContext();
 export const useAuth0 = () => useContext(Auth0Context);
 export const Auth0Provider = ({
   history,
+  match,
   children,
   onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
   ...initOptions
@@ -65,7 +66,9 @@ export const Auth0Provider = ({
             history.push('/onboarding');
           } else {
             dispatchGlobal({ type: SET_ONBOARDED_TRUE });
-            history.push('/dashboard');
+            if (!window.location.href.includes('/view/')) {
+              history.push('/dashboard');
+            } 
           }
         } catch (error) {
           console.error(error);
