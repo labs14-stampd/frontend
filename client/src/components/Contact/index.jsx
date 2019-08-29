@@ -36,7 +36,7 @@ const ContactForm = styled(BaseForm)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 120px auto 100px;
+  margin: 120px auto 30px;
   border-radius: 2px;
   width: 100%;
 `;
@@ -46,6 +46,9 @@ const ContactTopContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-bottom: 20px;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 const ContactBottomContainer = styled.div`
@@ -60,8 +63,14 @@ const ContactBottomContainer = styled.div`
 const ContactFormLeft = styled.div`
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 48%;
   padding-left: 10%;
+
+  @media (max-width: 800px) {
+    width: 80%;
+    margin: 0 auto;
+    padding-left: 0;
+  }
 `;
 
 const ContactFormRight = styled.div`
@@ -69,10 +78,22 @@ const ContactFormRight = styled.div`
   flex-direction: column;
   width: 45%;
   padding-right: 10%;
+
+  @media (max-width: 800px) {
+    width: 80%;
+    margin: 0 auto;
+    padding-right: 0;
+  }
 `;
 const ContactButton = styled(BaseButton)`
+  width: 10%;
   text-align: center;
-  margin: 15px 20px 50px;
+  margin: 15px 0% 15px 80%;
+  @media (max-width: 800px) {
+    width: 80%;
+    height: 50px;
+    margin-left: 10%;
+  }
 `;
 
 const ContactInputLabel = styled.span`
@@ -98,6 +119,10 @@ const ContactBaseTextInput = styled(Field)`
     font-size: 1.6rem;
   }
   margin-bottom: 20px;
+
+  @media (max-width: 800px) {
+    height: 50px;
+  }
 `;
 
 const ContactBaseWideInput = styled.textarea`
@@ -111,7 +136,6 @@ const ContactBaseWideInput = styled.textarea`
   ::placeholder {
     font-size: 1.6rem;
   }
-  margin-bottom: 20px;
 `;
 
 function ContactPage({ background }) {
@@ -149,7 +173,12 @@ function ContactPage({ background }) {
                 <ContactFormLeft>
                   {' '}
                   <ContactInputLabel>
-                    First Name<StyledSuper>*</StyledSuper>
+                    Name<StyledSuper>*</StyledSuper>
+                  </ContactInputLabel>
+                  <ContactBaseTextInput type="email" name="email" />
+                  <ErrorMessage name="email" component="div" />
+                  <ContactInputLabel>
+                    Title<StyledSuper>*</StyledSuper>
                   </ContactInputLabel>
                   <ContactBaseTextInput type="email" name="email" />
                   <ErrorMessage name="email" component="div" />
@@ -158,19 +187,14 @@ function ContactPage({ background }) {
                   </ContactInputLabel>
                   <ContactBaseTextInput type="email" name="email" />
                   <ErrorMessage name="email" component="div" />
-                  <ContactInputLabel>Position</ContactInputLabel>
-                  <ContactBaseTextInput type="email" name="email" />
-                  <ErrorMessage name="email" component="div" />
                 </ContactFormLeft>
                 <ContactFormRight>
                   <ContactInputLabel>
-                    Last Name<StyledSuper>*</StyledSuper>
+                    Phone<StyledSuper>*</StyledSuper>
                   </ContactInputLabel>
                   <ContactBaseTextInput type="email" name="email" />
                   <ErrorMessage name="email" component="div" />
-                  <ContactInputLabel>
-                    Phone<StyledSuper>*</StyledSuper>
-                  </ContactInputLabel>
+                  <ContactInputLabel>Position</ContactInputLabel>
                   <ContactBaseTextInput type="email" name="email" />
                   <ErrorMessage name="email" component="div" />
                   <ContactInputLabel>Company</ContactInputLabel>
