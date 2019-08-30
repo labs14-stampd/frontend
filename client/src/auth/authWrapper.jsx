@@ -3,7 +3,7 @@ import createAuth0Client from '@auth0/auth0-spa-js';
 import { useStateValue } from 'react-conflux';
 import jwt from 'jsonwebtoken';
 import PropTypes from 'prop-types';
-import { globalContext, REGISTER } from '../store/reducers/globalReducer';
+import { globalContext, REGISTER, SET_ONBOARDED_TRUE } from '../store/reducers/globalReducer';
 import queries from './authQueries';
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
