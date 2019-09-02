@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useAuth0 } from '../../auth/authWrapper';
-import { BaseButton } from '../../styles/themes';
+import { Button } from 'grommet';
 import stampdBackground from '../../images/stampdbackground.svg';
 
 function Landing() {
@@ -21,7 +21,7 @@ function Landing() {
               <span> Stampd</span>
             </h1>
           </div>
-          <BaseButton
+          <Button
             type="button"
             onClick={() => loginWithRedirect({})}
             label="Get Started"
