@@ -31,6 +31,8 @@ Onboard.propTypes = {
 
 const Container = styled.main`
   width: 100%;
+  min-height: -webkit-calc(100vh - 70px);
+  min-height: -moz-calc(100vh - 70px);
   min-height: calc(100vh - 70px);
   padding: 120px 3% 0;
 

@@ -73,6 +73,8 @@ const menuOpen = keyframes`
 const MenuBar = styled(Layer)`
   margin: 70px 0 0 -275px;
   width: 275px;
+  height: -webkit-calc(100vh - 70px);
+  height: -moz-calc(100vh - 70px);
   height: calc(100vh - 70px);
 
   &.menu--shown {

@@ -5,6 +5,8 @@ const errorMsg = 'Oops, this is not the page you are looking for....';
 
 // Subtract pixels to prevent unnecessary vertical scrollbar (accounts for fixed nav bar at the top and other elements)
 const Container = styled.main`
+  min-height: -webkit-calc(100vh - 200px);
+  min-height: -moz-calc(100vh - 200px);
   min-height: calc(100vh - 200px);
   margin: 125px 7.5% 0;
 `;

@@ -216,6 +216,8 @@ const Container = styled.div`
   padding: 0 3%;
   max-width: 1600px;
   width: 100%;
+  min-height: -webkit-calc(100vh - 150px);
+  min-height: -moz-calc(100vh - 150px);
   min-height: calc(100vh - 150px);
 `;
 

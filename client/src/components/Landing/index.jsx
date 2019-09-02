@@ -39,6 +39,8 @@ const LandingPage = styled.main`
   padding: 0 3% 30px;
 
   div {
+    height: -webkit-calc(100vh - 70px);
+    height: -moz-calc(100vh - 70px);
     height: calc(100vh - 70px);
     width: 100%;
     position: relative;

@@ -410,6 +410,8 @@ const CredField = styled(BaseFormField)`
 
 const Container = styled.main`
   width: 100%;
+  height: -webkit-calc(100vh - 70px);
+  height: -moz-calc(100vh - 70px);
   height: calc(100vh - 70px);
   padding-top: 120px;
   position: relative;
