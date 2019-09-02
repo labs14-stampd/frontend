@@ -35,8 +35,8 @@ const Container = styled.main`
   padding: 120px 3% 0;
 
   div {
-    background: ${props => props.theme.global.colors.dashBoardBg};
-    border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
+    background: #ffffff;
+    border: 1px solid #adadad;
     border-radius: 2px;
     width: 100%;
     max-width: 500px;
@@ -57,9 +57,11 @@ const Container = styled.main`
       width: 57%;
       padding: 10px;
       border-radius: 50px;
+      font-family: 'Roboto', sans-serif;
+
       :hover {
-        background: ${props => props.theme.global.colors.brand};
-        color: ${props => props.theme.global.colors['accent-2']};
+        background: #7d4cdb;
+        color: #fd6fff;
       }
     }
   }

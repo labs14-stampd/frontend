@@ -395,7 +395,7 @@ const CredInput = styled(FormikField)`
   }
 `;
 
-const CredField = styled(BaseFormField)`
+const CredField = styled.label`
   label {
     margin-left: 0;
   }
@@ -428,9 +428,9 @@ const CredentialSideFormArea = styled.section`
   bottom: 0;
   width: 375px;
   height: 100vh;
-  background: ${props => props.theme.global.colors.dashBoardBg};
+  background: #ffffff;
   padding: 120px 20px 0;
-  border-left: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
+  border-left: 1px solid #adadad;
   overflow-x: hidden;
   overflow-y: auto;
 
@@ -439,7 +439,7 @@ const CredentialSideFormArea = styled.section`
     width: 98%;
     padding: 120px 3% 0;
     margin: 0 4% 0 1%;
-    border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
+    border: 1px solid #adadad;
     overflow-x: visible;
     overflow-y: visible;
     height: auto;
@@ -449,7 +449,7 @@ const CredentialSideFormArea = styled.section`
     position: relative;
     width: 100%;
     padding: 120px 3% 0;
-    border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
+    border: 1px solid #adadad;
     overflow-x: visible;
     overflow-y: visible;
     height: auto;
@@ -484,8 +484,8 @@ const CertificateArea = styled.div`
   section {
     width: calc(100% - 500px);
     max-width: 1000px;
-    background: ${props => props.theme.global.colors.dashBoardBg};
-    border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
+    background: #ffffff;
+    border: 1px solid #adadad;
     display: flex;
     flex-direction: column;
     align-items: center;

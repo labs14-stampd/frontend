@@ -162,8 +162,8 @@ const CertificateArea = styled.div`
 const BottomSection = styled.section`
   width: 100%;
   max-width: 1000px;
-  background: ${props => props.theme.global.colors.dashBoardBg};
-  border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
+  background: #ffffff;
+  border: 1px solid #adadad;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -192,8 +192,8 @@ const BottomSection = styled.section`
 const TopSection = styled.section`
   width: 100%;
   max-width: 1000px;
-  background: ${props => props.theme.global.colors.dashBoardBg};
-  border: 1px solid ${props => props.theme.global.colors.dashBoardBorder};
+  background: #ffffff;
+  border: 1px solid #adadad;
   display: flex;
   flex-direction: column;
   align-items: center;

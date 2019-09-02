@@ -1,12 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Grommet } from 'grommet';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import PrivateRoute from './auth/PrivateRoute';
 import { useAuth0 } from './auth/authWrapper';
-import { theme } from './styles/themes';
 import About from './components/About';
 import Contact from './components/Contact';
 import Loading from './components/Layout/Loading';
@@ -33,7 +31,7 @@ function App(props) {
           <GlobalStyle />
         </>
       ) : (
-        <Grommet theme={theme}>
+        <>
           <Layout {...props}>
             <Switch>
               <Route exact path="/" component={Landing} />
@@ -62,7 +60,7 @@ function App(props) {
             <ToastContainer />
           </Layout>
           <GlobalStyle />
-        </Grommet>
+        </>
       )}
     </>
   );

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
-import { BaseButton } from '../../../styles/themes';
+import { Button } from 'grommet';
 
 import ConfirmationLayerCredView from '../../ConfirmationLayerCredView';
 
@@ -78,9 +78,10 @@ const CredCardShareBtnContainer = styled.div`
   }
 `;
 
-const CredCardShareButton = styled(BaseButton)`
+const CredCardShareButton = styled(Button)`
   border-radius: 50px;
   border-color: #adadad;
+  font-family: 'Roboto', sans-serif;
 
   @media (max-width: 800px) {
     width: 100%;
@@ -95,9 +96,9 @@ const CredCardShareButton = styled(BaseButton)`
   }
 
   :hover {
-    border-color: ${({ theme }) => theme.global.colors.brand};
-    background: ${({ theme }) => theme.global.colors.brand};
-    color: ${props => props.theme.global.colors['accent-2']};
+    border-color: #7d4cdb;
+    background: #7d4cdb;
+    color: #fd6fff;
   }
 `;
 

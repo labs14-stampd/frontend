@@ -133,7 +133,7 @@ const LandingPage = styled.main`
           }
 
           span {
-            color: ${props => props.theme.global.colors.brand};
+            color: #7d4cdb;
           }
         }
       }
@@ -141,6 +141,7 @@ const LandingPage = styled.main`
         transform: scale(1.8);
         margin: 50px 55px 0 0;
         z-index: 5;
+        font-family: 'Roboto', sans-serif;
 
         @media (max-width: 600px) {
           transform: scale(1.4);

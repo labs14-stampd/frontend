@@ -5,11 +5,10 @@ import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { Trash } from 'grommet-icons';
 import { useStateValue } from 'react-conflux';
-import { InfiniteScroll, Box } from 'grommet';
+import { InfiniteScroll, Box, Button } from 'grommet';
 import { Form, Field, withFormik } from 'formik';
 
 import queries from '../queries';
-import { BaseButton } from '../../../styles/themes';
 import { globalContext } from '../../../store/reducers/globalReducer';
 import {
   studentContext,
@@ -120,7 +119,7 @@ const EmailSettings = ({ errors, touched, status }) => {
         <EmailSectionContainer>
           <p>{user.email}</p>
           <p>Primary email</p>
-          <TrashButton disabled color="searchBarBorder" />
+          <TrashButton disabled color="#adadad" />
         </EmailSectionContainer>
         {hasActiveConfirmationDialog && (
           // yesFunc for when the "Yes" button is clicked; noFunc for when the "No" button is clicked (both are optional)
@@ -203,12 +202,13 @@ const StudentForm = styled(Form)`
   max-width: 800px;
   width: 100%;
 `;
-const StudentButton = styled(BaseButton)`
+const StudentButton = styled(Button)`
   text-align: center;
   margin: 10px 20px 15px;
+  font-family: 'Roboto', sans-serif;
 
   :hover {
-    color: ${props => props.theme.global.colors['accent-2']};
+    color: #fd6fff;
   }
 `;
 const StudentField = styled(Field)`
@@ -247,10 +247,14 @@ const EmailSectionContainer = styled.section`
   padding: 20px 3%;
   transition: box-shadow 0.5s;
 
+  p {
+    margin: 4px 0 0;
+  }
+
   :hover {
-    -webkit-box-shadow: 0px 0px 15px -2px rgba(125, 76, 219, 1);
-    -moz-box-shadow: 0px 0px 15px -2px rgba(125, 76, 219, 1);
-    box-shadow: 0px 0px 15px -2px rgba(125, 76, 219, 1);
+    -webkit-box-shadow: 0px 0px 15px -2px rgba(173, 145, 237, 1);
+    -moz-box-shadow: 0px 0px 15px -2px rgba(173, 145, 237, 1);
+    box-shadow: 0px 0px 15px -2px rgba(173, 145, 237, 1);
   }
 `;
 

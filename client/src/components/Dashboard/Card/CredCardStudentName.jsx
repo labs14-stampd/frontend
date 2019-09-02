@@ -19,6 +19,11 @@ const StudentNameContainer = styled.div`
   align-items: center;
   width: 20%;
 
+  h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+  }
+
   @media (max-width: 800px) {
     width: 100%;
 

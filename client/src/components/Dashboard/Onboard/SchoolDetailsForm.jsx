@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
-import { Box, Heading } from 'grommet';
+import { Box, Heading, Button } from 'grommet';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
 import CONSTANTS from '../../../store/constants';
-
-import { BaseFormField, BaseButton } from '../../../styles/themes';
 import {
   schoolContext,
   SET_SCHOOL_DATA
@@ -256,7 +254,7 @@ const SchoolForm = styled(Form)`
   width: 100%;
 `;
 
-const SchoolButton = styled(BaseButton)`
+const SchoolButton = styled(Button)`
   text-align: center;
   margin: 15px 20px 50px;
 `;
@@ -275,7 +273,7 @@ const SchoolBaseTextInput = styled(Field)`
   }
 `;
 
-const SchoolFormField = styled(BaseFormField)`
+const SchoolFormField = styled.label`
   margin: 20px;
   border-bottom: none;
   div {

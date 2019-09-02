@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useStateValue } from 'react-conflux';
-import { SecondaryButton } from '../../styles/themes';
+import { Button } from 'grommet';
 
 import { useAuth0 } from '../../auth/authWrapper';
 import { globalContext, LOGOUT } from '../../store/reducers/globalReducer';
@@ -113,7 +113,7 @@ const NavContainter = styled.div`
   position: fixed;
   padding: 0 3%;
   justify-content: space-between;
-  background-color: ${props => props.theme.global.colors.brand};
+  background-color: #7d4cdb;
   align-items: center;
   top: 0;
   -webkit-box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.46);
@@ -169,14 +169,15 @@ const RightSection = styled.div`
   }
 `;
 
-const NavBtn = styled(SecondaryButton)`
-  border: 2px solid white /*${props => props.theme.global.colors['neutral-2']}*/;
-  color: white /*${props => props.theme.global.colors['neutral-2']}*/;
+const NavBtn = styled(Button)`
+  border: 2px solid white;
+  color: white;
   transition: background 0.3s, color 0.3s;
+  font-family: 'Roboto', sans-serif;
 
   :hover {
-    color: ${({ theme }) => theme.global.colors.brand};
-    background: ${({ theme }) => theme.global.colors.navbarHoverBg};
+    color: #7d4cdb;
+    background: #ffffff;
   }
 `;
 

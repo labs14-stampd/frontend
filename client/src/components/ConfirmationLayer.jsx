@@ -41,6 +41,7 @@ ConfirmationLayer.propTypes = {
 
 const ConfirmationContainer = styled(Layer)`
   position: center;
+  font-family: 'Roboto', sans-serif;
 
   @media (max-width: 500px) {
     padding: 100px 0 0;

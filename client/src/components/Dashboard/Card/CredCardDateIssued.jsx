@@ -13,6 +13,11 @@ const DateIssuedContainer = styled.div`
   display: flex;
   align-items: center;
   width: 12%;
+  font-family: 'Roboto', sans-serif;
+
+  p {
+    font-size: 2rem;
+  }
 
   @media (max-width: 800px) {
     width: 100%;

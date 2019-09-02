@@ -54,6 +54,10 @@ const Global = css`
     width: 100%;
     height: auto;
   }
+  .status-ok {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+  }
 `;
 
 export default Global;

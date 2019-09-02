@@ -118,7 +118,7 @@ const CertificateArea = styled.div`
 
   section {
     width: 100%;
-    background: ${props => props.theme.global.colors.dashBoardBg};
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;

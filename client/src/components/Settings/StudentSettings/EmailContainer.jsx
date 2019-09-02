@@ -42,10 +42,14 @@ const EmailCtn = styled.section`
   padding: 20px 3%;
   transition: box-shadow 0.5s;
 
+  p {
+    margin: 4px 0 0;
+  }
+
   :hover {
-    -webkit-box-shadow: 0px 0px 15px -2px rgba(125, 76, 219, 1);
-    -moz-box-shadow: 0px 0px 15px -2px rgba(125, 76, 219, 1);
-    box-shadow: 0px 0px 15px -2px rgba(125, 76, 219, 1);
+    -webkit-box-shadow: 0px 0px 15px -2px rgba(173, 145, 237, 1);
+    -moz-box-shadow: 0px 0px 15px -2px rgba(173, 145, 237, 1);
+    box-shadow: 0px 0px 15px -2px rgba(173, 145, 237, 1);
   }
 `;
 

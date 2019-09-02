@@ -2,10 +2,9 @@ import React from 'react';
 import { useStateValue } from 'react-conflux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { InfiniteScroll, Box } from 'grommet';
+import { InfiniteScroll, Box, Button } from 'grommet';
 import FuzzySearch from 'fuzzy-search';
 
-import { BaseButton } from '../../../styles/themes';
 import searchIcon from '../../../images/search-icon.svg';
 
 import CredCard from '../Card/CredCard';
@@ -138,8 +137,8 @@ const SchoolDetails = styled.section`
       background: white url(${searchIcon}) no-repeat scroll 5px 5px;
       background-size: 20px;
       background-position: right 13px center;
-      border: 2px solid ${({ theme }) => theme.global.colors.searchBarBorder};
-      color: ${({ theme }) => theme.global.colors.searchBarColor};
+      border: 2px solid #adadad;
+      color: #adadad;
       height: 40px;
       margin-right: 1.5%;
       padding: 25px;
@@ -150,13 +149,13 @@ const SchoolDetails = styled.section`
       font-size: 1.8rem;
 
       ::placeholder {
-        color: ${({ theme }) => theme.global.colors.searchBarColor};
+        color: #adadad;
         font-weight: 700;
       }
 
       &:focus {
-        color: ${({ theme }) => theme.global.colors.brand};
-        border-color: ${({ theme }) => theme.global.colors['accent-2']};
+        color: #7d4cdb;
+        border-color: #fd6fff;
         outline: none;
         padding-left: 15px;
         width: 50%;
@@ -167,8 +166,8 @@ const SchoolDetails = styled.section`
         transition: none;
 
         &:focus {
-          color: ${({ theme }) => theme.global.colors.brand};
-          border-color: ${({ theme }) => theme.global.colors['accent-2']};
+          color: #7d4cdb;
+          border-color: #fd6fff;
           outline: none;
           padding: 25px;
           width: 48%;
@@ -181,8 +180,8 @@ const SchoolDetails = styled.section`
         transition: none;
 
         &:focus {
-          color: ${({ theme }) => theme.global.colors.brand};
-          border-color: ${({ theme }) => theme.global.colors['accent-2']};
+          color: #7d4cdb;
+          border-color: #fd6fff;
           outline: none;
           padding: 25px;
           width: 90%;
@@ -192,15 +191,16 @@ const SchoolDetails = styled.section`
   }
 `;
 
-const IssueCredButton = styled(BaseButton)`
+const IssueCredButton = styled(Button)`
   padding: 12px 15px;
   color: white;
   text-align: right;
   border-radius: 50px;
   margin-left: 2%;
+  font-family: 'Roboto', sans-serif;
 
   :hover {
-    color: ${({ theme }) => theme.global.colors['accent-2']};
+    color: #fd6fff;
   }
 
   @media (max-width: 800px) {
@@ -220,7 +220,7 @@ const NothingFound = styled.p`
   text-align: center;
   font-size: 2.4rem;
   margin-top: 20vh;
-  color: ${({ theme }) => theme.global.colors.dashboardNotFoundColor};
+  color: #adadad;
 `;
 
 const CredCardContainer = styled(Box)`

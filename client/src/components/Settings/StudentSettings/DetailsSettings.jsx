@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import { useStateValue } from 'react-conflux';
-import { Box } from 'grommet';
+import { Box, Button } from 'grommet';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
 import queries from '../queries';
-import { BaseFormField, BaseButton } from '../../../styles/themes';
 import { globalContext } from '../../../store/reducers/globalReducer';
 import CONSTANTS from '../../../store/constants';
 import {
@@ -158,7 +157,6 @@ const DetailSettings = ({ errors, touched, status }) => {
               <ErrorMessage>{errors.phone}</ErrorMessage>
             )}
           </StudentFormField>
-
           <StudentButton
             type="submit"
             primary
@@ -220,7 +218,7 @@ const StudentForm = styled(Form)`
   width: 100%;
 `;
 
-const StudentButton = styled(BaseButton)`
+const StudentButton = styled(Button)`
   text-align: center;
   margin: 15px 20px 50px;
 `;
@@ -239,7 +237,7 @@ const StudentBaseTextInput = styled(Field)`
   }
 `;
 
-const StudentFormField = styled(BaseFormField)`
+const StudentFormField = styled.label`
   margin: 20px;
   border-bottom: none;
   div {
@@ -249,6 +247,7 @@ const StudentFormField = styled(BaseFormField)`
     margin-left: 2.5px;
   }
 `;
+
 const ErrorMessage = styled.p`
   color: red;
   font-size: 1.4rem;
