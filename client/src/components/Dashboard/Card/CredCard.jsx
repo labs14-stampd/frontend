@@ -80,7 +80,7 @@ CredCard.defaultProps = {
 };
 
 const CredContainer = styled.section`
-  margin: 10px auto 0;
+  margin: 10px auto;
   max-width: 1600px;
   width: 100%;
   background: white;
