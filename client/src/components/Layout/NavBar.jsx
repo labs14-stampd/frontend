@@ -140,7 +140,7 @@ const NavContainter = styled.div`
 
         @media (max-width: 700px) {
           img {
-            max-height: 70px;
+            height: auto;
           }
         }
 
