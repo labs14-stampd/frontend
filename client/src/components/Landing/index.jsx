@@ -37,6 +37,7 @@ function Landing() {
 const LandingPage = styled.main`
   width: 100%;
   padding: 0 3% 30px;
+  overflow: hidden;
 
   div {
     height: calc(100vh - 70px);
