@@ -145,6 +145,7 @@ const LandingPage = styled.main`
         @media (max-width: 600px) {
           transform: scale(1.4);
           margin: 30px 5% 0 0;
+          min-height: 35px;
         }
       }
     }
