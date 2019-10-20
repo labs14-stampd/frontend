@@ -136,7 +136,6 @@ const NavContainter = styled.div`
 
       .logo {
         width: 113px;
-        height: auto;
         max-height: 35.84px;
 
         a {
