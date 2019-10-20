@@ -120,6 +120,9 @@ const NavContainter = styled.div`
   -moz-box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.46);
   box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.46);
   z-index: 50;
+  @media (max-width: 800px) {
+    height: 100px;
+  }
 
   nav {
     margin: 0 auto;
@@ -129,6 +132,9 @@ const NavContainter = styled.div`
     justify-content: space-between;
     align-items: center;
     position: relative;
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
 
     .left-section {
       display: flex;
