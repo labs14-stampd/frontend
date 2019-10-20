@@ -136,7 +136,10 @@ const NavContainter = styled.div`
 
       .logo {
         width: 113px;
-        max-height: 35.84px;
+        img {
+          height: auto;
+          max-height: 35.84px;
+        }
 
         a {
           display: flex;
