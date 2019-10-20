@@ -121,7 +121,7 @@ const NavContainter = styled.div`
   box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.46);
   z-index: 50;
   @media (max-width: 800px) {
-    height: 100px;
+    height: 87px;
   }
 
   nav {
@@ -182,7 +182,9 @@ const NavBtn = styled(SecondaryButton)`
   border: 2px solid white /*${props => props.theme.global.colors['neutral-2']}*/;
   color: white /*${props => props.theme.global.colors['neutral-2']}*/;
   transition: background 0.3s, color 0.3s;
-
+  @media (max-width: 800px) {
+    transform: scale(0.8);
+  }
   :hover {
     color: ${({ theme }) => theme.global.colors.brand};
     background: ${({ theme }) => theme.global.colors.navbarHoverBg};
