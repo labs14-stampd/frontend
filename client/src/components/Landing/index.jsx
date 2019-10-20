@@ -37,6 +37,7 @@ function Landing() {
 const LandingPage = styled.main`
   width: 100%;
   padding: 0 3% 30px;
+  overflow: hidden;
 
   div {
     height: calc(100vh - 70px);
@@ -141,6 +142,7 @@ const LandingPage = styled.main`
         transform: scale(1.8);
         margin: 50px 55px 0 0;
         z-index: 5;
+        min-height: 35px;
 
         @media (max-width: 600px) {
           transform: scale(1.4);
