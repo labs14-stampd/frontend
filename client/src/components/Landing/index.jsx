@@ -141,11 +141,11 @@ const LandingPage = styled.main`
         transform: scale(1.8);
         margin: 50px 55px 0 0;
         z-index: 5;
+        min-height: 35px;
 
         @media (max-width: 600px) {
           transform: scale(1.4);
           margin: 30px 5% 0 0;
-          min-height: 35px;
         }
       }
     }
