@@ -22,7 +22,7 @@
     "grommet": "^2.7.4",
     "grommet-icons": "^4.2.0",
     "history": "^4.9.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-conflux": "^0.0.2-beta.6",
